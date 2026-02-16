@@ -7,6 +7,7 @@ body {
   color: #e2e8f0;
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -19,4 +20,61 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3b82f6;
+}
+
+/* Smooth transitions */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeInUp 0.5s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeInUp 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeInUp 0.5s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Mobile menu close on click outside */
+details[open] > summary::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* Table sort cursor */
+th[role="columnheader"][aria-sort] {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Focus styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
