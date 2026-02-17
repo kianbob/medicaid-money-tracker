@@ -178,6 +178,42 @@ export default function StateDetailPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Quick Facts */}
+      {(providers.length > 0 || procedures.length > 0) && (() => {
+        const topProvider = providers[0];
+        const topProc = procedures[0];
+        const providerCount = summary.provider_count || providers.length;
+        const avgSpending = providerCount > 0 ? (summary.total_payments || 0) / providerCount : 0;
+        return (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+            {topProvider && (
+              <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
+                <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Largest Provider</p>
+                <Link href={`/providers/${topProvider.npi}`} className="text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors line-clamp-1">{toTitleCase(topProvider.name) || `NPI: ${topProvider.npi}`}</Link>
+                <p className="text-xs text-slate-400 tabular-nums mt-0.5">{formatMoney(topProvider.total_payments || topProvider.totalPaid || 0)}</p>
+              </div>
+            )}
+            {topProc && (
+              <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
+                <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Top Procedure</p>
+                <Link href={`/procedures/${topProc.code}`} className="text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors font-mono">{topProc.code}</Link>
+                <p className="text-xs text-slate-400 tabular-nums mt-0.5">{formatMoney(topProc.payments || topProc.total_payments || topProc.totalPaid || 0)}</p>
+              </div>
+            )}
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Flagged Providers</p>
+              <p className={`text-xl font-bold tabular-nums ${flaggedCount > 0 ? 'text-red-400' : 'text-green-400'}`}>{flaggedCount}</p>
+              <p className="text-xs text-slate-400 mt-0.5">{flaggedCount > 0 ? 'on risk watchlist' : 'none flagged'}</p>
+            </div>
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Avg Per Provider</p>
+              <p className="text-xl font-bold text-purple-400 tabular-nums">{formatMoney(avgSpending)}</p>
+              <p className="text-xs text-slate-400 mt-0.5">across {formatNumber(providerCount)} providers</p>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Yearly Trend */}
       {trends.length > 0 && (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
