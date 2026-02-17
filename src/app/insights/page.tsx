@@ -133,6 +133,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         accent: "text-amber-400",
         icon: "🔢",
       },
+      {
+        slug: "city-hotspots",
+        title: "America's Medicaid Fraud Capitals: City-Level Analysis",
+        teaser: "Brooklyn NY leads with 64 flagged providers and $13.7B in spending. NYC boroughs total 111 flags. Nashville averages $858M per flagged provider — the highest of any city.",
+        stat: "64",
+        statLabel: "Brooklyn flags",
+        color: "from-teal-500 to-cyan-500",
+        accent: "text-teal-400",
+        icon: "🏙️",
+      },
     ],
   },
   {

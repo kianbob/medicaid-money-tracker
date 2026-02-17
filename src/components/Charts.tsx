@@ -609,4 +609,76 @@ export function SpendingGrowthChart({ data }: { data: SpendingGrowthDatum[] }) {
   );
 }
 
+/* ─── 10. City Fraud Hotspots Horizontal BarChart ─── */
+
+interface CityHotspotDatum {
+  city: string;
+  state: string;
+  flaggedCount: number;
+  flaggedSpending: number;
+}
+
+function CityHotspotTooltip({ active, payload }: any) {
+  if (!active || !payload?.length) return null;
+  const d = payload[0].payload;
+  return (
+    <div style={tooltipStyle}>
+      <p className="text-white font-semibold mb-1">{d.city}</p>
+      <p className="text-teal-400 tabular-nums">{d.flaggedCount} flagged providers</p>
+      <p className="text-slate-400 text-xs tabular-nums">{formatMoney(d.flaggedSpending)} in spending</p>
+    </div>
+  );
+}
+
+export function CityHotspotsChart({ data }: { data: CityHotspotDatum[] }) {
+  const chartData = data.map((d) => ({
+    ...d,
+    label: d.city.split(",")[0],
+  }));
+
+  return (
+    <ResponsiveContainer width="100%" height={chartData.length * 36 + 20}>
+      <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 60, left: 5, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(100,116,139,0.12)" horizontal={false} />
+        <XAxis
+          type="number"
+          tick={{ fill: "#94a3b8", fontSize: 11 }}
+          tickLine={false}
+          axisLine={{ stroke: "rgba(100,116,139,0.2)" }}
+        />
+        <YAxis
+          type="category"
+          dataKey="label"
+          tick={{ fill: "#e2e8f0", fontSize: 11, fontWeight: 600 }}
+          tickLine={false}
+          axisLine={false}
+          width={100}
+        />
+        <Tooltip content={<CityHotspotTooltip />} cursor={{ fill: "rgba(20,184,166,0.06)" }} />
+        <Bar dataKey="flaggedCount" radius={[0, 4, 4, 0]} maxBarSize={24}>
+          {chartData.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={
+                entry.flaggedCount >= 30
+                  ? "rgba(239,68,68,0.7)"
+                  : entry.flaggedCount >= 15
+                    ? "rgba(245,158,11,0.7)"
+                    : entry.flaggedCount >= 10
+                      ? "rgba(20,184,166,0.7)"
+                      : "rgba(20,184,166,0.4)"
+              }
+            />
+          ))}
+          <LabelList
+            dataKey="flaggedCount"
+            position="right"
+            style={{ fill: "#94a3b8", fontSize: 10, fontWeight: 600 }}
+          />
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
 // PROC_COLORS moved inline to server components that need it
