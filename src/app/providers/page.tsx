@@ -4,6 +4,47 @@ import Link from "next/link";
 import { useState, useMemo } from "react";
 import { formatMoney, formatNumber, riskDot, parseFlags, flagLabel, flagColor } from "@/lib/format";
 import topProviders from "../../../public/data/top-providers-1000.json";
+import smartWatchlist from "../../../public/data/smart-watchlist.json";
+import mlScores from "../../../public/data/ml-scores.json";
+
+// Build risk lookup
+type RiskTier = 'Critical' | 'High' | 'Elevated' | 'ML Flag';
+
+const riskTierConfig: Record<RiskTier, { dot: string; label: string }> = {
+  'Critical': { dot: 'bg-red-500', label: 'Critical' },
+  'High': { dot: 'bg-orange-500', label: 'High' },
+  'Elevated': { dot: 'bg-yellow-500', label: 'Elevated' },
+  'ML Flag': { dot: 'bg-purple-500', label: 'ML Flag' },
+};
+
+function buildRiskLookup(): Map<string, RiskTier> {
+  const mlAll = (((mlScores as any).topProviders || []) as any[])
+    .concat(((mlScores as any).smallProviderFlags || []) as any[]);
+  const mlMap = new Map<string, number>(mlAll.map((p: any) => [p.npi, p.mlScore]));
+
+  const flagMap = new Map<string, number>();
+  for (const w of smartWatchlist as any[]) {
+    flagMap.set(w.npi, w.flagCount || w.flags?.length || 0);
+  }
+
+  const result = new Map<string, RiskTier>();
+  const allNpis = Array.from(new Set(Array.from(flagMap.keys()).concat(Array.from(mlMap.keys()))));
+
+  for (let idx = 0; idx < allNpis.length; idx++) {
+    const npi = allNpis[idx];
+    const fc = flagMap.get(npi) || 0;
+    const ml = mlMap.get(npi) ?? 0;
+    let tier: RiskTier | null = null;
+    if (fc >= 3 || (fc >= 2 && ml >= 0.7)) tier = 'Critical';
+    else if (fc === 2 || (fc >= 1 && ml >= 0.7) || ml >= 0.8) tier = 'High';
+    else if (fc === 1 || ml >= 0.6) tier = 'Elevated';
+    else if (ml >= 0.5) tier = 'ML Flag';
+    if (tier) result.set(npi, tier);
+  }
+  return result;
+}
+
+const riskLookup = buildRiskLookup();
 
 export default function ProvidersPage() {
   const providers = topProviders as any[];
@@ -110,11 +151,16 @@ export default function ProvidersPage() {
       <div className="space-y-1.5">
         {filtered.slice(0, visibleCount).map((p: any, i: number) => {
           const flags = parseFlags(p.flags);
+          const tier = riskLookup.get(p.npi);
           return (
             <Link key={p.npi} href={`/providers/${p.npi}`}
               className="flex items-center gap-3 bg-dark-800 border border-dark-500/50 rounded-lg px-4 py-3 hover:bg-dark-700 hover:border-dark-400 transition-all group">
               <span className="text-xs font-bold text-slate-600 w-7 text-right tabular-nums">{i + 1}</span>
-              {flags.length > 0 && <div className={`w-2 h-2 rounded-full shrink-0 ${riskDot(flags.length)}`} />}
+              {tier ? (
+                <div className={`w-2 h-2 rounded-full shrink-0 ${riskTierConfig[tier].dot}`} title={`${riskTierConfig[tier].label} risk`} />
+              ) : flags.length > 0 ? (
+                <div className={`w-2 h-2 rounded-full shrink-0 ${riskDot(flags.length)}`} />
+              ) : null}
               <div className="flex-1 min-w-0">
                 <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">
                   {p.name || `NPI: ${p.npi}`}

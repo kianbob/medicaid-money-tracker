@@ -569,8 +569,15 @@ export default function WatchlistPage() {
         </div>
       )}
 
+      {/* Disclaimer */}
+      <div className="mt-10 bg-dark-800 border border-slate-500/20 rounded-xl p-4">
+        <p className="text-xs text-slate-400 leading-relaxed text-center">
+          Statistical flags and ML scores identify unusual patterns worth investigating &mdash; not proof of fraud or wrongdoing. Many flagged providers may have legitimate explanations for their billing patterns.
+        </p>
+      </div>
+
       {/* Bottom Links */}
-      <div className="mt-10 text-center space-y-2">
+      <div className="mt-6 text-center space-y-2">
         <p className="text-slate-500 text-xs">Want to understand how we identified these providers?</p>
         <div className="flex justify-center gap-4">
           <Link href="/analysis" className="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors">
