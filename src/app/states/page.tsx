@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import statesSummary from "../../../public/data/states-summary.json";
+import stateFlagCounts from "../../../public/data/state-flag-counts.json";
 
 export const metadata: Metadata = {
   title: "Medicaid Spending by State \u2014 All 50 States | Medicaid Money Tracker",
@@ -12,10 +13,31 @@ export const metadata: Metadata = {
   },
 };
 
+function flagColor(total: number): string {
+  if (total === 0) return 'bg-dark-600 text-slate-500';
+  if (total <= 5) return 'bg-blue-900 text-blue-200';
+  if (total <= 20) return 'bg-blue-700 text-blue-100';
+  if (total <= 50) return 'bg-amber-600 text-amber-100';
+  return 'bg-red-500 text-white';
+}
+
+function flagBorder(total: number): string {
+  if (total === 0) return 'border-dark-500/50';
+  if (total <= 5) return 'border-blue-800';
+  if (total <= 20) return 'border-blue-600';
+  if (total <= 50) return 'border-amber-500';
+  return 'border-red-400';
+}
+
 export default function StatesPage() {
   const states = (statesSummary as any[]).filter((s: any) => s.state !== 'Unknown');
   const totalSpending = states.reduce((sum: number, s: any) => sum + s.total_payments, 0);
   const maxSpending = states[0]?.total_payments || 1;
+
+  // Filter to real US states/territories (2-letter codes, not "Individual"/"Organization")
+  const flagData = (stateFlagCounts as any[]).filter(
+    (s: any) => s.state.length === 2
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -32,6 +54,33 @@ export default function StatesPage() {
           totaling <span className="text-white font-semibold">{formatMoney(totalSpending)}</span>.
           Click any state for top providers, procedures, and yearly trends.
         </p>
+      </div>
+
+      {/* Flagged Providers Heat Map */}
+      <div className="mb-12">
+        <h2 className="text-xl font-bold text-white mb-1">Flagged Providers by State</h2>
+        <p className="text-sm text-slate-400 mb-4">
+          Combined statistical and ML flags per state. Color intensity reflects flag count.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {flagData.map((s: any) => (
+            <Link
+              key={s.state}
+              href={`/states/${s.state}`}
+              className={`w-14 h-14 sm:w-16 sm:h-16 rounded-lg border ${flagColor(s.total)} ${flagBorder(s.total)} flex flex-col items-center justify-center hover:scale-110 hover:shadow-lg transition-all`}
+            >
+              <span className="text-xs font-black leading-none">{s.state}</span>
+              <span className="text-[10px] font-bold leading-none mt-0.5 tabular-nums">{s.total}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-3 mt-4 text-[10px] text-slate-400">
+          <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-dark-600 border border-dark-500/50" /> 0</span>
+          <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-blue-900 border border-blue-800" /> 1&ndash;5</span>
+          <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-blue-700 border border-blue-600" /> 6&ndash;20</span>
+          <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-amber-600 border border-amber-500" /> 21&ndash;50</span>
+          <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-red-500 border border-red-400" /> 50+</span>
+        </div>
       </div>
 
       {/* State Cards */}

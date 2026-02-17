@@ -107,6 +107,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/providers" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Providers
                 </Link>
+                <Link href="/compare" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
+                  Compare
+                </Link>
                 <Link href="/states" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   States
                 </Link>
@@ -121,9 +124,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </Link>
                 <Link href="/ml-analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   ML Methodology
-                </Link>
-                <Link href="/compare" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Compare
                 </Link>
                 <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   About
@@ -149,6 +149,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Link href="/providers" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Providers
                     </Link>
+                    <Link href="/compare" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Compare
+                    </Link>
                     <Link href="/states" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       States
                     </Link>
@@ -168,8 +171,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Link href="/trends" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Trends
                     </Link>
-                    <Link href="/compare" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
-                      Compare
+                    <Link href="/downloads" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Downloads
                     </Link>
                     <Link href="/about" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       About
