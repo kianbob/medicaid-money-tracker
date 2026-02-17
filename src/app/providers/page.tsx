@@ -59,9 +59,9 @@ export default function ProvidersPage() {
       <div className="mb-8">
         <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Top 1,000 Medicaid Providers</h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
-          The highest-spending Medicaid providers from 2018&ndash;2024, representing{" "}
-          <span className="text-white font-semibold">{formatMoney(totalSpending)}</span> in total payments.
-          Search, filter, and click any provider for their full spending profile.
+          The 1,000 highest-spending Medicaid providers from 2018&ndash;2024. These organizations received the most in total
+          Medicaid payments, representing <span className="text-white font-semibold">{formatMoney(totalSpending)}</span>.
+          Colored badges indicate fraud risk flags from our 13 statistical tests. Click any provider for their full spending profile.
         </p>
       </div>
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { formatMoney, formatNumber, stateName, hcpcsDescription } from "@/lib/format";
+import { formatMoney, formatNumber, stateName, hcpcsDescription, getFlagInfo, riskColor, riskBgColor } from "@/lib/format";
 import statesSummary from "../../../../public/data/states-summary.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
@@ -95,9 +95,20 @@ export default function StateDetailPage({ params }: Props) {
           )}
         </div>
         <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name} Medicaid Spending</h1>
-        <p className="text-sm text-slate-400 mt-2">
-          Top provider spending in {name} from 2018&ndash;2024.
-          {flaggedCount > 0 && <> <Link href="/watchlist" className="text-red-400 hover:text-red-300 font-semibold transition-colors">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''} on the fraud watchlist</Link>.</>}
+        <p className="text-sm text-slate-400 mt-2 max-w-3xl leading-relaxed">
+          {name}&apos;s Medicaid program paid <span className="text-white font-semibold">{formatMoney(summary.total_payments || 0)}</span> across{' '}
+          {summary.provider_count || providers.length} providers from 2018&ndash;2024.
+          {flaggedCount > 0
+            ? <> <Link href="/watchlist" className="text-red-400 hover:text-red-300 font-semibold transition-colors">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''}</Link> in {name} are flagged on our fraud watchlist.</>
+            : <> No providers in {name} currently appear on our fraud watchlist.</>
+          }
+          {procedures.length > 0 && (() => {
+            const topProc = procedures[0];
+            const topCode = topProc.code;
+            const topDesc = topProc.description || hcpcsDescription(topCode);
+            const topPaid = topProc.payments || topProc.total_payments || topProc.totalPaid || 0;
+            return <> The top procedure code is <Link href={`/procedures/${topCode}`} className="text-blue-400 hover:text-blue-300 font-medium transition-colors">{topCode}</Link>{topDesc ? ` (${topDesc})` : ''} at {formatMoney(topPaid)}.</>;
+          })()}
         </p>
       </div>
 
@@ -125,14 +136,14 @@ export default function StateDetailPage({ params }: Props) {
       {trends.length > 0 && (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
           <h2 className="text-sm font-bold text-white mb-4">Yearly Spending Trend</h2>
-          <div className="flex items-end gap-4 h-28">
+          <div className="flex items-end gap-4 h-36">
             {trends.map((y: any) => {
               const maxP = Math.max(...trends.map((t: any) => t.payments || t.total_payments || 0));
               const val = y.payments || y.total_payments || 0;
               const pct = maxP > 0 ? (val / maxP) * 100 : 0;
               return (
                 <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
-                  <p className="text-[10px] text-slate-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">{formatMoney(val)}</p>
+                  <p className="text-[9px] text-slate-400 mb-1 tabular-nums font-medium">{formatMoney(val)}</p>
                   <div className="w-full bg-blue-500/40 hover:bg-blue-400/60 rounded-t transition-colors" style={{ height: `${Math.max(4, pct)}%` }} />
                   <p className="text-[11px] text-slate-500 mt-2 font-medium">{y.year}</p>
                 </div>
@@ -167,6 +178,73 @@ export default function StateDetailPage({ params }: Props) {
           )}
         </div>
       )}
+
+      {/* Flagged Providers in State */}
+      {(() => {
+        // Merge smart + old watchlist providers in this state
+        const flaggedProviders: any[] = [];
+        const seenNpis = new Set<string>();
+        for (const w of smartInState) {
+          seenNpis.add(w.npi);
+          flaggedProviders.push({
+            npi: w.npi,
+            name: w.name,
+            totalPaid: w.totalPaid,
+            flagCount: w.flagCount,
+            flags: w.flags || [],
+          });
+        }
+        for (const w of oldInState) {
+          if (seenNpis.has(w.npi)) continue;
+          flaggedProviders.push({
+            npi: w.npi,
+            name: w.name,
+            totalPaid: w.totalPaid,
+            flagCount: w.flag_count || 0,
+            flags: w.flags || [],
+          });
+        }
+        flaggedProviders.sort((a, b) => b.flagCount - a.flagCount || b.totalPaid - a.totalPaid);
+
+        return (
+          <div className="mb-10">
+            <h2 className="text-sm font-bold text-white mb-4">Flagged Providers in {name}</h2>
+            {flaggedProviders.length === 0 ? (
+              <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+                <p className="text-sm text-slate-400">No providers in {name} currently appear on our fraud watchlist.</p>
+              </div>
+            ) : (
+              <div className="space-y-1.5">
+                {flaggedProviders.slice(0, 10).map((p: any) => (
+                  <Link key={p.npi} href={`/providers/${p.npi}`}
+                    className={`flex items-center gap-3 border rounded-lg px-4 py-3 hover:border-opacity-60 transition-all group ${riskBgColor(p.flagCount)}`}>
+                    <div className={`w-2 h-2 rounded-full shrink-0 ${p.flagCount >= 3 ? 'bg-red-500' : p.flagCount >= 2 ? 'bg-amber-500' : 'bg-yellow-500'}`} />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{p.name || `NPI: ${p.npi}`}</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {p.flags.slice(0, 3).map((f: string) => {
+                          const info = getFlagInfo(f);
+                          return <span key={f} className={`text-[9px] px-1.5 py-0.5 rounded border ${info.bgColor} ${info.color}`}>{info.label}</span>;
+                        })}
+                        {p.flags.length > 3 && <span className="text-[9px] text-slate-500">+{p.flags.length - 3} more</span>}
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
+                      <p className={`text-[10px] font-bold ${riskColor(p.flagCount)}`}>{p.flagCount} flag{p.flagCount !== 1 ? 's' : ''}</p>
+                    </div>
+                  </Link>
+                ))}
+                {flaggedProviders.length > 10 && (
+                  <p className="text-xs text-slate-500 mt-2 text-center">Showing 10 of {flaggedProviders.length} flagged providers.{' '}
+                    <Link href="/watchlist" className="text-red-400 hover:text-red-300 transition-colors">View full watchlist</Link>
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Top Procedures */}
       {procedures.length > 0 && (

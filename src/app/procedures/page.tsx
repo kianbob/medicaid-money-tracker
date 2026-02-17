@@ -48,9 +48,10 @@ export default function ProceduresPage() {
       <div className="mb-8">
         <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Procedure Explorer</h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
-          All <span className="text-white font-semibold">{formatNumber(procedures.length)}</span> HCPCS procedure codes in the Medicaid dataset,
-          representing <span className="text-white font-semibold">{formatMoney(totalSpending)}</span> in total spending (2018&ndash;2024).
-          Search by code or description.
+          Every medical procedure billed to Medicaid has a code (HCPCS). These are the{' '}
+          <span className="text-white font-semibold">{formatNumber(procedures.length)}</span> most-billed procedure codes,
+          ranked by total payments &mdash; <span className="text-white font-semibold">{formatMoney(totalSpending)}</span> in
+          total spending from 2018&ndash;2024. Click any code to see detailed benchmarks and top providers.
         </p>
       </div>
 
