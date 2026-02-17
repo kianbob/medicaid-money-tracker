@@ -295,7 +295,7 @@ export default function ProviderPage({ params }: Props) {
             })}
           </div>
           <p className="text-[10px] text-slate-500 mt-4">
-            Statistical flags are not proof of wrongdoing. Some entities (government agencies, home care programs) may legitimately bill at high rates. Hospitals, government entities, and large care organizations may legitimately bill at higher rates due to patient acuity, overhead costs, or specialized services. <Link href="/about" className="text-blue-400 hover:underline">Read our methodology</Link>.
+            Statistical flags are not proof of wrongdoing. Some entities (government agencies, home care programs) may legitimately bill at high rates. Hospitals, government entities, and large care organizations may legitimately bill at higher rates due to patient acuity, overhead costs, or specialized services. <Link href="/analysis" className="text-blue-400 hover:underline">Read our methodology</Link>.
           </p>
         </div>
       )}
