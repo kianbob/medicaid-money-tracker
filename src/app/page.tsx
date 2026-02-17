@@ -224,6 +224,17 @@ export default function Home() {
             </div>
           </div>
         </Link>
+        <div className="mt-3 flex justify-end">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('This Medicaid provider grew from $1.6M to $112.6M in one year — a 6,886% increase. See the data →')}&url=${encodeURIComponent('https://medicaid-money-tracker.vercel.app/providers/1396049987')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-slate-300 transition-colors px-3 py-1.5 rounded-lg border border-dark-500/50 hover:border-dark-400"
+          >
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </a>
+        </div>
       </section>
 
       {/* Spending Trend Mini Chart */}
@@ -352,9 +363,14 @@ export default function Home() {
             { slug: "pandemic-profiteers", title: "Who Made the Most Money During COVID?", stat: "+942%", color: "text-red-400", border: "hover:border-red-500/20" },
             { slug: "most-expensive", title: "The Most Expensive Things Medicaid Pays For", stat: "$92,158", color: "text-amber-400", border: "hover:border-amber-500/20" },
             { slug: "top-doctors", title: "Only 2 Individuals in Top 2,000 Billers", stat: "2 of 2,000", color: "text-indigo-400", border: "hover:border-indigo-500/20" },
-          ].map((insight) => (
+          ].map((insight, idx) => (
             <Link key={insight.slug} href={`/insights/${insight.slug}`}
               className={`bg-dark-800 border border-dark-500/50 rounded-xl p-4 ${insight.border} transition-all group`}>
+              {idx === 0 && (
+                <span className="inline-flex items-center bg-green-500/15 border border-green-500/30 rounded-full px-2 py-0.5 text-[10px] font-semibold text-green-400 mb-2">
+                  Latest
+                </span>
+              )}
               <p className={`text-2xl font-extrabold tabular-nums mb-2 ${insight.color}`}>{insight.stat}</p>
               <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors leading-snug">{insight.title}</p>
               <p className="text-xs text-slate-600 mt-2 flex items-center gap-1">

@@ -26,7 +26,7 @@ export default function StatesPage() {
       </nav>
 
       <div className="mb-8">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Medicaid Spending by State</h1>
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Medicaid Spending by State</h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
           Provider spending across <span className="text-white font-semibold">{states.length} states</span>,
           totaling <span className="text-white font-semibold">{formatMoney(totalSpending)}</span>.

@@ -98,7 +98,7 @@ export default function ProvidersPage() {
       </nav>
 
       <div className="mb-8">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Top 1,000 Medicaid Providers</h1>
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Top 1,000 Medicaid Providers</h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
           The 1,000 highest-spending Medicaid providers from 2018&ndash;2024. These organizations received the most in total
           Medicaid payments, representing <span className="text-white font-semibold">{formatMoney(totalSpending)}</span>.

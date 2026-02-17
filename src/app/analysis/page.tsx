@@ -194,7 +194,7 @@ export default function AnalysisPage() {
 
       {/* Hero */}
       <div className="mb-10">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Methodology</h1>
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Methodology</h1>
         <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
           How we analyze <span className="text-white font-semibold">227 million</span> Medicaid billing records
           across <span className="text-white font-semibold">617,503 providers</span> to identify statistical

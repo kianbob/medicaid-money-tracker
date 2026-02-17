@@ -100,7 +100,7 @@ export default function ProcedureDetailPage({ params }: Props) {
         <div className="flex items-center gap-3 mb-2">
           <span className="text-xs font-bold text-slate-500 bg-dark-700 px-2 py-0.5 rounded">#{rank} of {formatNumber((allProcedures as any[]).length)}</span>
         </div>
-        <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-2 tracking-tight font-mono">{params.code}</h1>
+        <h1 className="font-headline text-2xl md:text-4xl font-extrabold text-white mb-2 tracking-tight font-mono">{params.code}</h1>
         {desc ? (
           <p className="text-lg text-slate-300">{desc}</p>
         ) : (

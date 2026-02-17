@@ -46,7 +46,7 @@ export default function ProceduresPage() {
       </nav>
 
       <div className="mb-8">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Procedure Explorer</h1>
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Procedure Explorer</h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
           Every medical procedure billed to Medicaid has a code (HCPCS). These are the{' '}
           <span className="text-white font-semibold">{formatNumber(procedures.length)}</span> most-billed procedure codes,

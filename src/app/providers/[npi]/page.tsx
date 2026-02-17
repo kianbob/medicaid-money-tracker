@@ -201,7 +201,7 @@ export default function ProviderPage({ params }: Props) {
           {flagCount > 0 && (
             <div className={`w-3 h-3 rounded-full mt-2.5 shrink-0 ${riskDot(flagCount)} ${flagCount >= 3 ? 'risk-dot-critical' : ''}`} />
           )}
-          <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name}</h1>
+          <h1 className="font-headline text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name}</h1>
         </div>
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-400">
           {specialty && <span>{specialty}</span>}
@@ -210,6 +210,15 @@ export default function ProviderPage({ params }: Props) {
           {!city && state && <Link href={`/states/${state}`} className="hover:text-blue-400 transition-colors">{stateName(state)}</Link>}
           {(specialty || city || state) && <span className="text-slate-600">&middot;</span>}
           <span className="font-mono text-xs text-slate-500">NPI: {npi}</span>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name} received ${formatMoney(totalPaid)} in Medicaid payments. See the full spending profile →`)}&url=${encodeURIComponent(`https://medicaid-money-tracker.vercel.app/providers/${npi}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-300 transition-colors px-2 py-0.5 rounded border border-dark-500/50 hover:border-dark-400"
+          >
+            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share
+          </a>
           {mlScore !== null && (() => {
             const pct = mlScore * 100;
             const color = pct >= 80 ? 'text-red-400' : pct >= 60 ? 'text-orange-400' : pct >= 30 ? 'text-yellow-400' : 'text-green-400';

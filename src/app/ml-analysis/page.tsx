@@ -69,7 +69,7 @@ export default function MlAnalysisPage() {
 
       {/* Hero */}
       <div className="mb-10">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
+        <h1 className="font-headline text-2xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
           ML Methodology
         </h1>
         <p className="text-slate-400 max-w-2xl leading-relaxed">

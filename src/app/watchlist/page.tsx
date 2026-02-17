@@ -263,7 +263,7 @@ export default function WatchlistPage() {
 
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
           Unified Risk Watchlist
         </h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
@@ -325,7 +325,7 @@ export default function WatchlistPage() {
 
       {/* Flag Type Breakdown */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
-        <h2 className="text-sm font-bold text-white mb-4">Fraud Tests &mdash; Flag Distribution</h2>
+        <h2 className="font-headline text-sm font-bold text-white mb-4">Fraud Tests &mdash; Flag Distribution</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {flagCounts.map(([flag, count]) => {
             const info = getFlagInfo(flag);

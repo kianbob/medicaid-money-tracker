@@ -213,7 +213,7 @@ export default function InsightsIndex() {
             <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse" />
             Data Journalism &middot; 227M Records Analyzed
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.08]">
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.08]">
             Insights
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed">
@@ -226,7 +226,7 @@ export default function InsightsIndex() {
       {/* Insight Cards Grid */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 pb-16">
         <div className="grid md:grid-cols-2 gap-5">
-          {insights.map((insight) => (
+          {insights.map((insight, idx) => (
             <Link
               key={insight.slug}
               href={`/insights/${insight.slug}`}
@@ -238,6 +238,11 @@ export default function InsightsIndex() {
                 <div className="flex items-start gap-4">
                   <span className="text-3xl" role="img" aria-hidden="true">{insight.icon}</span>
                   <div className="flex-1 min-w-0">
+                    {idx === 0 && (
+                      <span className="inline-flex items-center bg-green-500/15 border border-green-500/30 rounded-full px-2 py-0.5 text-[10px] font-semibold text-green-400 mb-2">
+                        Latest
+                      </span>
+                    )}
                     <h2 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug mb-2">
                       {insight.title}
                     </h2>

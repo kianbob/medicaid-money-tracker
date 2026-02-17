@@ -39,7 +39,7 @@ export default function AboutPage() {
         <span className="text-slate-300">About &amp; Methodology</span>
       </nav>
 
-      <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">About This Project</h1>
+      <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">About This Project</h1>
       <p className="text-base text-slate-400 mb-12 leading-relaxed">
         How we analyzed 227 million Medicaid billing records &mdash; and what we found.
       </p>

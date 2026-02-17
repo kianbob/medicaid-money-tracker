@@ -102,7 +102,7 @@ export default function StateDetailPage({ params }: Props) {
             </span>
           )}
         </div>
-        <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name} Medicaid Spending</h1>
+        <h1 className="font-headline text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name} Medicaid Spending</h1>
         <p className="text-sm text-slate-400 mt-2 max-w-3xl leading-relaxed">
           {name}&apos;s Medicaid program paid <span className="text-white font-semibold">{formatMoney(summary.total_payments || 0)}</span> across{' '}
           {summary.provider_count || providers.length} providers from 2018&ndash;2024.

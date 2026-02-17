@@ -38,7 +38,7 @@ export default function TrendsPage() {
       </nav>
 
       <div className="mb-10">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Spending Trends</h1>
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Spending Trends</h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
           Medicaid spending grew <span className="text-white font-semibold">{totalGrowth.toFixed(0)}%</span> from
           {" "}<span className="text-white font-semibold">{formatMoney(firstYear.payments)}</span> in 2018 to
