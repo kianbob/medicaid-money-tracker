@@ -16,13 +16,20 @@ function getMergedProviders() {
     providerMap.set(p.npi, p);
   }
 
+  // Build old watchlist lookup for fallback data
+  const oldMap = new Map<string, any>();
+  for (const w of oldWatchlist as any[]) {
+    oldMap.set(w.npi, w);
+  }
+
   // Smart watchlist first (primary)
   for (const w of smartWatchlist as any[]) {
     seen.add(w.npi);
     const provider = providerMap.get(w.npi);
+    const old = oldMap.get(w.npi);
     result.push({
       npi: w.npi,
-      name: w.name || provider?.name || `NPI: ${w.npi}`,
+      name: w.name || provider?.name || old?.name || `NPI: ${w.npi}`,
       specialty: w.specialty || provider?.specialty || '',
       city: w.city || provider?.city || '',
       state: w.state || provider?.state || '',
@@ -40,15 +47,18 @@ function getMergedProviders() {
     if (seen.has(w.npi)) continue;
     seen.add(w.npi);
     const provider = providerMap.get(w.npi);
+    const name = w.name || provider?.name || '';
+    // Skip entries with no name and no spending data
+    if (!name && !w.totalPaid && !provider?.totalPaid) continue;
     result.push({
       npi: w.npi,
-      name: provider?.name || `NPI: ${w.npi}`,
-      specialty: provider?.specialty || '',
-      city: provider?.city || '',
-      state: provider?.state || '',
-      totalPaid: provider?.totalPaid || 0,
-      totalClaims: provider?.totalClaims || 0,
-      flagCount: w.flag_count || 0,
+      name: name || `NPI: ${w.npi}`,
+      specialty: w.specialty || provider?.specialty || '',
+      city: w.city || provider?.city || '',
+      state: w.state || provider?.state || '',
+      totalPaid: w.totalPaid || provider?.totalPaid || 0,
+      totalClaims: w.totalClaims || provider?.totalClaims || 0,
+      flagCount: w.flag_count || w.flags?.length || 0,
       flags: w.flags || [],
       flagDetails: w.flag_details || {},
       source: 'legacy',
