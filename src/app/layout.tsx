@@ -133,6 +133,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Link href="/providers" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Providers
                     </Link>
+                    <Link href="/lookup" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Provider Lookup
+                    </Link>
                     <Link href="/compare" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Compare
                     </Link>
