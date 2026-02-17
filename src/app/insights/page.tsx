@@ -81,6 +81,36 @@ const insights = [
     accent: "text-teal-400",
     icon: "🏥",
   },
+  {
+    slug: "billing-networks",
+    title: "The Hidden Billing Networks of Medicaid",
+    teaser: "65% of all claims have a different billing NPI than servicing NPI. Cleveland Clinic bills for 5,745 providers. 174,774 'ghost billers' never provide services.",
+    stat: "65%",
+    statLabel: "via intermediary",
+    color: "from-violet-500 to-purple-500",
+    accent: "text-violet-400",
+    icon: "🕸️",
+  },
+  {
+    slug: "dual-billing",
+    title: "The Dual-Billing Pattern: When Claim Counts Match Too Perfectly",
+    teaser: "Mass DDS bills T2016 and T2023 with 82,639 vs 82,963 claims — 0.4% difference, $958M total. This pattern appears in confirmed fraud cases.",
+    stat: "0.01%",
+    statLabel: "closest match",
+    color: "from-orange-500 to-red-500",
+    accent: "text-orange-400",
+    icon: "🔀",
+  },
+  {
+    slug: "smooth-billers",
+    title: "The Providers Who Bill Exactly the Same Amount Every Month",
+    teaser: "14 providers billing $100K+/month maintain less than 5% variation for years. Normal practices vary 15-40%. These are under 5%.",
+    stat: "CV=0.03",
+    statLabel: "smoothest biller",
+    color: "from-cyan-500 to-blue-500",
+    accent: "text-cyan-400",
+    icon: "📊",
+  },
 ];
 
 export default function InsightsIndex() {
