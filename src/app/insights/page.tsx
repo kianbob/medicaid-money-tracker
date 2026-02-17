@@ -113,6 +113,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         accent: "text-red-400",
         icon: "🎯",
       },
+      {
+        slug: "geographic-hotspots",
+        title: "Geographic Risk Hotspots: Where Fraud Signals Concentrate",
+        teaser: "Some states have disproportionately more fraud signals per resident. Vermont (1.08 per 100K), DC (1.03), and Maine (1.00) lead per capita. Arizona is notable given our separate investigation.",
+        stat: "1.08",
+        statLabel: "per 100K (VT)",
+        color: "from-teal-500 to-cyan-500",
+        accent: "text-teal-400",
+        icon: "🗺️",
+      },
     ],
   },
   {
