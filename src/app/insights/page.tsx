@@ -257,11 +257,11 @@ export default function InsightsIndex() {
         <div className="mb-8">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 text-xs font-medium text-red-400 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            Fraud Watchlist Highlights
+            Risk Watchlist Highlights
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-2">Most Suspicious Providers</h2>
           <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
-            The most concerning cases from our statistical fraud tests. These providers triggered 3 or more
+            The most concerning cases from our unified risk system. These providers triggered 3 or more
             independent anomaly flags, or scored extremely high on our ML fraud detection model.
           </p>
         </div>
@@ -320,7 +320,7 @@ export default function InsightsIndex() {
 
         <div className="mt-6 text-center">
           <Link href="/watchlist" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-medium px-6 py-2.5 rounded-lg border border-dark-500 transition-all text-sm">
-            View full fraud watchlist
+            View full risk watchlist
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           </Link>
         </div>

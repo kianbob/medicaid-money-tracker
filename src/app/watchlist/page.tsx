@@ -2,20 +2,68 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { formatMoney, formatNumber, formatCpc, riskLabel, riskColor, riskDot, riskBgColor, flagLabel, flagColor, getFlagInfo, parseFlags, hcpcsDescription } from "@/lib/format";
+import { formatMoney, formatNumber, formatCpc, flagLabel, flagColor, getFlagInfo, hcpcsDescription } from "@/lib/format";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import providersData from "../../../public/data/top-providers-1000.json";
 import mlScores from "../../../public/data/ml-scores.json";
+import mlProviderNames from "../../../public/data/ml-provider-names.json";
 
-// Build ML score lookup from both topProviders and smallProviderFlags
-const mlLookup = new Map(
-  (((mlScores as any).topProviders || []) as any[])
-    .concat(((mlScores as any).smallProviderFlags || []) as any[])
-    .map((p: any) => [p.npi, p.mlScore])
+// ── Unified Risk Tiers ──────────────────────────────────────────
+type UnifiedTier = 'Critical' | 'High' | 'Elevated' | 'ML Flag' | 'Low';
+
+const TIER_ORDER: Record<UnifiedTier, number> = {
+  'Critical': 0,
+  'High': 1,
+  'Elevated': 2,
+  'ML Flag': 3,
+  'Low': 4,
+};
+
+function getUnifiedTier(flagCount: number, mlScore: number | null): UnifiedTier {
+  const ml = mlScore ?? 0;
+  if (flagCount >= 3 || (flagCount >= 2 && ml >= 0.7)) return 'Critical';
+  if (flagCount === 2 || (flagCount >= 1 && ml >= 0.7) || ml >= 0.8) return 'High';
+  if (flagCount === 1 || ml >= 0.6) return 'Elevated';
+  if (flagCount === 0 && ml >= 0.5) return 'ML Flag';
+  return 'Low';
+}
+
+function tierDotClass(tier: UnifiedTier): string {
+  switch (tier) {
+    case 'Critical': return 'bg-red-500';
+    case 'High': return 'bg-orange-500';
+    case 'Elevated': return 'bg-yellow-500';
+    case 'ML Flag': return 'bg-purple-500';
+    default: return 'bg-slate-500';
+  }
+}
+
+function tierTextColor(tier: UnifiedTier): string {
+  switch (tier) {
+    case 'Critical': return 'text-red-400';
+    case 'High': return 'text-orange-400';
+    case 'Elevated': return 'text-yellow-400';
+    case 'ML Flag': return 'text-purple-400';
+    default: return 'text-slate-400';
+  }
+}
+
+// ── Build ML score & data lookup ────────────────────────────────
+const mlAllProviders = (((mlScores as any).topProviders || []) as any[])
+  .concat(((mlScores as any).smallProviderFlags || []) as any[]);
+
+const mlLookup = new Map<string, number>(
+  mlAllProviders.map((p: any) => [p.npi, p.mlScore])
 );
 
-// Merge smart watchlist (primary) with old watchlist
+const mlDataLookup = new Map<string, any>(
+  mlAllProviders.map((p: any) => [p.npi, p])
+);
+
+const mlNameLookup = mlProviderNames as Record<string, string>;
+
+// ── Merge all providers into unified watchlist ──────────────────
 function getMergedProviders() {
   const seen = new Set<string>();
   const result: any[] = [];
@@ -35,6 +83,8 @@ function getMergedProviders() {
     seen.add(w.npi);
     const provider = providerMap.get(w.npi);
     const old = oldMap.get(w.npi);
+    const mlScore = mlLookup.get(w.npi) ?? null;
+    const flagCount = w.flagCount || w.flags?.length || 0;
     result.push({
       npi: w.npi,
       name: w.name || provider?.name || old?.name || `NPI: ${w.npi}`,
@@ -43,11 +93,12 @@ function getMergedProviders() {
       state: w.state || provider?.state || '',
       totalPaid: w.totalPaid || provider?.totalPaid || 0,
       totalClaims: provider?.totalClaims || 0,
-      flagCount: w.flagCount || w.flags?.length || 0,
+      flagCount,
       flags: w.flags || [],
       flagDetails: w.flagDetails || {},
-      source: 'smart',
-      mlScore: mlLookup.get(w.npi) ?? null,
+      source: 'smart' as const,
+      mlScore,
+      tier: getUnifiedTier(flagCount, mlScore),
     });
   }
 
@@ -57,8 +108,9 @@ function getMergedProviders() {
     seen.add(w.npi);
     const provider = providerMap.get(w.npi);
     const name = w.name || provider?.name || '';
-    // Skip entries with no name and no spending data
     if (!name && !w.totalPaid && !provider?.totalPaid) continue;
+    const mlScore = mlLookup.get(w.npi) ?? null;
+    const flagCount = w.flag_count || w.flags?.length || 0;
     result.push({
       npi: w.npi,
       name: name || `NPI: ${w.npi}`,
@@ -67,15 +119,41 @@ function getMergedProviders() {
       state: w.state || provider?.state || '',
       totalPaid: w.totalPaid || provider?.totalPaid || 0,
       totalClaims: w.totalClaims || provider?.totalClaims || 0,
-      flagCount: w.flag_count || w.flags?.length || 0,
+      flagCount,
       flags: w.flags || [],
       flagDetails: w.flag_details || {},
-      source: 'legacy',
-      mlScore: mlLookup.get(w.npi) ?? null,
+      source: 'legacy' as const,
+      mlScore,
+      tier: getUnifiedTier(flagCount, mlScore),
     });
   }
 
-  return result.sort((a, b) => b.flagCount - a.flagCount || b.totalPaid - a.totalPaid);
+  // Add ML-only providers (mlScore >= 0.5, no statistical flags)
+  for (const mlp of mlAllProviders) {
+    if (seen.has(mlp.npi)) continue;
+    if (mlp.mlScore < 0.5) continue;
+    seen.add(mlp.npi);
+    const provider = providerMap.get(mlp.npi);
+    const name = mlNameLookup[mlp.npi] || provider?.name || `NPI: ${mlp.npi}`;
+    result.push({
+      npi: mlp.npi,
+      name,
+      specialty: provider?.specialty || '',
+      city: provider?.city || '',
+      state: provider?.state || '',
+      totalPaid: mlp.totalPaid || provider?.totalPaid || 0,
+      totalClaims: mlp.totalClaims || provider?.totalClaims || 0,
+      flagCount: 0,
+      flags: [],
+      flagDetails: {},
+      source: 'ml' as const,
+      mlScore: mlp.mlScore,
+      tier: 'ML Flag' as UnifiedTier,
+    });
+  }
+
+  // Default sort: tier order, then spending within tier
+  return result.sort((a, b) => TIER_ORDER[a.tier as UnifiedTier] - TIER_ORDER[b.tier as UnifiedTier] || b.totalPaid - a.totalPaid);
 }
 
 function formatFlagDetail(flag: string, details: any): string {
@@ -98,14 +176,14 @@ function formatFlagDetail(flag: string, details: any): string {
   }
 }
 
-type SortOption = 'flags' | 'spending' | 'name' | 'ml';
+type SortOption = 'risk' | 'flags' | 'spending' | 'name' | 'ml';
 
 export default function WatchlistPage() {
   const allProviders = useMemo(() => getMergedProviders(), []);
   const [riskFilter, setRiskFilter] = useState<string>("all");
   const [flagFilter, setFlagFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState<SortOption>("flags");
+  const [sortBy, setSortBy] = useState<SortOption>("risk");
   const [stateFilter, setStateFilter] = useState<string>("all");
 
   // Extract unique states for filter dropdown
@@ -116,9 +194,10 @@ export default function WatchlistPage() {
 
   const filtered = useMemo(() => {
     let result = allProviders;
-    if (riskFilter === "critical") result = result.filter(p => p.flagCount >= 3);
-    else if (riskFilter === "high") result = result.filter(p => p.flagCount === 2);
-    else if (riskFilter === "moderate") result = result.filter(p => p.flagCount === 1);
+    if (riskFilter === "critical") result = result.filter(p => p.tier === 'Critical');
+    else if (riskFilter === "high") result = result.filter(p => p.tier === 'High');
+    else if (riskFilter === "elevated") result = result.filter(p => p.tier === 'Elevated');
+    else if (riskFilter === "ml") result = result.filter(p => p.tier === 'ML Flag');
     if (flagFilter !== "all") result = result.filter(p => p.flags.includes(flagFilter));
     if (stateFilter !== "all") result = result.filter(p => p.state === stateFilter);
     if (search) {
@@ -143,18 +222,21 @@ export default function WatchlistPage() {
         result = [...result].sort((a, b) => (b.mlScore ?? -1) - (a.mlScore ?? -1));
         break;
       case 'flags':
-      default:
         result = [...result].sort((a, b) => b.flagCount - a.flagCount || b.totalPaid - a.totalPaid);
+        break;
+      case 'risk':
+      default:
+        result = [...result].sort((a, b) => TIER_ORDER[a.tier as UnifiedTier] - TIER_ORDER[b.tier as UnifiedTier] || b.totalPaid - a.totalPaid);
         break;
     }
 
     return result;
   }, [allProviders, riskFilter, flagFilter, stateFilter, search, sortBy]);
 
-  const smartCount = allProviders.filter(p => p.source === 'smart').length;
-  const criticalCount = allProviders.filter(p => p.flagCount >= 3).length;
-  const highCount = allProviders.filter(p => p.flagCount === 2).length;
-  const moderateCount = allProviders.filter(p => p.flagCount === 1).length;
+  const criticalCount = allProviders.filter(p => p.tier === 'Critical').length;
+  const highCount = allProviders.filter(p => p.tier === 'High').length;
+  const elevatedCount = allProviders.filter(p => p.tier === 'Elevated').length;
+  const mlFlagCount = allProviders.filter(p => p.tier === 'ML Flag').length;
   const totalFlaggedSpending = allProviders.reduce((sum, p) => sum + p.totalPaid, 0);
 
   // Count each flag type
@@ -176,43 +258,23 @@ export default function WatchlistPage() {
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>
-        <span className="text-slate-300">Fraud Watchlist</span>
+        <span className="text-slate-300">Unified Risk Watchlist</span>
       </nav>
 
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
-          Fraud Watchlist
+          Unified Risk Watchlist
         </h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
-          <span className="text-white font-semibold">{allProviders.length} Medicaid providers</span> flagged by our fraud detection analysis.
-          The primary watchlist uses <span className="text-white font-semibold">code-specific benchmarks</span> to compare
-          each provider&apos;s billing against the national median for that exact procedure code.
+          <span className="text-white font-semibold">{allProviders.length} Medicaid providers</span> flagged by our combined fraud detection system.
+          This view merges <span className="text-white font-semibold">13 statistical fraud tests</span> (code-specific benchmarks, billing swings, growth patterns) with a <span className="text-white font-semibold">machine learning model</span> trained
+          on 514 confirmed fraud cases to produce unified risk tiers.
         </p>
         <p className="text-sm text-slate-500 mt-2">
-          These {allProviders.length} providers collectively received <span className="text-white font-semibold">{formatMoney(totalFlaggedSpending)}</span> in
-          Medicaid payments &mdash; flagged across {smartCount} code-specific and {allProviders.length - smartCount} legacy analyses.
+          These providers collectively received <span className="text-white font-semibold">{formatMoney(totalFlaggedSpending)}</span> in
+          Medicaid payments. Risk tiers combine statistical flag counts with ML fraud-similarity scores.
         </p>
-      </div>
-
-      {/* ML Analysis Cross-Link Banner */}
-      <div className="bg-blue-500/8 border border-blue-500/20 rounded-xl p-4 mb-8">
-        <div className="flex items-start gap-3">
-          <div className="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0">
-            <svg className="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-blue-400 mb-0.5">Complementary ML Analysis Available</p>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              This watchlist uses <span className="text-white font-semibold">13 statistical fraud tests</span> to flag specific billing anomalies.
-              We also trained a <span className="text-white font-semibold">machine learning model</span> on 514 confirmed fraud cases
-              to identify broader fraud patterns.{' '}
-              <Link href="/ml-analysis" className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
-                See ML Analysis for AI-scored providers &rarr;
-              </Link>
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* OIG Banner */}
@@ -232,27 +294,32 @@ export default function WatchlistPage() {
         </div>
       </div>
 
-      {/* Summary Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+      {/* Summary Stats - Unified Tiers */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Flagged Providers</p>
-          <p className="text-2xl font-bold text-red-400 tabular-nums">{allProviders.length}</p>
-          <p className="text-[10px] text-slate-600">{smartCount} from code-specific analysis</p>
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total Flagged</p>
+          <p className="text-2xl font-bold text-white tabular-nums">{allProviders.length}</p>
+          <p className="text-[10px] text-slate-600">{formatMoney(totalFlaggedSpending)} total</p>
         </div>
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total Spending</p>
-          <p className="text-2xl font-bold text-white tabular-nums">{formatMoney(totalFlaggedSpending)}</p>
-          <p className="text-[10px] text-slate-600">flagged provider volume</p>
-        </div>
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Critical Risk</p>
+        <div className="bg-dark-800 border border-red-500/20 rounded-xl p-4">
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Critical</p>
           <p className="text-2xl font-bold text-red-400 tabular-nums">{criticalCount}</p>
-          <p className="text-[10px] text-slate-600">3+ flags</p>
+          <p className="text-[10px] text-slate-600">3+ flags or 2 flags + high ML</p>
         </div>
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">High Risk</p>
-          <p className="text-2xl font-bold text-amber-400 tabular-nums">{highCount}</p>
-          <p className="text-[10px] text-slate-600">2 flags</p>
+        <div className="bg-dark-800 border border-orange-500/20 rounded-xl p-4">
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">High</p>
+          <p className="text-2xl font-bold text-orange-400 tabular-nums">{highCount}</p>
+          <p className="text-[10px] text-slate-600">2 flags, 1 flag + high ML, or ML &ge; 80%</p>
+        </div>
+        <div className="bg-dark-800 border border-yellow-500/20 rounded-xl p-4">
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Elevated</p>
+          <p className="text-2xl font-bold text-yellow-400 tabular-nums">{elevatedCount}</p>
+          <p className="text-[10px] text-slate-600">1 flag or ML &ge; 60%</p>
+        </div>
+        <div className="bg-dark-800 border border-purple-500/20 rounded-xl p-4">
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">ML Flag</p>
+          <p className="text-2xl font-bold text-purple-400 tabular-nums">{mlFlagCount}</p>
+          <p className="text-[10px] text-slate-600">ML-only detection, no stat flags</p>
         </div>
       </div>
 
@@ -293,16 +360,21 @@ export default function WatchlistPage() {
         <div className="flex gap-2 flex-wrap">
           {[
             { key: "all", label: "All", count: allProviders.length },
-            { key: "critical", label: "Critical", count: criticalCount },
-            { key: "high", label: "High", count: highCount },
-            { key: "moderate", label: "Moderate", count: moderateCount },
+            { key: "critical", label: "Critical", count: criticalCount, color: "red" },
+            { key: "high", label: "High", count: highCount, color: "orange" },
+            { key: "elevated", label: "Elevated", count: elevatedCount, color: "yellow" },
+            { key: "ml", label: "ML Flag", count: mlFlagCount, color: "purple" },
           ].map((f) => (
             <button
               key={f.key}
               onClick={() => setRiskFilter(f.key)}
               className={`text-xs font-medium px-3 py-2 rounded-lg border transition-all whitespace-nowrap ${
                 riskFilter === f.key
-                  ? 'bg-blue-500/15 border-blue-500/30 text-blue-400'
+                  ? f.key === 'ml' ? 'bg-purple-500/15 border-purple-500/30 text-purple-400'
+                  : f.key === 'critical' ? 'bg-red-500/15 border-red-500/30 text-red-400'
+                  : f.key === 'high' ? 'bg-orange-500/15 border-orange-500/30 text-orange-400'
+                  : f.key === 'elevated' ? 'bg-yellow-500/15 border-yellow-500/30 text-yellow-400'
+                  : 'bg-blue-500/15 border-blue-500/30 text-blue-400'
                   : 'border-dark-500 text-slate-400 hover:border-dark-400'
               }`}
             >
@@ -322,6 +394,7 @@ export default function WatchlistPage() {
             onChange={(e) => setSortBy(e.target.value as SortOption)}
             className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 transition-colors"
           >
+            <option value="risk">Risk Level</option>
             <option value="flags">Most Flags First</option>
             <option value="spending">Highest Spending</option>
             <option value="name">Name A-Z</option>
@@ -351,10 +424,9 @@ export default function WatchlistPage() {
         </p>
         <button
           onClick={() => {
-            const headers = ['NPI', 'Name', 'City', 'State', 'Specialty', 'Total Paid', 'Total Claims', 'Cost Per Claim', 'Flag Count', 'Flags', 'Risk Level', 'ML Score'];
+            const headers = ['NPI', 'Name', 'City', 'State', 'Specialty', 'Total Paid', 'Total Claims', 'Cost Per Claim', 'Flag Count', 'Flags', 'Unified Risk Tier', 'ML Score'];
             const rows = filtered.map(p => {
               const cpc = p.totalClaims > 0 ? (p.totalPaid / p.totalClaims).toFixed(2) : '';
-              const risk = p.flagCount >= 3 ? 'CRITICAL' : p.flagCount >= 2 ? 'HIGH' : p.flagCount >= 1 ? 'MODERATE' : 'LOW';
               return [
                 p.npi,
                 `"${(p.name || '').replace(/"/g, '""')}"`,
@@ -366,7 +438,7 @@ export default function WatchlistPage() {
                 cpc,
                 p.flagCount,
                 `"${p.flags.join('; ')}"`,
-                risk,
+                p.tier,
                 p.mlScore != null ? (p.mlScore * 100).toFixed(1) + '%' : '',
               ].join(',');
             });
@@ -386,7 +458,7 @@ export default function WatchlistPage() {
         </button>
       </div>
 
-      {/* Table */}
+      {/* Provider List */}
       <div className="space-y-2">
         {filtered.slice(0, visibleCount).map((p, i) => (
           <div key={p.npi} className="bg-dark-800 border border-dark-500/50 rounded-xl hover:bg-dark-700 hover:border-dark-400 transition-all">
@@ -396,8 +468,8 @@ export default function WatchlistPage() {
             >
               <div className="flex items-center gap-3 shrink-0">
                 <span className="text-xs font-bold text-slate-600 w-6 text-right tabular-nums">{i + 1}</span>
-                <div className={`w-2.5 h-2.5 rounded-full ${riskDot(p.flagCount)} ${p.flagCount >= 3 ? 'risk-dot-critical' : ''}`}
-                  title={`${riskLabel(p.flagCount)} risk`} />
+                <div className={`w-2.5 h-2.5 rounded-full ${tierDotClass(p.tier)} ${p.tier === 'Critical' ? 'risk-dot-critical' : ''}`}
+                  title={`${p.tier} risk`} />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
@@ -409,6 +481,11 @@ export default function WatchlistPage() {
                       'bg-yellow-500/15 border-yellow-500/30 text-yellow-400'
                     }`}>
                       ML {(p.mlScore * 100).toFixed(0)}%
+                    </span>
+                  )}
+                  {p.source === 'ml' && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded border bg-purple-500/15 border-purple-500/30 text-purple-400">
+                      ML Only
                     </span>
                   )}
                 </div>
@@ -430,11 +507,11 @@ export default function WatchlistPage() {
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
-                  <p className={`text-[10px] font-semibold ${riskColor(p.flagCount)}`}>{riskLabel(p.flagCount)}</p>
+                  <p className={`text-[10px] font-semibold ${tierTextColor(p.tier)}`}>{p.tier.toUpperCase()}</p>
                 </div>
               </div>
             </Link>
-            {/* Expanded flag details for smart watchlist entries */}
+            {/* Flag details for smart watchlist entries */}
             {p.source === 'smart' && p.flags.some((f: string) => formatFlagDetail(f, p.flagDetails[f])) && (
               <div className="px-4 pb-3 -mt-1">
                 <div className="flex flex-wrap gap-x-4 gap-y-1">
@@ -451,6 +528,31 @@ export default function WatchlistPage() {
                 </div>
               </div>
             )}
+            {/* ML Detection card for ML-only providers */}
+            {p.source === 'ml' && (() => {
+              const mlData = mlDataLookup.get(p.npi);
+              return (
+                <div className="px-4 pb-3 -mt-1">
+                  <div className="bg-purple-500/8 border border-purple-500/20 rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <svg className="w-3.5 h-3.5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      <span className="text-xs font-semibold text-purple-400">ML Detection</span>
+                      <span className="text-xs font-bold text-purple-300 ml-auto">{p.mlScore != null ? (p.mlScore * 100).toFixed(1) : '?'}% fraud similarity</span>
+                    </div>
+                    {mlData && (
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 mb-2">
+                        <span className="text-[10px] text-slate-400">Active months: <strong className="text-white">{mlData.activeMonths}</strong></span>
+                        <span className="text-[10px] text-slate-400">Self-billing ratio: <strong className="text-white">{(mlData.selfBillingRatio * 100).toFixed(0)}%</strong></span>
+                        <span className="text-[10px] text-slate-400">Top code concentration: <strong className="text-white">{(mlData.topCodeConcentration * 100).toFixed(0)}%</strong></span>
+                      </div>
+                    )}
+                    <p className="text-[10px] text-slate-500">
+                      Flagged by ML pattern matching against 514 confirmed fraud cases. No individual statistical test triggered.
+                    </p>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         ))}
       </div>
@@ -473,9 +575,6 @@ export default function WatchlistPage() {
         <div className="flex justify-center gap-4">
           <Link href="/analysis" className="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors">
             Fraud analysis methodology &rarr;
-          </Link>
-          <Link href="/ml-analysis" className="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors">
-            ML Analysis &rarr;
           </Link>
           <Link href="/about" className="text-slate-400 hover:text-slate-300 font-medium text-sm transition-colors">
             About this project &rarr;

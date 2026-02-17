@@ -218,7 +218,7 @@ export default function AboutPage() {
               },
               {
                 q: "What does 'flagged' mean?",
-                a: "A 'flagged' provider has been identified by one or more of our 13 statistical fraud detection tests as having billing patterns that are unusual compared to peers. This could mean billing significantly above the national median for a specific procedure code, having explosive spending growth, or other anomalies. Being flagged is not proof of fraud \u2014 it means the billing patterns warrant further investigation.",
+                a: "A 'flagged' provider has been identified by one or more of our 13 statistical fraud detection tests or our ML fraud similarity model as having billing patterns that are unusual compared to peers. Statistical flags and ML scores are combined into a unified risk system with tiers: Critical, High, Elevated, and ML Flag. Being flagged is not proof of fraud \u2014 it means the billing patterns warrant further investigation.",
               },
               {
                 q: "Is this proof of fraud?",

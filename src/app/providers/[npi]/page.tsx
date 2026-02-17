@@ -222,16 +222,9 @@ export default function ProviderPage({ params }: Props) {
         </div>
         {(flagCount > 0 || mlScore !== null) && (
           <div className="flex flex-wrap gap-3 mt-3">
-            {flagCount > 0 && (
-              <Link href="/watchlist" className="text-xs text-red-400 hover:text-red-300 font-medium transition-colors">
-                View on Fraud Watchlist &rarr;
-              </Link>
-            )}
-            {mlScore !== null && (
-              <Link href="/ml-analysis" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
-                View ML Analysis &rarr;
-              </Link>
-            )}
+            <Link href="/watchlist" className="text-xs text-red-400 hover:text-red-300 font-medium transition-colors">
+              View on Risk Watchlist &rarr;
+            </Link>
           </div>
         )}
       </div>
@@ -738,9 +731,9 @@ export default function ProviderPage({ params }: Props) {
         <Link href="/providers" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
           &larr; All providers
         </Link>
-        {flagCount > 0 && (
+        {(flagCount > 0 || mlScore !== null) && (
           <Link href="/watchlist" className="text-red-400 hover:text-red-300 text-xs font-medium transition-colors">
-            Fraud watchlist &rarr;
+            Risk Watchlist &rarr;
           </Link>
         )}
         {state && (

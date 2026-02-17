@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Desktop nav */}
               <div className="hidden md:flex items-center gap-0.5">
                 <Link href="/watchlist" className="text-[13px] font-semibold text-red-400 hover:text-red-300 hover:bg-red-500/10 px-3 py-1.5 rounded-md transition-all">
-                  Watchlist
+                  Risk Watchlist
                 </Link>
                 <Link href="/providers" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Providers
@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Methodology
                 </Link>
                 <Link href="/ml-analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  ML Analysis
+                  ML Methodology
                 </Link>
                 <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   About
@@ -129,7 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   </summary>
                   <div className="absolute right-0 top-11 w-52 bg-dark-700 border border-dark-500 rounded-xl shadow-2xl shadow-black/60 py-1.5 z-50">
                     <Link href="/watchlist" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-red-400 hover:bg-dark-600 transition-colors">
-                      Fraud Watchlist
+                      Risk Watchlist
                     </Link>
                     <Link href="/providers" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Providers
@@ -148,7 +148,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       Methodology
                     </Link>
                     <Link href="/ml-analysis" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
-                      ML Analysis
+                      ML Methodology
                     </Link>
                     <Link href="/trends" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Trends
@@ -180,10 +180,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div>
                 <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Investigate</p>
                 <div className="space-y-2">
-                  <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Fraud Watchlist</Link>
+                  <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Risk Watchlist</Link>
                   <Link href="/insights" className="block text-slate-500 hover:text-purple-400 transition-colors">Insights</Link>
                   <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
-                  <Link href="/ml-analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">ML Analysis</Link>
+                  <Link href="/ml-analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">ML Methodology</Link>
                   <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">About &amp; Methodology</Link>
                 </div>
               </div>

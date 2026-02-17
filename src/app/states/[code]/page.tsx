@@ -99,8 +99,8 @@ export default function StateDetailPage({ params }: Props) {
           {name}&apos;s Medicaid program paid <span className="text-white font-semibold">{formatMoney(summary.total_payments || 0)}</span> across{' '}
           {summary.provider_count || providers.length} providers from 2018&ndash;2024.
           {flaggedCount > 0
-            ? <> <Link href="/watchlist" className="text-red-400 hover:text-red-300 font-semibold transition-colors">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''}</Link> in {name} are flagged on our fraud watchlist.</>
-            : <> No providers in {name} currently appear on our fraud watchlist.</>
+            ? <> <Link href="/watchlist" className="text-red-400 hover:text-red-300 font-semibold transition-colors">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''}</Link> in {name} are flagged on our risk watchlist.</>
+            : <> No providers in {name} currently appear on our risk watchlist.</>
           }
           {procedures.length > 0 && (() => {
             const topProc = procedures[0];
@@ -217,7 +217,7 @@ export default function StateDetailPage({ params }: Props) {
             <h2 className="text-sm font-bold text-white mb-4">Flagged Providers in {name}</h2>
             {flaggedProviders.length === 0 ? (
               <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
-                <p className="text-sm text-slate-400">No providers in {name} currently appear on our fraud watchlist.</p>
+                <p className="text-sm text-slate-400">No providers in {name} currently appear on our risk watchlist.</p>
               </div>
             ) : (
               <div className="space-y-1.5">
@@ -243,7 +243,7 @@ export default function StateDetailPage({ params }: Props) {
                 ))}
                 {flaggedProviders.length > 10 && (
                   <p className="text-xs text-slate-500 mt-2 text-center">Showing 10 of {flaggedProviders.length} flagged providers.{' '}
-                    <Link href="/watchlist" className="text-red-400 hover:text-red-300 transition-colors">View full watchlist</Link>
+                    <Link href="/watchlist" className="text-red-400 hover:text-red-300 transition-colors">View full risk watchlist</Link>
                   </p>
                 )}
               </div>
@@ -309,7 +309,7 @@ export default function StateDetailPage({ params }: Props) {
         </Link>
         {flaggedCount > 0 && (
           <Link href="/watchlist" className="text-red-400 hover:text-red-300 text-xs font-medium transition-colors">
-            Fraud watchlist &rarr;
+            Risk Watchlist &rarr;
           </Link>
         )}
       </div>

@@ -49,7 +49,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-3 animate-fade-in-delay-2">
             <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-500/30 hover:-translate-y-0.5">
-              View Fraud Watchlist
+              View Risk Watchlist
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
             <Link href="/providers" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-6 py-3 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
@@ -270,10 +270,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/watchlist" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
-              Fraud watchlist &rarr;
-            </Link>
-            <Link href="/ml-analysis" className="text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors">
-              ML fraud detection &rarr;
+              Risk Watchlist &rarr;
             </Link>
             <Link href="/analysis" className="text-sm text-slate-400 hover:text-slate-300 font-medium transition-colors">
               Our methodology &rarr;
@@ -293,7 +290,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
-                View the Fraud Watchlist
+                View the Risk Watchlist
               </Link>
               <Link href="/insights" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-8 py-3.5 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
                 Explore Key Findings

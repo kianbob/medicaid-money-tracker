@@ -1,42 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
-import { formatMoney, formatNumber } from "@/lib/format";
+import { formatNumber } from "@/lib/format";
 import mlScores from "../../../public/data/ml-scores.json";
-import smartWatchlist from "../../../public/data/smart-watchlist.json";
-import oldWatchlist from "../../../public/data/expanded-watchlist.json";
-import providersData from "../../../public/data/top-providers-1000.json";
-import mlNames from "../../../public/data/ml-provider-names.json";
-
-// Build name lookup from all available sources
-function buildNameLookup(): Map<string, string> {
-  const lookup = new Map<string, string>();
-  for (const p of providersData as any[]) {
-    if (p.name) lookup.set(p.npi, p.name);
-  }
-  for (const p of smartWatchlist as any[]) {
-    if (p.name) lookup.set(p.npi, p.name);
-  }
-  for (const p of oldWatchlist as any[]) {
-    if (p.name) lookup.set(p.npi, p.name);
-  }
-  for (const [npi, name] of Object.entries(mlNames as Record<string, string>)) {
-    if (!lookup.has(npi)) lookup.set(npi, name);
-  }
-  return lookup;
-}
-
-// Build flag count lookup from watchlist data
-const flagCountLookup = new Map<string, number>();
-for (const p of smartWatchlist as any[]) {
-  flagCountLookup.set(p.npi, p.flagCount || p.flags?.length || 0);
-}
-for (const p of oldWatchlist as any[]) {
-  if (!flagCountLookup.has(p.npi)) {
-    flagCountLookup.set(p.npi, p.flag_count || p.flags?.length || 0);
-  }
-}
 
 const FEATURE_LABELS: Record<string, string> = {
   total_paid: "Total Payments",
@@ -55,13 +21,6 @@ const FEATURE_LABELS: Record<string, string> = {
   low_code_high: "Low Codes / High Spend",
 };
 
-function mlScoreColor(score: number): string {
-  if (score >= 0.8) return "text-red-400";
-  if (score >= 0.6) return "text-orange-400";
-  if (score >= 0.3) return "text-yellow-400";
-  return "text-green-400";
-}
-
 function mlScoreBgColor(score: number): string {
   if (score >= 0.8) return "bg-red-500";
   if (score >= 0.6) return "bg-orange-500";
@@ -69,133 +28,54 @@ function mlScoreBgColor(score: number): string {
   return "bg-green-500";
 }
 
-type SortField = 'mlScore' | 'totalPaid' | 'activeMonths' | 'name';
-type ScoreThreshold = 0 | 50 | 60 | 70 | 80;
+function mlScoreColor(score: number): string {
+  if (score >= 0.8) return "text-red-400";
+  if (score >= 0.6) return "text-orange-400";
+  if (score >= 0.3) return "text-yellow-400";
+  return "text-green-400";
+}
 
 export default function MlAnalysisPage() {
   const data = mlScores as any;
   const features = data.featuresUsed as string[];
-  const allTopProviders = (data.topProviders as any[]).slice(0, 50);
-  const smallProviderFlags = (data.smallProviderFlags || []) as any[];
   const dist = data.scoreDistribution as Record<string, number>;
-
-  const nameLookup = useMemo(() => buildNameLookup(), []);
-
-  const [sortField, setSortField] = useState<SortField>('mlScore');
-  const [sortDesc, setSortDesc] = useState(true);
-  const [scoreThreshold, setScoreThreshold] = useState<ScoreThreshold>(0);
-  const [showAllSmall, setShowAllSmall] = useState(false);
-
-  // Filter and sort top providers
-  const sortedTopProviders = useMemo(() => {
-    let result = allTopProviders;
-    if (scoreThreshold > 0) {
-      result = result.filter(p => p.mlScore * 100 >= scoreThreshold);
-    }
-    return [...result].sort((a, b) => {
-      let cmp: number;
-      switch (sortField) {
-        case 'totalPaid':
-          cmp = a.totalPaid - b.totalPaid;
-          break;
-        case 'activeMonths':
-          cmp = a.activeMonths - b.activeMonths;
-          break;
-        case 'name': {
-          const nameA = nameLookup.get(a.npi) || a.npi;
-          const nameB = nameLookup.get(b.npi) || b.npi;
-          cmp = nameA.localeCompare(nameB);
-          break;
-        }
-        case 'mlScore':
-        default:
-          cmp = a.mlScore - b.mlScore;
-          break;
-      }
-      return sortDesc ? -cmp : cmp;
-    });
-  }, [allTopProviders, sortField, sortDesc, scoreThreshold, nameLookup]);
-
-  // Sort small provider flags similarly
-  const sortedSmallProviders = useMemo(() => {
-    let result = smallProviderFlags;
-    if (scoreThreshold > 0) {
-      result = result.filter((p: any) => p.mlScore * 100 >= scoreThreshold);
-    }
-    return [...result].sort((a: any, b: any) => {
-      let cmp: number;
-      switch (sortField) {
-        case 'totalPaid':
-          cmp = a.totalPaid - b.totalPaid;
-          break;
-        case 'activeMonths':
-          cmp = a.activeMonths - b.activeMonths;
-          break;
-        case 'name': {
-          const nameA = nameLookup.get(a.npi) || a.npi;
-          const nameB = nameLookup.get(b.npi) || b.npi;
-          cmp = nameA.localeCompare(nameB);
-          break;
-        }
-        case 'mlScore':
-        default:
-          cmp = a.mlScore - b.mlScore;
-          break;
-      }
-      return sortDesc ? -cmp : cmp;
-    });
-  }, [smallProviderFlags, sortField, sortDesc, scoreThreshold, nameLookup]);
-
-  function handleSort(field: SortField) {
-    if (sortField === field) {
-      setSortDesc(!sortDesc);
-    } else {
-      setSortField(field);
-      setSortDesc(true);
-    }
-  }
-
-  function sortIndicator(field: SortField) {
-    if (sortField !== field) return null;
-    return <span className="ml-0.5">{sortDesc ? '\u25BC' : '\u25B2'}</span>;
-  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>
-        <span className="text-slate-300">ML Analysis</span>
+        <span className="text-slate-300">ML Methodology</span>
       </nav>
 
-      {/* Hero */}
-      <div className="mb-10">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
-          Machine Learning Fraud Detection
-        </h1>
-        <p className="text-slate-400 max-w-2xl leading-relaxed">
-          Random forest model trained on <span className="text-white font-semibold">514 confirmed-excluded providers</span> from
-          the OIG LEIE database. Scored against {formatNumber(data.totalProviders)} active Medicaid providers.
-        </p>
-      </div>
-
-      {/* Statistical Watchlist Cross-Link Banner */}
-      <div className="bg-red-500/8 border border-red-500/20 rounded-xl p-4 mb-8">
+      {/* Integration Banner */}
+      <div className="bg-blue-500/8 border border-blue-500/20 rounded-xl p-5 mb-8">
         <div className="flex items-start gap-3">
-          <div className="w-8 h-8 rounded-lg bg-red-500/15 flex items-center justify-center shrink-0">
-            <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+          <div className="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
           </div>
           <div>
-            <p className="text-sm font-semibold text-red-400 mb-0.5">Complementary Statistical Analysis</p>
+            <p className="text-sm font-bold text-blue-400 mb-1">ML scores are now integrated into the Unified Risk Watchlist</p>
             <p className="text-xs text-slate-400 leading-relaxed">
-              ML scoring complements our <span className="text-white font-semibold">13 statistical fraud tests</span> shown on the Fraud Watchlist.
-              Statistical tests flag specific billing anomalies. ML identifies patterns similar to 514 confirmed fraud cases from the OIG exclusion list.{' '}
-              <Link href="/watchlist" className="text-red-400 hover:text-red-300 font-semibold underline underline-offset-2 transition-colors">
-                See the Fraud Watchlist &rarr;
+              ML fraud similarity scores have been combined with our 13 statistical tests into a single unified risk system.
+              Providers are ranked by a combination of statistical flags and ML scores into unified tiers: Critical, High, Elevated, and ML Flag.{' '}
+              <Link href="/watchlist" className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
+                View the Risk Watchlist &rarr;
               </Link>
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Hero */}
+      <div className="mb-10">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
+          ML Methodology
+        </h1>
+        <p className="text-slate-400 max-w-2xl leading-relaxed">
+          How our random forest model works: trained on <span className="text-white font-semibold">514 confirmed-excluded providers</span> from
+          the OIG LEIE database, scoring {formatNumber(data.totalProviders)} active Medicaid providers for fraud similarity.
+        </p>
       </div>
 
       {/* Key metrics */}
@@ -219,6 +99,54 @@ export default function MlAnalysisPage() {
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Training Labels</p>
           <p className="text-xl font-bold text-red-400 tabular-nums">514</p>
           <p className="text-[10px] text-slate-600">OIG-excluded providers</p>
+        </div>
+      </div>
+
+      {/* How ML and Statistical Tests Complement Each Other */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+        <h2 className="text-sm font-bold text-white mb-4">Two Complementary Approaches to Fraud Detection</h2>
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          <div className="bg-dark-700/50 rounded-lg p-4 border border-dark-500/30">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded bg-red-500/15 border border-red-500/30 flex items-center justify-center">
+                <span className="text-red-400 text-xs font-bold">S</span>
+              </div>
+              <h3 className="text-sm font-bold text-red-400">Statistical Tests</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed mb-2">
+              13 rule-based tests that flag <span className="text-white font-semibold">specific, explainable anomalies</span> in billing behavior.
+            </p>
+            <ul className="text-[10px] text-slate-500 space-y-1">
+              <li>&bull; Identifies exact codes, ratios, and dollar amounts</li>
+              <li>&bull; Human-readable explanations for every flag</li>
+              <li>&bull; Code-specific benchmarks (9,578 codes)</li>
+              <li>&bull; Catches billing swings, outlier pricing, new entrants</li>
+            </ul>
+          </div>
+          <div className="bg-dark-700/50 rounded-lg p-4 border border-dark-500/30">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded bg-purple-500/15 border border-purple-500/30 flex items-center justify-center">
+                <span className="text-purple-400 text-xs font-bold">M</span>
+              </div>
+              <h3 className="text-sm font-bold text-purple-400">ML Model</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed mb-2">
+              Pattern matching against <span className="text-white font-semibold">514 confirmed fraud cases</span> from the OIG exclusion list.
+            </p>
+            <ul className="text-[10px] text-slate-500 space-y-1">
+              <li>&bull; Learns complex multi-feature fraud signatures</li>
+              <li>&bull; Catches patterns humans might miss</li>
+              <li>&bull; Scores every provider on a 0&ndash;100% scale</li>
+              <li>&bull; Validated against full-dataset cross-validation</li>
+            </ul>
+          </div>
+        </div>
+        <div className="bg-dark-700/30 rounded-lg p-3 border border-dark-500/20">
+          <p className="text-xs text-slate-300 leading-relaxed">
+            <span className="text-green-400 font-semibold">Why both matter:</span> Statistical tests are precise and explainable &mdash; they tell you <em>exactly</em> what&apos;s unusual.
+            ML captures subtler patterns across multiple features simultaneously. A provider flagged by both methods is significantly more likely to warrant investigation.
+            The unified Risk Watchlist combines both signals into a single ranked view.
+          </p>
         </div>
       </div>
 
@@ -277,193 +205,6 @@ export default function MlAnalysisPage() {
         </div>
       </div>
 
-      {/* Sorting & Filtering Controls */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-slate-500">Score threshold:</span>
-          <div className="flex gap-1.5">
-            {([0, 50, 60, 70, 80] as ScoreThreshold[]).map((t) => (
-              <button
-                key={t}
-                onClick={() => setScoreThreshold(t)}
-                className={`text-xs font-medium px-2.5 py-1.5 rounded-lg border transition-all ${
-                  scoreThreshold === t
-                    ? 'bg-blue-500/15 border-blue-500/30 text-blue-400'
-                    : 'border-dark-500 text-slate-400 hover:border-dark-400'
-                }`}
-              >
-                {t === 0 ? 'All' : `>${t}%`}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Top 50 Providers */}
-      <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-8">
-        <div className="px-5 py-4 border-b border-dark-500/50">
-          <h2 className="text-sm font-bold text-white">Top 50 Highest-Scored Providers</h2>
-          <p className="text-[10px] text-slate-500 mt-0.5">
-            Ranked by ML fraud similarity score
-            {scoreThreshold > 0 && ` \u2014 showing ${sortedTopProviders.length} above ${scoreThreshold}%`}
-          </p>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-dark-500/50">
-                <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold w-8">#</th>
-                <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">NPI</th>
-                <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">
-                  <button onClick={() => handleSort('name')} className="hover:text-slate-300 transition-colors">
-                    Name {sortIndicator('name')}
-                  </button>
-                </th>
-                <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">
-                  <button onClick={() => handleSort('mlScore')} className="hover:text-slate-300 transition-colors">
-                    ML Score {sortIndicator('mlScore')}
-                  </button>
-                </th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">
-                  <button onClick={() => handleSort('totalPaid')} className="hover:text-slate-300 transition-colors">
-                    Total Paid {sortIndicator('totalPaid')}
-                  </button>
-                </th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden sm:table-cell">Flags</th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden md:table-cell">Codes</th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden lg:table-cell">Self-Bill Ratio</th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden xl:table-cell">
-                  <button onClick={() => handleSort('activeMonths')} className="hover:text-slate-300 transition-colors">
-                    Active Months {sortIndicator('activeMonths')}
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {sortedTopProviders.map((p: any, i: number) => {
-                const pct = (p.mlScore * 100);
-                const name = nameLookup.get(p.npi);
-                const flags = flagCountLookup.get(p.npi) || 0;
-                return (
-                  <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
-                    <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
-                    <td className="px-4 py-2.5">
-                      <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-mono font-medium transition-colors">
-                        {p.npi}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-2.5">
-                      {name ? (
-                        <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-medium transition-colors truncate block max-w-[180px]">
-                          {name}
-                        </Link>
-                      ) : (
-                        <span className="text-slate-600 text-xs italic">Unknown</span>
-                      )}
-                    </td>
-                    <td className="px-4 py-2.5">
-                      <div className="flex items-center gap-2">
-                        <div className="w-20 h-2 bg-dark-600 rounded-full overflow-hidden">
-                          <div className={`h-full rounded-full ${mlScoreBgColor(p.mlScore)}`} style={{ width: `${pct}%` }} />
-                        </div>
-                        <span className={`text-xs font-bold tabular-nums ${mlScoreColor(p.mlScore)}`}>{pct.toFixed(1)}%</span>
-                      </div>
-                    </td>
-                    <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.totalPaid)}</td>
-                    <td className="px-4 py-2.5 text-right text-xs tabular-nums hidden sm:table-cell">
-                      {flags > 0 ? (
-                        <span className={`font-semibold ${flags >= 3 ? 'text-red-400' : flags >= 2 ? 'text-orange-400' : 'text-yellow-400'}`}>{flags}</span>
-                      ) : (
-                        <span className="text-slate-600">&mdash;</span>
-                      )}
-                    </td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden md:table-cell">{p.codeCount}</td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden lg:table-cell">{(p.selfBillingRatio * 100).toFixed(0)}%</td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden xl:table-cell">{p.activeMonths}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Small Provider Flags */}
-      {smallProviderFlags.length > 0 && (
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-8">
-          <div className="px-5 py-4 border-b border-dark-500/50">
-            <h2 className="text-sm font-bold text-white">Small Provider Flags</h2>
-            <p className="text-[10px] text-slate-500 mt-0.5">
-              {smallProviderFlags.length} smaller providers with high ML scores &mdash; may indicate early-stage or emerging fraud patterns
-              {scoreThreshold > 0 && ` (showing ${sortedSmallProviders.length} above ${scoreThreshold}%)`}
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-dark-500/50">
-                  <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold w-8">#</th>
-                  <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">NPI</th>
-                  <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Name</th>
-                  <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">ML Score</th>
-                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Total Paid</th>
-                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden sm:table-cell">Codes</th>
-                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden md:table-cell">Self-Bill Ratio</th>
-                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden lg:table-cell">Active Months</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(showAllSmall ? sortedSmallProviders : sortedSmallProviders.slice(0, 20)).map((p: any, i: number) => {
-                  const pct = (p.mlScore * 100);
-                  const name = nameLookup.get(p.npi);
-                  return (
-                    <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
-                      <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
-                      <td className="px-4 py-2.5">
-                        <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-mono font-medium transition-colors">
-                          {p.npi}
-                        </Link>
-                      </td>
-                      <td className="px-4 py-2.5">
-                        {name ? (
-                          <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-medium transition-colors truncate block max-w-[180px]">
-                            {name}
-                          </Link>
-                        ) : (
-                          <span className="text-slate-600 text-xs italic">Unknown</span>
-                        )}
-                      </td>
-                      <td className="px-4 py-2.5">
-                        <div className="flex items-center gap-2">
-                          <div className="w-20 h-2 bg-dark-600 rounded-full overflow-hidden">
-                            <div className={`h-full rounded-full ${mlScoreBgColor(p.mlScore)}`} style={{ width: `${pct}%` }} />
-                          </div>
-                          <span className={`text-xs font-bold tabular-nums ${mlScoreColor(p.mlScore)}`}>{pct.toFixed(1)}%</span>
-                        </div>
-                      </td>
-                      <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.totalPaid)}</td>
-                      <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden sm:table-cell">{p.codeCount}</td>
-                      <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden md:table-cell">{(p.selfBillingRatio * 100).toFixed(0)}%</td>
-                      <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden lg:table-cell">{p.activeMonths}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          {sortedSmallProviders.length > 20 && !showAllSmall && (
-            <div className="px-5 py-3 border-t border-dark-500/50 text-center">
-              <button
-                onClick={() => setShowAllSmall(true)}
-                className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors"
-              >
-                Show all {sortedSmallProviders.length} small provider flags
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* Cross-Validation */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
         <h2 className="text-sm font-bold text-white mb-3">Cross-Validation: Full-Dataset Training</h2>
@@ -509,11 +250,11 @@ export default function MlAnalysisPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/analysis" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
-          &larr; Fraud analysis methodology
-        </Link>
         <Link href="/watchlist" className="text-red-400 hover:text-red-300 text-xs font-medium transition-colors">
-          Fraud watchlist &rarr;
+          Risk Watchlist &rarr;
+        </Link>
+        <Link href="/analysis" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
+          &larr; Statistical methodology
         </Link>
       </div>
     </div>

@@ -669,7 +669,7 @@ export default function AnalysisPage() {
       {/* ───────────────────────────────────────────── */}
       <div className="flex flex-wrap gap-3 justify-center">
         <Link href="/watchlist" className="bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-all text-sm">
-          View Full Watchlist
+          View Risk Watchlist
         </Link>
         <Link href="/providers" className="bg-dark-700 hover:bg-dark-600 text-white font-medium px-6 py-3 rounded-lg border border-dark-500 transition-all text-sm">
           Browse All Providers
