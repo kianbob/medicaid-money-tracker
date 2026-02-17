@@ -260,17 +260,24 @@ export default function WatchlistPage() {
         </p>
         <button
           onClick={() => {
-            const headers = ['NPI', 'Name', 'Specialty', 'City', 'State', 'Total Paid', 'Flag Count', 'Flags'];
-            const rows = filtered.map(p => [
-              p.npi,
-              `"${(p.name || '').replace(/"/g, '""')}"`,
-              `"${(p.specialty || '').replace(/"/g, '""')}"`,
-              `"${(p.city || '').replace(/"/g, '""')}"`,
-              p.state,
-              p.totalPaid.toFixed(2),
-              p.flagCount,
-              `"${p.flags.join('; ')}"`,
-            ].join(','));
+            const headers = ['NPI', 'Name', 'City', 'State', 'Specialty', 'Total Paid', 'Total Claims', 'Cost Per Claim', 'Flag Count', 'Flags', 'Risk Level'];
+            const rows = filtered.map(p => {
+              const cpc = p.totalClaims > 0 ? (p.totalPaid / p.totalClaims).toFixed(2) : '';
+              const risk = p.flagCount >= 3 ? 'CRITICAL' : p.flagCount >= 2 ? 'HIGH' : p.flagCount >= 1 ? 'MODERATE' : 'LOW';
+              return [
+                p.npi,
+                `"${(p.name || '').replace(/"/g, '""')}"`,
+                `"${(p.city || '').replace(/"/g, '""')}"`,
+                p.state,
+                `"${(p.specialty || '').replace(/"/g, '""')}"`,
+                p.totalPaid.toFixed(2),
+                p.totalClaims || '',
+                cpc,
+                p.flagCount,
+                `"${p.flags.join('; ')}"`,
+                risk,
+              ].join(',');
+            });
             const csv = [headers.join(','), ...rows].join('\n');
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = URL.createObjectURL(blob);
@@ -283,7 +290,7 @@ export default function WatchlistPage() {
           className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors flex items-center gap-1"
         >
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-          Export CSV
+          Download CSV
         </button>
       </div>
 

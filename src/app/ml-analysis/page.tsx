@@ -4,7 +4,7 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import mlScores from "../../../public/data/ml-scores.json";
 
 export const metadata: Metadata = {
-  title: "Machine Learning Fraud Detection — Medicaid Money Tracker",
+  title: "ML Analysis",
   description: `Random forest model trained on 514 confirmed-excluded providers (OIG LEIE database). AUC: 0.77 under 5-fold cross-validation. ${mlScores.totalProviders.toLocaleString()} providers scored.`,
 };
 

@@ -300,6 +300,25 @@ const HCPCS_DESCRIPTIONS: Record<string, string> = {
   'D2740': 'Crown, porcelain/ceramic substrate',
   '97151': 'Behavior identification assessment',
   '97154': 'Group adaptive behavior treatment, per 15 min',
+  // State-level procedure codes (missing from initial list)
+  'S5150': 'Unskilled respite care, per 15 min',
+  'H2021': 'Community-based wrap-around services, per 15 min',
+  'T2025': 'Waiver services, NOS; per 15 min',
+  'G9005': 'Coordinated care fee, risk-adjusted, ESRD',
+  'S9083': 'Global fee, urgent care centers',
+  'T1999': 'Miscellaneous therapeutic items and supplies',
+  'A0090': 'Non-emergency transport, per mile',
+  'T2022': 'Case management, per month',
+  'H0043': 'Supported housing, per diem',
+  'S5120': 'Chore services, per 15 min',
+  'T2002': 'Non-emergency transport; per trip',
+  'T2038': 'Community transition, waiver; per service',
+  'T2019': 'Habilitation, prevocational, waiver; per 15 min',
+  'T2020': 'Day habilitation, waiver; per diem',
+  'H2023': 'Supported employment, per 15 min',
+  'H2025': 'Ongoing support to maintain employment, per 15 min',
+  'S9122': 'Home health aide or certified nurse, per hour',
+  'T2041': 'Supports brokerage, self-directed; per 15 min',
   // Other procedure codes
   '0128': 'Insertion of brain-computer interface',
 };
@@ -333,6 +352,10 @@ export function formatCpc(n: number | null | undefined): string {
 
 export function hcpcsDescription(code: string): string {
   return HCPCS_DESCRIPTIONS[code] || '';
+}
+
+export function allHcpcsCodes(): Array<{ code: string; desc: string }> {
+  return Object.entries(HCPCS_DESCRIPTIONS).map(([code, desc]) => ({ code, desc }));
 }
 
 export function hcpcsLabel(code: string): string {

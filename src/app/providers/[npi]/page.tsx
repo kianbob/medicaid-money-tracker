@@ -441,11 +441,11 @@ export default function ProviderPage({ params }: Props) {
         )}
         {totalPaid > 0 && (() => {
           const rank = (topProviders as any[]).findIndex((p: any) => p.npi === npi) + 1;
-          const pctAbove = ((1 - (totalPaid > 0 ? rank > 0 ? rank / (stats as any).providers : 0.001 : 1)) * 100);
+          const topPct = rank > 0 ? (rank / (stats as any).providers) * 100 : 100;
           return rank > 0 ? (
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border bg-dark-800 border-dark-500/50">
               <span className="text-sm font-semibold text-white">#{rank}</span>
-              <span className="text-[10px] text-slate-500">of {formatNumber((stats as any).providers)} providers by spending (top {pctAbove.toFixed(1)}%)</span>
+              <span className="text-[10px] text-slate-500">of {formatNumber((stats as any).providers)} providers by spending (top {topPct < 0.1 ? '<0.1' : topPct.toFixed(1)}%)</span>
             </div>
           ) : null;
         })()}

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
-import { formatMoney, stateName } from "@/lib/format";
+import { formatMoney, stateName, allHcpcsCodes } from "@/lib/format";
 import topProviders from "../../public/data/top-providers-1000.json";
 import statesSummary from "../../public/data/states-summary.json";
 
@@ -14,18 +14,7 @@ interface SearchResult {
   stat?: string;
 }
 
-const COMMON_CODES = [
-  { code: "T1019", desc: "Personal care services" },
-  { code: "T2016", desc: "Residential habilitation" },
-  { code: "99213", desc: "Office visit (established, low)" },
-  { code: "99214", desc: "Office visit (established, mod)" },
-  { code: "A0427", desc: "ALS emergency transport" },
-  { code: "H2015", desc: "Comprehensive community support" },
-  { code: "H2016", desc: "Comprehensive community support (per diem)" },
-  { code: "T1015", desc: "Clinic visit/encounter" },
-  { code: "S5125", desc: "Attendant care (per 15 min)" },
-  { code: "T2022", desc: "Case management (per month)" },
-];
+const ALL_CODES = allHcpcsCodes();
 
 export default function GlobalSearch() {
   const [open, setOpen] = useState(false);
@@ -69,7 +58,7 @@ export default function GlobalSearch() {
 
     // Search providers
     for (const p of topProviders as any[]) {
-      if (matches.length >= 8) break;
+      if (matches.length >= 5) break;
       if (
         (p.name || "").toLowerCase().includes(q) ||
         p.npi.includes(q) ||
@@ -100,8 +89,10 @@ export default function GlobalSearch() {
       }
     }
 
-    // Search procedures
-    for (const c of COMMON_CODES) {
+    // Search procedures (all known HCPCS codes)
+    let procCount = 0;
+    for (const c of ALL_CODES) {
+      if (procCount >= 5) break;
       if (c.code.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q)) {
         matches.push({
           type: "procedure",
@@ -109,10 +100,22 @@ export default function GlobalSearch() {
           href: `/procedures/${c.code}`,
           sub: c.desc,
         });
+        procCount++;
       }
     }
 
-    return matches.slice(0, 8);
+    // If query looks like a procedure code (alphanumeric, 4-5 chars) and not already matched, offer direct navigation
+    const trimmed = query.trim().toUpperCase();
+    if (/^[A-Z0-9]{4,5}[A-Z]?$/.test(trimmed) && !matches.some(m => m.type === "procedure" && m.name === trimmed)) {
+      matches.push({
+        type: "procedure",
+        name: trimmed,
+        href: `/procedures/${trimmed}`,
+        sub: "Go to procedure page",
+      });
+    }
+
+    return matches.slice(0, 10);
   }, [query]);
 
   return (

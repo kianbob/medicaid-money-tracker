@@ -40,8 +40,11 @@ def generate_narrative(p):
     sections = []
     name = p.get('name', f"NPI {p['npi']}")
     total = p.get('totalPaid', 0)
-    claims = p.get('totalClaims', 0)
-    benes = p.get('totalBeneficiaries', 0)
+    claims = p.get('totalClaims', 0) or 0
+    benes = p.get('totalBeneficiaries', 0) or 0
+    # If totalBeneficiaries is None/0 but codes have bene data, sum from codes
+    if not benes and p.get('codes'):
+        benes = sum(c.get('beneficiaries', 0) or 0 for c in p['codes'])
     codes = p.get('codes', [])
     flags = p.get('flags', [])
     if isinstance(flags, str):
@@ -62,7 +65,8 @@ def generate_narrative(p):
         overview += f"a {specialty} provider based in {location}. "
     else:
         overview += f"a Medicaid provider based in {location}. "
-    overview += f"From {period}, this provider received {fmt_money(total)} in Medicaid payments across {fmt_num(claims)} claims serving {fmt_num(benes)} beneficiaries"
+    bene_text = f" serving {fmt_num(benes)} beneficiaries" if benes > 0 else ""
+    overview += f"From {period}, this provider received {fmt_money(total)} in Medicaid payments across {fmt_num(claims)} claims{bene_text}"
     if len(codes) > 0:
         overview += f", billing {len(codes)} distinct procedure codes."
     else:
