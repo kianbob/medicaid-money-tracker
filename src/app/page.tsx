@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden hero-gradient-bg" aria-labelledby="hero-heading">
+      <section className="relative overflow-hidden hero-gradient-bg fade-in-up" aria-labelledby="hero-heading">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600/8 via-purple-600/4 to-dark-900" aria-hidden="true" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
@@ -47,7 +47,7 @@ export default function Home() {
                 Last updated: February 2026
               </span>
             </div>
-            <h1 id="hero-heading" className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
+            <h1 id="hero-heading" className="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
               Follow the money.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400">
                 $1.09 trillion
@@ -74,8 +74,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Getting Started */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 fade-in-up delay-1" aria-label="Getting started">
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link href="/providers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-blue-500/30 hover:-translate-y-0.5 transition-all group">
+            <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+              <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </div>
+            <p className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Check a Provider</p>
+            <p className="text-sm text-slate-400 leading-relaxed">Search any of 617,000+ Medicaid providers by name or NPI number.</p>
+          </Link>
+          <Link href="/states" className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-green-500/30 hover:-translate-y-0.5 transition-all group">
+            <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-4">
+              <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            </div>
+            <p className="text-lg font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Explore Your State</p>
+            <p className="text-sm text-slate-400 leading-relaxed">See spending breakdowns and flagged providers for all 50 states.</p>
+          </Link>
+          <Link href="/watchlist" className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-red-500/30 hover:-translate-y-0.5 transition-all group">
+            <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center mb-4">
+              <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            </div>
+            <p className="text-lg font-bold text-white mb-2 group-hover:text-red-400 transition-colors">See the Red Flags</p>
+            <p className="text-sm text-slate-400 leading-relaxed">1,860 providers flagged by statistical tests and machine learning.</p>
+          </Link>
+        </div>
+      </section>
+
       {/* Key Numbers Bar */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6" aria-label="Key statistics">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 fade-in-up delay-2" aria-label="Key statistics">
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
           {[
             { label: "Total Spending", value: formatMoney(stats.totalPaid), sub: "2018\u20132024", color: "text-white" },
@@ -94,10 +121,10 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="how-it-works-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 fade-in-up delay-3" aria-labelledby="how-it-works-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-blue-500 rounded-full" />
-          <h2 id="how-it-works-heading" className="text-xl font-bold text-white">How It Works</h2>
+          <h2 id="how-it-works-heading" className="font-headline text-xl font-bold text-white">How It Works</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-blue-500/20 transition-all">
@@ -125,10 +152,10 @@ export default function Home() {
       </section>
 
       {/* Investigation Highlight */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="investigation-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 fade-in-up" aria-labelledby="investigation-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-red-500 rounded-full" />
-          <h2 id="investigation-heading" className="text-xl font-bold text-white">Key Findings</h2>
+          <h2 id="investigation-heading" className="font-headline text-xl font-bold text-white">Key Findings</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-red-500/20 transition-all group">
@@ -159,18 +186,26 @@ export default function Home() {
       </section>
 
       {/* Featured Investigation */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="featured-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 fade-in-up" aria-labelledby="featured-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-amber-500 rounded-full" />
-          <h2 id="featured-heading" className="text-xl font-bold text-white">Featured Investigation</h2>
+          <h2 id="featured-heading" className="font-headline text-xl font-bold text-white">Featured Investigation</h2>
         </div>
         <Link href="/providers/1396049987" className="block group">
-          <div className="relative overflow-hidden bg-gradient-to-br from-amber-500/10 via-red-500/5 to-dark-800 border border-amber-500/20 rounded-xl p-6 md:p-8 hover:border-amber-500/40 transition-all">
+          <div className="relative overflow-hidden bg-gradient-to-br from-amber-500/10 via-red-500/5 to-dark-800 border border-amber-500/20 rounded-xl p-6 md:p-8 hover:border-amber-500/40 transition-all border-l-4 border-l-red-500/60">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true" />
             <div className="relative">
-              <span className="inline-flex items-center bg-red-500/15 border border-red-500/30 rounded-full px-3 py-1 text-[10px] font-bold text-red-400 uppercase tracking-wider mb-4">
-                Critical Risk &middot; 4 Flags
-              </span>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="inline-flex items-center bg-amber-500/15 border border-amber-500/30 rounded px-2.5 py-1 text-[10px] font-black text-amber-400 uppercase tracking-widest">
+                  Featured Investigation
+                </span>
+                <span className="inline-flex items-center bg-red-500/15 border border-red-500/30 rounded-full px-3 py-1 text-[10px] font-bold text-red-400 uppercase tracking-wider">
+                  Critical Risk &middot; 4 Flags
+                </span>
+              </div>
+              <p className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 tabular-nums mb-3 animate-count">
+                6,886%
+              </p>
               <h3 className="text-lg md:text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors leading-snug">
                 Community Assistance Resources &amp; Extended Services INC grew from $1.6M to $112.6M in one year
               </h3>
@@ -196,7 +231,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <div className="w-1 h-6 bg-blue-500 rounded-full" />
-            <h2 id="trend-heading" className="text-xl font-bold text-white">Spending Growth</h2>
+            <h2 id="trend-heading" className="font-headline text-xl font-bold text-white">Spending Growth</h2>
           </div>
           <Link href="/trends" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
             Full analysis &rarr;
@@ -242,7 +277,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <div className="w-1 h-6 bg-green-500 rounded-full" />
-            <h2 id="providers-heading" className="text-xl font-bold text-white">Highest-Spending Providers</h2>
+            <h2 id="providers-heading" className="font-headline text-xl font-bold text-white">Highest-Spending Providers</h2>
           </div>
           <Link href="/providers" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
             View all 1,000 &rarr;
@@ -279,7 +314,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <div className="w-1 h-6 bg-amber-500 rounded-full" />
-            <h2 id="states-heading" className="text-xl font-bold text-white">Top States by Provider Spending</h2>
+            <h2 id="states-heading" className="font-headline text-xl font-bold text-white">Top States by Provider Spending</h2>
           </div>
           <Link href="/states" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
             All 50 states &rarr;
@@ -305,7 +340,7 @@ export default function Home() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <div className="w-1 h-6 bg-purple-500 rounded-full" />
-            <h2 id="insights-heading" className="text-xl font-bold text-white">Latest Insights</h2>
+            <h2 id="insights-heading" className="font-headline text-xl font-bold text-white">Latest Insights</h2>
           </div>
           <Link href="/insights" className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors">
             All stories &rarr;
@@ -335,7 +370,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="methodology-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-slate-500 rounded-full" />
-          <h2 id="methodology-heading" className="text-xl font-bold text-white">How We Did This</h2>
+          <h2 id="methodology-heading" className="font-headline text-xl font-bold text-white">How We Did This</h2>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
           <p className="text-sm text-slate-300 leading-relaxed mb-4">
@@ -361,18 +396,17 @@ export default function Home() {
         <div className="relative overflow-hidden bg-dark-800 border border-dark-500/50 rounded-2xl p-8 md:p-14 text-center">
           <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 via-transparent to-purple-600/5" aria-hidden="true" />
           <div className="relative">
-            <h2 id="cta-heading" className="text-3xl md:text-4xl font-extrabold text-white mb-4">$1.09 Trillion. {watchlistCount} Red Flags.</h2>
-            <p className="text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
-              We analyzed every Medicaid provider in the country using 13 statistical tests and machine learning trained on confirmed fraud cases. See who got flagged.
+            <p className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 tabular-nums animate-count mb-4">
+              {watchlistCount}
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
-                View the Risk Watchlist
-              </Link>
-              <Link href="/insights" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-8 py-3.5 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
-                Explore Key Findings
-              </Link>
-            </div>
+            <h2 id="cta-heading" className="font-headline text-2xl md:text-3xl font-extrabold text-white mb-3">Red Flags in $1.09 Trillion</h2>
+            <p className="text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
+              We analyzed every Medicaid provider in the country using 13 statistical tests and machine learning. See who got flagged.
+            </p>
+            <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
+              View the Risk Watchlist
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </Link>
           </div>
         </div>
       </section>

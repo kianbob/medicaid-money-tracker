@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import GlobalSearch from "@/components/GlobalSearch";
 
 const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-headline" });
 
 export const metadata: Metadata = {
   title: {
@@ -77,7 +78,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${inter.className} bg-dark-900 text-slate-200 min-h-screen`}>
+      <body className={`${inter.className} ${playfair.variable} bg-dark-900 text-slate-200 min-h-screen`}>
+        {/* Disclaimer Banner */}
+        <div className="bg-slate-800/50 text-center py-1.5 px-4">
+          <p className="text-[11px] text-slate-500">
+            Statistical flags indicate unusual patterns — not proof of fraud or wrongdoing.{" "}
+            <Link href="/analysis" className="text-blue-400/70 hover:text-blue-400 underline underline-offset-2 transition-colors">Read our methodology</Link>
+          </p>
+        </div>
+
         {/* Navigation */}
         <nav className="sticky top-0 z-50 bg-dark-900/80 backdrop-blur-xl border-b border-dark-500/50" role="navigation" aria-label="Main navigation">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
