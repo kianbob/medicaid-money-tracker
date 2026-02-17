@@ -332,6 +332,55 @@ export default function ProviderPage({ params }: Props) {
         </div>
       )}
 
+      {/* Red Flags Explained — expandable plain-English guide */}
+      {flagCount > 0 && (
+        <details className="bg-dark-800 border border-dark-500/50 rounded-xl mb-8 group">
+          <summary className="px-5 py-4 cursor-pointer select-none list-none flex items-center justify-between hover:bg-dark-700/30 transition-colors rounded-xl">
+            <h2 className="text-sm font-bold text-white">Red Flags Explained</h2>
+            <span className="text-slate-500 text-xs group-open:rotate-180 transition-transform">&#9660;</span>
+          </summary>
+          <div className="px-5 pb-5 space-y-4 border-t border-dark-500/50 pt-4">
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Each flag represents a statistical test that identified unusual billing patterns. Here&apos;s what each flag on this provider means in plain English:
+            </p>
+            {allFlags.map((flag: string) => {
+              const plainEnglish: Record<string, string> = {
+                'code_specific_outlier': 'Cost Outlier means this provider charges significantly more per claim than other providers billing the same procedure codes. This could indicate upcoding, inflated charges, or specialized services that justify higher costs.',
+                'billing_swing': 'Billing Swing means this provider\'s total billing changed dramatically from one year to the next — increasing or decreasing by more than 200% with over $1M in absolute change. This could indicate a change in practice scope, a billing scheme ramping up, or legitimate growth.',
+                'massive_new_entrant': 'New Entrant means this provider began billing Medicaid recently but is already receiving millions of dollars in payments. While some new providers legitimately grow fast (e.g., large group practices), this pattern is also common in fraud schemes that set up shell companies to bill aggressively before shutting down.',
+                'rate_outlier_multi_code': 'Rate Outlier means this provider charges above the 90th percentile for multiple different procedure codes simultaneously. While one high-cost code could reflect specialization, consistently high rates across many codes may indicate systematic overbilling.',
+                'outlier_spending': 'Unusually High Spending means this provider\'s total Medicaid payments are significantly above the median for their specialty. This doesn\'t necessarily indicate fraud — high volume practices and those serving complex populations may legitimately bill more.',
+                'unusual_cost_per_claim': 'High Cost Per Claim means each individual claim from this provider costs significantly more than what other providers charge for the same services. This could indicate upcoding (billing for more expensive services than provided) or legitimate specialized care.',
+                'unusual_cost': 'High Cost Per Claim means each individual claim from this provider costs significantly more than what other providers charge for the same services. This could indicate upcoding (billing for more expensive services than provided) or legitimate specialized care.',
+                'explosive_growth': 'Explosive Growth means this provider\'s billing increased by more than 500% year-over-year. While rapid expansion can be legitimate, this pattern has been observed in fraud schemes that ramp up billing quickly before detection.',
+                'instant_high_volume': 'Instant Volume means this provider billed over $1 million in their very first year of Medicaid participation. New providers typically ramp up gradually, so immediate high-volume billing can be a red flag.',
+                'procedure_concentration': 'Single-Code Billing means this provider bills almost exclusively for one or two procedure codes despite high total volume. Legitimate specialists may focus on specific codes, but extreme concentration can indicate a scheme billing repeatedly for the same service.',
+                'billing_consistency': 'Consistent Billing means this provider\'s monthly billing amounts show almost no natural variation. Real medical practices tend to have some fluctuation in monthly billing, so unnaturally steady billing can indicate automated or fabricated claims.',
+                'beneficiary_stuffing': 'High Claims Per Patient means this provider files an unusually high number of claims per individual patient. This could indicate legitimate intensive treatment or a pattern of billing for services not actually rendered.',
+                'bene_stuffing': 'High Claims Per Patient means this provider files an unusually high number of claims per individual patient. This could indicate legitimate intensive treatment or a pattern of billing for services not actually rendered.',
+                'extreme_beneficiary_stuffing': 'Beneficiary Stuffing means this provider files over 100 claims per patient, far exceeding any normal treatment pattern. This is a strong indicator of potential billing abuse.',
+                'spending_spike': 'Spending Spike means this provider experienced a dramatic, sudden increase in billing over a short period. Legitimate causes include new contracts or expanded services, but this pattern also appears in billing fraud ramp-ups.',
+              };
+              const explanation = plainEnglish[flag];
+              if (!explanation) return null;
+              const info = getFlagInfo(flag);
+              return (
+                <div key={flag} className="flex items-start gap-3">
+                  <span className={`text-sm mt-0.5 shrink-0 ${info.color}`}>&bull;</span>
+                  <div>
+                    <p className={`text-xs font-bold ${info.color}`}>{info.label}</p>
+                    <p className="text-xs text-slate-400 leading-relaxed mt-0.5">{explanation}</p>
+                  </div>
+                </div>
+              );
+            })}
+            <p className="text-[10px] text-slate-600 pt-2 border-t border-dark-600/50">
+              These flags are statistical indicators only. Many flagged providers have legitimate explanations for their billing patterns. <Link href="/analysis" className="text-blue-400 hover:underline">Learn more about our methodology</Link>.
+            </p>
+          </div>
+        </details>
+      )}
+
       {/* Risk Assessment — plain-English summary */}
       {flagCount > 0 && procedures.length > 0 && (() => {
         // Build plain-English risk assessment sentences

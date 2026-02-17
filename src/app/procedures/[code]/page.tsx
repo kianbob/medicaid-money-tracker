@@ -7,6 +7,71 @@ import codeBenchmarks from "../../../../public/data/code-benchmarks.json";
 import fs from "fs";
 import path from "path";
 
+// OIG-documented fraud risk context for high-risk procedure categories
+const FRAUD_RISK_CONTEXT: Record<string, { risk: string; source: string }> = {
+  'T1019': {
+    risk: 'The OIG identifies personal care services as the #1 fraud-risk category in Medicaid. Home care agencies have been the subject of numerous federal investigations.',
+    source: 'HHS OIG Work Plan',
+  },
+  '90837': {
+    risk: 'Psychotherapy codes are frequently involved in mental health billing fraud, particularly when billed without face-to-face contact.',
+    source: 'HHS OIG Reports',
+  },
+  '90834': {
+    risk: 'Psychotherapy codes are frequently involved in mental health billing fraud, particularly when billed without face-to-face contact.',
+    source: 'HHS OIG Reports',
+  },
+  '90832': {
+    risk: 'Psychotherapy codes are frequently involved in mental health billing fraud, particularly when billed without face-to-face contact.',
+    source: 'HHS OIG Reports',
+  },
+  'A0427': {
+    risk: 'Ambulance transport codes are a known fraud vector \u2014 the OIG has documented schemes involving unnecessary transports and kickbacks.',
+    source: 'HHS OIG Reports',
+  },
+  'A0429': {
+    risk: 'Ambulance transport codes are a known fraud vector \u2014 the OIG has documented schemes involving unnecessary transports and kickbacks.',
+    source: 'HHS OIG Reports',
+  },
+  'H0015': {
+    risk: 'Substance abuse treatment codes have seen increased scrutiny due to patient brokering and sober home schemes.',
+    source: 'HHS OIG & DOJ Enforcement Actions',
+  },
+  'H0018': {
+    risk: 'Substance abuse treatment codes have seen increased scrutiny due to patient brokering and sober home schemes.',
+    source: 'HHS OIG & DOJ Enforcement Actions',
+  },
+  'H0020': {
+    risk: 'Substance abuse treatment codes have seen increased scrutiny due to patient brokering and sober home schemes.',
+    source: 'HHS OIG & DOJ Enforcement Actions',
+  },
+  'U0003': {
+    risk: 'COVID-19 testing codes saw massive billing increases during 2020\u20132022, with the OIG documenting widespread testing fraud.',
+    source: 'HHS OIG COVID-19 Reports',
+  },
+  'U0004': {
+    risk: 'COVID-19 testing codes saw massive billing increases during 2020\u20132022, with the OIG documenting widespread testing fraud.',
+    source: 'HHS OIG COVID-19 Reports',
+  },
+  'U0005': {
+    risk: 'COVID-19 testing codes saw massive billing increases during 2020\u20132022, with the OIG documenting widespread testing fraud.',
+    source: 'HHS OIG COVID-19 Reports',
+  },
+};
+
+function getFraudRiskContext(code: string): { risk: string; source: string } | null {
+  // Exact match first
+  if (FRAUD_RISK_CONTEXT[code]) return FRAUD_RISK_CONTEXT[code];
+  // J-codes (injectable drugs)
+  if (code.startsWith('J')) {
+    return {
+      risk: 'Injectable drug codes carry high per-claim costs and have been involved in drug diversion and upcoding schemes.',
+      source: 'HHS OIG Reports',
+    };
+  }
+  return null;
+}
+
 function toTitleCase(str: string): string {
   if (!str) return str;
   if (str === str.toUpperCase() && str.length > 3) {
@@ -263,6 +328,18 @@ export default function ProcedureDetailPage({ params }: Props) {
           <div className="bg-blue-500/8 border border-blue-500/20 rounded-xl p-5 mb-8">
             <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">Investigation Context</h3>
             <p className="text-sm text-slate-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: context }} />
+          </div>
+        ) : null;
+      })()}
+
+      {/* Fraud Risk Context */}
+      {(() => {
+        const fraudRisk = getFraudRiskContext(params.code);
+        return fraudRisk ? (
+          <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-5 mb-8">
+            <h3 className="text-xs font-bold text-red-400 uppercase tracking-wider mb-2">Fraud Risk Context</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">{fraudRisk.risk}</p>
+            <p className="text-[10px] text-slate-500 mt-2">Source: {fraudRisk.source}</p>
           </div>
         ) : null;
       })()}
