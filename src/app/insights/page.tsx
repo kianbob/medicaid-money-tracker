@@ -103,6 +103,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         accent: "text-teal-400",
         icon: "📉",
       },
+      {
+        slug: "highest-confidence",
+        title: "Multi-Method Detection: Providers Flagged by Multiple Systems",
+        teaser: "These providers were flagged by 2+ independent detection methods — statistical tests, Benford's Law, billing velocity, and change point detection. When multiple approaches agree, false positive probability drops dramatically.",
+        stat: "442",
+        statLabel: "multi-method flags",
+        color: "from-red-500 to-rose-500",
+        accent: "text-red-400",
+        icon: "🎯",
+      },
     ],
   },
   {

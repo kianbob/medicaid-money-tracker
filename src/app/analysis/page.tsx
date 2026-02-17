@@ -413,6 +413,19 @@ export default function AnalysisPage() {
 
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
             <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                <span className="text-sm">&#128279;</span>
+              </div>
+              <h3 className="text-sm font-bold text-white">Billing Pattern Similarity</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Computes cosine similarity between flagged providers&apos; HCPCS billing distributions to identify clusters
+              of providers billing nearly identical code mixes &mdash; a potential indicator of coordinated fraud rings.
+            </p>
+          </div>
+
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
                 <span className="text-sm">&#128202;</span>
               </div>

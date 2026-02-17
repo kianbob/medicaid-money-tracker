@@ -233,6 +233,10 @@ export default function AboutPage() {
                 a: "Our random forest ML model has an AUC of 0.7762, meaning it correctly ranks a randomly chosen fraud case above a randomly chosen legitimate provider 77.6% of the time. The model was trained on 514 providers confirmed by the OIG as fraudulent. While useful for identifying patterns similar to known fraud, it is one signal among many \u2014 not a definitive fraud detector.",
               },
               {
+                q: "What advanced detection methods do you use?",
+                a: "Beyond the 13 core statistical tests, we apply five advanced techniques: billing velocity analysis (flagging providers filing 50+ claims per working day), Benford\u2019s Law analysis (testing whether claim amounts follow expected leading-digit distributions), CUSUM change point detection (identifying the exact month billing behavior shifted 3x or more), billing pattern similarity (cosine similarity between providers\u2019 HCPCS distributions to find coordinated billing), and HCPCS concentration analysis (Herfindahl index flagging providers billing >$1M on just 1\u20133 codes). See our full methodology for details.",
+              },
+              {
                 q: "Can I download the data?",
                 a: "Yes. The watchlist page includes a CSV export button that downloads all filtered results. For the raw underlying data, visit the HHS Open Data Platform (opendata.hhs.gov) where the original 227M-record Medicaid Provider Spending dataset is publicly available.",
               },
@@ -263,6 +267,7 @@ export default function AboutPage() {
                   { "@type": "Question", "name": "Is this proof of fraud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Statistical flags indicate unusual patterns, not proof of wrongdoing. Our analysis surfaces patterns that may warrant investigation by qualified auditors." } },
                   { "@type": "Question", "name": "Why are hospitals and government entities flagged?", "acceptedAnswer": { "@type": "Answer", "text": "Large institutions often bill at higher aggregate rates due to overhead costs, specialized services, and large populations. Being flagged means the billing pattern is unusual, not that it is fraudulent." } },
                   { "@type": "Question", "name": "How accurate is the ML model?", "acceptedAnswer": { "@type": "Answer", "text": "Our random forest ML model has an AUC of 0.7762, meaning it correctly ranks a fraud case above a legitimate provider 77.6% of the time." } },
+                  { "@type": "Question", "name": "What advanced detection methods do you use?", "acceptedAnswer": { "@type": "Answer", "text": "We apply five advanced techniques beyond core statistical tests: billing velocity analysis, Benford\u2019s Law, CUSUM change point detection, billing pattern similarity, and HCPCS concentration analysis." } },
                   { "@type": "Question", "name": "Can I download the data?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The watchlist page includes a CSV export. Raw data is available from the HHS Open Data Platform." } },
                   { "@type": "Question", "name": "How do I report suspected fraud?", "acceptedAnswer": { "@type": "Answer", "text": "Report suspected Medicaid fraud to the HHS Office of Inspector General (OIG) at 1-800-HHS-TIPS or online at oig.hhs.gov." } },
                   { "@type": "Question", "name": "How often is this updated?", "acceptedAnswer": { "@type": "Answer", "text": "The underlying HHS data covers 2018\u20132024. We update our analysis when HHS releases new data." } },

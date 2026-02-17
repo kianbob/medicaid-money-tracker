@@ -104,7 +104,7 @@ export default function Home() {
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-red-500/20 transition-all group">
             <p className="text-3xl font-extrabold text-red-400 tabular-nums mb-2">{watchlistCount}</p>
             <p className="text-sm font-semibold text-white mb-1">Providers Flagged</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Using 13 statistical tests and machine learning trained on 514 confirmed fraud cases. None of the statistically-flagged providers appear on the OIG exclusion list.</p>
+            <p className="text-xs text-slate-500 leading-relaxed">Using 13 statistical tests, 5 advanced detection methods, and machine learning trained on 514 confirmed fraud cases. None appear on the OIG exclusion list.</p>
             <Link href="/watchlist" className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 mt-3 font-medium transition-colors">
               View watchlist <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
