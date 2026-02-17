@@ -272,6 +272,26 @@ export default function AboutPage() {
           />
         </section>
 
+        {/* Project Timeline */}
+        <section aria-labelledby="timeline-heading">
+          <h2 id="timeline-heading" className="text-xl font-bold text-white mb-6">Project Timeline</h2>
+          <div className="relative ml-4">
+            <div className="absolute left-0 top-2 bottom-2 w-px bg-dark-500" aria-hidden="true" />
+            {[
+              { date: "February 13, 2026", title: "HHS Data Release", desc: "HHS DOGE open-sources 227 million aggregated Medicaid billing records covering 2018\u20132024 \u2014 the largest Medicaid dataset in department history." },
+              { date: "February 14\u201315, 2026", title: "Analysis & Fraud Detection", desc: "Built 13 statistical fraud tests including 4 code-specific smart tests with national benchmarks across 9,578 HCPCS codes. Trained random forest ML model on 514 OIG-excluded providers (AUC: 0.77)." },
+              { date: "February 16, 2026", title: "Site Launch", desc: "Medicaid Money Tracker goes live with 12,800+ static pages covering 1,889 providers, 10,881 procedures, and 49 states. Data journalism articles published." },
+            ].map((item, i) => (
+              <div key={i} className="relative pl-8 pb-8 last:pb-0">
+                <div className="absolute left-0 top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 border-2 border-dark-900 -translate-x-[calc(50%-0.5px)]" aria-hidden="true" />
+                <p className="text-xs font-semibold text-blue-400 mb-1">{item.date}</p>
+                <h3 className="text-sm font-bold text-white mb-1">{item.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Built By */}
         <section aria-labelledby="built-heading">
           <h2 id="built-heading" className="text-xl font-bold text-white mb-4">Built By</h2>

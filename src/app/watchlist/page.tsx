@@ -198,23 +198,26 @@ function WatchlistContent() {
   // Read initial values from URL
   const initialTab = VALID_TABS.includes(searchParams.get('tab') as TabOption) ? searchParams.get('tab') as TabOption : 'all';
   const initialState = searchParams.get('state') || 'all';
+  const initialSearch = searchParams.get('search') || '';
 
   const allProviders = useMemo(() => getMergedProviders(), []);
   const [activeTab, setActiveTab] = useState<TabOption>(initialTab);
   const [riskFilter, setRiskFilter] = useState<string>("all");
   const [flagFilter, setFlagFilter] = useState<string>("all");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(initialSearch);
   const [sortBy, setSortBy] = useState<SortOption>(initialTab === 'ml' ? 'ml' : 'risk');
   const [stateFilter, setStateFilter] = useState<string>(initialState);
 
-  // Update URL when tab or state changes
-  const updateUrl = useCallback((tab: TabOption, state: string) => {
+  // Update URL when tab, state, or search changes
+  const updateUrl = useCallback((tab: TabOption, state: string, searchVal?: string) => {
     const params = new URLSearchParams();
     if (tab !== 'all') params.set('tab', tab);
     if (state !== 'all') params.set('state', state);
+    const s = searchVal ?? search;
+    if (s) params.set('search', s);
     const qs = params.toString();
     router.replace(`/watchlist${qs ? `?${qs}` : ''}`, { scroll: false });
-  }, [router]);
+  }, [router, search]);
 
   // Split providers by detection method
   const statProviders = useMemo(() => allProviders.filter(p => p.flagCount > 0), [allProviders]);
@@ -472,7 +475,7 @@ function WatchlistContent() {
           type="search"
           placeholder="Search by name, NPI, state, or city..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => { setSearch(e.target.value); updateUrl(activeTab, stateFilter, e.target.value); }}
           className="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
         />
         {activeTab !== 'ml' && (

@@ -414,3 +414,50 @@ export function RiskTierChart({ data }: { data: RiskTierDatum[] }) {
     </ResponsiveContainer>
   );
 }
+
+/* ─── 7. State Procedure PieChart ─── */
+
+interface StateProcDatum {
+  name: string;
+  value: number;
+  color: string;
+}
+
+const PROC_COLORS = ["#3b82f6", "#8b5cf6", "#f59e0b", "#10b981", "#ef4444"];
+
+function StateProcTooltip({ active, payload }: any) {
+  if (!active || !payload?.length) return null;
+  const d = payload[0].payload;
+  return (
+    <div style={tooltipStyle}>
+      <p className="font-semibold text-white mb-0.5">{d.name}</p>
+      <p className="text-blue-400 tabular-nums">{formatMoney(d.value)}</p>
+    </div>
+  );
+}
+
+export function StateProcedurePieChart({ data }: { data: StateProcDatum[] }) {
+  return (
+    <ResponsiveContainer width="100%" height={200}>
+      <PieChart>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={45}
+          outerRadius={75}
+          paddingAngle={2}
+          dataKey="value"
+          stroke="none"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Pie>
+        <Tooltip content={<StateProcTooltip />} />
+      </PieChart>
+    </ResponsiveContainer>
+  );
+}
+
+export { PROC_COLORS };

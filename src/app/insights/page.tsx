@@ -463,6 +463,28 @@ export default function InsightsIndex() {
           </p>
         </div>
       </section>
+      {/* Submit a Tip */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 text-center">
+          <div className="w-10 h-10 rounded-full bg-blue-500/15 border border-blue-500/30 flex items-center justify-center mx-auto mb-4">
+            <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          </div>
+          <h2 className="text-lg font-bold text-white mb-2">Submit a Tip</h2>
+          <p className="text-sm text-slate-400 max-w-lg mx-auto leading-relaxed mb-4">
+            Know something about a flagged provider? Have data we should look at? Get in touch.
+          </p>
+          <a
+            href="mailto:kianventures@gmail.com"
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-2.5 rounded-lg transition-all text-sm"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            kianventures@gmail.com
+          </a>
+          <p className="text-[10px] text-slate-600 mt-3">
+            All tips are confidential. Whistleblower protections exist under the False Claims Act.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

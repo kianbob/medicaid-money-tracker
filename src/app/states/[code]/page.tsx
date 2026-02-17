@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName, hcpcsDescription, getFlagInfo, riskColor, riskBgColor } from "@/lib/format";
-import { StateSpendingChart } from "@/components/Charts";
+import { StateSpendingChart, StateProcedurePieChart, PROC_COLORS } from "@/components/Charts";
 import StateProviderList from "@/components/StateProviderList";
 import statesSummary from "../../../../public/data/states-summary.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
@@ -255,6 +255,34 @@ export default function StateDetailPage({ params }: Props) {
           </div>
         );
       })()}
+
+      {/* Top Procedures Pie Chart */}
+      {procedures.length > 0 && (
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-4">
+          <h2 className="text-sm font-bold text-white mb-3">Spending by Top Procedures</h2>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="w-full sm:w-1/2">
+              <StateProcedurePieChart
+                data={procedures.slice(0, 5).map((p: any, i: number) => ({
+                  name: p.code,
+                  value: p.payments || p.total_payments || p.totalPaid || 0,
+                  color: PROC_COLORS[i],
+                }))}
+              />
+            </div>
+            <div className="w-full sm:w-1/2 space-y-1.5">
+              {procedures.slice(0, 5).map((p: any, i: number) => (
+                <div key={p.code} className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-sm shrink-0" style={{ backgroundColor: PROC_COLORS[i] }} />
+                  <Link href={`/procedures/${p.code}`} className="text-xs text-white hover:text-blue-400 font-mono font-medium transition-colors">{p.code}</Link>
+                  <span className="text-[10px] text-slate-500 truncate flex-1">{hcpcsDescription(p.code) || ''}</span>
+                  <span className="text-xs text-slate-300 font-bold tabular-nums shrink-0">{formatMoney(p.payments || p.total_payments || p.totalPaid || 0)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Top Procedures */}
       {procedures.length > 0 && (
