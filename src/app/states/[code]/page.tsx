@@ -169,8 +169,8 @@ export default function StateDetailPage({ params }: Props) {
                       </Link>
                       {hcpcsDescription(p.code) && <p className="text-[10px] text-slate-500 mt-0.5">{hcpcsDescription(p.code)}</p>}
                     </td>
-                    <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.total_payments || p.totalPaid || 0)}</td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs hidden sm:table-cell tabular-nums">{formatNumber(p.total_claims || p.totalClaims || 0)}</td>
+                    <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.payments || p.total_payments || p.totalPaid || 0)}</td>
+                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs hidden sm:table-cell tabular-nums">{formatNumber(p.claims || p.total_claims || p.totalClaims || 0)}</td>
                   </tr>
                 ))}
               </tbody>
