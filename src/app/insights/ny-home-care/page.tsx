@@ -142,9 +142,15 @@ export default function NYHomeCare() {
             <div key={p.npi} className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-3 hover:border-dark-400 transition-colors">
               <span className="text-xl font-extrabold text-slate-700 w-6 text-right tabular-nums">{i + 1}</span>
               <div className="flex-1 min-w-0">
-                <Link href={`/providers/${p.npi}`} className="text-white font-semibold hover:text-blue-400 transition-colors truncate block">
-                  NPI: {p.npi}
-                </Link>
+                {p.name ? (
+                  <Link href={`/providers/${p.npi}`} className="text-white font-semibold hover:text-blue-400 transition-colors truncate block">
+                    {p.name}
+                  </Link>
+                ) : (
+                  <Link href={`/providers/${p.npi}`} className="font-mono text-blue-400 hover:text-blue-300 transition-colors truncate block">
+                    NPI {p.npi}
+                  </Link>
+                )}
                 <p className="text-xs text-slate-500">{p.city}, {p.state} · {p.monthsActive} months active</p>
               </div>
               <div className="text-right shrink-0">
@@ -179,9 +185,15 @@ export default function NYHomeCare() {
                 <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                   <td data-label="Rank" className="py-2.5 pr-3 text-slate-600 tabular-nums">{i + 1}</td>
                   <td data-label="Provider" className="py-2.5 pr-3">
-                    <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 transition-colors">
-                      NPI: {p.npi}
-                    </Link>
+                    {p.name ? (
+                      <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 transition-colors">
+                        {p.name}
+                      </Link>
+                    ) : (
+                      <Link href={`/providers/${p.npi}`} className="font-mono text-blue-400 hover:text-blue-300 transition-colors">
+                        NPI {p.npi}
+                      </Link>
+                    )}
                   </td>
                   <td data-label="Location" className="py-2.5 pr-3 text-slate-500">{p.city}, {p.state}</td>
                   <td data-label="Total Paid" className="py-2.5 pr-3 text-right text-white font-semibold tabular-nums">{formatMoney(p.totalPaid)}</td>

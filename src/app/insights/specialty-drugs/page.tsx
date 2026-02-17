@@ -3,6 +3,29 @@ import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
 import pharmaData from "../../../../public/data/specialty-pharma.json";
 
+/* Extra J-code descriptions not in the main hcpcsDescription lookup */
+const jCodeDescriptions: Record<string, string> = {
+  J2326: "Nusinersen (Spinraza)",
+  J2426: "Canakinumab (Ilaris)",
+  J7999: "Compounded drug, NOC",
+  J0642: "Injectable, NOC",
+  J0548: "Injectable, NOC",
+  J0178: "Emicizumab-kxwh (Hemlibra)",
+  J0039: "Not otherwise classified",
+  J9395: "Tisagenlecleucel (Kymriah)",
+  J2350: "Ocrelizumab (Ocrevus)",
+  J3584: "Burosumab-twza (Crysvita)",
+  J1726: "Trastuzumab (Herceptin)",
+  J7170: "Emicizumab (Hemlibra) prefilled syringe",
+  J3590: "Unclassified biologic",
+  J9354: "Ado-trastuzumab emtansine",
+  J3397: "Ustekinumab (Stelara)",
+};
+
+function getJCodeDescription(code: string): string {
+  return hcpcsDescription(code) || jCodeDescriptions[code] || "";
+}
+
 export const metadata: Metadata = {
   title: "Inside Medicaid's Most Expensive Drugs — Specialty J-Codes — Medicaid",
   description: "50 provider-administered drugs billed through Medicaid as J-codes. The most expensive costs $92,158 per claim. Combined spending exceeds $3.5 billion.",
@@ -83,7 +106,7 @@ export default function SpecialtyDrugs() {
           <p className="text-white font-semibold mb-1">The most expensive: {formatMoney(mostExpensive.costPerClaim)} per claim</p>
           <p className="text-sm text-slate-400 leading-relaxed">
             Code <span className="text-amber-400 font-semibold">{mostExpensive.code}</span>
-            {hcpcsDescription(mostExpensive.code) ? ` (${hcpcsDescription(mostExpensive.code)})` : ''} averages{' '}
+            {getJCodeDescription(mostExpensive.code) ? ` (${getJCodeDescription(mostExpensive.code)})` : ''} averages{' '}
             <span className="text-amber-400 font-semibold">{formatMoney(mostExpensive.costPerClaim)}</span> per claim.
             Just <span className="text-white font-semibold">{mostExpensive.providerCount} provider{mostExpensive.providerCount !== 1 ? 's' : ''}</span> billed
             it, serving {formatNumber(mostExpensive.totalBenes)} beneficiaries for a total
@@ -118,7 +141,7 @@ export default function SpecialtyDrugs() {
             return (
               <>
                 <span className="text-amber-400 font-semibold">{biggest.code}</span>
-                {hcpcsDescription(biggest.code) ? ` (${hcpcsDescription(biggest.code)})` : ''} at{' '}
+                {getJCodeDescription(biggest.code) ? ` (${getJCodeDescription(biggest.code)})` : ''} at{' '}
                 <span className="text-white font-semibold">{formatMoney(biggest.totalPaid)}</span>
               </>
             );
@@ -165,7 +188,7 @@ export default function SpecialtyDrugs() {
                     </Link>
                   </td>
                   <td data-label="Description" className="py-2.5 pr-3 text-slate-400 text-xs max-w-[200px] truncate">
-                    {hcpcsDescription(p.code) || '—'}
+                    {getJCodeDescription(p.code) || <span className="text-slate-600 font-mono">{p.code}</span>}
                   </td>
                   <td data-label="Cost/Claim" className="py-2.5 pr-3 text-right text-white font-semibold tabular-nums">{formatMoney(p.costPerClaim)}</td>
                   <td data-label="Total Paid" className="py-2.5 pr-3 text-right text-slate-300 tabular-nums">{formatMoney(p.totalPaid)}</td>
