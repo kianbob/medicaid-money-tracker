@@ -1,0 +1,105 @@
+{
+  "npi": "1427532746",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 171698.75,
+  "totalClaims": 3066,
+  "totalBeneficiaries": 2670,
+  "costPerClaim": 56.0,
+  "costPerBeneficiary": 64.31,
+  "claimsPerBeneficiary": 1.1,
+  "growthRate": 102.0,
+  "codeCount": 10,
+  "yearlyData": {
+    "2022": {
+      "totalPaid": 26775.0,
+      "totalClaims": 84,
+      "totalBeneficiaries": 84
+    },
+    "2023": {
+      "totalPaid": 90843.75,
+      "totalClaims": 1259,
+      "totalBeneficiaries": 1021
+    },
+    "2024": {
+      "totalPaid": 54080.0,
+      "totalClaims": 1723,
+      "totalBeneficiaries": 1565
+    }
+  },
+  "procedures": [
+    {
+      "code": "99203",
+      "totalPaid": 161298.75,
+      "totalClaims": 541,
+      "totalBeneficiaries": 499,
+      "costPerClaim": 298.15
+    },
+    {
+      "code": "99213",
+      "totalPaid": 5200.0,
+      "totalClaims": 20,
+      "totalBeneficiaries": 20,
+      "costPerClaim": 260.0
+    },
+    {
+      "code": "99342",
+      "totalPaid": 5200.0,
+      "totalClaims": 16,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 325.0
+    },
+    {
+      "code": "1101F",
+      "totalPaid": 0.0,
+      "totalClaims": 409,
+      "totalBeneficiaries": 347,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "1170F",
+      "totalPaid": 0.0,
+      "totalClaims": 434,
+      "totalBeneficiaries": 372,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "1125F",
+      "totalPaid": 0.0,
+      "totalClaims": 95,
+      "totalBeneficiaries": 85,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "1159F",
+      "totalPaid": 0.0,
+      "totalClaims": 425,
+      "totalBeneficiaries": 366,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "1090F",
+      "totalPaid": 0.0,
+      "totalClaims": 431,
+      "totalBeneficiaries": 369,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "1126F",
+      "totalPaid": 0.0,
+      "totalClaims": 270,
+      "totalBeneficiaries": 232,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "1160F",
+      "totalPaid": 0.0,
+      "totalClaims": 425,
+      "totalBeneficiaries": 366,
+      "costPerClaim": 0.0
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "npi": "1720474828",
+  "name": "Ericka Rockwell",
+  "city": "Huntington Beach",
+  "state": "CA",
+  "specialty": "Behavior Analyst",
+  "entityType": "Individual",
+  "totalPaid": 470614.45,
+  "totalClaims": 4734,
+  "totalBeneficiaries": 1139,
+  "costPerClaim": 99.41,
+  "costPerBeneficiary": 413.18,
+  "claimsPerBeneficiary": 4.2,
+  "growthRate": -26.5,
+  "codeCount": 3,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 83396.7,
+      "totalClaims": 919,
+      "totalBeneficiaries": 277
+    },
+    "2022": {
+      "totalPaid": 325893.0,
+      "totalClaims": 3377,
+      "totalBeneficiaries": 757
+    },
+    "2023": {
+      "totalPaid": 61324.75,
+      "totalClaims": 438,
+      "totalBeneficiaries": 105
+    }
+  },
+  "procedures": [
+    {
+      "code": "H2019",
+      "totalPaid": 334395.75,
+      "totalClaims": 3182,
+      "totalBeneficiaries": 530,
+      "costPerClaim": 105.09
+    },
+    {
+      "code": "H0032",
+      "totalPaid": 116414.7,
+      "totalClaims": 1211,
+      "totalBeneficiaries": 412,
+      "costPerClaim": 96.13
+    },
+    {
+      "code": "S5110",
+      "totalPaid": 19804.0,
+      "totalClaims": 341,
+      "totalBeneficiaries": 197,
+      "costPerClaim": 58.08
+    }
+  ]
+}

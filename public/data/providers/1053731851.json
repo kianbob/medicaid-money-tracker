@@ -1,0 +1,72 @@
+{
+  "npi": "1053731851",
+  "name": "Catch 22 Life Services Llc.",
+  "city": "Henderson",
+  "state": "NV",
+  "specialty": "Community/Behavioral Health",
+  "entityType": "Organization",
+  "totalPaid": 1099787.63,
+  "totalClaims": 11825,
+  "totalBeneficiaries": 3213,
+  "costPerClaim": 93.01,
+  "costPerBeneficiary": 342.29,
+  "claimsPerBeneficiary": 3.7,
+  "growthRate": -20.9,
+  "codeCount": 6,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 614168.96,
+      "totalClaims": 6349,
+      "totalBeneficiaries": 1829
+    },
+    "2019": {
+      "totalPaid": 485618.67,
+      "totalClaims": 5476,
+      "totalBeneficiaries": 1384
+    }
+  },
+  "procedures": [
+    {
+      "code": "H0004",
+      "totalPaid": 680482.44,
+      "totalClaims": 6232,
+      "totalBeneficiaries": 1643,
+      "costPerClaim": 109.19
+    },
+    {
+      "code": "90847",
+      "totalPaid": 378581.64,
+      "totalClaims": 5092,
+      "totalBeneficiaries": 1340,
+      "costPerClaim": 74.35
+    },
+    {
+      "code": "H2017",
+      "totalPaid": 27969.1,
+      "totalClaims": 296,
+      "totalBeneficiaries": 62,
+      "costPerClaim": 94.49
+    },
+    {
+      "code": "H0031",
+      "totalPaid": 9675.68,
+      "totalClaims": 89,
+      "totalBeneficiaries": 55,
+      "costPerClaim": 108.72
+    },
+    {
+      "code": "H0002",
+      "totalPaid": 2707.76,
+      "totalClaims": 92,
+      "totalBeneficiaries": 89,
+      "costPerClaim": 29.43
+    },
+    {
+      "code": "96151",
+      "totalPaid": 371.01,
+      "totalClaims": 24,
+      "totalBeneficiaries": 24,
+      "costPerClaim": 15.46
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "npi": "1588167472",
+  "name": "Adversities N Time Llc",
+  "city": "Las Vegas",
+  "state": "NV",
+  "specialty": "Community/Behavioral Health",
+  "entityType": "Organization",
+  "totalPaid": 762762.28,
+  "totalClaims": 6216,
+  "totalBeneficiaries": 743,
+  "costPerClaim": 122.71,
+  "costPerBeneficiary": 1026.6,
+  "claimsPerBeneficiary": 8.4,
+  "growthRate": 15.5,
+  "codeCount": 5,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 195225.5,
+      "totalClaims": 1502,
+      "totalBeneficiaries": 141
+    },
+    "2019": {
+      "totalPaid": 342124.66,
+      "totalClaims": 2667,
+      "totalBeneficiaries": 358
+    },
+    "2020": {
+      "totalPaid": 225412.12,
+      "totalClaims": 2047,
+      "totalBeneficiaries": 244
+    }
+  },
+  "procedures": [
+    {
+      "code": "S9480",
+      "totalPaid": 663204.9,
+      "totalClaims": 5255,
+      "totalBeneficiaries": 579,
+      "costPerClaim": 126.2
+    },
+    {
+      "code": "H2011",
+      "totalPaid": 90680.76,
+      "totalClaims": 228,
+      "totalBeneficiaries": 58,
+      "costPerClaim": 397.72
+    },
+    {
+      "code": "Q3014",
+      "totalPaid": 4217.76,
+      "totalClaims": 693,
+      "totalBeneficiaries": 66,
+      "costPerClaim": 6.09
+    },
+    {
+      "code": "H0031",
+      "totalPaid": 3469.21,
+      "totalClaims": 27,
+      "totalBeneficiaries": 27,
+      "costPerClaim": 128.49
+    },
+    {
+      "code": "90837",
+      "totalPaid": 1189.65,
+      "totalClaims": 13,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 91.51
+    }
+  ]
+}

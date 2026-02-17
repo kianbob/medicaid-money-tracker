@@ -1,0 +1,112 @@
+{
+  "npi": "1497163075",
+  "name": "Sonia El-kweifi",
+  "city": "Pueblo",
+  "state": "CO",
+  "specialty": "Dentist, General Practice",
+  "entityType": "Individual",
+  "totalPaid": 213361.37,
+  "totalClaims": 3874,
+  "totalBeneficiaries": 2454,
+  "costPerClaim": 55.08,
+  "costPerBeneficiary": 86.94,
+  "claimsPerBeneficiary": 1.6,
+  "growthRate": 1072.3,
+  "codeCount": 11,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 6803.37,
+      "totalClaims": 188,
+      "totalBeneficiaries": 132
+    },
+    "2022": {
+      "totalPaid": 126800.0,
+      "totalClaims": 2442,
+      "totalBeneficiaries": 1434
+    },
+    "2023": {
+      "totalPaid": 79758.0,
+      "totalClaims": 1244,
+      "totalBeneficiaries": 888
+    }
+  },
+  "procedures": [
+    {
+      "code": "D7140",
+      "totalPaid": 99225.0,
+      "totalClaims": 1472,
+      "totalBeneficiaries": 464,
+      "costPerClaim": 67.41
+    },
+    {
+      "code": "D0330",
+      "totalPaid": 36681.0,
+      "totalClaims": 739,
+      "totalBeneficiaries": 663,
+      "costPerClaim": 49.64
+    },
+    {
+      "code": "D7210",
+      "totalPaid": 30694.0,
+      "totalClaims": 250,
+      "totalBeneficiaries": 123,
+      "costPerClaim": 122.78
+    },
+    {
+      "code": "D0150",
+      "totalPaid": 15912.0,
+      "totalClaims": 487,
+      "totalBeneficiaries": 438,
+      "costPerClaim": 32.67
+    },
+    {
+      "code": "D9110",
+      "totalPaid": 14600.0,
+      "totalClaims": 422,
+      "totalBeneficiaries": 374,
+      "costPerClaim": 34.6
+    },
+    {
+      "code": "D0140",
+      "totalPaid": 10326.0,
+      "totalClaims": 349,
+      "totalBeneficiaries": 290,
+      "costPerClaim": 29.59
+    },
+    {
+      "code": "D2392",
+      "totalPaid": 2535.0,
+      "totalClaims": 42,
+      "totalBeneficiaries": 16,
+      "costPerClaim": 60.36
+    },
+    {
+      "code": "D1206",
+      "totalPaid": 1627.61,
+      "totalClaims": 48,
+      "totalBeneficiaries": 37,
+      "costPerClaim": 33.91
+    },
+    {
+      "code": "D1110",
+      "totalPaid": 946.0,
+      "totalClaims": 25,
+      "totalBeneficiaries": 18,
+      "costPerClaim": 37.84
+    },
+    {
+      "code": "D0274",
+      "totalPaid": 488.0,
+      "totalClaims": 21,
+      "totalBeneficiaries": 17,
+      "costPerClaim": 23.24
+    },
+    {
+      "code": "D0120",
+      "totalPaid": 326.76,
+      "totalClaims": 19,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 17.2
+    }
+  ]
+}

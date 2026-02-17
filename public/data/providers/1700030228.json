@@ -1,0 +1,63 @@
+{
+  "npi": "1700030228",
+  "name": "Child'splay Therapy Center",
+  "city": "Birmingham",
+  "state": "AL",
+  "specialty": "Speech-Language Pathologist,  ",
+  "entityType": "Organization",
+  "totalPaid": 522321.64,
+  "totalClaims": 7618,
+  "totalBeneficiaries": 2640,
+  "costPerClaim": 68.56,
+  "costPerBeneficiary": 197.85,
+  "claimsPerBeneficiary": 2.9,
+  "growthRate": 58.3,
+  "codeCount": 4,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 143261.14,
+      "totalClaims": 2051,
+      "totalBeneficiaries": 721
+    },
+    "2019": {
+      "totalPaid": 152302.1,
+      "totalClaims": 2373,
+      "totalBeneficiaries": 797
+    },
+    "2020": {
+      "totalPaid": 226758.4,
+      "totalClaims": 3194,
+      "totalBeneficiaries": 1122
+    }
+  },
+  "procedures": [
+    {
+      "code": "92507",
+      "totalPaid": 280971.36,
+      "totalClaims": 4347,
+      "totalBeneficiaries": 1453,
+      "costPerClaim": 64.64
+    },
+    {
+      "code": "97530",
+      "totalPaid": 237035.02,
+      "totalClaims": 3230,
+      "totalBeneficiaries": 1163,
+      "costPerClaim": 73.39
+    },
+    {
+      "code": "92523",
+      "totalPaid": 2160.76,
+      "totalClaims": 12,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 180.06
+    },
+    {
+      "code": "92526",
+      "totalPaid": 2154.5,
+      "totalClaims": 29,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 74.29
+    }
+  ]
+}

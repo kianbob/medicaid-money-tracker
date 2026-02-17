@@ -1,0 +1,53 @@
+{
+  "npi": "1457859316",
+  "name": "Sereena Creamer",
+  "city": "Kent",
+  "state": "OH",
+  "specialty": "Counselor, Mental Health",
+  "entityType": "Individual",
+  "totalPaid": 96014.41,
+  "totalClaims": 1096,
+  "totalBeneficiaries": 567,
+  "costPerClaim": 87.6,
+  "costPerBeneficiary": 169.34,
+  "claimsPerBeneficiary": 1.9,
+  "growthRate": null,
+  "codeCount": 4,
+  "yearlyData": {
+    "2024": {
+      "totalPaid": 96014.41,
+      "totalClaims": 1096,
+      "totalBeneficiaries": 567
+    }
+  },
+  "procedures": [
+    {
+      "code": "90837",
+      "totalPaid": 89184.5,
+      "totalClaims": 991,
+      "totalBeneficiaries": 474,
+      "costPerClaim": 89.99
+    },
+    {
+      "code": "90834",
+      "totalPaid": 3466.79,
+      "totalClaims": 56,
+      "totalBeneficiaries": 49,
+      "costPerClaim": 61.91
+    },
+    {
+      "code": "90791",
+      "totalPaid": 2567.53,
+      "totalClaims": 30,
+      "totalBeneficiaries": 30,
+      "costPerClaim": 85.58
+    },
+    {
+      "code": "90832",
+      "totalPaid": 795.59,
+      "totalClaims": 19,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 41.87
+    }
+  ]
+}

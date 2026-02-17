@@ -1,0 +1,86 @@
+{
+  "npi": "1578257275",
+  "name": "Oriented Healthcare, Llc",
+  "city": "Baltimore",
+  "state": "MD",
+  "specialty": "Clinic/Center, Mental Health (Including Community Mental Health Center)",
+  "entityType": "Organization",
+  "totalPaid": 736666.2,
+  "totalClaims": 8495,
+  "totalBeneficiaries": 1496,
+  "costPerClaim": 86.72,
+  "costPerBeneficiary": 492.42,
+  "claimsPerBeneficiary": 5.7,
+  "growthRate": 1748.4,
+  "codeCount": 8,
+  "yearlyData": {
+    "2023": {
+      "totalPaid": 37808.59,
+      "totalClaims": 409,
+      "totalBeneficiaries": 102
+    },
+    "2024": {
+      "totalPaid": 698857.61,
+      "totalClaims": 8086,
+      "totalBeneficiaries": 1394
+    }
+  },
+  "procedures": [
+    {
+      "code": "90853",
+      "totalPaid": 561001.38,
+      "totalClaims": 7324,
+      "totalBeneficiaries": 672,
+      "costPerClaim": 76.6
+    },
+    {
+      "code": "90834",
+      "totalPaid": 79206.52,
+      "totalClaims": 576,
+      "totalBeneficiaries": 306,
+      "costPerClaim": 137.51
+    },
+    {
+      "code": "90792",
+      "totalPaid": 46666.06,
+      "totalClaims": 179,
+      "totalBeneficiaries": 179,
+      "costPerClaim": 260.7
+    },
+    {
+      "code": "99214",
+      "totalPaid": 31777.18,
+      "totalClaims": 240,
+      "totalBeneficiaries": 206,
+      "costPerClaim": 132.4
+    },
+    {
+      "code": "90832",
+      "totalPaid": 8843.01,
+      "totalClaims": 122,
+      "totalBeneficiaries": 89,
+      "costPerClaim": 72.48
+    },
+    {
+      "code": "90791",
+      "totalPaid": 3882.56,
+      "totalClaims": 16,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 242.66
+    },
+    {
+      "code": "90837",
+      "totalPaid": 3518.44,
+      "totalClaims": 23,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 152.98
+    },
+    {
+      "code": "H0032",
+      "totalPaid": 1771.05,
+      "totalClaims": 15,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 118.07
+    }
+  ]
+}

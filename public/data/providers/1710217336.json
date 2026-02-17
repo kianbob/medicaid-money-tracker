@@ -1,0 +1,58 @@
+{
+  "npi": "1710217336",
+  "name": "Camelot Care Centers, Llc",
+  "city": "Matteson",
+  "state": "IL",
+  "specialty": "Clinic/Center, Adolescent and Children Mental Health",
+  "entityType": "Organization",
+  "totalPaid": 196695.69,
+  "totalClaims": 2265,
+  "totalBeneficiaries": 792,
+  "costPerClaim": 86.84,
+  "costPerBeneficiary": 248.35,
+  "claimsPerBeneficiary": 2.9,
+  "growthRate": -83.8,
+  "codeCount": 4,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 169266.88,
+      "totalClaims": 1894,
+      "totalBeneficiaries": 666
+    },
+    "2019": {
+      "totalPaid": 27428.81,
+      "totalClaims": 371,
+      "totalBeneficiaries": 126
+    }
+  },
+  "procedures": [
+    {
+      "code": "H0004",
+      "totalPaid": 148490.49,
+      "totalClaims": 1591,
+      "totalBeneficiaries": 460,
+      "costPerClaim": 93.33
+    },
+    {
+      "code": "T1016",
+      "totalPaid": 20393.58,
+      "totalClaims": 403,
+      "totalBeneficiaries": 247,
+      "costPerClaim": 50.6
+    },
+    {
+      "code": "H2000",
+      "totalPaid": 17519.64,
+      "totalClaims": 181,
+      "totalBeneficiaries": 56,
+      "costPerClaim": 96.79
+    },
+    {
+      "code": "H0032",
+      "totalPaid": 10291.98,
+      "totalClaims": 90,
+      "totalBeneficiaries": 29,
+      "costPerClaim": 114.36
+    }
+  ]
+}

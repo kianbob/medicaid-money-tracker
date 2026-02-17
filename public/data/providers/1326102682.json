@@ -1,0 +1,88 @@
+{
+  "npi": "1326102682",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 70203.84,
+  "totalClaims": 3566,
+  "totalBeneficiaries": 2169,
+  "costPerClaim": 19.69,
+  "costPerBeneficiary": 32.37,
+  "claimsPerBeneficiary": 1.6,
+  "growthRate": null,
+  "codeCount": 9,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 70203.84,
+      "totalClaims": 3566,
+      "totalBeneficiaries": 2169
+    }
+  },
+  "procedures": [
+    {
+      "code": "E1390",
+      "totalPaid": 57372.71,
+      "totalClaims": 1760,
+      "totalBeneficiaries": 1046,
+      "costPerClaim": 32.6
+    },
+    {
+      "code": "E0601",
+      "totalPaid": 4997.41,
+      "totalClaims": 208,
+      "totalBeneficiaries": 105,
+      "costPerClaim": 24.03
+    },
+    {
+      "code": "E0431",
+      "totalPaid": 4568.62,
+      "totalClaims": 827,
+      "totalBeneficiaries": 496,
+      "costPerClaim": 5.52
+    },
+    {
+      "code": "E1392",
+      "totalPaid": 741.27,
+      "totalClaims": 130,
+      "totalBeneficiaries": 81,
+      "costPerClaim": 5.7
+    },
+    {
+      "code": "A7037",
+      "totalPaid": 720.01,
+      "totalClaims": 66,
+      "totalBeneficiaries": 42,
+      "costPerClaim": 10.91
+    },
+    {
+      "code": "A7038",
+      "totalPaid": 697.59,
+      "totalClaims": 282,
+      "totalBeneficiaries": 207,
+      "costPerClaim": 2.47
+    },
+    {
+      "code": "E0570",
+      "totalPaid": 623.9,
+      "totalClaims": 191,
+      "totalBeneficiaries": 124,
+      "costPerClaim": 3.27
+    },
+    {
+      "code": "A7035",
+      "totalPaid": 449.64,
+      "totalClaims": 43,
+      "totalBeneficiaries": 25,
+      "costPerClaim": 10.46
+    },
+    {
+      "code": "A7003",
+      "totalPaid": 32.69,
+      "totalClaims": 59,
+      "totalBeneficiaries": 43,
+      "costPerClaim": 0.55
+    }
+  ]
+}

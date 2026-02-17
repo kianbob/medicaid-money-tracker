@@ -1,0 +1,109 @@
+{
+  "npi": "1649245523",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 41347.61,
+  "totalClaims": 3181,
+  "totalBeneficiaries": 2467,
+  "costPerClaim": 13.0,
+  "costPerBeneficiary": 16.76,
+  "claimsPerBeneficiary": 1.3,
+  "growthRate": null,
+  "codeCount": 12,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 41347.61,
+      "totalClaims": 3181,
+      "totalBeneficiaries": 2467
+    }
+  },
+  "procedures": [
+    {
+      "code": "E1390",
+      "totalPaid": 25656.66,
+      "totalClaims": 856,
+      "totalBeneficiaries": 710,
+      "costPerClaim": 29.97
+    },
+    {
+      "code": "E0431",
+      "totalPaid": 4614.47,
+      "totalClaims": 738,
+      "totalBeneficiaries": 606,
+      "costPerClaim": 6.25
+    },
+    {
+      "code": "A7030",
+      "totalPaid": 3014.41,
+      "totalClaims": 126,
+      "totalBeneficiaries": 84,
+      "costPerClaim": 23.92
+    },
+    {
+      "code": "E0601",
+      "totalPaid": 3003.21,
+      "totalClaims": 233,
+      "totalBeneficiaries": 172,
+      "costPerClaim": 12.89
+    },
+    {
+      "code": "A7031",
+      "totalPaid": 1618.25,
+      "totalClaims": 167,
+      "totalBeneficiaries": 108,
+      "costPerClaim": 9.69
+    },
+    {
+      "code": "A7037",
+      "totalPaid": 1434.81,
+      "totalClaims": 299,
+      "totalBeneficiaries": 202,
+      "costPerClaim": 4.8
+    },
+    {
+      "code": "E0570",
+      "totalPaid": 690.83,
+      "totalClaims": 275,
+      "totalBeneficiaries": 247,
+      "costPerClaim": 2.51
+    },
+    {
+      "code": "A7038",
+      "totalPaid": 497.98,
+      "totalClaims": 349,
+      "totalBeneficiaries": 237,
+      "costPerClaim": 1.43
+    },
+    {
+      "code": "A7035",
+      "totalPaid": 441.87,
+      "totalClaims": 83,
+      "totalBeneficiaries": 61,
+      "costPerClaim": 5.32
+    },
+    {
+      "code": "A7034",
+      "totalPaid": 223.1,
+      "totalClaims": 20,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 11.15
+    },
+    {
+      "code": "E0562",
+      "totalPaid": 120.76,
+      "totalClaims": 21,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 5.75
+    },
+    {
+      "code": "A7046",
+      "totalPaid": 31.26,
+      "totalClaims": 14,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 2.23
+    }
+  ]
+}

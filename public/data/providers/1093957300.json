@@ -1,0 +1,63 @@
+{
+  "npi": "1093957300",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 428854.52,
+  "totalClaims": 7195,
+  "totalBeneficiaries": 2393,
+  "costPerClaim": 59.6,
+  "costPerBeneficiary": 179.21,
+  "claimsPerBeneficiary": 3.0,
+  "growthRate": -38.5,
+  "codeCount": 4,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 134937.88,
+      "totalClaims": 2267,
+      "totalBeneficiaries": 720
+    },
+    "2019": {
+      "totalPaid": 210947.55,
+      "totalClaims": 3364,
+      "totalBeneficiaries": 1113
+    },
+    "2020": {
+      "totalPaid": 82969.09,
+      "totalClaims": 1564,
+      "totalBeneficiaries": 560
+    }
+  },
+  "procedures": [
+    {
+      "code": "H0004",
+      "totalPaid": 239598.56,
+      "totalClaims": 3202,
+      "totalBeneficiaries": 980,
+      "costPerClaim": 74.83
+    },
+    {
+      "code": "H2015",
+      "totalPaid": 116805.11,
+      "totalClaims": 1914,
+      "totalBeneficiaries": 568,
+      "costPerClaim": 61.03
+    },
+    {
+      "code": "T1016",
+      "totalPaid": 59899.39,
+      "totalClaims": 1920,
+      "totalBeneficiaries": 781,
+      "costPerClaim": 31.2
+    },
+    {
+      "code": "H2000",
+      "totalPaid": 12551.46,
+      "totalClaims": 159,
+      "totalBeneficiaries": 64,
+      "costPerClaim": 78.94
+    }
+  ]
+}

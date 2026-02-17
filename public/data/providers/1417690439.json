@@ -1,0 +1,60 @@
+{
+  "npi": "1417690439",
+  "name": "Gambrills Sisters Health Care",
+  "city": "Gambrills",
+  "state": "MD",
+  "specialty": "Clinic/Center, Mental Health (Including Community Mental Health Center)",
+  "entityType": "Organization",
+  "totalPaid": 510535.99,
+  "totalClaims": 5561,
+  "totalBeneficiaries": 1139,
+  "costPerClaim": 91.81,
+  "costPerBeneficiary": 448.23,
+  "claimsPerBeneficiary": 4.9,
+  "growthRate": null,
+  "codeCount": 5,
+  "yearlyData": {
+    "2024": {
+      "totalPaid": 510535.99,
+      "totalClaims": 5561,
+      "totalBeneficiaries": 1139
+    }
+  },
+  "procedures": [
+    {
+      "code": "99214",
+      "totalPaid": 328826.42,
+      "totalClaims": 2668,
+      "totalBeneficiaries": 472,
+      "costPerClaim": 123.25
+    },
+    {
+      "code": "90833",
+      "totalPaid": 130277.98,
+      "totalClaims": 2586,
+      "totalBeneficiaries": 480,
+      "costPerClaim": 50.38
+    },
+    {
+      "code": "99205",
+      "totalPaid": 24402.52,
+      "totalClaims": 105,
+      "totalBeneficiaries": 105,
+      "costPerClaim": 232.4
+    },
+    {
+      "code": "99215",
+      "totalPaid": 17019.81,
+      "totalClaims": 88,
+      "totalBeneficiaries": 43,
+      "costPerClaim": 193.41
+    },
+    {
+      "code": "90834",
+      "totalPaid": 10009.26,
+      "totalClaims": 114,
+      "totalBeneficiaries": 39,
+      "costPerClaim": 87.8
+    }
+  ]
+}

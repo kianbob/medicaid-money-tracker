@@ -1,0 +1,44 @@
+{
+  "npi": "1891492203",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 80438.73,
+  "totalClaims": 1421,
+  "totalBeneficiaries": 390,
+  "costPerClaim": 56.61,
+  "costPerBeneficiary": 206.25,
+  "claimsPerBeneficiary": 3.6,
+  "growthRate": -100.0,
+  "codeCount": 2,
+  "yearlyData": {
+    "2023": {
+      "totalPaid": 80438.73,
+      "totalClaims": 812,
+      "totalBeneficiaries": 96
+    },
+    "2024": {
+      "totalPaid": 0.0,
+      "totalClaims": 609,
+      "totalBeneficiaries": 294
+    }
+  },
+  "procedures": [
+    {
+      "code": "A0425",
+      "totalPaid": 62736.5,
+      "totalClaims": 714,
+      "totalBeneficiaries": 197,
+      "costPerClaim": 87.87
+    },
+    {
+      "code": "A0120",
+      "totalPaid": 17702.23,
+      "totalClaims": 707,
+      "totalBeneficiaries": 193,
+      "costPerClaim": 25.04
+    }
+  ]
+}

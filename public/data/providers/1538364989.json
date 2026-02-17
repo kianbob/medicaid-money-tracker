@@ -1,0 +1,70 @@
+{
+  "npi": "1538364989",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 94293.42,
+  "totalClaims": 3660,
+  "totalBeneficiaries": 2093,
+  "costPerClaim": 25.76,
+  "costPerBeneficiary": 45.05,
+  "claimsPerBeneficiary": 1.7,
+  "growthRate": null,
+  "codeCount": 5,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 0.0,
+      "totalClaims": 113,
+      "totalBeneficiaries": 26
+    },
+    "2023": {
+      "totalPaid": 21424.08,
+      "totalClaims": 901,
+      "totalBeneficiaries": 582
+    },
+    "2024": {
+      "totalPaid": 72869.34,
+      "totalClaims": 2646,
+      "totalBeneficiaries": 1485
+    }
+  },
+  "procedures": [
+    {
+      "code": "99213",
+      "totalPaid": 56397.83,
+      "totalClaims": 1140,
+      "totalBeneficiaries": 662,
+      "costPerClaim": 49.47
+    },
+    {
+      "code": "11901",
+      "totalPaid": 26145.97,
+      "totalClaims": 846,
+      "totalBeneficiaries": 476,
+      "costPerClaim": 30.91
+    },
+    {
+      "code": "11900",
+      "totalPaid": 8422.86,
+      "totalClaims": 353,
+      "totalBeneficiaries": 226,
+      "costPerClaim": 23.86
+    },
+    {
+      "code": "J3301",
+      "totalPaid": 3326.76,
+      "totalClaims": 1208,
+      "totalBeneficiaries": 703,
+      "costPerClaim": 2.75
+    },
+    {
+      "code": "99080",
+      "totalPaid": 0.0,
+      "totalClaims": 113,
+      "totalBeneficiaries": 26,
+      "costPerClaim": 0.0
+    }
+  ]
+}

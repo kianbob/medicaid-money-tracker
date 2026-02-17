@@ -1,0 +1,46 @@
+{
+  "npi": "1346281730",
+  "name": "Heather Dazell",
+  "city": "Spokane",
+  "state": "WA",
+  "specialty": "Social Worker, Clinical",
+  "entityType": "Individual",
+  "totalPaid": 122840.15,
+  "totalClaims": 2064,
+  "totalBeneficiaries": 913,
+  "costPerClaim": 59.52,
+  "costPerBeneficiary": 134.55,
+  "claimsPerBeneficiary": 2.3,
+  "growthRate": null,
+  "codeCount": 3,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 122840.15,
+      "totalClaims": 2064,
+      "totalBeneficiaries": 913
+    }
+  },
+  "procedures": [
+    {
+      "code": "90837",
+      "totalPaid": 111509.55,
+      "totalClaims": 1844,
+      "totalBeneficiaries": 766,
+      "costPerClaim": 60.47
+    },
+    {
+      "code": "90834",
+      "totalPaid": 5979.49,
+      "totalClaims": 134,
+      "totalBeneficiaries": 62,
+      "costPerClaim": 44.62
+    },
+    {
+      "code": "90791",
+      "totalPaid": 5351.11,
+      "totalClaims": 86,
+      "totalBeneficiaries": 85,
+      "costPerClaim": 62.22
+    }
+  ]
+}

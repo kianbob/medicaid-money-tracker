@@ -1,0 +1,46 @@
+{
+  "npi": "1942952932",
+  "name": "Kidscare Home Health Of South Carolina, Llc",
+  "city": "North Charleston",
+  "state": "SC",
+  "specialty": "Home Health",
+  "entityType": "Organization",
+  "totalPaid": 788162.26,
+  "totalClaims": 8600,
+  "totalBeneficiaries": 2242,
+  "costPerClaim": 91.65,
+  "costPerBeneficiary": 351.54,
+  "claimsPerBeneficiary": 3.8,
+  "growthRate": null,
+  "codeCount": 3,
+  "yearlyData": {
+    "2024": {
+      "totalPaid": 788162.26,
+      "totalClaims": 8600,
+      "totalBeneficiaries": 2242
+    }
+  },
+  "procedures": [
+    {
+      "code": "S9129",
+      "totalPaid": 368452.15,
+      "totalClaims": 4032,
+      "totalBeneficiaries": 1005,
+      "costPerClaim": 91.38
+    },
+    {
+      "code": "S9128",
+      "totalPaid": 348556.76,
+      "totalClaims": 3687,
+      "totalBeneficiaries": 990,
+      "costPerClaim": 94.54
+    },
+    {
+      "code": "S9131",
+      "totalPaid": 71153.35,
+      "totalClaims": 881,
+      "totalBeneficiaries": 247,
+      "costPerClaim": 80.76
+    }
+  ]
+}

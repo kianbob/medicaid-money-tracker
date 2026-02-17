@@ -1,0 +1,56 @@
+{
+  "npi": "1356959712",
+  "name": "Joanne Choi",
+  "city": "Redondo Beach",
+  "state": "CA",
+  "specialty": "Psychologist, Clinical",
+  "entityType": "Individual",
+  "totalPaid": 538331.6,
+  "totalClaims": 5737,
+  "totalBeneficiaries": 1142,
+  "costPerClaim": 93.84,
+  "costPerBeneficiary": 471.39,
+  "claimsPerBeneficiary": 5.0,
+  "growthRate": 168.8,
+  "codeCount": 3,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 44344.1,
+      "totalClaims": 529,
+      "totalBeneficiaries": 132
+    },
+    "2022": {
+      "totalPaid": 374790.5,
+      "totalClaims": 4054,
+      "totalBeneficiaries": 766
+    },
+    "2023": {
+      "totalPaid": 119197.0,
+      "totalClaims": 1154,
+      "totalBeneficiaries": 244
+    }
+  },
+  "procedures": [
+    {
+      "code": "H2019",
+      "totalPaid": 309953.5,
+      "totalClaims": 2996,
+      "totalBeneficiaries": 384,
+      "costPerClaim": 103.46
+    },
+    {
+      "code": "H0032",
+      "totalPaid": 175322.1,
+      "totalClaims": 1798,
+      "totalBeneficiaries": 401,
+      "costPerClaim": 97.51
+    },
+    {
+      "code": "S5110",
+      "totalPaid": 53056.0,
+      "totalClaims": 943,
+      "totalBeneficiaries": 357,
+      "costPerClaim": 56.26
+    }
+  ]
+}

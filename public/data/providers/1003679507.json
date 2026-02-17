@@ -1,0 +1,53 @@
+{
+  "npi": "1003679507",
+  "name": "Blossom Therapy Center Llc",
+  "city": "Adelphi",
+  "state": "MD",
+  "specialty": "Speech-Language Pathologist,  ",
+  "entityType": "Organization",
+  "totalPaid": 492163.35,
+  "totalClaims": 6211,
+  "totalBeneficiaries": 1423,
+  "costPerClaim": 79.24,
+  "costPerBeneficiary": 345.86,
+  "claimsPerBeneficiary": 4.4,
+  "growthRate": null,
+  "codeCount": 4,
+  "yearlyData": {
+    "2024": {
+      "totalPaid": 492163.35,
+      "totalClaims": 6211,
+      "totalBeneficiaries": 1423
+    }
+  },
+  "procedures": [
+    {
+      "code": "97530",
+      "totalPaid": 270608.8,
+      "totalClaims": 2430,
+      "totalBeneficiaries": 567,
+      "costPerClaim": 111.36
+    },
+    {
+      "code": "92507",
+      "totalPaid": 214878.42,
+      "totalClaims": 3706,
+      "totalBeneficiaries": 793,
+      "costPerClaim": 57.98
+    },
+    {
+      "code": "92523",
+      "totalPaid": 4465.13,
+      "totalClaims": 39,
+      "totalBeneficiaries": 30,
+      "costPerClaim": 114.49
+    },
+    {
+      "code": "97166",
+      "totalPaid": 2211.0,
+      "totalClaims": 36,
+      "totalBeneficiaries": 33,
+      "costPerClaim": 61.42
+    }
+  ]
+}

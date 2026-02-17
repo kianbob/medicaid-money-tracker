@@ -1,0 +1,60 @@
+{
+  "npi": "1093764847",
+  "name": "Kenneth Brodsky",
+  "city": "Paris",
+  "state": "KY",
+  "specialty": "Family Medicine",
+  "entityType": "Individual",
+  "totalPaid": 200957.77,
+  "totalClaims": 3673,
+  "totalBeneficiaries": 1720,
+  "costPerClaim": 54.71,
+  "costPerBeneficiary": 116.84,
+  "claimsPerBeneficiary": 2.1,
+  "growthRate": null,
+  "codeCount": 5,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 200957.77,
+      "totalClaims": 3673,
+      "totalBeneficiaries": 1720
+    }
+  },
+  "procedures": [
+    {
+      "code": "80307",
+      "totalPaid": 109636.1,
+      "totalClaims": 1802,
+      "totalBeneficiaries": 807,
+      "costPerClaim": 60.84
+    },
+    {
+      "code": "99213",
+      "totalPaid": 88650.56,
+      "totalClaims": 1730,
+      "totalBeneficiaries": 780,
+      "costPerClaim": 51.24
+    },
+    {
+      "code": "G0480",
+      "totalPaid": 1716.45,
+      "totalClaims": 17,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 100.97
+    },
+    {
+      "code": "81025",
+      "totalPaid": 909.66,
+      "totalClaims": 108,
+      "totalBeneficiaries": 105,
+      "costPerClaim": 8.42
+    },
+    {
+      "code": "36415",
+      "totalPaid": 45.0,
+      "totalClaims": 16,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 2.81
+    }
+  ]
+}

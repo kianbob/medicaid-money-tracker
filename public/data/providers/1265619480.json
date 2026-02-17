@@ -1,0 +1,86 @@
+{
+  "npi": "1265619480",
+  "name": "Cuong Bui",
+  "city": "Plano",
+  "state": "TX",
+  "specialty": "Dentist, General Practice",
+  "entityType": "Individual",
+  "totalPaid": 61578.67,
+  "totalClaims": 1949,
+  "totalBeneficiaries": 949,
+  "costPerClaim": 31.6,
+  "costPerBeneficiary": 64.89,
+  "claimsPerBeneficiary": 2.1,
+  "growthRate": -97.5,
+  "codeCount": 8,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 60081.01,
+      "totalClaims": 1838,
+      "totalBeneficiaries": 878
+    },
+    "2019": {
+      "totalPaid": 1497.66,
+      "totalClaims": 111,
+      "totalBeneficiaries": 71
+    }
+  },
+  "procedures": [
+    {
+      "code": "D2392",
+      "totalPaid": 33791.4,
+      "totalClaims": 323,
+      "totalBeneficiaries": 71,
+      "costPerClaim": 104.62
+    },
+    {
+      "code": "D1351",
+      "totalPaid": 10844.16,
+      "totalClaims": 384,
+      "totalBeneficiaries": 66,
+      "costPerClaim": 28.24
+    },
+    {
+      "code": "D0230",
+      "totalPaid": 6723.22,
+      "totalClaims": 587,
+      "totalBeneficiaries": 161,
+      "costPerClaim": 11.45
+    },
+    {
+      "code": "D1120",
+      "totalPaid": 2976.75,
+      "totalClaims": 84,
+      "totalBeneficiaries": 84,
+      "costPerClaim": 35.44
+    },
+    {
+      "code": "D0150",
+      "totalPaid": 2896.24,
+      "totalClaims": 83,
+      "totalBeneficiaries": 82,
+      "costPerClaim": 34.89
+    },
+    {
+      "code": "D1208",
+      "totalPaid": 2337.3,
+      "totalClaims": 161,
+      "totalBeneficiaries": 160,
+      "costPerClaim": 14.52
+    },
+    {
+      "code": "D0220",
+      "totalPaid": 2009.6,
+      "totalClaims": 162,
+      "totalBeneficiaries": 161,
+      "costPerClaim": 12.4
+    },
+    {
+      "code": "D0603",
+      "totalPaid": 0.0,
+      "totalClaims": 165,
+      "totalBeneficiaries": 164,
+      "costPerClaim": 0.0
+    }
+  ]
+}

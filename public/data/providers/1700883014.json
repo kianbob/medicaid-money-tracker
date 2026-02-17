@@ -1,0 +1,107 @@
+{
+  "npi": "1700883014",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 164297.57,
+  "totalClaims": 2114,
+  "totalBeneficiaries": 1853,
+  "costPerClaim": 77.72,
+  "costPerBeneficiary": 88.67,
+  "claimsPerBeneficiary": 1.1,
+  "growthRate": -98.2,
+  "codeCount": 11,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 161449.61,
+      "totalClaims": 2086,
+      "totalBeneficiaries": 1827
+    },
+    "2019": {
+      "totalPaid": 2847.96,
+      "totalClaims": 28,
+      "totalBeneficiaries": 26
+    }
+  },
+  "procedures": [
+    {
+      "code": "99214",
+      "totalPaid": 142400.07,
+      "totalClaims": 1388,
+      "totalBeneficiaries": 1216,
+      "costPerClaim": 102.59
+    },
+    {
+      "code": "80307",
+      "totalPaid": 18039.41,
+      "totalClaims": 461,
+      "totalBeneficiaries": 441,
+      "costPerClaim": 39.13
+    },
+    {
+      "code": "77002",
+      "totalPaid": 3020.36,
+      "totalClaims": 41,
+      "totalBeneficiaries": 27,
+      "costPerClaim": 73.67
+    },
+    {
+      "code": "J0702",
+      "totalPaid": 440.18,
+      "totalClaims": 41,
+      "totalBeneficiaries": 28,
+      "costPerClaim": 10.74
+    },
+    {
+      "code": "96372",
+      "totalPaid": 311.08,
+      "totalClaims": 15,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 20.74
+    },
+    {
+      "code": "J1885",
+      "totalPaid": 50.5,
+      "totalClaims": 12,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 4.21
+    },
+    {
+      "code": "Q9967",
+      "totalPaid": 35.72,
+      "totalClaims": 37,
+      "totalBeneficiaries": 25,
+      "costPerClaim": 0.97
+    },
+    {
+      "code": "A4215",
+      "totalPaid": 0.25,
+      "totalClaims": 46,
+      "totalBeneficiaries": 32,
+      "costPerClaim": 0.01
+    },
+    {
+      "code": "J2001",
+      "totalPaid": 0.0,
+      "totalClaims": 46,
+      "totalBeneficiaries": 32,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "G0444",
+      "totalPaid": 0.0,
+      "totalClaims": 15,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "H0049",
+      "totalPaid": 0.0,
+      "totalClaims": 12,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 0.0
+    }
+  ]
+}

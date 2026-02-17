@@ -1,0 +1,107 @@
+{
+  "npi": "1053712166",
+  "name": "Brady Powell",
+  "city": "North Las Vegas",
+  "state": "NV",
+  "specialty": "Physical Therapist",
+  "entityType": "Individual",
+  "totalPaid": 383238.33,
+  "totalClaims": 8839,
+  "totalBeneficiaries": 2434,
+  "costPerClaim": 43.36,
+  "costPerBeneficiary": 157.45,
+  "claimsPerBeneficiary": 3.6,
+  "growthRate": -99.4,
+  "codeCount": 11,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 380784.89,
+      "totalClaims": 8817,
+      "totalBeneficiaries": 2417
+    },
+    "2019": {
+      "totalPaid": 2453.44,
+      "totalClaims": 22,
+      "totalBeneficiaries": 17
+    }
+  },
+  "procedures": [
+    {
+      "code": "97530",
+      "totalPaid": 226521.91,
+      "totalClaims": 2289,
+      "totalBeneficiaries": 567,
+      "costPerClaim": 98.96
+    },
+    {
+      "code": "97110",
+      "totalPaid": 60779.9,
+      "totalClaims": 830,
+      "totalBeneficiaries": 290,
+      "costPerClaim": 73.23
+    },
+    {
+      "code": "29200",
+      "totalPaid": 25847.65,
+      "totalClaims": 777,
+      "totalBeneficiaries": 183,
+      "costPerClaim": 33.27
+    },
+    {
+      "code": "97140",
+      "totalPaid": 19784.21,
+      "totalClaims": 1062,
+      "totalBeneficiaries": 271,
+      "costPerClaim": 18.63
+    },
+    {
+      "code": "97014",
+      "totalPaid": 16449.5,
+      "totalClaims": 1573,
+      "totalBeneficiaries": 365,
+      "costPerClaim": 10.46
+    },
+    {
+      "code": "97112",
+      "totalPaid": 7182.3,
+      "totalClaims": 300,
+      "totalBeneficiaries": 82,
+      "costPerClaim": 23.94
+    },
+    {
+      "code": "97161",
+      "totalPaid": 6244.68,
+      "totalClaims": 105,
+      "totalBeneficiaries": 101,
+      "costPerClaim": 59.47
+    },
+    {
+      "code": "97164",
+      "totalPaid": 5993.79,
+      "totalClaims": 165,
+      "totalBeneficiaries": 150,
+      "costPerClaim": 36.33
+    },
+    {
+      "code": "29530",
+      "totalPaid": 5799.24,
+      "totalClaims": 192,
+      "totalBeneficiaries": 38,
+      "costPerClaim": 30.2
+    },
+    {
+      "code": "97010",
+      "totalPaid": 5286.24,
+      "totalClaims": 1491,
+      "totalBeneficiaries": 332,
+      "costPerClaim": 3.55
+    },
+    {
+      "code": "97162",
+      "totalPaid": 3348.91,
+      "totalClaims": 55,
+      "totalBeneficiaries": 55,
+      "costPerClaim": 60.89
+    }
+  ]
+}

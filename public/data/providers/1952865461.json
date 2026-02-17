@@ -1,0 +1,39 @@
+{
+  "npi": "1952865461",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 110738.37,
+  "totalClaims": 1887,
+  "totalBeneficiaries": 989,
+  "costPerClaim": 58.68,
+  "costPerBeneficiary": 111.97,
+  "claimsPerBeneficiary": 1.9,
+  "growthRate": null,
+  "codeCount": 2,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 110738.37,
+      "totalClaims": 1887,
+      "totalBeneficiaries": 989
+    }
+  },
+  "procedures": [
+    {
+      "code": "80307",
+      "totalPaid": 86711.8,
+      "totalClaims": 1694,
+      "totalBeneficiaries": 821,
+      "costPerClaim": 51.19
+    },
+    {
+      "code": "G0481",
+      "totalPaid": 24026.57,
+      "totalClaims": 193,
+      "totalBeneficiaries": 168,
+      "costPerClaim": 124.49
+    }
+  ]
+}

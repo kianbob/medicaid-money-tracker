@@ -1,0 +1,88 @@
+{
+  "npi": "1457580003",
+  "name": "Thomas William Howard, Iii",
+  "city": "Lexington",
+  "state": "KY",
+  "specialty": "Internal Medicine, Rheumatology",
+  "entityType": "Individual",
+  "totalPaid": 281745.09,
+  "totalClaims": 6883,
+  "totalBeneficiaries": 4307,
+  "costPerClaim": 40.93,
+  "costPerBeneficiary": 65.42,
+  "claimsPerBeneficiary": 1.6,
+  "growthRate": null,
+  "codeCount": 9,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 281745.09,
+      "totalClaims": 6883,
+      "totalBeneficiaries": 4307
+    }
+  },
+  "procedures": [
+    {
+      "code": "80307",
+      "totalPaid": 95157.98,
+      "totalClaims": 1612,
+      "totalBeneficiaries": 807,
+      "costPerClaim": 59.03
+    },
+    {
+      "code": "99213",
+      "totalPaid": 73424.44,
+      "totalClaims": 1535,
+      "totalBeneficiaries": 790,
+      "costPerClaim": 47.83
+    },
+    {
+      "code": "90837",
+      "totalPaid": 40924.8,
+      "totalClaims": 539,
+      "totalBeneficiaries": 445,
+      "costPerClaim": 75.93
+    },
+    {
+      "code": "90853",
+      "totalPaid": 28410.79,
+      "totalClaims": 1866,
+      "totalBeneficiaries": 1241,
+      "costPerClaim": 15.23
+    },
+    {
+      "code": "H0038",
+      "totalPaid": 18612.55,
+      "totalClaims": 705,
+      "totalBeneficiaries": 464,
+      "costPerClaim": 26.4
+    },
+    {
+      "code": "90832",
+      "totalPaid": 12972.27,
+      "totalClaims": 353,
+      "totalBeneficiaries": 309,
+      "costPerClaim": 36.75
+    },
+    {
+      "code": "90834",
+      "totalPaid": 7216.23,
+      "totalClaims": 140,
+      "totalBeneficiaries": 132,
+      "costPerClaim": 51.54
+    },
+    {
+      "code": "G0480",
+      "totalPaid": 4233.91,
+      "totalClaims": 37,
+      "totalBeneficiaries": 28,
+      "costPerClaim": 114.43
+    },
+    {
+      "code": "81025",
+      "totalPaid": 792.12,
+      "totalClaims": 96,
+      "totalBeneficiaries": 91,
+      "costPerClaim": 8.25
+    }
+  ]
+}

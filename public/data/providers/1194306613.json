@@ -1,0 +1,96 @@
+{
+  "npi": "1194306613",
+  "name": "Debras House, Llc",
+  "city": "Louisville",
+  "state": "KY",
+  "specialty": "Clinic/Center, Multi-Specialty",
+  "entityType": "Organization",
+  "totalPaid": 2116517.93,
+  "totalClaims": 16875,
+  "totalBeneficiaries": 1989,
+  "costPerClaim": 125.42,
+  "costPerBeneficiary": 1064.11,
+  "claimsPerBeneficiary": 8.5,
+  "growthRate": -59.1,
+  "codeCount": 8,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 428177.11,
+      "totalClaims": 2456,
+      "totalBeneficiaries": 303
+    },
+    "2022": {
+      "totalPaid": 726595.76,
+      "totalClaims": 5764,
+      "totalBeneficiaries": 471
+    },
+    "2023": {
+      "totalPaid": 786452.75,
+      "totalClaims": 7250,
+      "totalBeneficiaries": 1034
+    },
+    "2024": {
+      "totalPaid": 175292.31,
+      "totalClaims": 1405,
+      "totalBeneficiaries": 181
+    }
+  },
+  "procedures": [
+    {
+      "code": "H0038",
+      "totalPaid": 1053474.04,
+      "totalClaims": 9465,
+      "totalBeneficiaries": 770,
+      "costPerClaim": 111.3
+    },
+    {
+      "code": "H2020",
+      "totalPaid": 382434.09,
+      "totalClaims": 2004,
+      "totalBeneficiaries": 440,
+      "costPerClaim": 190.84
+    },
+    {
+      "code": "H0015",
+      "totalPaid": 337233.34,
+      "totalClaims": 3160,
+      "totalBeneficiaries": 478,
+      "costPerClaim": 106.72
+    },
+    {
+      "code": "H2027",
+      "totalPaid": 333468.39,
+      "totalClaims": 2112,
+      "totalBeneficiaries": 168,
+      "costPerClaim": 157.89
+    },
+    {
+      "code": "90791",
+      "totalPaid": 5023.4,
+      "totalClaims": 59,
+      "totalBeneficiaries": 58,
+      "costPerClaim": 85.14
+    },
+    {
+      "code": "T1007",
+      "totalPaid": 1982.74,
+      "totalClaims": 31,
+      "totalBeneficiaries": 31,
+      "costPerClaim": 63.96
+    },
+    {
+      "code": "H0001",
+      "totalPaid": 1952.75,
+      "totalClaims": 30,
+      "totalBeneficiaries": 30,
+      "costPerClaim": 65.09
+    },
+    {
+      "code": "H0002",
+      "totalPaid": 949.18,
+      "totalClaims": 14,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 67.8
+    }
+  ]
+}

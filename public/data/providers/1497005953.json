@@ -1,0 +1,39 @@
+{
+  "npi": "1497005953",
+  "name": "At Home Caring Angels, Llc",
+  "city": "Mukwonago",
+  "state": "WI",
+  "specialty": "In Home Supportive Care",
+  "entityType": "Organization",
+  "totalPaid": 155302.79,
+  "totalClaims": 2783,
+  "totalBeneficiaries": 795,
+  "costPerClaim": 55.8,
+  "costPerBeneficiary": 195.35,
+  "claimsPerBeneficiary": 3.5,
+  "growthRate": null,
+  "codeCount": 2,
+  "yearlyData": {
+    "2024": {
+      "totalPaid": 155302.79,
+      "totalClaims": 2783,
+      "totalBeneficiaries": 795
+    }
+  },
+  "procedures": [
+    {
+      "code": "T2003",
+      "totalPaid": 112959.64,
+      "totalClaims": 1759,
+      "totalBeneficiaries": 473,
+      "costPerClaim": 64.22
+    },
+    {
+      "code": "S0215",
+      "totalPaid": 42343.15,
+      "totalClaims": 1024,
+      "totalBeneficiaries": 322,
+      "costPerClaim": 41.35
+    }
+  ]
+}

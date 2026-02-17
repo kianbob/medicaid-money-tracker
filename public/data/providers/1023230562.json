@@ -1,0 +1,53 @@
+{
+  "npi": "1023230562",
+  "name": "Tri-county Ambulance, Inc",
+  "city": "Batesville",
+  "state": "IN",
+  "specialty": "Ambulance",
+  "entityType": "Organization",
+  "totalPaid": 195087.47,
+  "totalClaims": 8439,
+  "totalBeneficiaries": 2294,
+  "costPerClaim": 23.12,
+  "costPerBeneficiary": 85.04,
+  "claimsPerBeneficiary": 3.7,
+  "growthRate": null,
+  "codeCount": 4,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 195087.47,
+      "totalClaims": 8439,
+      "totalBeneficiaries": 2294
+    }
+  },
+  "procedures": [
+    {
+      "code": "A0130",
+      "totalPaid": 82050.5,
+      "totalClaims": 3474,
+      "totalBeneficiaries": 953,
+      "costPerClaim": 23.62
+    },
+    {
+      "code": "A0428",
+      "totalPaid": 61354.32,
+      "totalClaims": 1605,
+      "totalBeneficiaries": 327,
+      "costPerClaim": 38.23
+    },
+    {
+      "code": "A0425",
+      "totalPaid": 49176.65,
+      "totalClaims": 3148,
+      "totalBeneficiaries": 913,
+      "costPerClaim": 15.62
+    },
+    {
+      "code": "T2003",
+      "totalPaid": 2506.0,
+      "totalClaims": 212,
+      "totalBeneficiaries": 101,
+      "costPerClaim": 11.82
+    }
+  ]
+}

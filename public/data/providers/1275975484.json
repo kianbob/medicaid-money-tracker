@@ -1,0 +1,46 @@
+{
+  "npi": "1275975484",
+  "name": "Quanna La'kisha Cross",
+  "city": "Columbia",
+  "state": "SC",
+  "specialty": "Counselor, Professional",
+  "entityType": "Individual",
+  "totalPaid": 148759.44,
+  "totalClaims": 1407,
+  "totalBeneficiaries": 247,
+  "costPerClaim": 105.73,
+  "costPerBeneficiary": 602.26,
+  "claimsPerBeneficiary": 5.7,
+  "growthRate": null,
+  "codeCount": 3,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 148759.44,
+      "totalClaims": 1407,
+      "totalBeneficiaries": 247
+    }
+  },
+  "procedures": [
+    {
+      "code": "90837",
+      "totalPaid": 130027.8,
+      "totalClaims": 1193,
+      "totalBeneficiaries": 186,
+      "costPerClaim": 108.99
+    },
+    {
+      "code": "90847",
+      "totalPaid": 11346.24,
+      "totalClaims": 115,
+      "totalBeneficiaries": 37,
+      "costPerClaim": 98.66
+    },
+    {
+      "code": "90834",
+      "totalPaid": 7385.4,
+      "totalClaims": 99,
+      "totalBeneficiaries": 24,
+      "costPerClaim": 74.6
+    }
+  ]
+}

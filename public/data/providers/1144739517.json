@@ -1,0 +1,61 @@
+{
+  "npi": "1144739517",
+  "name": "Cydnee Sankey-deemer",
+  "city": "Du Bois",
+  "state": "PA",
+  "specialty": "Nurse Practitioner, Family",
+  "entityType": "Individual",
+  "totalPaid": 166146.55,
+  "totalClaims": 3014,
+  "totalBeneficiaries": 2431,
+  "costPerClaim": 55.12,
+  "costPerBeneficiary": 68.34,
+  "claimsPerBeneficiary": 1.2,
+  "growthRate": null,
+  "codeCount": 3,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 0.0,
+      "totalClaims": 13,
+      "totalBeneficiaries": 12
+    },
+    "2021": {
+      "totalPaid": 37433.1,
+      "totalClaims": 639,
+      "totalBeneficiaries": 477
+    },
+    "2022": {
+      "totalPaid": 75032.46,
+      "totalClaims": 1348,
+      "totalBeneficiaries": 1106
+    },
+    "2023": {
+      "totalPaid": 53680.99,
+      "totalClaims": 1014,
+      "totalBeneficiaries": 836
+    }
+  },
+  "procedures": [
+    {
+      "code": "99214",
+      "totalPaid": 136553.31,
+      "totalClaims": 2221,
+      "totalBeneficiaries": 1723,
+      "costPerClaim": 61.48
+    },
+    {
+      "code": "99213",
+      "totalPaid": 29593.24,
+      "totalClaims": 761,
+      "totalBeneficiaries": 680,
+      "costPerClaim": 38.89
+    },
+    {
+      "code": "99310",
+      "totalPaid": 0.0,
+      "totalClaims": 32,
+      "totalBeneficiaries": 28,
+      "costPerClaim": 0.0
+    }
+  ]
+}

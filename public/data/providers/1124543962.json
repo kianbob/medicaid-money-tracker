@@ -1,0 +1,49 @@
+{
+  "npi": "1124543962",
+  "name": "Yalily Perez Smith",
+  "city": "Cape Coral",
+  "state": "FL",
+  "specialty": "Social Worker, Clinical",
+  "entityType": "Individual",
+  "totalPaid": 391701.86,
+  "totalClaims": 5690,
+  "totalBeneficiaries": 2504,
+  "costPerClaim": 68.84,
+  "costPerBeneficiary": 156.43,
+  "claimsPerBeneficiary": 2.3,
+  "growthRate": 221.7,
+  "codeCount": 2,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 60321.21,
+      "totalClaims": 924,
+      "totalBeneficiaries": 439
+    },
+    "2022": {
+      "totalPaid": 137354.85,
+      "totalClaims": 2009,
+      "totalBeneficiaries": 940
+    },
+    "2023": {
+      "totalPaid": 194025.8,
+      "totalClaims": 2757,
+      "totalBeneficiaries": 1125
+    }
+  },
+  "procedures": [
+    {
+      "code": "H2019",
+      "totalPaid": 378300.22,
+      "totalClaims": 5580,
+      "totalBeneficiaries": 2395,
+      "costPerClaim": 67.8
+    },
+    {
+      "code": "H0031",
+      "totalPaid": 13401.64,
+      "totalClaims": 110,
+      "totalBeneficiaries": 109,
+      "costPerClaim": 121.83
+    }
+  ]
+}

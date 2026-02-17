@@ -1,0 +1,51 @@
+{
+  "npi": "1821559865",
+  "name": "Providence Healthcare Services, Llc",
+  "city": "Washington",
+  "state": "DC",
+  "specialty": "Clinic/Center, Rehabilitation, Substance Use Disorder",
+  "entityType": "Organization",
+  "totalPaid": 167069.4,
+  "totalClaims": 1894,
+  "totalBeneficiaries": 536,
+  "costPerClaim": 88.21,
+  "costPerBeneficiary": 311.7,
+  "claimsPerBeneficiary": 3.5,
+  "growthRate": 96.4,
+  "codeCount": 3,
+  "yearlyData": {
+    "2021": {
+      "totalPaid": 56359.22,
+      "totalClaims": 763,
+      "totalBeneficiaries": 219
+    },
+    "2022": {
+      "totalPaid": 110710.18,
+      "totalClaims": 1131,
+      "totalBeneficiaries": 317
+    }
+  },
+  "procedures": [
+    {
+      "code": "H2014",
+      "totalPaid": 111280.43,
+      "totalClaims": 1251,
+      "totalBeneficiaries": 349,
+      "costPerClaim": 88.95
+    },
+    {
+      "code": "H0004",
+      "totalPaid": 53485.33,
+      "totalClaims": 538,
+      "totalBeneficiaries": 162,
+      "costPerClaim": 99.42
+    },
+    {
+      "code": "H2027",
+      "totalPaid": 2303.64,
+      "totalClaims": 105,
+      "totalBeneficiaries": 25,
+      "costPerClaim": 21.94
+    }
+  ]
+}

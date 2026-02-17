@@ -1,0 +1,63 @@
+{
+  "npi": "1679956213",
+  "name": "Ken Care Services Inc.",
+  "city": "Hollywood",
+  "state": "FL",
+  "specialty": "In Home Supportive Care",
+  "entityType": "Organization",
+  "totalPaid": 247229.0,
+  "totalClaims": 3903,
+  "totalBeneficiaries": 758,
+  "costPerClaim": 63.34,
+  "costPerBeneficiary": 326.16,
+  "claimsPerBeneficiary": 5.1,
+  "growthRate": 39.8,
+  "codeCount": 4,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 40696.0,
+      "totalClaims": 772,
+      "totalBeneficiaries": 201
+    },
+    "2021": {
+      "totalPaid": 149648.0,
+      "totalClaims": 2219,
+      "totalBeneficiaries": 489
+    },
+    "2022": {
+      "totalPaid": 56885.0,
+      "totalClaims": 912,
+      "totalBeneficiaries": 68
+    }
+  },
+  "procedures": [
+    {
+      "code": "T1030",
+      "totalPaid": 213793.0,
+      "totalClaims": 3456,
+      "totalBeneficiaries": 498,
+      "costPerClaim": 61.86
+    },
+    {
+      "code": "T1001",
+      "totalPaid": 28519.0,
+      "totalClaims": 242,
+      "totalBeneficiaries": 234,
+      "costPerClaim": 117.85
+    },
+    {
+      "code": "T1021",
+      "totalPaid": 2997.0,
+      "totalClaims": 152,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 19.72
+    },
+    {
+      "code": "T1031",
+      "totalPaid": 1920.0,
+      "totalClaims": 53,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 36.23
+    }
+  ]
+}

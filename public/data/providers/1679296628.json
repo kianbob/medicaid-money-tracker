@@ -1,0 +1,70 @@
+{
+  "npi": "1679296628",
+  "name": "Gonzales Slp Services, Pllc",
+  "city": "Carrier",
+  "state": "OK",
+  "specialty": "Clinic/Center, Hearing and Speech",
+  "entityType": "Organization",
+  "totalPaid": 676987.94,
+  "totalClaims": 7433,
+  "totalBeneficiaries": 1748,
+  "costPerClaim": 91.08,
+  "costPerBeneficiary": 387.29,
+  "claimsPerBeneficiary": 4.3,
+  "growthRate": 7169.4,
+  "codeCount": 5,
+  "yearlyData": {
+    "2022": {
+      "totalPaid": 6430.34,
+      "totalClaims": 93,
+      "totalBeneficiaries": 20
+    },
+    "2023": {
+      "totalPaid": 203112.14,
+      "totalClaims": 2181,
+      "totalBeneficiaries": 469
+    },
+    "2024": {
+      "totalPaid": 467445.46,
+      "totalClaims": 5159,
+      "totalBeneficiaries": 1259
+    }
+  },
+  "procedures": [
+    {
+      "code": "97533",
+      "totalPaid": 340582.03,
+      "totalClaims": 2603,
+      "totalBeneficiaries": 614,
+      "costPerClaim": 130.84
+    },
+    {
+      "code": "92507",
+      "totalPaid": 318804.7,
+      "totalClaims": 4677,
+      "totalBeneficiaries": 1022,
+      "costPerClaim": 68.16
+    },
+    {
+      "code": "92523",
+      "totalPaid": 11302.81,
+      "totalClaims": 58,
+      "totalBeneficiaries": 58,
+      "costPerClaim": 194.88
+    },
+    {
+      "code": "97530",
+      "totalPaid": 3604.7,
+      "totalClaims": 65,
+      "totalBeneficiaries": 24,
+      "costPerClaim": 55.46
+    },
+    {
+      "code": "97166",
+      "totalPaid": 2693.7,
+      "totalClaims": 30,
+      "totalBeneficiaries": 30,
+      "costPerClaim": 89.79
+    }
+  ]
+}

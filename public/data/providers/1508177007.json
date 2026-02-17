@@ -1,0 +1,60 @@
+{
+  "npi": "1508177007",
+  "name": "Richard J Ernst",
+  "city": "Washington",
+  "state": "DC",
+  "specialty": "Psychiatry & Neurology, Psychiatry",
+  "entityType": "Individual",
+  "totalPaid": 165772.24,
+  "totalClaims": 2933,
+  "totalBeneficiaries": 1874,
+  "costPerClaim": 56.52,
+  "costPerBeneficiary": 88.46,
+  "claimsPerBeneficiary": 1.6,
+  "growthRate": null,
+  "codeCount": 5,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 165772.24,
+      "totalClaims": 2933,
+      "totalBeneficiaries": 1874
+    }
+  },
+  "procedures": [
+    {
+      "code": "90792",
+      "totalPaid": 83176.47,
+      "totalClaims": 683,
+      "totalBeneficiaries": 426,
+      "costPerClaim": 121.78
+    },
+    {
+      "code": "99213",
+      "totalPaid": 42031.73,
+      "totalClaims": 817,
+      "totalBeneficiaries": 450,
+      "costPerClaim": 51.45
+    },
+    {
+      "code": "Q3014",
+      "totalPaid": 27379.85,
+      "totalClaims": 1247,
+      "totalBeneficiaries": 914,
+      "costPerClaim": 21.96
+    },
+    {
+      "code": "99214",
+      "totalPaid": 10804.61,
+      "totalClaims": 113,
+      "totalBeneficiaries": 44,
+      "costPerClaim": 95.62
+    },
+    {
+      "code": "90833",
+      "totalPaid": 2379.58,
+      "totalClaims": 73,
+      "totalBeneficiaries": 40,
+      "costPerClaim": 32.6
+    }
+  ]
+}

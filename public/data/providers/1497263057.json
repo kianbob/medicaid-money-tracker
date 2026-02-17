@@ -1,0 +1,54 @@
+{
+  "npi": "1497263057",
+  "name": "Antonia Sarah Tombari",
+  "city": "Spokane",
+  "state": "WA",
+  "specialty": "Marriage & Family Therapist",
+  "entityType": "Individual",
+  "totalPaid": 387411.15,
+  "totalClaims": 5470,
+  "totalBeneficiaries": 2255,
+  "costPerClaim": 70.82,
+  "costPerBeneficiary": 171.8,
+  "claimsPerBeneficiary": 2.4,
+  "growthRate": -90.2,
+  "codeCount": 2,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 18339.09,
+      "totalClaims": 304,
+      "totalBeneficiaries": 159
+    },
+    "2020": {
+      "totalPaid": 161159.25,
+      "totalClaims": 2380,
+      "totalBeneficiaries": 980
+    },
+    "2021": {
+      "totalPaid": 206122.21,
+      "totalClaims": 2766,
+      "totalBeneficiaries": 1096
+    },
+    "2022": {
+      "totalPaid": 1790.6,
+      "totalClaims": 20,
+      "totalBeneficiaries": 20
+    }
+  },
+  "procedures": [
+    {
+      "code": "90837",
+      "totalPaid": 378951.2,
+      "totalClaims": 5346,
+      "totalBeneficiaries": 2131,
+      "costPerClaim": 70.88
+    },
+    {
+      "code": "90791",
+      "totalPaid": 8459.95,
+      "totalClaims": 124,
+      "totalBeneficiaries": 124,
+      "costPerClaim": 68.23
+    }
+  ]
+}

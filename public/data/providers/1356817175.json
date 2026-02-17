@@ -1,0 +1,63 @@
+{
+  "npi": "1356817175",
+  "name": "Zimuzo Crystal Nelson",
+  "city": "Chicago",
+  "state": "IL",
+  "specialty": "Nurse Practitioner, Family",
+  "entityType": "Individual",
+  "totalPaid": 115905.4,
+  "totalClaims": 6023,
+  "totalBeneficiaries": 3726,
+  "costPerClaim": 19.24,
+  "costPerBeneficiary": 31.11,
+  "claimsPerBeneficiary": 1.6,
+  "growthRate": -26.9,
+  "codeCount": 4,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 22243.08,
+      "totalClaims": 1839,
+      "totalBeneficiaries": 1135
+    },
+    "2020": {
+      "totalPaid": 77397.16,
+      "totalClaims": 3681,
+      "totalBeneficiaries": 2214
+    },
+    "2021": {
+      "totalPaid": 16265.16,
+      "totalClaims": 503,
+      "totalBeneficiaries": 377
+    }
+  },
+  "procedures": [
+    {
+      "code": "99309",
+      "totalPaid": 78840.26,
+      "totalClaims": 3866,
+      "totalBeneficiaries": 2096,
+      "costPerClaim": 20.39
+    },
+    {
+      "code": "99308",
+      "totalPaid": 31249.97,
+      "totalClaims": 2009,
+      "totalBeneficiaries": 1503,
+      "costPerClaim": 15.55
+    },
+    {
+      "code": "99306",
+      "totalPaid": 4659.21,
+      "totalClaims": 69,
+      "totalBeneficiaries": 54,
+      "costPerClaim": 67.52
+    },
+    {
+      "code": "99307",
+      "totalPaid": 1155.96,
+      "totalClaims": 79,
+      "totalBeneficiaries": 73,
+      "costPerClaim": 14.63
+    }
+  ]
+}

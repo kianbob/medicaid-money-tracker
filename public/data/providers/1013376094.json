@@ -1,0 +1,39 @@
+{
+  "npi": "1013376094",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 142786.39,
+  "totalClaims": 1759,
+  "totalBeneficiaries": 824,
+  "costPerClaim": 81.17,
+  "costPerBeneficiary": 173.28,
+  "claimsPerBeneficiary": 2.1,
+  "growthRate": null,
+  "codeCount": 2,
+  "yearlyData": {
+    "2024": {
+      "totalPaid": 142786.39,
+      "totalClaims": 1759,
+      "totalBeneficiaries": 824
+    }
+  },
+  "procedures": [
+    {
+      "code": "T2003",
+      "totalPaid": 84655.68,
+      "totalClaims": 919,
+      "totalBeneficiaries": 440,
+      "costPerClaim": 92.12
+    },
+    {
+      "code": "S0215",
+      "totalPaid": 58130.71,
+      "totalClaims": 840,
+      "totalBeneficiaries": 384,
+      "costPerClaim": 69.2
+    }
+  ]
+}

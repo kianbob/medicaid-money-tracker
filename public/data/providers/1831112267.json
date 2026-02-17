@@ -1,0 +1,100 @@
+{
+  "npi": "1831112267",
+  "name": "Daniel Paul Barletta",
+  "city": "Rochester",
+  "state": "NY",
+  "specialty": "Dentist, General Practice",
+  "entityType": "Individual",
+  "totalPaid": 155046.7,
+  "totalClaims": 2073,
+  "totalBeneficiaries": 1116,
+  "costPerClaim": 74.79,
+  "costPerBeneficiary": 138.93,
+  "claimsPerBeneficiary": 1.9,
+  "growthRate": 238.4,
+  "codeCount": 10,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 35368.29,
+      "totalClaims": 456,
+      "totalBeneficiaries": 250
+    },
+    "2021": {
+      "totalPaid": 119678.41,
+      "totalClaims": 1617,
+      "totalBeneficiaries": 866
+    }
+  },
+  "procedures": [
+    {
+      "code": "D2930",
+      "totalPaid": 95682.6,
+      "totalClaims": 846,
+      "totalBeneficiaries": 133,
+      "costPerClaim": 113.1
+    },
+    {
+      "code": "D9420",
+      "totalPaid": 15362.46,
+      "totalClaims": 182,
+      "totalBeneficiaries": 182,
+      "costPerClaim": 84.41
+    },
+    {
+      "code": "D7140",
+      "totalPaid": 14175.5,
+      "totalClaims": 249,
+      "totalBeneficiaries": 75,
+      "costPerClaim": 56.93
+    },
+    {
+      "code": "D3220",
+      "totalPaid": 12130.69,
+      "totalClaims": 143,
+      "totalBeneficiaries": 80,
+      "costPerClaim": 84.83
+    },
+    {
+      "code": "D1120",
+      "totalPaid": 5566.0,
+      "totalClaims": 133,
+      "totalBeneficiaries": 133,
+      "costPerClaim": 41.85
+    },
+    {
+      "code": "D0120",
+      "totalPaid": 4710.0,
+      "totalClaims": 170,
+      "totalBeneficiaries": 170,
+      "costPerClaim": 27.71
+    },
+    {
+      "code": "D1206",
+      "totalPaid": 3534.0,
+      "totalClaims": 124,
+      "totalBeneficiaries": 124,
+      "costPerClaim": 28.5
+    },
+    {
+      "code": "D0272",
+      "totalPaid": 2006.0,
+      "totalClaims": 118,
+      "totalBeneficiaries": 118,
+      "costPerClaim": 17.0
+    },
+    {
+      "code": "D2330",
+      "totalPaid": 1074.45,
+      "totalClaims": 19,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 56.55
+    },
+    {
+      "code": "D0230",
+      "totalPaid": 805.0,
+      "totalClaims": 89,
+      "totalBeneficiaries": 89,
+      "costPerClaim": 9.04
+    }
+  ]
+}

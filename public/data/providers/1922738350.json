@@ -1,0 +1,100 @@
+{
+  "npi": "1922738350",
+  "name": "Laboratory Service Partners Llc",
+  "city": "Aurora",
+  "state": "CO",
+  "specialty": "Clinical Medical Laboratory",
+  "entityType": "Organization",
+  "totalPaid": 384154.92,
+  "totalClaims": 9411,
+  "totalBeneficiaries": 3688,
+  "costPerClaim": 40.82,
+  "costPerBeneficiary": 104.16,
+  "claimsPerBeneficiary": 2.6,
+  "growthRate": 106.0,
+  "codeCount": 10,
+  "yearlyData": {
+    "2022": {
+      "totalPaid": 125533.29,
+      "totalClaims": 3002,
+      "totalBeneficiaries": 1247
+    },
+    "2023": {
+      "totalPaid": 258621.63,
+      "totalClaims": 6409,
+      "totalBeneficiaries": 2441
+    }
+  },
+  "procedures": [
+    {
+      "code": "U0003",
+      "totalPaid": 267726.0,
+      "totalClaims": 4188,
+      "totalBeneficiaries": 1498,
+      "costPerClaim": 63.93
+    },
+    {
+      "code": "G2023",
+      "totalPaid": 38822.14,
+      "totalClaims": 2080,
+      "totalBeneficiaries": 753,
+      "costPerClaim": 18.66
+    },
+    {
+      "code": "U0005",
+      "totalPaid": 30525.97,
+      "totalClaims": 1688,
+      "totalBeneficiaries": 720,
+      "costPerClaim": 18.08
+    },
+    {
+      "code": "87635",
+      "totalPaid": 27709.73,
+      "totalClaims": 1049,
+      "totalBeneficiaries": 449,
+      "costPerClaim": 26.42
+    },
+    {
+      "code": "87637",
+      "totalPaid": 10866.26,
+      "totalClaims": 90,
+      "totalBeneficiaries": 62,
+      "costPerClaim": 120.74
+    },
+    {
+      "code": "87798",
+      "totalPaid": 3872.5,
+      "totalClaims": 88,
+      "totalBeneficiaries": 52,
+      "costPerClaim": 44.01
+    },
+    {
+      "code": "87581",
+      "totalPaid": 2175.72,
+      "totalClaims": 101,
+      "totalBeneficiaries": 65,
+      "costPerClaim": 21.54
+    },
+    {
+      "code": "87651",
+      "totalPaid": 2175.72,
+      "totalClaims": 100,
+      "totalBeneficiaries": 64,
+      "costPerClaim": 21.76
+    },
+    {
+      "code": "87426",
+      "totalPaid": 280.88,
+      "totalClaims": 14,
+      "totalBeneficiaries": 12,
+      "costPerClaim": 20.06
+    },
+    {
+      "code": "81226",
+      "totalPaid": 0.0,
+      "totalClaims": 13,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 0.0
+    }
+  ]
+}

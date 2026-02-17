@@ -1,0 +1,86 @@
+{
+  "npi": "1770589137",
+  "name": "Donald Lynn Hamby",
+  "city": "Chattanooga",
+  "state": "TN",
+  "specialty": "Preventive Medicine, Addiction Medicine",
+  "entityType": "Individual",
+  "totalPaid": 140589.68,
+  "totalClaims": 3193,
+  "totalBeneficiaries": 1941,
+  "costPerClaim": 44.03,
+  "costPerBeneficiary": 72.43,
+  "claimsPerBeneficiary": 1.6,
+  "growthRate": 893.0,
+  "codeCount": 8,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 12862.49,
+      "totalClaims": 845,
+      "totalBeneficiaries": 346
+    },
+    "2020": {
+      "totalPaid": 127727.19,
+      "totalClaims": 2348,
+      "totalBeneficiaries": 1595
+    }
+  },
+  "procedures": [
+    {
+      "code": "H0016",
+      "totalPaid": 85094.0,
+      "totalClaims": 608,
+      "totalBeneficiaries": 444,
+      "costPerClaim": 139.96
+    },
+    {
+      "code": "99214",
+      "totalPaid": 19800.86,
+      "totalClaims": 542,
+      "totalBeneficiaries": 382,
+      "costPerClaim": 36.53
+    },
+    {
+      "code": "H2010",
+      "totalPaid": 16580.0,
+      "totalClaims": 332,
+      "totalBeneficiaries": 209,
+      "costPerClaim": 49.94
+    },
+    {
+      "code": "80305",
+      "totalPaid": 9591.98,
+      "totalClaims": 1391,
+      "totalBeneficiaries": 764,
+      "costPerClaim": 6.9
+    },
+    {
+      "code": "H0033",
+      "totalPaid": 8360.0,
+      "totalClaims": 84,
+      "totalBeneficiaries": 46,
+      "costPerClaim": 99.52
+    },
+    {
+      "code": "81025",
+      "totalPaid": 752.65,
+      "totalClaims": 181,
+      "totalBeneficiaries": 67,
+      "costPerClaim": 4.16
+    },
+    {
+      "code": "99406",
+      "totalPaid": 218.19,
+      "totalClaims": 29,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 7.52
+    },
+    {
+      "code": "H0049",
+      "totalPaid": 192.0,
+      "totalClaims": 26,
+      "totalBeneficiaries": 16,
+      "costPerClaim": 7.38
+    }
+  ]
+}

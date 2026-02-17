@@ -1,0 +1,46 @@
+{
+  "npi": "1265921639",
+  "name": "Glacier Clinic Llc",
+  "city": "Eureka",
+  "state": "MT",
+  "specialty": "Clinic/Center",
+  "entityType": "Organization",
+  "totalPaid": 104141.08,
+  "totalClaims": 1829,
+  "totalBeneficiaries": 673,
+  "costPerClaim": 56.94,
+  "costPerBeneficiary": 154.74,
+  "claimsPerBeneficiary": 2.7,
+  "growthRate": null,
+  "codeCount": 3,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 104141.08,
+      "totalClaims": 1829,
+      "totalBeneficiaries": 673
+    }
+  },
+  "procedures": [
+    {
+      "code": "90837",
+      "totalPaid": 88252.14,
+      "totalClaims": 1215,
+      "totalBeneficiaries": 426,
+      "costPerClaim": 72.64
+    },
+    {
+      "code": "90791",
+      "totalPaid": 7945.17,
+      "totalClaims": 107,
+      "totalBeneficiaries": 94,
+      "costPerClaim": 74.25
+    },
+    {
+      "code": "90853",
+      "totalPaid": 7943.77,
+      "totalClaims": 507,
+      "totalBeneficiaries": 153,
+      "costPerClaim": 15.67
+    }
+  ]
+}

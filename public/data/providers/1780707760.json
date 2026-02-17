@@ -1,0 +1,74 @@
+{
+  "npi": "1780707760",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 554417.8,
+  "totalClaims": 5884,
+  "totalBeneficiaries": 814,
+  "costPerClaim": 94.22,
+  "costPerBeneficiary": 681.1,
+  "claimsPerBeneficiary": 7.2,
+  "growthRate": null,
+  "codeCount": 7,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 554417.8,
+      "totalClaims": 5884,
+      "totalBeneficiaries": 814
+    }
+  },
+  "procedures": [
+    {
+      "code": "99214",
+      "totalPaid": 253974.84,
+      "totalClaims": 1099,
+      "totalBeneficiaries": 159,
+      "costPerClaim": 231.1
+    },
+    {
+      "code": "99213",
+      "totalPaid": 229331.8,
+      "totalClaims": 2224,
+      "totalBeneficiaries": 331,
+      "costPerClaim": 103.12
+    },
+    {
+      "code": "99393",
+      "totalPaid": 70238.64,
+      "totalClaims": 168,
+      "totalBeneficiaries": 28,
+      "costPerClaim": 418.09
+    },
+    {
+      "code": "90688",
+      "totalPaid": 872.52,
+      "totalClaims": 232,
+      "totalBeneficiaries": 39,
+      "costPerClaim": 3.76
+    },
+    {
+      "code": "87880",
+      "totalPaid": 0.0,
+      "totalClaims": 776,
+      "totalBeneficiaries": 122,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "87804",
+      "totalPaid": 0.0,
+      "totalClaims": 1114,
+      "totalBeneficiaries": 89,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "90460",
+      "totalPaid": 0.0,
+      "totalClaims": 271,
+      "totalBeneficiaries": 46,
+      "costPerClaim": 0.0
+    }
+  ]
+}

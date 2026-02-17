@@ -1,0 +1,44 @@
+{
+  "npi": "1134802705",
+  "name": "Sagebrush Employment Services, Llc",
+  "city": "Richland",
+  "state": "WA",
+  "specialty": "Community/Behavioral Health",
+  "entityType": "Organization",
+  "totalPaid": 408329.89,
+  "totalClaims": 4774,
+  "totalBeneficiaries": 1043,
+  "costPerClaim": 85.53,
+  "costPerBeneficiary": 391.5,
+  "claimsPerBeneficiary": 4.6,
+  "growthRate": 2765.4,
+  "codeCount": 2,
+  "yearlyData": {
+    "2023": {
+      "totalPaid": 13770.0,
+      "totalClaims": 215,
+      "totalBeneficiaries": 46
+    },
+    "2024": {
+      "totalPaid": 394559.89,
+      "totalClaims": 4559,
+      "totalBeneficiaries": 997
+    }
+  },
+  "procedures": [
+    {
+      "code": "H2023",
+      "totalPaid": 328110.89,
+      "totalClaims": 4026,
+      "totalBeneficiaries": 859,
+      "costPerClaim": 81.5
+    },
+    {
+      "code": "H0043",
+      "totalPaid": 80219.0,
+      "totalClaims": 748,
+      "totalBeneficiaries": 184,
+      "costPerClaim": 107.24
+    }
+  ]
+}

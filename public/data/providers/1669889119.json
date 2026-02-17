@@ -1,0 +1,107 @@
+{
+  "npi": "1669889119",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 179085.98,
+  "totalClaims": 2867,
+  "totalBeneficiaries": 2193,
+  "costPerClaim": 62.46,
+  "costPerBeneficiary": 81.66,
+  "claimsPerBeneficiary": 1.3,
+  "growthRate": -96.3,
+  "codeCount": 11,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 172758.3,
+      "totalClaims": 2786,
+      "totalBeneficiaries": 2118
+    },
+    "2021": {
+      "totalPaid": 6327.68,
+      "totalClaims": 81,
+      "totalBeneficiaries": 75
+    }
+  },
+  "procedures": [
+    {
+      "code": "D7210",
+      "totalPaid": 72101.33,
+      "totalClaims": 915,
+      "totalBeneficiaries": 450,
+      "costPerClaim": 78.8
+    },
+    {
+      "code": "D9223",
+      "totalPaid": 37912.28,
+      "totalClaims": 278,
+      "totalBeneficiaries": 268,
+      "costPerClaim": 136.38
+    },
+    {
+      "code": "D9222",
+      "totalPaid": 21970.08,
+      "totalClaims": 274,
+      "totalBeneficiaries": 265,
+      "costPerClaim": 80.18
+    },
+    {
+      "code": "D0330",
+      "totalPaid": 17510.0,
+      "totalClaims": 528,
+      "totalBeneficiaries": 527,
+      "costPerClaim": 33.16
+    },
+    {
+      "code": "D7140",
+      "totalPaid": 13817.45,
+      "totalClaims": 258,
+      "totalBeneficiaries": 107,
+      "costPerClaim": 53.56
+    },
+    {
+      "code": "D0160",
+      "totalPaid": 7860.84,
+      "totalClaims": 294,
+      "totalBeneficiaries": 294,
+      "costPerClaim": 26.74
+    },
+    {
+      "code": "D0140",
+      "totalPaid": 2684.5,
+      "totalClaims": 203,
+      "totalBeneficiaries": 202,
+      "costPerClaim": 13.22
+    },
+    {
+      "code": "D9243",
+      "totalPaid": 2290.54,
+      "totalClaims": 18,
+      "totalBeneficiaries": 18,
+      "costPerClaim": 127.25
+    },
+    {
+      "code": "D9239",
+      "totalPaid": 1223.51,
+      "totalClaims": 18,
+      "totalBeneficiaries": 18,
+      "costPerClaim": 67.97
+    },
+    {
+      "code": "D7310",
+      "totalPaid": 870.6,
+      "totalClaims": 63,
+      "totalBeneficiaries": 26,
+      "costPerClaim": 13.82
+    },
+    {
+      "code": "D9310",
+      "totalPaid": 844.85,
+      "totalClaims": 18,
+      "totalBeneficiaries": 18,
+      "costPerClaim": 46.94
+    }
+  ]
+}

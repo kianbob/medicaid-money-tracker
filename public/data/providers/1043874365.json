@@ -1,0 +1,72 @@
+{
+  "npi": "1043874365",
+  "name": "Harmony Family Health Llc.",
+  "city": "Las Vegas",
+  "state": "NV",
+  "specialty": "Counselor, Addiction (Substance Use Disorder)",
+  "entityType": "Organization",
+  "totalPaid": 420496.89,
+  "totalClaims": 5696,
+  "totalBeneficiaries": 3217,
+  "costPerClaim": 73.82,
+  "costPerBeneficiary": 130.71,
+  "claimsPerBeneficiary": 1.8,
+  "growthRate": -18.0,
+  "codeCount": 6,
+  "yearlyData": {
+    "2019": {
+      "totalPaid": 231024.94,
+      "totalClaims": 3178,
+      "totalBeneficiaries": 1970
+    },
+    "2020": {
+      "totalPaid": 189471.95,
+      "totalClaims": 2518,
+      "totalBeneficiaries": 1247
+    }
+  },
+  "procedures": [
+    {
+      "code": "90839",
+      "totalPaid": 245246.45,
+      "totalClaims": 2500,
+      "totalBeneficiaries": 1075,
+      "costPerClaim": 98.1
+    },
+    {
+      "code": "90840",
+      "totalPaid": 81085.07,
+      "totalClaims": 1691,
+      "totalBeneficiaries": 850,
+      "costPerClaim": 47.95
+    },
+    {
+      "code": "H0001",
+      "totalPaid": 71264.06,
+      "totalClaims": 584,
+      "totalBeneficiaries": 567,
+      "costPerClaim": 122.03
+    },
+    {
+      "code": "H0002",
+      "totalPaid": 15774.75,
+      "totalClaims": 584,
+      "totalBeneficiaries": 568,
+      "costPerClaim": 27.01
+    },
+    {
+      "code": "Q3014",
+      "totalPaid": 7126.56,
+      "totalClaims": 318,
+      "totalBeneficiaries": 138,
+      "costPerClaim": 22.41
+    },
+    {
+      "code": "H0031",
+      "totalPaid": 0.0,
+      "totalClaims": 19,
+      "totalBeneficiaries": 19,
+      "costPerClaim": 0.0
+    }
+  ]
+}

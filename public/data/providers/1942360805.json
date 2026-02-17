@@ -1,0 +1,72 @@
+{
+  "npi": "1942360805",
+  "name": "Compass Pointe, Behavioral Health Services",
+  "city": "Spencer",
+  "state": "IA",
+  "specialty": "Community/Behavioral Health",
+  "entityType": "Organization",
+  "totalPaid": 223786.95,
+  "totalClaims": 3510,
+  "totalBeneficiaries": 1724,
+  "costPerClaim": 63.76,
+  "costPerBeneficiary": 129.81,
+  "claimsPerBeneficiary": 2.0,
+  "growthRate": -65.0,
+  "codeCount": 6,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 165769.62,
+      "totalClaims": 2577,
+      "totalBeneficiaries": 1266
+    },
+    "2019": {
+      "totalPaid": 58017.33,
+      "totalClaims": 933,
+      "totalBeneficiaries": 458
+    }
+  },
+  "procedures": [
+    {
+      "code": "90837",
+      "totalPaid": 137688.96,
+      "totalClaims": 1865,
+      "totalBeneficiaries": 956,
+      "costPerClaim": 73.83
+    },
+    {
+      "code": "90853",
+      "totalPaid": 50387.11,
+      "totalClaims": 1119,
+      "totalBeneficiaries": 321,
+      "costPerClaim": 45.03
+    },
+    {
+      "code": "90791",
+      "totalPaid": 30303.18,
+      "totalClaims": 316,
+      "totalBeneficiaries": 297,
+      "costPerClaim": 95.9
+    },
+    {
+      "code": "90834",
+      "totalPaid": 2470.7,
+      "totalClaims": 34,
+      "totalBeneficiaries": 21,
+      "costPerClaim": 72.67
+    },
+    {
+      "code": "H0003",
+      "totalPaid": 2118.24,
+      "totalClaims": 157,
+      "totalBeneficiaries": 114,
+      "costPerClaim": 13.49
+    },
+    {
+      "code": "90832",
+      "totalPaid": 818.76,
+      "totalClaims": 19,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 43.09
+    }
+  ]
+}

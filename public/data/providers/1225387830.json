@@ -1,0 +1,112 @@
+{
+  "npi": "1225387830",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 272685.66,
+  "totalClaims": 5045,
+  "totalBeneficiaries": 2025,
+  "costPerClaim": 54.05,
+  "costPerBeneficiary": 134.66,
+  "claimsPerBeneficiary": 2.5,
+  "growthRate": 1013.9,
+  "codeCount": 11,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 5272.6,
+      "totalClaims": 63,
+      "totalBeneficiaries": 35
+    },
+    "2019": {
+      "totalPaid": 208682.85,
+      "totalClaims": 3756,
+      "totalBeneficiaries": 1455
+    },
+    "2020": {
+      "totalPaid": 58730.21,
+      "totalClaims": 1226,
+      "totalBeneficiaries": 535
+    }
+  },
+  "procedures": [
+    {
+      "code": "99214",
+      "totalPaid": 217670.1,
+      "totalClaims": 2772,
+      "totalBeneficiaries": 898,
+      "costPerClaim": 78.52
+    },
+    {
+      "code": "99407",
+      "totalPaid": 29082.89,
+      "totalClaims": 1376,
+      "totalBeneficiaries": 597,
+      "costPerClaim": 21.14
+    },
+    {
+      "code": "99204",
+      "totalPaid": 7859.59,
+      "totalClaims": 83,
+      "totalBeneficiaries": 71,
+      "costPerClaim": 94.69
+    },
+    {
+      "code": "80305",
+      "totalPaid": 4774.38,
+      "totalClaims": 410,
+      "totalBeneficiaries": 249,
+      "costPerClaim": 11.64
+    },
+    {
+      "code": "90834",
+      "totalPaid": 4082.65,
+      "totalClaims": 113,
+      "totalBeneficiaries": 59,
+      "costPerClaim": 36.13
+    },
+    {
+      "code": "95004",
+      "totalPaid": 3325.6,
+      "totalClaims": 36,
+      "totalBeneficiaries": 22,
+      "costPerClaim": 92.38
+    },
+    {
+      "code": "95165",
+      "totalPaid": 1947.0,
+      "totalClaims": 27,
+      "totalBeneficiaries": 13,
+      "costPerClaim": 72.11
+    },
+    {
+      "code": "90833",
+      "totalPaid": 1870.16,
+      "totalClaims": 69,
+      "totalBeneficiaries": 46,
+      "costPerClaim": 27.1
+    },
+    {
+      "code": "99213",
+      "totalPaid": 1150.6,
+      "totalClaims": 29,
+      "totalBeneficiaries": 19,
+      "costPerClaim": 39.68
+    },
+    {
+      "code": "95117",
+      "totalPaid": 608.02,
+      "totalClaims": 105,
+      "totalBeneficiaries": 36,
+      "costPerClaim": 5.79
+    },
+    {
+      "code": "80306",
+      "totalPaid": 314.67,
+      "totalClaims": 25,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 12.59
+    }
+  ]
+}

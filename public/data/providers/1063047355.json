@@ -1,0 +1,107 @@
+{
+  "npi": "1063047355",
+  "name": "",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 40887.2,
+  "totalClaims": 3192,
+  "totalBeneficiaries": 2288,
+  "costPerClaim": 12.81,
+  "costPerBeneficiary": 17.87,
+  "claimsPerBeneficiary": 1.4,
+  "growthRate": -48.5,
+  "codeCount": 11,
+  "yearlyData": {
+    "2022": {
+      "totalPaid": 26985.0,
+      "totalClaims": 1996,
+      "totalBeneficiaries": 1409
+    },
+    "2023": {
+      "totalPaid": 13902.2,
+      "totalClaims": 1196,
+      "totalBeneficiaries": 879
+    }
+  },
+  "procedures": [
+    {
+      "code": "V2020",
+      "totalPaid": 31894.44,
+      "totalClaims": 468,
+      "totalBeneficiaries": 300,
+      "costPerClaim": 68.15
+    },
+    {
+      "code": "92014",
+      "totalPaid": 5994.98,
+      "totalClaims": 227,
+      "totalBeneficiaries": 208,
+      "costPerClaim": 26.41
+    },
+    {
+      "code": "92004",
+      "totalPaid": 1881.54,
+      "totalClaims": 74,
+      "totalBeneficiaries": 70,
+      "costPerClaim": 25.43
+    },
+    {
+      "code": "V2103",
+      "totalPaid": 379.7,
+      "totalClaims": 224,
+      "totalBeneficiaries": 132,
+      "costPerClaim": 1.7
+    },
+    {
+      "code": "3072F",
+      "totalPaid": 364.36,
+      "totalClaims": 527,
+      "totalBeneficiaries": 403,
+      "costPerClaim": 0.69
+    },
+    {
+      "code": "92340",
+      "totalPaid": 270.0,
+      "totalClaims": 492,
+      "totalBeneficiaries": 300,
+      "costPerClaim": 0.55
+    },
+    {
+      "code": "92015",
+      "totalPaid": 75.0,
+      "totalClaims": 387,
+      "totalBeneficiaries": 358,
+      "costPerClaim": 0.19
+    },
+    {
+      "code": "V2100",
+      "totalPaid": 27.18,
+      "totalClaims": 25,
+      "totalBeneficiaries": 14,
+      "costPerClaim": 1.09
+    },
+    {
+      "code": "V2755",
+      "totalPaid": 0.0,
+      "totalClaims": 367,
+      "totalBeneficiaries": 238,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "V2760",
+      "totalPaid": 0.0,
+      "totalClaims": 364,
+      "totalBeneficiaries": 236,
+      "costPerClaim": 0.0
+    },
+    {
+      "code": "V2784",
+      "totalPaid": 0.0,
+      "totalClaims": 37,
+      "totalBeneficiaries": 29,
+      "costPerClaim": 0.0
+    }
+  ]
+}

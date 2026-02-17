@@ -1,0 +1,58 @@
+{
+  "npi": "1336712728",
+  "name": "Jaime Byers",
+  "city": "Cincinnati",
+  "state": "OH",
+  "specialty": "Case Manager/Care Coordinator",
+  "entityType": "Individual",
+  "totalPaid": 81046.93,
+  "totalClaims": 810,
+  "totalBeneficiaries": 274,
+  "costPerClaim": 100.06,
+  "costPerBeneficiary": 295.79,
+  "claimsPerBeneficiary": 3.0,
+  "growthRate": -30.6,
+  "codeCount": 4,
+  "yearlyData": {
+    "2023": {
+      "totalPaid": 47838.41,
+      "totalClaims": 487,
+      "totalBeneficiaries": 171
+    },
+    "2024": {
+      "totalPaid": 33208.52,
+      "totalClaims": 323,
+      "totalBeneficiaries": 103
+    }
+  },
+  "procedures": [
+    {
+      "code": "H0015",
+      "totalPaid": 56396.27,
+      "totalClaims": 354,
+      "totalBeneficiaries": 129,
+      "costPerClaim": 159.31
+    },
+    {
+      "code": "90837",
+      "totalPaid": 17948.42,
+      "totalClaims": 274,
+      "totalBeneficiaries": 57,
+      "costPerClaim": 65.51
+    },
+    {
+      "code": "H0005",
+      "totalPaid": 5244.67,
+      "totalClaims": 83,
+      "totalBeneficiaries": 32,
+      "costPerClaim": 63.19
+    },
+    {
+      "code": "H0048",
+      "totalPaid": 1457.57,
+      "totalClaims": 99,
+      "totalBeneficiaries": 56,
+      "costPerClaim": 14.72
+    }
+  ]
+}

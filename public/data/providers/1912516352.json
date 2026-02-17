@@ -1,0 +1,49 @@
+{
+  "npi": "1912516352",
+  "name": "Clinical Enterprise Inc",
+  "city": "Framingham",
+  "state": "MA",
+  "specialty": "Clinical Medical Laboratory",
+  "entityType": "Organization",
+  "totalPaid": 127240.31,
+  "totalClaims": 2379,
+  "totalBeneficiaries": 2166,
+  "costPerClaim": 53.48,
+  "costPerBeneficiary": 58.74,
+  "claimsPerBeneficiary": 1.1,
+  "growthRate": 809.4,
+  "codeCount": 2,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 4575.14,
+      "totalClaims": 50,
+      "totalBeneficiaries": 48
+    },
+    "2021": {
+      "totalPaid": 81057.72,
+      "totalClaims": 1523,
+      "totalBeneficiaries": 1370
+    },
+    "2022": {
+      "totalPaid": 41607.45,
+      "totalClaims": 806,
+      "totalBeneficiaries": 748
+    }
+  },
+  "procedures": [
+    {
+      "code": "U0003",
+      "totalPaid": 107115.81,
+      "totalClaims": 1519,
+      "totalBeneficiaries": 1379,
+      "costPerClaim": 70.52
+    },
+    {
+      "code": "U0005",
+      "totalPaid": 20124.5,
+      "totalClaims": 860,
+      "totalBeneficiaries": 787,
+      "costPerClaim": 23.4
+    }
+  ]
+}
