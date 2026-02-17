@@ -248,6 +248,105 @@ export default function ProviderPage({ params }: Props) {
         </div>
       )}
 
+      {/* Risk Assessment — plain-English summary */}
+      {flagCount > 0 && procedures.length > 0 && (() => {
+        // Build plain-English risk assessment sentences
+        const assessmentLines: string[] = [];
+
+        // Procedure concentration check
+        const uniqueCodes = procedures.length;
+        if (uniqueCodes <= 2 && totalPaid > 1000000) {
+          const topProc = procedures[0];
+          const topPct = totalPaid > 0 ? ((topProc?.payments || topProc?.paid || 0) / totalPaid * 100) : 0;
+          assessmentLines.push(`Extreme procedure concentration \u2014 ${topPct.toFixed(0)}% of all billing flows through ${uniqueCodes === 1 ? 'a single code' : 'just 2 codes'} (${procedures.map((p: any) => p.code).join(', ')}).`);
+        }
+
+        // Code-specific cost outliers from procedure data
+        const outlierProcs = procedures.filter((p: any) => {
+          const r = p.cpcRatio || (p.nationalMedianCpc > 0 ? (p.providerCpc || 0) / p.nationalMedianCpc : 0);
+          return r >= 3 && p.nationalMedianCpc > 0;
+        });
+        for (const op of outlierProcs.slice(0, 3)) {
+          const r = op.cpcRatio || (op.providerCpc / op.nationalMedianCpc);
+          const desc = hcpcsDescription(op.code);
+          const codeLabel = desc ? `${op.code} (${desc})` : op.code;
+          assessmentLines.push(`Bills ${formatCpc(op.providerCpc)} per claim for ${codeLabel} \u2014 ${r.toFixed(1)}\u00d7 the national median of ${formatCpc(op.nationalMedianCpc)}.`);
+        }
+
+        // Above p99 codes
+        const p99Procs = procedures.filter((p: any) => p.decile === 'Top 1%');
+        const p90Procs = procedures.filter((p: any) => p.decile === 'Top 5%' || p.decile === 'Top 10%');
+        if (p99Procs.length > 0) {
+          assessmentLines.push(`Billing in the top 1% nationally for ${p99Procs.length} procedure code${p99Procs.length > 1 ? 's' : ''}: ${p99Procs.slice(0, 3).map((p: any) => p.code).join(', ')}.`);
+        } else if (p90Procs.length >= 2) {
+          assessmentLines.push(`Billing above the 90th percentile for ${p90Procs.length} procedure codes simultaneously.`);
+        }
+
+        return assessmentLines.length > 0 ? (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+            <h2 className="text-sm font-bold text-white mb-3">Risk Assessment</h2>
+            <div className="space-y-2">
+              {assessmentLines.map((line, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="text-red-400 mt-0.5 shrink-0">&bull;</span>
+                  <p className="text-sm text-slate-300 leading-relaxed">{line}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-[10px] text-slate-600 mt-3">
+              This is a statistical summary, not an accusation. <Link href="/analysis" className="text-blue-400 hover:underline">See our methodology</Link>.
+            </p>
+          </div>
+        ) : null;
+      })()}
+
+      {/* Active Billing Period */}
+      {monthly.length > 0 && (() => {
+        const firstMonth = monthly[0]?.month;
+        const lastMonth = monthly[monthly.length - 1]?.month;
+        const lastVal = monthly[monthly.length - 1]?.payments || monthly[monthly.length - 1]?.paid || 0;
+        const prevVal = monthly.length >= 2 ? (monthly[monthly.length - 2]?.payments || monthly[monthly.length - 2]?.paid || 0) : 0;
+        // Check if billing stopped abruptly (last month is 0 or last month is before 2024-06)
+        const abruptStop = lastMonth && lastMonth < '2024-06' && lastVal === 0;
+        const recentAbruptDrop = lastVal > 0 && prevVal > 0 && lastVal < prevVal * 0.1;
+
+        return (
+          <div className="flex flex-wrap gap-3 mb-3">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border bg-dark-800 border-dark-500/50">
+              <span className="text-[10px] text-slate-500">Active Billing Period:</span>
+              <span className="text-sm font-semibold text-white">{firstMonth}</span>
+              <span className="text-slate-600">&rarr;</span>
+              <span className="text-sm font-semibold text-white">{lastMonth}</span>
+              <span className="text-[10px] text-slate-600">({monthly.length} months)</span>
+            </div>
+            {abruptStop && (
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border bg-amber-500/8 border-amber-500/20">
+                <span className="text-xs text-amber-400 font-semibold">Billing appears to have stopped</span>
+                <span className="text-[10px] text-slate-500">Last active: {lastMonth}</span>
+              </div>
+            )}
+            {recentAbruptDrop && (
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border bg-amber-500/8 border-amber-500/20">
+                <span className="text-xs text-amber-400 font-semibold">Sharp billing drop in final month</span>
+              </div>
+            )}
+          </div>
+        );
+      })()}
+
+      {/* Procedure concentration insight */}
+      {procedures.length > 0 && procedures.length <= 2 && totalPaid > 500000 && (() => {
+        const topProc = procedures[0];
+        const topPct = totalPaid > 0 ? ((topProc?.payments || topProc?.paid || 0) / totalPaid * 100) : 0;
+        return (
+          <div className="bg-orange-500/5 border border-orange-500/15 rounded-lg px-4 py-2.5 mb-3">
+            <p className="text-xs text-orange-400 font-semibold">
+              Extreme procedure concentration &mdash; {topPct.toFixed(0)}% of {formatMoney(totalPaid)} billed through {procedures.length === 1 ? 'a single code' : 'just 2 codes'}
+            </p>
+          </div>
+        );
+      })()}
+
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">

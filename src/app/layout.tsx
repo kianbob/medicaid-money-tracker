@@ -105,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Insights
                 </Link>
                 <Link href="/analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Analysis
+                  Methodology
                 </Link>
                 <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   About
@@ -142,7 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       Insights
                     </Link>
                     <Link href="/analysis" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
-                      Fraud Analysis
+                      Methodology
                     </Link>
                     <Link href="/trends" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Trends
@@ -176,7 +176,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="space-y-2">
                   <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Fraud Watchlist</Link>
                   <Link href="/insights" className="block text-slate-500 hover:text-purple-400 transition-colors">Insights</Link>
-                  <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Fraud Analysis</Link>
+                  <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
                   <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">About &amp; Methodology</Link>
                 </div>
               </div>
