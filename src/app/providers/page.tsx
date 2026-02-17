@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { formatMoney, formatNumber, riskDot, parseFlags, flagLabel, flagColor } from "@/lib/format";
+import { formatMoney, formatNumber, riskDot, parseFlags, flagLabel, flagColor, stateName } from "@/lib/format";
 import topProviders from "../../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import mlScores from "../../../public/data/ml-scores.json";
@@ -50,6 +50,7 @@ export default function ProvidersPage() {
   const providers = topProviders as any[];
   const [search, setSearch] = useState("");
   const [stateFilter, setStateFilter] = useState("all");
+  const [specialtyFilter, setSpecialtyFilter] = useState("all");
   const [flagFilter, setFlagFilter] = useState("all");
   const [sortBy, setSortBy] = useState("spending");
   const [visibleCount, setVisibleCount] = useState(50);
@@ -57,6 +58,12 @@ export default function ProvidersPage() {
   const states = useMemo(() => {
     const s = new Set<string>();
     providers.forEach(p => p.state && s.add(p.state));
+    return Array.from(s).sort();
+  }, [providers]);
+
+  const specialties = useMemo(() => {
+    const s = new Set<string>();
+    providers.forEach(p => p.specialty && s.add(p.specialty));
     return Array.from(s).sort();
   }, [providers]);
 
@@ -68,10 +75,13 @@ export default function ProvidersPage() {
         (p.name || '').toLowerCase().includes(q) ||
         p.npi.includes(q) ||
         (p.specialty || '').toLowerCase().includes(q) ||
-        (p.city || '').toLowerCase().includes(q)
+        (p.city || '').toLowerCase().includes(q) ||
+        (p.state || '').toLowerCase() === q ||
+        stateName(p.state || '').toLowerCase().includes(q)
       );
     }
     if (stateFilter !== "all") result = result.filter(p => p.state === stateFilter);
+    if (specialtyFilter !== "all") result = result.filter(p => p.specialty === specialtyFilter);
     if (flagFilter === "flagged") result = result.filter(p => parseFlags(p.flags).length > 0);
     else if (flagFilter === "clean") result = result.filter(p => parseFlags(p.flags).length === 0);
 
@@ -85,7 +95,7 @@ export default function ProvidersPage() {
     // default "spending" — data is already sorted by totalPaid desc
 
     return result;
-  }, [providers, search, stateFilter, flagFilter, sortBy]);
+  }, [providers, search, stateFilter, specialtyFilter, flagFilter, sortBy]);
 
   const totalSpending = providers.reduce((sum: number, p: any) => sum + p.totalPaid, 0);
 
@@ -107,10 +117,10 @@ export default function ProvidersPage() {
       </div>
 
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+      <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
         <input
           type="search"
-          placeholder="Search by name, NPI, specialty, or city..."
+          placeholder="Search by name, NPI, specialty, city, or state..."
           value={search}
           onChange={(e) => { setSearch(e.target.value); setVisibleCount(50); }}
           className="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
@@ -122,6 +132,14 @@ export default function ProvidersPage() {
         >
           <option value="all">All States</option>
           {states.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
+        <select
+          value={specialtyFilter}
+          onChange={(e) => { setSpecialtyFilter(e.target.value); setVisibleCount(50); }}
+          className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
+        >
+          <option value="all">All Specialties</option>
+          {specialties.map(s => <option key={s} value={s}>{s.length > 50 ? s.substring(0, 47) + '...' : s}</option>)}
         </select>
         <select
           value={flagFilter}

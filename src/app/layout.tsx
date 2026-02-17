@@ -205,6 +205,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="space-y-2">
                   <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Risk Watchlist</Link>
                   <Link href="/insights" className="block text-slate-500 hover:text-purple-400 transition-colors">Insights</Link>
+                  <Link href="/timeline" className="block text-slate-500 hover:text-blue-400 transition-colors">Timeline</Link>
                   <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
                   <Link href="/ml-analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">ML Methodology</Link>
                   <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">About &amp; Methodology</Link>
