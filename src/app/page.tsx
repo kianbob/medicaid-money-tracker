@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden hero-gradient-bg fade-in-up" aria-labelledby="hero-heading">
+      <section className="relative overflow-hidden hero-gradient-bg" aria-labelledby="hero-heading">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600/8 via-purple-600/4 to-dark-900" aria-hidden="true" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
@@ -54,12 +54,12 @@ export default function Home() {
               </span>{" "}in<br className="hidden md:inline" /> Medicaid spending.
             </h1>
           </div>
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 animate-fade-in-delay-1 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
             We analyzed every Medicaid billing record released by HHS &mdash; and ran{" "}
             <span className="text-white font-medium">code-specific fraud detection</span> across 617,000+ providers.{" "}
             <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags.
           </p>
-          <div className="flex flex-wrap gap-3 animate-fade-in-delay-2">
+          <div className="flex flex-wrap gap-3">
             <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-500/30 hover:-translate-y-0.5">
               View Risk Watchlist
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
@@ -75,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* Getting Started */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 fade-in-up delay-1" aria-label="Getting started">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-label="Getting started">
         <div className="grid md:grid-cols-3 gap-4">
           <Link href="/providers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-blue-500/30 hover:-translate-y-0.5 transition-all group">
             <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* Key Numbers Bar */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 fade-in-up delay-2" aria-label="Key statistics">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-label="Key statistics">
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
           {[
             { label: "Total Spending", value: formatMoney(stats.totalPaid), sub: "2018\u20132024", color: "text-white" },
@@ -121,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 fade-in-up delay-3" aria-labelledby="how-it-works-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="how-it-works-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-blue-500 rounded-full" />
           <h2 id="how-it-works-heading" className="font-headline text-xl font-bold text-white">How It Works</h2>
@@ -152,7 +152,7 @@ export default function Home() {
       </section>
 
       {/* Investigation Highlight */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 fade-in-up" aria-labelledby="investigation-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="investigation-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-red-500 rounded-full" />
           <h2 id="investigation-heading" className="font-headline text-xl font-bold text-white">Key Findings</h2>
@@ -186,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* Featured Investigation */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 fade-in-up" aria-labelledby="featured-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="featured-heading">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-amber-500 rounded-full" />
           <h2 id="featured-heading" className="font-headline text-xl font-bold text-white">Featured Investigation</h2>
