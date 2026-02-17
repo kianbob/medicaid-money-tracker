@@ -269,14 +269,14 @@ export default function Home() {
             We also trained a <span className="text-white font-semibold">random forest ML model</span> (AUC: 0.77) on 514 OIG-excluded providers to score all 594K providers for fraud similarity.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/analysis" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
-              See our fraud analysis &rarr;
+            <Link href="/watchlist" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
+              Fraud watchlist &rarr;
             </Link>
             <Link href="/ml-analysis" className="text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors">
               ML fraud detection &rarr;
             </Link>
-            <Link href="/about" className="text-sm text-slate-400 hover:text-slate-300 font-medium transition-colors">
-              Full methodology &rarr;
+            <Link href="/analysis" className="text-sm text-slate-400 hover:text-slate-300 font-medium transition-colors">
+              Our methodology &rarr;
             </Link>
           </div>
         </div>
@@ -287,17 +287,16 @@ export default function Home() {
         <div className="relative overflow-hidden bg-dark-800 border border-dark-500/50 rounded-2xl p-8 md:p-14 text-center">
           <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 via-transparent to-purple-600/5" aria-hidden="true" />
           <div className="relative">
-            <h2 id="cta-heading" className="text-3xl md:text-4xl font-extrabold text-white mb-4">Where are your tax dollars going?</h2>
+            <h2 id="cta-heading" className="text-3xl md:text-4xl font-extrabold text-white mb-4">$1.09 Trillion. {watchlistCount} Red Flags.</h2>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
-              We used code-specific benchmarks on 617,000 providers and flagged {watchlistCount} for investigation.
-              Explore the data yourself.
+              We analyzed every Medicaid provider in the country using 13 statistical tests and machine learning trained on confirmed fraud cases. See who got flagged.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/analysis" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
-                See Fraud Analysis
+              <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
+                View the Fraud Watchlist
               </Link>
-              <Link href="/about" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-8 py-3.5 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
-                Read Methodology
+              <Link href="/insights" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-8 py-3.5 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
+                Explore Key Findings
               </Link>
             </div>
           </div>
