@@ -266,6 +266,15 @@ export default function ProviderPage({ params }: Props) {
             Share
           </a>
           <CopyLinkButton />
+          {(flagCount > 0 || mlScore !== null) && (
+            <Link
+              href={`/providers/${npi}/report`}
+              className="inline-flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-300 transition-colors px-2 py-0.5 rounded border border-dark-500/50 hover:border-dark-400 print-hide"
+            >
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+              Print Report
+            </Link>
+          )}
           {mlScore !== null && (() => {
             const pct = mlScore * 100;
             const color = pct >= 80 ? 'text-red-400' : pct >= 60 ? 'text-orange-400' : pct >= 30 ? 'text-yellow-400' : 'text-green-400';

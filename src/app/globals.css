@@ -166,3 +166,32 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
 }
+
+/* Print styles */
+@media print {
+  /* Hide nav, footer, disclaimer banner, back-to-top, and print-hide elements */
+  nav[role="navigation"],
+  footer[role="contentinfo"],
+  .print-hide,
+  div.bg-slate-800\/50 {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Report page: ensure white background prints cleanly */
+  .report-page {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Avoid page breaks inside flag cards */
+  .report-page .border-l-4 {
+    break-inside: avoid;
+  }
+}
