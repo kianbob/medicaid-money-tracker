@@ -7,22 +7,22 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Medicaid Money Tracker — Follow $1.09T in Spending",
-    template: "%s — Medicaid Money Tracker",
+    default: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
+    template: "%s \u2014 Medicaid Money Tracker",
   },
-  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. Explore billing anomalies, fraud risk flags, and see where taxpayer healthcare dollars actually go. Built from 227 million HHS records (2018–2024).",
+  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers and 10,881 procedure codes. 788 providers flagged by 9 fraud detection tests. Built from 227 million HHS records (2018\u20132024).",
   metadataBase: new URL("https://medicaidmoneytracker.com"),
   openGraph: {
-    title: "Medicaid Money Tracker — Follow $1.09T in Spending",
-    description: "We analyzed 227 million Medicaid billing records. See where taxpayer healthcare dollars go — and which providers raised red flags.",
+    title: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
+    description: "We analyzed 227 million Medicaid billing records and flagged 788 providers across 9 fraud detection tests. See where your healthcare tax dollars go.",
     type: "website",
     siteName: "Medicaid Money Tracker",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medicaid Money Tracker — Follow $1.09T in Spending",
-    description: "We analyzed 227 million Medicaid billing records. See where taxpayer healthcare dollars go — and which providers raised red flags.",
+    title: "Medicaid Money Tracker \u2014 $1.09T in Spending, Exposed",
+    description: "227M Medicaid billing records. 788 providers flagged. 9 fraud tests. See where your healthcare tax dollars go.",
   },
   robots: {
     index: true,
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "WebSite",
               "name": "Medicaid Money Tracker",
               "url": "https://medicaidmoneytracker.com",
-              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers.",
+              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 788 providers flagged by 9 fraud detection tests.",
               "publisher": {
                 "@type": "Organization",
                 "name": "TheDataProject.ai",
@@ -57,8 +57,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Dataset",
-              "name": "Medicaid Provider Spending Analysis (2018–2024)",
-              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes.",
+              "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
+              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. Includes 9 statistical fraud detection tests flagging 788 providers.",
               "url": "https://medicaidmoneytracker.com",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "isBasedOn": {
@@ -78,51 +78,69 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${inter.className} bg-dark-900 text-slate-200 min-h-screen`}>
         {/* Navigation */}
-        <nav className="sticky top-0 z-50 bg-dark-800/95 backdrop-blur-md border-b border-dark-500" role="navigation" aria-label="Main navigation">
+        <nav className="sticky top-0 z-50 bg-dark-900/80 backdrop-blur-xl border-b border-dark-500/50" role="navigation" aria-label="Main navigation">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <Link href="/" className="flex items-center gap-2.5 group" aria-label="Medicaid Money Tracker — Home">
-                <span className="text-xl" aria-hidden="true">💊</span>
-                <span className="font-bold text-lg text-white tracking-tight group-hover:text-blue-400 transition-colors">Medicaid Money Tracker</span>
+            <div className="flex items-center justify-between h-14">
+              <Link href="/" className="flex items-center gap-2 group" aria-label="Medicaid Money Tracker \u2014 Home">
+                <div className="w-7 h-7 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-black">M</div>
+                <span className="font-bold text-[15px] text-white tracking-tight group-hover:text-blue-400 transition-colors hidden sm:inline">Medicaid Money Tracker</span>
               </Link>
 
               {/* Desktop nav */}
-              <div className="hidden md:flex items-center gap-1">
-                <Link href="/watchlist" className="text-sm font-medium text-red-400 hover:text-red-300 hover:bg-red-500/10 px-3 py-2 rounded-lg transition-all">
-                  Fraud Watchlist
+              <div className="hidden md:flex items-center gap-0.5">
+                <Link href="/watchlist" className="text-[13px] font-semibold text-red-400 hover:text-red-300 hover:bg-red-500/10 px-3 py-1.5 rounded-md transition-all">
+                  Watchlist
                 </Link>
-                <Link href="/providers" className="text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-600 px-3 py-2 rounded-lg transition-all">
+                <Link href="/providers" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Providers
                 </Link>
-                <Link href="/procedures" className="text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-600 px-3 py-2 rounded-lg transition-all">
+                <Link href="/states" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
+                  States
+                </Link>
+                <Link href="/procedures" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Procedures
                 </Link>
-                <Link href="/about" className="text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-600 px-3 py-2 rounded-lg transition-all">
+                <Link href="/analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
+                  Analysis
+                </Link>
+                <Link href="/trends" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
+                  Trends
+                </Link>
+                <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   About
                 </Link>
               </div>
 
-              {/* Mobile hamburger nav - uses CSS-only toggle */}
+              {/* Mobile hamburger nav */}
               <div className="md:hidden">
                 <details className="relative group">
                   <summary className="list-none cursor-pointer p-2 rounded-lg hover:bg-dark-600 transition-colors" aria-label="Open menu">
-                    <svg className="w-6 h-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <svg className="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </summary>
-                  <div className="absolute right-0 top-12 w-56 bg-dark-700 border border-dark-500 rounded-xl shadow-2xl shadow-black/50 py-2 z-50">
-                    <Link href="/watchlist" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-red-400 hover:bg-dark-600 transition-colors">
-                      <span aria-hidden="true">🚩</span> Fraud Watchlist
+                  <div className="absolute right-0 top-11 w-52 bg-dark-700 border border-dark-500 rounded-xl shadow-2xl shadow-black/60 py-1.5 z-50">
+                    <Link href="/watchlist" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-red-400 hover:bg-dark-600 transition-colors">
+                      Fraud Watchlist
                     </Link>
-                    <Link href="/providers" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
-                      <span aria-hidden="true">🏥</span> Providers
+                    <Link href="/providers" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Providers
                     </Link>
-                    <Link href="/procedures" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
-                      <span aria-hidden="true">💊</span> Procedures
+                    <Link href="/states" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      States
+                    </Link>
+                    <Link href="/procedures" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Procedures
                     </Link>
                     <div className="border-t border-dark-500 my-1" />
-                    <Link href="/about" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
-                      <span aria-hidden="true">📖</span> About & Methodology
+                    <Link href="/analysis" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Fraud Analysis
+                    </Link>
+                    <Link href="/trends" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Trends
+                    </Link>
+                    <Link href="/about" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      About
                     </Link>
                   </div>
                 </details>
@@ -133,30 +151,45 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main id="main-content">{children}</main>
 
-        <footer className="border-t border-dark-500 mt-20 py-10 px-4" role="contentinfo">
+        <footer className="border-t border-dark-500/50 mt-24 py-12 px-4" role="contentinfo">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 text-sm text-slate-500">
+            <div className="grid md:grid-cols-4 gap-8 text-sm">
               <div>
-                <p className="font-semibold text-slate-400 mb-2">Data Source</p>
-                <p>
-                  <a href="https://opendata.hhs.gov/datasets/medicaid-provider-spending/" className="text-blue-400 hover:underline">HHS Open Data</a> — Medicaid Provider Spending
-                </p>
-                <p className="mt-1">227M records · 2018–2024 · $1.09T in payments</p>
+                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Explore</p>
+                <div className="space-y-2">
+                  <Link href="/providers" className="block text-slate-500 hover:text-blue-400 transition-colors">Top Providers</Link>
+                  <Link href="/states" className="block text-slate-500 hover:text-blue-400 transition-colors">States</Link>
+                  <Link href="/procedures" className="block text-slate-500 hover:text-blue-400 transition-colors">Procedures</Link>
+                  <Link href="/trends" className="block text-slate-500 hover:text-blue-400 transition-colors">Trends</Link>
+                </div>
               </div>
               <div>
-                <p className="font-semibold text-slate-400 mb-2">Disclaimer</p>
-                <p>Statistical flags indicate unusual patterns worth investigating — not proof of fraud or wrongdoing.</p>
+                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Investigate</p>
+                <div className="space-y-2">
+                  <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Fraud Watchlist</Link>
+                  <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Fraud Analysis</Link>
+                  <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
+                </div>
               </div>
               <div>
-                <p className="font-semibold text-slate-400 mb-2">Built By</p>
-                <p>
-                  <a href="https://thedataproject.ai" className="text-blue-400 hover:underline">TheDataProject.ai</a>
+                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Data Source</p>
+                <p className="text-slate-500">
+                  <a href="https://opendata.hhs.gov/datasets/medicaid-provider-spending/" className="text-blue-400/80 hover:text-blue-400 hover:underline transition-colors">HHS Open Data</a>
                 </p>
-                <p className="mt-1">Data-driven transparency from public records.</p>
+                <p className="text-slate-600 mt-1">227M records &middot; 2018&ndash;2024</p>
+                <p className="text-slate-600">$1.09T in payments</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Built By</p>
+                <p className="text-slate-500">
+                  <a href="https://thedataproject.ai" className="text-blue-400/80 hover:text-blue-400 hover:underline transition-colors">TheDataProject.ai</a>
+                </p>
+                <p className="text-slate-600 mt-1">Data-driven transparency from public records.</p>
               </div>
             </div>
-            <div className="border-t border-dark-600 mt-8 pt-6 text-center text-xs text-slate-600">
-              <p>Released under the public interest. Not affiliated with HHS, DOGE, or any government agency.</p>
+            <div className="border-t border-dark-600/50 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+              <p className="text-xs text-slate-600">Statistical flags indicate unusual patterns worth investigating &mdash; not proof of fraud or wrongdoing.</p>
+              <p className="text-xs text-slate-700">Not affiliated with HHS, DOGE, or any government agency.</p>
             </div>
           </div>
         </footer>

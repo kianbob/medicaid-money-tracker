@@ -15,6 +15,7 @@ const config: Config = {
           700: '#1a1d2b',
           600: '#232839',
           500: '#2d3348',
+          400: '#3d4460',
         },
         accent: {
           red: '#ef4444',
@@ -22,8 +23,10 @@ const config: Config = {
           green: '#22c55e',
           blue: '#3b82f6',
           purple: '#a855f7',
+          cyan: '#06b6d4',
+          orange: '#f97316',
         }
-      }
+      },
     },
   },
   plugins: [],

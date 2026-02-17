@@ -1,83 +1,146 @@
-# CLAUDE.md - Project Instructions
+# CLAUDE.md - Medicaid Money Tracker
 
-## Project: Medicaid Money Tracker
-A data journalism website analyzing $1.09T in Medicaid provider spending (227M records, 2018-2024).
-Built with Next.js 14, TypeScript, Tailwind CSS, dark theme.
+## Project
+Data journalism website analyzing $1.09T in Medicaid provider spending (227M records, 2018-2024).
+Next.js 14, TypeScript, Tailwind CSS, dark theme. Deployed at medicaid-money-tracker.vercel.app
 
-## Your Task: Full Polish Pass
+## YOUR TASK: Major site overhaul
 
-Read these reference files first:
-- `reference-data/COMPETITIVE_RESEARCH.md` — competitor analysis, DOGE context, data sources
-- `reference-data/HCPCS_CODES.md` — procedure code descriptions
+This is a comprehensive improvement pass. Work through EVERY section below. Be thorough and iterative — after making changes, review the result and fix anything that doesn't look right.
 
-Then make these improvements:
+### NEW DATA AVAILABLE
+These new JSON files are in `public/data/`. Use them to build new pages and features:
 
-### 1. HCPCS Procedure Code Descriptions
-- Currently the site just shows codes like "T2016" or "99213"
-- Add human-readable descriptions everywhere codes appear
-- Reference `HCPCS_CODES.md` for the top 20 codes
-- Format: "T2016 — Residential Habilitation" not just "T2016"
-- Update `public/data/top-procedures.json` to include descriptions
-- Update procedure pages and provider detail pages
+- `top-providers-1000.json` — Top 1000 providers (was only 50) with computed fields: costPerClaim, costPerBene, claimsPerBene, flags, flagCount
+- `all-procedures.json` — ALL 10,881 procedure codes (was only 50). Has: code, totalPaid, totalClaims, providerCount, totalBenes
+- `states-summary.json` — Per-state totals for top providers (state, total_payments, provider_count, etc.)
+- `states/[STATE].json` — 50 state detail files with: summary, top_providers, top_procedures, yearly_trends
+- `expanded-watchlist.json` — 788 flagged providers from 9 fraud tests (was 112 from 4 tests). Each has: npi, flag_count, flags array, flag_details
+- `fraud-explosive-growth.json` — Providers with >500% YoY growth
+- `fraud-instant-volume.json` — New providers billing >$1M in first year
+- `fraud-procedure-concentration.json` — Providers billing only 1-2 codes at high volume
+- `fraud-billing-consistency.json` — Suspiciously consistent monthly billing (CV < 0.1)
+- `fraud-beneficiary-stuffing-extreme.json` — >100 claims per beneficiary
+- `yearly-trends.json` — Overall yearly spending trends
+- Provider detail files: `providers/[NPI].json` — now 1034 files (was 137), each with: monthly trends, procedures, computed fields, growth rate, merged flags
 
-### 2. About/Methodology Page (`/about`)
-- Add DOGE/HHS release context (Feb 13, 2026, DOGE tweet got 50M views)
-- Explain our 4 fraud detection tests clearly for non-technical readers
-- Add the OIG cross-reference finding: "We cross-referenced our flagged providers against the HHS OIG exclusion list (82,715 excluded providers). None of our flagged providers appear on this list, suggesting our analysis may be surfacing new suspicious activity not yet investigated."
-- Add Minnesota autism fraud context (DOGE specifically referenced this)
-- Add caveats section: statistical flags ≠ proof of fraud, state agencies may have legitimately high spending, etc.
-- Credit the dataset source (opendata.hhs.gov)
+### 1. UI OVERHAUL — Make it unique and best-in-class
 
-### 3. Design Polish
-- Make it ProPublica/OpenSecrets quality — professional data journalism
-- Improve typography, spacing, visual hierarchy
-- Add subtle animations/transitions where appropriate
-- Ensure mobile responsiveness is excellent
-- Add a mobile hamburger nav menu
-- Make data tables sortable where possible
-- Add visual indicators for risk levels (color-coded badges)
+Research what sites like ProPublica, The Markup, OpenSecrets, FiveThirtyEight look like. Our site should feel like professional data journalism — NOT a generic dashboard.
 
-### 4. SEO & Meta
-- Add JSON-LD structured data (Dataset, Organization schemas)
-- Add proper Open Graph tags for social sharing on every page
-- Add Twitter Card meta tags
-- Write compelling meta descriptions for each page type
-- Add canonical URLs
+Design goals:
+- **Distinctive visual identity** — not cookie-cutter. Think editorial design meets data viz.
+- **Data storytelling** — lead with narratives, not just tables
+- **Visual hierarchy** — clear information architecture, readers know where to look
+- **Micro-interactions** — subtle hover effects, smooth transitions, engaging without being distracting
+- **Cards and sections** with clear boundaries and breathing room
+- **Color system** — use color meaningfully (red for high risk, amber for moderate, green for low). Don't just use random colors.
+- **Typography** — clear hierarchy. Large bold headlines, readable body text, monospace for numbers/codes
+- **Mobile-first** — must look great on phones. Hamburger nav, responsive tables that become cards on mobile
+- **Dark theme** — keep the dark theme but make it sophisticated, not just "dark background with white text"
 
-### 5. Homepage Improvements
-- Make it more compelling — lead with the story, not just stats
-- Add a "Key Findings" section highlighting the most interesting discoveries
-- Add a search bar or quick navigation to provider/procedure lookup
-- Show a preview of the watchlist with the most suspicious providers
+### 2. FIX FRAUD RISK DISPLAY — Make flags human-readable
 
-### 6. Watchlist Page Improvements  
-- Add filtering by state, risk level, flag type
-- Improve the flag explanations
-- Add the OIG finding as a banner
+Currently shows things like `outlier_spending|unusual_cost_per_claim` which means nothing to users.
 
-### 7. Provider Detail Pages
-- Add HCPCS code descriptions in the procedures breakdown
-- Improve the monthly trend charts
-- Add context about what "normal" looks like for comparison
+Replace ALL flag codes with human-readable explanations:
+- `outlier_spending` → "Unusually High Spending — This provider's total payments are significantly above the median for their specialty"
+- `unusual_cost_per_claim` → "High Cost Per Claim — Average payment per claim is much higher than peers"
+- `beneficiary_stuffing` → "High Claims Per Patient — Filing an unusually high number of claims per beneficiary"
+- `spending_spike` → "Spending Spike — Experienced a dramatic increase in billing over a short period"
+- `explosive_growth` → "Explosive Growth — Billing increased over 500% year-over-year"
+- `instant_high_volume` → "Instant High Volume — New provider billing over $1M in their first year"
+- `procedure_concentration` → "Single-Code Billing — Billing almost exclusively for 1-2 procedure codes despite high volume"
+- `billing_consistency` → "Suspiciously Consistent — Monthly billing amounts show almost no natural variation"
+- `extreme_beneficiary_stuffing` → "Extreme Claims Per Patient — Filing over 100 claims per beneficiary"
 
-### 8. Accessibility
-- Ensure proper heading hierarchy
-- Add aria labels where needed
-- Ensure sufficient color contrast
-- Keyboard navigation support
+Show each flag as a card/badge with icon, title, short explanation, and the actual data that triggered it.
 
-## Tech Notes
-- Static site — all data is in `public/data/` as JSON files
-- Don't modify the Python scripts in `scripts/` — data is already generated
-- Run `npm run build` when done to verify everything compiles
-- Keep the dark theme consistent
-- The site should work without JavaScript for basic content (progressive enhancement)
+Risk levels should be:
+- 🔴 CRITICAL: 3+ flags
+- 🟠 HIGH: 2 flags  
+- 🟡 MODERATE: 1 flag
 
-## Don't
-- Don't touch the parquet file or data processing scripts
-- Don't add any backend/API — keep it fully static
-- Don't add any tracking/analytics code
-- Don't remove existing functionality — only enhance
+### 3. NEW PAGES TO BUILD
 
-When completely finished, run this command to notify me:
-openclaw system event --text "Done: Claude Code finished the full polish pass on Medicaid Money Tracker. Ready for build verification." --mode now
+**State Pages** (`/states` index + `/states/[code]` detail):
+- Index: US map or ranked list of all 50 states by spending
+- Detail: State summary stats, top providers in that state, top procedures, yearly spending trend chart, link to provider details
+- Use data from `states-summary.json` and `states/[STATE].json`
+
+**Procedure Pages — Fix "Not Found" issue**:
+- Currently only top 50 procedures have pages. Use `all-procedures.json` (10,881 codes) so EVERY procedure code has a page
+- For procedure detail pages: show stats, top providers using that code, spending trends
+- Since we don't have per-procedure provider breakdowns for all 10K codes in separate files, the procedure detail pages for codes outside the top 50 can show the summary stats from all-procedures.json
+
+**Provider Directory** — expand from 50 to 1000:
+- Use `top-providers-1000.json`
+- Add filtering by state, specialty, flag status
+- Add search functionality
+- Pagination or virtual scrolling for 1000 providers
+
+**Fraud Analysis Pages** (`/analysis` or `/fraud`):
+- Overview page explaining all 9 fraud tests with methodology
+- Sub-pages for each fraud test showing flagged providers
+- Comparison: our approach vs competitors (we now use 9 tests, up from 4)
+- The OIG cross-reference finding prominently featured
+
+**Trends Page** (`/trends`):
+- Year-over-year spending trends using `yearly-trends.json`
+- Growth charts, provider count over time
+- Which specialties/procedures are growing fastest
+
+### 4. SEO — Comprehensive keyword optimization
+
+Target these keyword clusters:
+- "medicaid spending data" / "medicaid provider spending" / "medicaid billing data"
+- "medicaid fraud detection" / "medicaid fraud analysis" / "medicaid waste"
+- "HHS DOGE medicaid data" / "DOGE medicaid" / "HHS open data"
+- "[state] medicaid spending" (50 variations)
+- "medicaid provider lookup" / "NPI medicaid billing"
+- "[procedure code] medicaid" (for each procedure)
+- "medicaid spending by state" / "medicaid spending trends"
+- "medicaid fraud watchlist" / "suspicious medicaid providers"
+
+Implementation:
+- Unique, keyword-rich title and meta description for EVERY page
+- JSON-LD: Dataset, Organization, WebSite, BreadcrumbList schemas
+- Open Graph + Twitter Card tags on every page
+- Internal linking strategy (link between related providers, states, procedures)
+- Breadcrumb navigation on all pages
+- XML sitemap generation (important with 1000+ pages!)
+- robots.txt
+- Semantic HTML (article, section, nav, header, footer, aside)
+- FAQ schema on methodology/about page
+- Add a `sitemap.xml` page or use next-sitemap
+
+### 5. QUALITY ASSURANCE
+
+After making all changes:
+1. Run `npm run build` — fix ANY errors
+2. Spot-check these pages manually (read the generated HTML):
+   - Homepage
+   - A provider detail page (e.g., /providers/1417262056)
+   - A state page
+   - A procedure page for a code that was previously "not found"
+   - The watchlist
+   - The about/methodology page
+3. Verify all internal links work
+4. Check that flag descriptions are human-readable everywhere
+5. Verify mobile nav works
+6. Make sure data loads correctly on state pages
+7. Check that search works
+
+### 6. IMPORTANT CONSTRAINTS
+
+- Keep it a static site — all data from JSON files in public/data/
+- Don't touch Python scripts in `scripts/`
+- Don't add backend/API
+- Don't add analytics/tracking
+- Dark theme always
+- Run `npm run build` when completely done to verify
+- Reference `reference-data/COMPETITIVE_RESEARCH.md` for competitor context
+- Reference `reference-data/HCPCS_CODES.md` for procedure code descriptions
+
+When completely finished, run:
+openclaw system event --text "Done: Major site overhaul complete — new state pages, 1000 providers, 10K procedures, UI redesign, expanded fraud analysis, SEO" --mode now

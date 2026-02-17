@@ -17,37 +17,152 @@ export function formatMoneyFull(n: number): string {
   return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
 }
 
+export function formatPercent(n: number): string {
+  return n.toFixed(1) + '%';
+}
+
 export function riskColor(flagCount: number): string {
   if (flagCount >= 3) return 'text-red-400';
   if (flagCount >= 2) return 'text-amber-400';
-  return 'text-green-400';
+  if (flagCount >= 1) return 'text-yellow-400';
+  return 'text-slate-400';
+}
+
+export function riskBgColor(flagCount: number): string {
+  if (flagCount >= 3) return 'bg-red-500/15 border-red-500/30';
+  if (flagCount >= 2) return 'bg-amber-500/15 border-amber-500/30';
+  if (flagCount >= 1) return 'bg-yellow-500/15 border-yellow-500/30';
+  return 'bg-slate-500/10 border-slate-500/20';
 }
 
 export function riskLabel(flagCount: number): string {
-  if (flagCount >= 3) return '🔴 CRITICAL';
-  if (flagCount >= 2) return '🟠 HIGH';
-  return '🟡 MODERATE';
+  if (flagCount >= 3) return 'CRITICAL';
+  if (flagCount >= 2) return 'HIGH';
+  if (flagCount >= 1) return 'MODERATE';
+  return 'LOW';
+}
+
+export function riskDot(flagCount: number): string {
+  if (flagCount >= 3) return 'bg-red-500';
+  if (flagCount >= 2) return 'bg-amber-500';
+  if (flagCount >= 1) return 'bg-yellow-500';
+  return 'bg-slate-500';
+}
+
+// ── Flag descriptions (all 9 fraud tests) ─────────────────────────
+
+export interface FlagInfo {
+  label: string;
+  description: string;
+  color: string;
+  bgColor: string;
+}
+
+const FLAG_INFO: Record<string, FlagInfo> = {
+  'outlier_spending': {
+    label: 'Unusually High Spending',
+    description: "This provider's total payments are significantly above the median for their specialty.",
+    color: 'text-red-400',
+    bgColor: 'bg-red-500/15 border-red-500/30',
+  },
+  'unusual_cost_per_claim': {
+    label: 'High Cost Per Claim',
+    description: 'Average payment per claim is much higher than peers billing the same procedures.',
+    color: 'text-amber-400',
+    bgColor: 'bg-amber-500/15 border-amber-500/30',
+  },
+  'unusual_cost': {
+    label: 'High Cost Per Claim',
+    description: 'Average payment per claim is much higher than peers billing the same procedures.',
+    color: 'text-amber-400',
+    bgColor: 'bg-amber-500/15 border-amber-500/30',
+  },
+  'beneficiary_stuffing': {
+    label: 'High Claims Per Patient',
+    description: 'Filing an unusually high number of claims per beneficiary compared to peers.',
+    color: 'text-blue-400',
+    bgColor: 'bg-blue-500/15 border-blue-500/30',
+  },
+  'bene_stuffing': {
+    label: 'High Claims Per Patient',
+    description: 'Filing an unusually high number of claims per beneficiary compared to peers.',
+    color: 'text-blue-400',
+    bgColor: 'bg-blue-500/15 border-blue-500/30',
+  },
+  'spending_spike': {
+    label: 'Spending Spike',
+    description: 'Experienced a dramatic increase in billing over a short period.',
+    color: 'text-purple-400',
+    bgColor: 'bg-purple-500/15 border-purple-500/30',
+  },
+  'explosive_growth': {
+    label: 'Explosive Growth',
+    description: 'Billing increased over 500% year-over-year \u2014 far beyond normal growth patterns.',
+    color: 'text-red-400',
+    bgColor: 'bg-red-500/15 border-red-500/30',
+  },
+  'instant_high_volume': {
+    label: 'Instant High Volume',
+    description: 'New provider billing over $1M in their first year of Medicaid participation.',
+    color: 'text-amber-400',
+    bgColor: 'bg-amber-500/15 border-amber-500/30',
+  },
+  'procedure_concentration': {
+    label: 'Single-Code Billing',
+    description: 'Billing almost exclusively for 1-2 procedure codes despite high total volume.',
+    color: 'text-orange-400',
+    bgColor: 'bg-orange-500/15 border-orange-500/30',
+  },
+  'billing_consistency': {
+    label: 'Suspiciously Consistent',
+    description: 'Monthly billing amounts show almost no natural variation (CV < 0.1).',
+    color: 'text-cyan-400',
+    bgColor: 'bg-cyan-500/15 border-cyan-500/30',
+  },
+  'extreme_beneficiary_stuffing': {
+    label: 'Extreme Claims Per Patient',
+    description: 'Filing over 100 claims per beneficiary \u2014 far exceeding any normal treatment pattern.',
+    color: 'text-red-400',
+    bgColor: 'bg-red-500/15 border-red-500/30',
+  },
+};
+
+export function getFlagInfo(flag: string): FlagInfo {
+  return FLAG_INFO[flag] || {
+    label: flag.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+    description: 'Statistical anomaly detected in billing patterns.',
+    color: 'text-slate-400',
+    bgColor: 'bg-slate-500/15 border-slate-500/30',
+  };
 }
 
 export function flagLabel(flag: string): string {
-  const map: Record<string, string> = {
-    'outlier_spending': 'Outlier Spending',
-    'unusual_cost_per_claim': 'Unusual Cost/Claim',
-    'unusual_cost': 'Unusual Cost/Claim',
-    'beneficiary_stuffing': 'Bene Stuffing',
-    'bene_stuffing': 'Bene Stuffing',
-    'spending_spike': 'Spending Spike',
-  };
-  return map[flag] || flag;
+  return getFlagInfo(flag).label;
 }
 
 export function flagColor(flag: string): string {
-  if (flag.includes('spending') && !flag.includes('spike')) return 'bg-red-500/20 text-red-400 border-red-500/30';
-  if (flag.includes('cost')) return 'bg-amber-500/20 text-amber-400 border-amber-500/30';
-  if (flag.includes('stuffing') || flag.includes('bene')) return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
-  if (flag.includes('spike')) return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
-  return 'bg-slate-500/20 text-slate-400 border-slate-500/30';
+  const info = getFlagInfo(flag);
+  return info.bgColor + ' ' + info.color;
 }
+
+// Parse pipe-separated flag strings from old data format
+export function parseFlags(flags: string[] | string | undefined): string[] {
+  if (!flags) return [];
+  if (typeof flags === 'string') {
+    return flags.split('|').map(f => f.trim()).filter(Boolean);
+  }
+  const result: string[] = [];
+  for (const f of flags) {
+    if (f.includes('|')) {
+      result.push(...f.split('|').map(s => s.trim()).filter(Boolean));
+    } else {
+      result.push(f);
+    }
+  }
+  return Array.from(new Set(result));
+}
+
+// ── HCPCS Code Descriptions ─────────────────────────
 
 const HCPCS_DESCRIPTIONS: Record<string, string> = {
   'T1019': 'Personal care services, per 15 min',
@@ -110,6 +225,23 @@ const HCPCS_DESCRIPTIONS: Record<string, string> = {
   'T2003': 'Non-emergency transport; encounter/trip',
   'T2017': 'Habilitation, residential, waiver; 15 min',
   'T1024': 'Evaluation & treatment, integrated specialty team',
+  'T2028': 'Specialized supply, NOS; per unit',
+  'T2040': 'Financial management, self-directed; per month',
+  'T1028': 'Assessment of home, physical & family environments',
+  'K0606': 'Automated external defibrillator',
+  '99211': 'Office/outpatient visit, minimal complexity',
+  '99212': 'Office/outpatient visit, low complexity',
+  '99215': 'Office/outpatient visit, high complexity',
+  '99282': 'Emergency dept visit, low complexity',
+  '99281': 'Emergency dept visit, minimal complexity',
+  '90832': 'Psychotherapy, 30 minutes',
+  '90847': 'Family psychotherapy with patient, 50 min',
+  '90846': 'Family psychotherapy without patient, 50 min',
+  '96372': 'Therapeutic injection, subcutaneous/intramuscular',
+  '99202': 'Office/outpatient visit, new patient, low complexity',
+  '99203': 'Office/outpatient visit, new patient, low-mod complexity',
+  '99204': 'Office/outpatient visit, new patient, mod-high complexity',
+  '99205': 'Office/outpatient visit, new patient, high complexity',
 };
 
 export function hcpcsDescription(code: string): string {
@@ -119,4 +251,24 @@ export function hcpcsDescription(code: string): string {
 export function hcpcsLabel(code: string): string {
   const desc = HCPCS_DESCRIPTIONS[code];
   return desc ? `${code} \u2014 ${desc}` : code;
+}
+
+// ── State name mapping ─────────────────────────
+
+const STATE_NAMES: Record<string, string> = {
+  AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+  CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', DC: 'District of Columbia', FL: 'Florida',
+  GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois', IN: 'Indiana',
+  IA: 'Iowa', KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana', ME: 'Maine',
+  MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan', MN: 'Minnesota', MS: 'Mississippi',
+  MO: 'Missouri', MT: 'Montana', NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire',
+  NJ: 'New Jersey', NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota',
+  OH: 'Ohio', OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania', PR: 'Puerto Rico',
+  RI: 'Rhode Island', SC: 'South Carolina', SD: 'South Dakota', TN: 'Tennessee', TX: 'Texas',
+  UT: 'Utah', VT: 'Vermont', VA: 'Virginia', WA: 'Washington', WV: 'West Virginia',
+  WI: 'Wisconsin', WY: 'Wyoming',
+};
+
+export function stateName(code: string): string {
+  return STATE_NAMES[code] || code;
 }

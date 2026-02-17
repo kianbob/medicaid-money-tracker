@@ -1,72 +1,131 @@
-import Link from "next/link";
-import type { Metadata } from "next";
-import { formatMoney, formatNumber } from "@/lib/format";
-import topProviders from "../../../public/data/top-providers.json";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Top Medicaid Providers",
-  description: "The highest-spending Medicaid providers from 2018-2024. Explore who receives the most taxpayer healthcare dollars, sorted by total payments received.",
-  openGraph: {
-    title: "Top Medicaid Providers — Medicaid Money Tracker",
-    description: "Explore the top Medicaid providers by total spending. See who receives the most taxpayer healthcare dollars across 617,000+ providers.",
-  },
-};
+import Link from "next/link";
+import { useState, useMemo } from "react";
+import { formatMoney, formatNumber, riskDot, parseFlags, flagLabel, flagColor } from "@/lib/format";
+import topProviders from "../../../public/data/top-providers-1000.json";
 
 export default function ProvidersPage() {
+  const providers = topProviders as any[];
+  const [search, setSearch] = useState("");
+  const [stateFilter, setStateFilter] = useState("all");
+  const [flagFilter, setFlagFilter] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(50);
+
+  const states = useMemo(() => {
+    const s = new Set<string>();
+    providers.forEach(p => p.state && s.add(p.state));
+    return Array.from(s).sort();
+  }, [providers]);
+
+  const filtered = useMemo(() => {
+    let result = providers;
+    if (search) {
+      const q = search.toLowerCase();
+      result = result.filter(p =>
+        (p.name || '').toLowerCase().includes(q) ||
+        p.npi.includes(q) ||
+        (p.specialty || '').toLowerCase().includes(q) ||
+        (p.city || '').toLowerCase().includes(q)
+      );
+    }
+    if (stateFilter !== "all") result = result.filter(p => p.state === stateFilter);
+    if (flagFilter === "flagged") result = result.filter(p => parseFlags(p.flags).length > 0);
+    else if (flagFilter === "clean") result = result.filter(p => parseFlags(p.flags).length === 0);
+    return result;
+  }, [providers, search, stateFilter, flagFilter]);
+
+  const totalSpending = providers.reduce((sum: number, p: any) => sum + p.totalPaid, 0);
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="text-sm text-slate-500 mb-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-300">Top Providers</span>
+        <span className="mx-1.5">/</span>
+        <span className="text-slate-300">Providers</span>
       </nav>
 
-      <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Top Medicaid Providers</h1>
-      <p className="text-lg text-slate-400 mb-10 max-w-3xl leading-relaxed">
-        The highest-spending Medicaid providers from 2018&ndash;2024, ranked by total payments received.
-        Click any provider to see their full spending profile and procedure breakdown.
+      <div className="mb-8">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">Top 1,000 Medicaid Providers</h1>
+        <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
+          The highest-spending Medicaid providers from 2018&ndash;2024, representing{" "}
+          <span className="text-white font-semibold">{formatMoney(totalSpending)}</span> in total payments.
+          Search, filter, and click any provider for their full spending profile.
+        </p>
+      </div>
+
+      {/* Filters */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+        <input
+          type="search"
+          placeholder="Search by name, NPI, specialty, or city..."
+          value={search}
+          onChange={(e) => { setSearch(e.target.value); setVisibleCount(50); }}
+          className="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+        />
+        <select
+          value={stateFilter}
+          onChange={(e) => { setStateFilter(e.target.value); setVisibleCount(50); }}
+          className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
+        >
+          <option value="all">All States</option>
+          {states.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
+        <select
+          value={flagFilter}
+          onChange={(e) => { setFlagFilter(e.target.value); setVisibleCount(50); }}
+          className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
+        >
+          <option value="all">All Providers</option>
+          <option value="flagged">Flagged Only</option>
+          <option value="clean">No Flags</option>
+        </select>
+      </div>
+
+      <p className="text-xs text-slate-500 mb-4">
+        Showing <strong className="text-white">{Math.min(visibleCount, filtered.length)}</strong> of {filtered.length} providers
       </p>
 
-      <div className="bg-dark-700 border border-dark-500 rounded-xl overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-dark-500 bg-dark-800/50">
-                <th scope="col" className="text-left px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold">#</th>
-                <th scope="col" className="text-left px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold">Provider</th>
-                <th scope="col" className="text-left px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold hidden md:table-cell">Specialty</th>
-                <th scope="col" className="text-left px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold hidden md:table-cell">Location</th>
-                <th scope="col" className="text-right px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold">Total Paid</th>
-                <th scope="col" className="text-right px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold hidden sm:table-cell">Claims</th>
-                <th scope="col" className="text-right px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold hidden lg:table-cell">Beneficiaries</th>
-                <th scope="col" className="text-right px-4 py-3 text-xs uppercase tracking-wider text-slate-500 font-semibold hidden lg:table-cell">Procedures</th>
-              </tr>
-            </thead>
-            <tbody>
-              {topProviders.map((p: any, i: number) => (
-                <tr key={p.npi} className="border-b border-dark-600 hover:bg-dark-600/50 transition-colors">
-                  <td className="px-4 py-3 text-slate-600 font-bold">{i + 1}</td>
-                  <td className="px-4 py-3">
-                    <Link href={`/providers/${p.npi}`} className="text-white font-medium hover:text-blue-400 transition-colors">
-                      {p.name || `NPI: ${p.npi}`}
-                    </Link>
-                    <p className="text-xs text-slate-500 mt-0.5">NPI: {p.npi}</p>
-                  </td>
-                  <td className="px-4 py-3 text-slate-400 text-xs hidden md:table-cell max-w-[200px] truncate">{p.specialty || '\u2014'}</td>
-                  <td className="px-4 py-3 text-slate-400 hidden md:table-cell">
-                    {p.city ? `${p.city}, ${p.state}` : '\u2014'}
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono text-white font-semibold">{formatMoney(p.totalPaid)}</td>
-                  <td className="px-4 py-3 text-right text-slate-400 hidden sm:table-cell">{formatNumber(p.totalClaims)}</td>
-                  <td className="px-4 py-3 text-right text-slate-400 hidden lg:table-cell">{formatNumber(p.totalBenes)}</td>
-                  <td className="px-4 py-3 text-right text-slate-400 hidden lg:table-cell">{p.procCount}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div className="space-y-1.5">
+        {filtered.slice(0, visibleCount).map((p: any, i: number) => {
+          const flags = parseFlags(p.flags);
+          return (
+            <Link key={p.npi} href={`/providers/${p.npi}`}
+              className="flex items-center gap-3 bg-dark-800 border border-dark-500/50 rounded-lg px-4 py-3 hover:bg-dark-700 hover:border-dark-400 transition-all group">
+              <span className="text-xs font-bold text-slate-600 w-7 text-right tabular-nums">{i + 1}</span>
+              {flags.length > 0 && <div className={`w-2 h-2 rounded-full shrink-0 ${riskDot(flags.length)}`} />}
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">
+                  {p.name || `NPI: ${p.npi}`}
+                </p>
+                <p className="text-[10px] text-slate-500 mt-0.5">
+                  {p.specialty ? p.specialty.substring(0, 50) : ''} {p.city ? `\u00b7 ${p.city}, ${p.state}` : ''}
+                </p>
+              </div>
+              <div className="hidden sm:flex flex-wrap gap-1 max-w-[180px] justify-end shrink-0">
+                {flags.slice(0, 2).map((f: string) => (
+                  <span key={f} className={`text-[9px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>{flagLabel(f)}</span>
+                ))}
+              </div>
+              <div className="text-right shrink-0 w-20">
+                <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
+                <p className="text-[10px] text-slate-600 tabular-nums">{formatNumber(p.totalClaims)} claims</p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
+
+      {visibleCount < filtered.length && (
+        <div className="mt-6 text-center">
+          <button
+            onClick={() => setVisibleCount(prev => prev + 50)}
+            className="bg-dark-700 hover:bg-dark-600 text-white font-medium px-8 py-3 rounded-lg border border-dark-500 transition-all text-sm"
+          >
+            Show More ({filtered.length - visibleCount} remaining)
+          </button>
+        </div>
+      )}
     </div>
   );
 }
