@@ -177,14 +177,36 @@ function formatFlagDetail(flag: string, details: any): string {
 }
 
 type SortOption = 'risk' | 'flags' | 'spending' | 'name' | 'ml';
+type TabOption = 'all' | 'stat' | 'ml';
 
 export default function WatchlistPage() {
   const allProviders = useMemo(() => getMergedProviders(), []);
+  const [activeTab, setActiveTab] = useState<TabOption>("all");
   const [riskFilter, setRiskFilter] = useState<string>("all");
   const [flagFilter, setFlagFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("risk");
   const [stateFilter, setStateFilter] = useState<string>("all");
+
+  // Split providers by detection method
+  const statProviders = useMemo(() => allProviders.filter(p => p.flagCount > 0), [allProviders]);
+  const mlOnlyProviders = useMemo(() => allProviders.filter(p => p.source === 'ml'), [allProviders]);
+
+  // Tab-filtered base list
+  const tabProviders = useMemo(() => {
+    if (activeTab === 'stat') return statProviders;
+    if (activeTab === 'ml') return mlOnlyProviders;
+    return allProviders;
+  }, [activeTab, allProviders, statProviders, mlOnlyProviders]);
+
+  // Reset filters when switching tabs
+  const handleTabChange = (tab: TabOption) => {
+    setActiveTab(tab);
+    setRiskFilter("all");
+    setFlagFilter("all");
+    setSortBy(tab === 'ml' ? 'ml' : 'risk');
+    setVisibleCount(50);
+  };
 
   // Extract unique states for filter dropdown
   const uniqueStates = useMemo(() => {
@@ -193,7 +215,7 @@ export default function WatchlistPage() {
   }, [allProviders]);
 
   const filtered = useMemo(() => {
-    let result = allProviders;
+    let result = tabProviders;
     if (riskFilter === "critical") result = result.filter(p => p.tier === 'Critical');
     else if (riskFilter === "high") result = result.filter(p => p.tier === 'High');
     else if (riskFilter === "elevated") result = result.filter(p => p.tier === 'Elevated');
@@ -231,7 +253,7 @@ export default function WatchlistPage() {
     }
 
     return result;
-  }, [allProviders, riskFilter, flagFilter, stateFilter, search, sortBy]);
+  }, [tabProviders, riskFilter, flagFilter, stateFilter, search, sortBy]);
 
   const criticalCount = allProviders.filter(p => p.tier === 'Critical').length;
   const highCount = allProviders.filter(p => p.tier === 'High').length;
@@ -242,13 +264,13 @@ export default function WatchlistPage() {
   // Count each flag type
   const flagCounts = useMemo(() => {
     const counts: Record<string, number> = {};
-    for (const p of allProviders) {
+    for (const p of tabProviders) {
       for (const f of p.flags) {
         counts[f] = (counts[f] || 0) + 1;
       }
     }
     return Object.entries(counts).sort(([, a], [, b]) => b - a);
-  }, [allProviders]);
+  }, [tabProviders]);
 
   const [visibleCount, setVisibleCount] = useState(50);
 
@@ -323,7 +345,38 @@ export default function WatchlistPage() {
         </div>
       </div>
 
-      {/* Flag Type Breakdown */}
+      {/* Tabs */}
+      <div className="mb-8">
+        <div className="flex gap-1 border-b border-dark-500/50">
+          {([
+            { key: 'all' as TabOption, label: 'All Flagged', count: allProviders.length },
+            { key: 'stat' as TabOption, label: 'Statistical', count: statProviders.length },
+            { key: 'ml' as TabOption, label: 'ML Detected', count: mlOnlyProviders.length },
+          ]).map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => handleTabChange(tab.key)}
+              className={`relative px-5 py-3 text-sm font-medium transition-colors ${
+                activeTab === tab.key
+                  ? 'text-white'
+                  : 'text-slate-500 hover:text-slate-300'
+              }`}
+            >
+              {tab.label} <span className={`tabular-nums ${activeTab === tab.key ? 'text-slate-300' : 'text-slate-600'}`}>({tab.count.toLocaleString()})</span>
+              {activeTab === tab.key && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 rounded-t" />
+              )}
+            </button>
+          ))}
+        </div>
+        <p className="text-xs text-slate-500 mt-3">
+          Statistical tests and ML model flag different provider types with zero overlap &mdash;{' '}
+          <Link href="/ml-analysis" className="text-blue-400 hover:text-blue-300 transition-colors">learn why</Link>
+        </p>
+      </div>
+
+      {/* Flag Type Breakdown — hidden on ML tab */}
+      {activeTab !== 'ml' && (
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
         <h2 className="font-headline text-sm font-bold text-white mb-4">Fraud Tests &mdash; Flag Distribution</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -347,15 +400,18 @@ export default function WatchlistPage() {
           })}
         </div>
       </div>
+      )}
 
       {/* Quick Stats */}
       {(() => {
+        const base = tabProviders;
         const stateCounts: Record<string, number> = {};
-        for (const p of allProviders) {
+        for (const p of base) {
           if (p.state) stateCounts[p.state] = (stateCounts[p.state] || 0) + 1;
         }
         const topState = Object.entries(stateCounts).sort(([,a], [,b]) => b - a)[0];
-        const avgSpending = allProviders.length > 0 ? totalFlaggedSpending / allProviders.length : 0;
+        const tabSpending = base.reduce((sum, p) => sum + p.totalPaid, 0);
+        const avgSpending = base.length > 0 ? tabSpending / base.length : 0;
         const topFlag = flagCounts[0];
         return (
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-8 px-1 text-xs text-slate-500">
@@ -363,7 +419,7 @@ export default function WatchlistPage() {
               <span>Most common state: <strong className="text-white font-semibold">{topState[0]}</strong> ({topState[1]} providers)</span>
             )}
             <span>Avg spending: <strong className="text-white font-semibold">{formatMoney(avgSpending)}</strong></span>
-            {topFlag && (
+            {activeTab !== 'ml' && topFlag && (
               <span>Most common flag: <strong className="text-white font-semibold">{getFlagInfo(topFlag[0]).label}</strong> ({topFlag[1]})</span>
             )}
           </div>
@@ -379,14 +435,15 @@ export default function WatchlistPage() {
           onChange={(e) => setSearch(e.target.value)}
           className="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
         />
+        {activeTab !== 'ml' && (
         <div className="flex gap-2 flex-wrap">
-          {[
-            { key: "all", label: "All", count: allProviders.length },
-            { key: "critical", label: "Critical", count: criticalCount, color: "red" },
-            { key: "high", label: "High", count: highCount, color: "orange" },
-            { key: "elevated", label: "Elevated", count: elevatedCount, color: "yellow" },
-            { key: "ml", label: "ML Flag", count: mlFlagCount, color: "purple" },
-          ].map((f) => (
+          {([
+            { key: "all", label: "All", count: tabProviders.length },
+            { key: "critical", label: "Critical", count: tabProviders.filter(p => p.tier === 'Critical').length, color: "red" },
+            { key: "high", label: "High", count: tabProviders.filter(p => p.tier === 'High').length, color: "orange" },
+            { key: "elevated", label: "Elevated", count: tabProviders.filter(p => p.tier === 'Elevated').length, color: "yellow" },
+            ...(activeTab === 'all' ? [{ key: "ml", label: "ML Flag", count: mlFlagCount, color: "purple" }] : []),
+          ] as { key: string; label: string; count: number; color?: string }[]).map((f) => (
             <button
               key={f.key}
               onClick={() => setRiskFilter(f.key)}
@@ -404,6 +461,7 @@ export default function WatchlistPage() {
             </button>
           ))}
         </div>
+        )}
       </div>
 
       {/* Sort & State Filter Row */}
@@ -496,7 +554,7 @@ export default function WatchlistPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <p className="text-sm text-white font-semibold truncate group-hover:text-blue-400 transition-colors">{p.name}</p>
-                  {p.mlScore != null && (
+                  {activeTab !== 'ml' && p.mlScore != null && (
                     <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
                       p.mlScore >= 0.8 ? 'bg-red-500/15 border-red-500/30 text-red-400' :
                       p.mlScore >= 0.6 ? 'bg-orange-500/15 border-orange-500/30 text-orange-400' :
@@ -505,7 +563,7 @@ export default function WatchlistPage() {
                       ML {(p.mlScore * 100).toFixed(0)}%
                     </span>
                   )}
-                  {p.source === 'ml' && (
+                  {activeTab !== 'ml' && p.source === 'ml' && (
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded border bg-purple-500/15 border-purple-500/30 text-purple-400">
                       ML Only
                     </span>
@@ -517,16 +575,28 @@ export default function WatchlistPage() {
                 </div>
               </div>
               <div className="flex items-center gap-3 shrink-0">
-                <div className="hidden sm:flex flex-wrap gap-1 max-w-[220px] justify-end">
-                  {p.flags.slice(0, 3).map((f: string) => (
-                    <span key={f} className={`text-[10px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>
-                      {flagLabel(f)}
-                    </span>
-                  ))}
-                  {p.flags.length > 3 && (
-                    <span className="text-[10px] text-slate-500">+{p.flags.length - 3}</span>
-                  )}
-                </div>
+                {activeTab === 'ml' ? (
+                  <div className="hidden sm:flex items-center gap-2">
+                    <div className="text-right">
+                      <p className={`text-lg font-bold tabular-nums ${
+                        (p.mlScore ?? 0) >= 0.8 ? 'text-red-400' :
+                        (p.mlScore ?? 0) >= 0.6 ? 'text-orange-400' : 'text-yellow-400'
+                      }`}>{p.mlScore != null ? (p.mlScore * 100).toFixed(1) : '?'}%</p>
+                      <p className="text-[10px] text-slate-500">ML Score</p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="hidden sm:flex flex-wrap gap-1 max-w-[220px] justify-end">
+                    {p.flags.slice(0, 3).map((f: string) => (
+                      <span key={f} className={`text-[10px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>
+                        {flagLabel(f)}
+                      </span>
+                    ))}
+                    {p.flags.length > 3 && (
+                      <span className="text-[10px] text-slate-500">+{p.flags.length - 3}</span>
+                    )}
+                  </div>
+                )}
                 <div className="text-right">
                   <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
                   <p className={`text-[10px] font-semibold ${tierTextColor(p.tier)}`}>{p.tier.toUpperCase()}</p>
