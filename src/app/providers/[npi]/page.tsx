@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, formatMoneyFull, formatCpc, riskLabel, riskColor, riskDot, riskBgColor, getFlagInfo, parseFlags, hcpcsDescription, stateName, decileColor, decileBgColor } from "@/lib/format";
 import { MonthlySpendingChart } from "@/components/Charts";
+import { CopyLinkButton } from "@/components/CopyLinkButton";
 import topProviders from "../../../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
@@ -264,6 +265,7 @@ export default function ProviderPage({ params }: Props) {
             <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             Share
           </a>
+          <CopyLinkButton />
           {mlScore !== null && (() => {
             const pct = mlScore * 100;
             const color = pct >= 80 ? 'text-red-400' : pct >= 60 ? 'text-orange-400' : pct >= 30 ? 'text-yellow-400' : 'text-green-400';

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { formatMoney, formatNumber, riskLabel, riskColor, riskDot, flagLabel, flagColor, parseFlags, stateName } from "@/lib/format";
 import { HomepageBarChart } from "@/components/Charts";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 import stats from "../../public/data/stats.json";
 import topProviders from "../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../public/data/smart-watchlist.json";
@@ -87,7 +88,9 @@ export default function Home() {
           ].map((stat) => (
             <div key={stat.label} className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors">
               <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">{stat.label}</p>
-              <p className={`text-xl md:text-2xl font-bold tabular-nums ${stat.color}`}>{stat.value}</p>
+              <p className={`text-xl md:text-2xl font-bold tabular-nums ${stat.color}`}>
+                <AnimatedCounter value={stat.value} />
+              </p>
               <p className="text-[10px] text-slate-600 mt-0.5">{stat.sub}</p>
             </div>
           ))}
