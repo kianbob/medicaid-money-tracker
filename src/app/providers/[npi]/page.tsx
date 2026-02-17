@@ -117,12 +117,29 @@ export default function ProviderPage({ params }: Props) {
   const state = detail?.state || smartEntry?.state || providerEntry?.state || "";
   const totalPaid = detail?.totalPaid || smartEntry?.totalPaid || providerEntry?.totalPaid || 0;
   const totalClaims = detail?.totalClaims || providerEntry?.totalClaims || 0;
-  const totalBenes = detail?.totalBenes || providerEntry?.totalBenes || 0;
+  const totalBenes = detail?.totalBeneficiaries || detail?.totalBenes || providerEntry?.totalBeneficiaries || providerEntry?.totalBenes || 0;
   const avgPerClaim = totalClaims > 0 ? totalPaid / totalClaims : 0;
   const claimsPerBene = totalBenes > 0 ? totalClaims / totalBenes : 0;
   const growthRate = detail?.growthRate || 0;
   const monthly = detail?.monthly || [];
-  const procedures = detail?.procedures || detail?.topProcedures || [];
+  // Build yearly data from various formats
+  const yearlyData: Record<string, number> = {};
+  if (detail?.yearlyData && typeof detail.yearlyData === 'object' && !Array.isArray(detail.yearlyData)) {
+    for (const [year, data] of Object.entries(detail.yearlyData as Record<string, any>)) {
+      yearlyData[year] = data.totalPaid ?? data.payments ?? 0;
+    }
+  } else if (Array.isArray(detail?.yearlyTrend)) {
+    for (const item of detail.yearlyTrend) {
+      yearlyData[item.year || item.month?.substring(0, 4)] = item.totalPaid ?? item.payments ?? 0;
+    }
+  }
+  const procedures = (detail?.procedures || detail?.codes || detail?.topProcedures || []).map((p: any) => ({
+    ...p,
+    payments: p.payments ?? p.totalPaid ?? p.paid ?? 0,
+    claims: p.claims ?? p.totalClaims ?? 0,
+    beneficiaries: p.beneficiaries ?? p.totalBeneficiaries ?? 0,
+    providerCpc: p.providerCpc ?? p.costPerClaim ?? (p.claims || p.totalClaims ? (p.payments ?? p.totalPaid ?? p.paid ?? 0) / (p.claims || p.totalClaims) : 0),
+  }));
 
   // ML Score lookup
   const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi);
@@ -474,12 +491,14 @@ export default function ProviderPage({ params }: Props) {
       )}
 
       {/* Yearly Trend with % Change */}
-      {monthly.length > 12 && (() => {
-        const yearlyMap: Record<string, number> = {};
-        for (const m of monthly) {
-          const year = m.month?.substring(0, 4);
-          if (year) {
-            yearlyMap[year] = (yearlyMap[year] || 0) + (m.payments || m.paid || 0);
+      {(() => {
+        const yearlyMap: Record<string, number> = { ...yearlyData };
+        if (Object.keys(yearlyMap).length === 0 && monthly.length > 12) {
+          for (const m of monthly) {
+            const year = m.month?.substring(0, 4);
+            if (year) {
+              yearlyMap[year] = (yearlyMap[year] || 0) + (m.payments || m.paid || 0);
+            }
           }
         }
         const years = Object.keys(yearlyMap).sort();
