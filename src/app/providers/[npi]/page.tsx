@@ -168,6 +168,25 @@ export default function ProviderPage({ params }: Props) {
     }
   }
 
+  // JSON-LD structured data
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalOrganization',
+    'name': name,
+    ...(city || state ? {
+      'address': {
+        '@type': 'PostalAddress',
+        ...(city ? { 'addressLocality': city } : {}),
+        ...(state ? { 'addressRegion': state } : {}),
+      }
+    } : {}),
+    'identifier': {
+      '@type': 'PropertyValue',
+      'name': 'NPI',
+      'value': npi,
+    },
+  };
+
   // Not found — but we show a graceful message for providers outside top 1000
   if (!detail && !providerEntry && !smartEntry) {
     return (
@@ -186,8 +205,19 @@ export default function ProviderPage({ params }: Props) {
   // Has some data but no detail file
   const limitedData = !detail && (providerEntry || smartEntry);
 
+  // Similar providers (same specialty)
+  const similarProviders = specialty
+    ? (topProviders as any[])
+        .filter((p: any) => p.specialty === specialty && p.npi !== npi)
+        .slice(0, 5)
+    : [];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
@@ -841,6 +871,28 @@ export default function ProviderPage({ params }: Props) {
           </div>
         ) : null;
       })()}
+
+      {/* Similar Providers (same specialty) */}
+      {similarProviders.length > 0 && (
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-10">
+          <div className="px-5 py-4 border-b border-dark-500/50">
+            <h2 className="text-sm font-bold text-white">Similar Providers</h2>
+            <p className="text-[10px] text-slate-500 mt-0.5">Other top providers in {specialty}</p>
+          </div>
+          <div className="divide-y divide-dark-600/50">
+            {similarProviders.map((p: any) => (
+              <Link key={p.npi} href={`/providers/${p.npi}`}
+                className="flex items-center gap-3 px-5 py-3 hover:bg-dark-700/50 transition-colors group">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{p.name || `NPI: ${p.npi}`}</p>
+                  <p className="text-[10px] text-slate-500">{p.city ? `${p.city}, ` : ''}{p.state || ''}</p>
+                </div>
+                <p className="text-xs text-white font-bold tabular-nums shrink-0">{formatMoney(p.totalPaid)}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Related Links */}
       <div className="flex flex-wrap gap-3">

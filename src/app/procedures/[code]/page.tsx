@@ -86,8 +86,20 @@ export default function ProcedureDetailPage({ params }: Props) {
   // Rank among all procedures
   const rank = (allProcedures as any[]).findIndex((p: any) => p.code === params.code) + 1;
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalCode',
+    'codeValue': params.code,
+    'codingSystem': 'HCPCS',
+    ...(desc ? { 'name': desc } : {}),
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>
