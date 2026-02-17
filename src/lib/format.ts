@@ -242,6 +242,41 @@ const HCPCS_DESCRIPTIONS: Record<string, string> = {
   '99203': 'Office/outpatient visit, new patient, low-mod complexity',
   '99204': 'Office/outpatient visit, new patient, mod-high complexity',
   '99205': 'Office/outpatient visit, new patient, high complexity',
+  // COVID-related codes
+  '87635': 'COVID-19 SARS-CoV-2 amplified probe detection',
+  '91300': 'COVID-19 vaccine (Pfizer), first dose',
+  '91301': 'COVID-19 vaccine (Moderna), first dose',
+  '91302': 'COVID-19 vaccine (AstraZeneca), first dose',
+  '91303': 'COVID-19 vaccine (J&J/Janssen), single dose',
+  '0001A': 'COVID-19 vaccine admin, Pfizer, 1st dose',
+  '0002A': 'COVID-19 vaccine admin, Pfizer, 2nd dose',
+  '0003A': 'COVID-19 vaccine admin, Pfizer, 3rd dose',
+  '0011A': 'COVID-19 vaccine admin, Moderna, 1st dose',
+  '0012A': 'COVID-19 vaccine admin, Moderna, 2nd dose',
+  '0031A': 'COVID-19 vaccine admin, J&J, single dose',
+  // Expensive procedure codes (J-codes = drugs)
+  'J2326': 'Nusinersen (Spinraza), 12 mg intrathecal injection',
+  'J1426': 'Casimersen (Amondys 45) injection, 10 mg',
+  'J7170': 'Emicizumab-kxwh (Hemlibra) injection, 0.5 mg',
+  'J1428': 'Eteplirsen (Exondys 51) injection, 10 mg',
+  'J7175': 'Factor X (human), per IU',
+  'J0219': 'Atezolizumab (Tecentriq) injection, 10 mg',
+  'J1303': 'Ravulizumab (Ultomiris) injection, 10 mg',
+  'J3032': 'Voretigene neparvovec (Luxturna) injection',
+  'J0179': 'Avelumab (Bavencio) injection, 10 mg',
+  'J9299': 'Nivolumab (Opdivo) injection, 1 mg',
+  'J0222': 'Patisiran (Onpattro) injection, 0.1 mg',
+  'J2350': 'Ocrelizumab (Ocrevus) injection, 1 mg',
+  // Fast-growing procedure codes
+  'S5121': 'Attendant care services, in-home, per 15 min',
+  'W1793': 'State-defined waiver service',
+  'S9977': 'Home infusion therapy, unspecified',
+  '81416': 'Exome sequence analysis',
+  'D2740': 'Crown, porcelain/ceramic substrate',
+  '97151': 'Behavior identification assessment',
+  '97154': 'Group adaptive behavior treatment, per 15 min',
+  // Other procedure codes
+  '0128': 'Insertion of brain-computer interface',
 };
 
 export function hcpcsDescription(code: string): string {

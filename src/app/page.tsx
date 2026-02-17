@@ -213,6 +213,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Latest Insights */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="insights-heading">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-2">
+            <div className="w-1 h-6 bg-purple-500 rounded-full" />
+            <h2 id="insights-heading" className="text-xl font-bold text-white">Latest Insights</h2>
+          </div>
+          <Link href="/insights" className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            All stories &rarr;
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {[
+            { slug: "covid-testing", title: "The $4.7 Billion COVID Testing Bonanza", stat: "$4.7B", color: "text-emerald-400", border: "hover:border-emerald-500/20" },
+            { slug: "pandemic-profiteers", title: "Who Made the Most Money During COVID?", stat: "+942%", color: "text-red-400", border: "hover:border-red-500/20" },
+            { slug: "most-expensive", title: "The Most Expensive Things Medicaid Pays For", stat: "$92,158", color: "text-amber-400", border: "hover:border-amber-500/20" },
+            { slug: "top-doctors", title: "Only 2 Individuals in Top 2,000 Billers", stat: "2 of 2,000", color: "text-indigo-400", border: "hover:border-indigo-500/20" },
+          ].map((insight) => (
+            <Link key={insight.slug} href={`/insights/${insight.slug}`}
+              className={`bg-dark-800 border border-dark-500/50 rounded-xl p-4 ${insight.border} transition-all group`}>
+              <p className={`text-2xl font-extrabold tabular-nums mb-2 ${insight.color}`}>{insight.stat}</p>
+              <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors leading-snug">{insight.title}</p>
+              <p className="text-xs text-slate-600 mt-2 flex items-center gap-1">
+                Read more
+                <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-4" aria-labelledby="cta-heading">
         <div className="relative overflow-hidden bg-dark-800 border border-dark-500/50 rounded-2xl p-8 md:p-14 text-center">

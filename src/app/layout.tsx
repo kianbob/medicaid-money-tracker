@@ -100,6 +100,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/procedures" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Procedures
                 </Link>
+                <Link href="/insights" className="text-[13px] font-semibold text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 px-3 py-1.5 rounded-md transition-all">
+                  Insights
+                </Link>
                 <Link href="/analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Analysis
                 </Link>
@@ -133,6 +136,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       Procedures
                     </Link>
                     <div className="border-t border-dark-500 my-1" />
+                    <Link href="/insights" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-purple-400 hover:bg-dark-600 transition-colors">
+                      Insights
+                    </Link>
                     <Link href="/analysis" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Fraud Analysis
                     </Link>
@@ -167,6 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Investigate</p>
                 <div className="space-y-2">
                   <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Fraud Watchlist</Link>
+                  <Link href="/insights" className="block text-slate-500 hover:text-purple-400 transition-colors">Insights</Link>
                   <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Fraud Analysis</Link>
                   <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
                 </div>
