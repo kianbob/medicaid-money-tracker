@@ -7,6 +7,14 @@ import codeBenchmarks from "../../../../public/data/code-benchmarks.json";
 import fs from "fs";
 import path from "path";
 
+function toTitleCase(str: string): string {
+  if (!str) return str;
+  if (str === str.toUpperCase() && str.length > 3) {
+    return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+  }
+  return str;
+}
+
 interface Props {
   params: { code: string };
 }
@@ -282,13 +290,13 @@ export default function ProcedureDetailPage({ params }: Props) {
                       <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
                       <td className="px-4 py-2.5">
                         <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
-                          {p.name || `NPI: ${p.npi}`}
+                          {toTitleCase(p.name) || `NPI: ${p.npi}`}
                         </Link>
                         {(p.city || p.state) && (
                           <p className="text-[10px] text-slate-500 mt-0.5">
-                            {p.city ? `${p.city}, ` : ''}
+                            {p.city ? `${toTitleCase(p.city)}, ` : ''}
                             {p.state ? <Link href={`/states/${p.state}`} className="hover:text-blue-400 transition-colors">{p.state}</Link> : ''}
-                            {p.specialty ? ` \u00b7 ${p.specialty}` : ''}
+                            {p.specialty ? ` \u00b7 ${toTitleCase(p.specialty)}` : ''}
                           </p>
                         )}
                       </td>
@@ -334,7 +342,7 @@ export default function ProcedureDetailPage({ params }: Props) {
                   <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                     <td className="px-4 py-2.5">
                       <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
-                        {p.name || `NPI: ${p.npi}`}
+                        {toTitleCase(p.name) || `NPI: ${p.npi}`}
                       </Link>
                     </td>
                     <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.paid || p.totalPaid || 0)}</td>

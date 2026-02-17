@@ -100,10 +100,10 @@ export default function ProceduresPage() {
                   <tr key={p.code} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                     <td className="px-4 py-2 text-xs text-slate-600 font-bold tabular-nums">{i + 1}</td>
                     <td className="px-4 py-2">
-                      <Link href={`/procedures/${p.code}`} className="text-white font-medium hover:text-blue-400 transition-colors">
-                        <span className="font-mono text-xs">{p.code}</span>
+                      <Link href={`/procedures/${p.code}`} className="text-white font-medium hover:text-blue-400 transition-colors inline-flex items-baseline gap-2">
+                        <span className="font-mono text-xs font-bold">{p.code}</span>
+                        {desc && <span className="text-slate-400 text-xs font-normal">{desc}</span>}
                       </Link>
-                      {desc && <p className="text-[10px] text-slate-500 mt-0.5">{desc}</p>}
                     </td>
                     <td className="px-4 py-2 text-right font-mono text-white font-semibold text-xs tabular-nums">{formatMoney(p.totalPaid)}</td>
                     <td className="px-4 py-2 text-right text-slate-400 text-xs hidden sm:table-cell tabular-nums">{formatNumber(p.totalClaims)}</td>

@@ -7,6 +7,7 @@ import mlScores from "../../../public/data/ml-scores.json";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import providersData from "../../../public/data/top-providers-1000.json";
+import mlNames from "../../../public/data/ml-provider-names.json";
 
 // Build name lookup from all available sources
 function buildNameLookup(): Map<string, string> {
@@ -19,6 +20,9 @@ function buildNameLookup(): Map<string, string> {
   }
   for (const p of oldWatchlist as any[]) {
     if (p.name) lookup.set(p.npi, p.name);
+  }
+  for (const [npi, name] of Object.entries(mlNames as Record<string, string>)) {
+    if (!lookup.has(npi)) lookup.set(npi, name);
   }
   return lookup;
 }
@@ -80,6 +84,7 @@ export default function MlAnalysisPage() {
   const [sortField, setSortField] = useState<SortField>('mlScore');
   const [sortDesc, setSortDesc] = useState(true);
   const [scoreThreshold, setScoreThreshold] = useState<ScoreThreshold>(0);
+  const [showAllSmall, setShowAllSmall] = useState(false);
 
   // Filter and sort top providers
   const sortedTopProviders = useMemo(() => {
@@ -408,7 +413,7 @@ export default function MlAnalysisPage() {
                 </tr>
               </thead>
               <tbody>
-                {sortedSmallProviders.map((p: any, i: number) => {
+                {(showAllSmall ? sortedSmallProviders : sortedSmallProviders.slice(0, 20)).map((p: any, i: number) => {
                   const pct = (p.mlScore * 100);
                   const name = nameLookup.get(p.npi);
                   return (
@@ -446,6 +451,16 @@ export default function MlAnalysisPage() {
               </tbody>
             </table>
           </div>
+          {sortedSmallProviders.length > 20 && !showAllSmall && (
+            <div className="px-5 py-3 border-t border-dark-500/50 text-center">
+              <button
+                onClick={() => setShowAllSmall(true)}
+                className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors"
+              >
+                Show all {sortedSmallProviders.length} small provider flags
+              </button>
+            </div>
+          )}
         </div>
       )}
 
