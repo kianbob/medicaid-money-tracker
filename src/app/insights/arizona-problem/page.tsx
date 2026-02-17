@@ -1,7 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { formatMoney, formatNumber } from "@/lib/format";
-import azData from "../../../../public/data/az-new-entrants.json";
+import azDataRaw from "../../../../public/data/az-new-entrants.json";
+
+function toTitleCase(str: string): string {
+  if (!str) return str;
+  if (str === str.toUpperCase() && str.length > 3) {
+    return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+  }
+  return str;
+}
+
+// Enrich provider data with names from detail files at build time
+const azData = azDataRaw.map((p: any) => {
+  if (p.name) return p;
+  try {
+    const detailPath = path.join(process.cwd(), 'public', 'data', 'providers', `${p.npi}.json`);
+    if (fs.existsSync(detailPath)) {
+      const detail = JSON.parse(fs.readFileSync(detailPath, 'utf-8'));
+      if (detail.name) return { ...p, name: toTitleCase(detail.name) };
+    }
+  } catch {}
+  return p;
+});
 
 export const metadata: Metadata = {
   title: "The Arizona Problem — New Behavioral Health Clinics Billing Millions — Medicaid",
@@ -145,7 +168,7 @@ export default function ArizonaProblem() {
               <span className="text-xl font-extrabold text-slate-700 w-6 text-right tabular-nums">{i + 1}</span>
               <div className="flex-1 min-w-0">
                 <Link href={`/providers/${p.npi}`} className="text-white font-semibold hover:text-orange-400 transition-colors truncate block">
-                  NPI: {p.npi}
+                  {p.name || <span className="font-mono text-sm text-slate-400">NPI {p.npi}</span>}
                 </Link>
                 <p className="text-xs text-slate-500">{p.city}, AZ · First billed: {p.firstMonth}</p>
               </div>
@@ -183,7 +206,7 @@ export default function ArizonaProblem() {
                   <td data-label="Rank" className="py-2.5 pr-3 text-slate-600 tabular-nums">{i + 1}</td>
                   <td data-label="Provider" className="py-2.5 pr-3">
                     <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-orange-400 transition-colors">
-                      NPI: {p.npi}
+                      {p.name || <span className="font-mono text-xs">NPI {p.npi}</span>}
                     </Link>
                   </td>
                   <td data-label="City" className="py-2.5 pr-3 text-slate-500">{p.city}</td>

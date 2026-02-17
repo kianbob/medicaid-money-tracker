@@ -224,9 +224,10 @@ export function HomepageBarChart({ data }: { data: TrendDatum[] }) {
   });
 
   return (
-    <ResponsiveContainer width="100%" height={180}>
-      <BarChart data={chartData} margin={{ top: 20, right: 5, left: 5, bottom: 0 }}>
+    <ResponsiveContainer width="100%" height={250}>
+      <BarChart data={chartData} margin={{ top: 18, right: 5, left: 5, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(100,116,139,0.12)" vertical={false} />
+        <YAxis hide domain={[0, (dataMax: number) => dataMax * 1.08]} />
         <XAxis
           dataKey="year"
           tick={{ fill: "#64748b", fontSize: 11, fontWeight: 500 }}
