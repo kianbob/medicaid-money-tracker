@@ -18,6 +18,16 @@ export const metadata: Metadata = {
 
 const insights = [
   {
+    slug: "specialty-drugs",
+    title: "Inside Medicaid's Most Expensive Drugs",
+    teaser: "50 provider-administered J-codes billed through Medicaid. The most expensive costs $92,158 per claim. Many are billed by just 1–3 providers nationwide.",
+    stat: "$3.5B+",
+    statLabel: "J-code spending",
+    color: "from-amber-500 to-orange-500",
+    accent: "text-amber-400",
+    icon: "💊",
+  },
+  {
     slug: "covid-vaccines",
     title: "Who Got Paid the Most to Give COVID Vaccines?",
     teaser: "Tribal hospitals dominate the top of the list. Shiprock Hospital in New Mexico billed $11.8M alone.",
@@ -116,6 +126,36 @@ const insights = [
     color: "from-cyan-500 to-blue-500",
     accent: "text-cyan-400",
     icon: "📊",
+  },
+  {
+    slug: "arizona-problem",
+    title: "The Arizona Problem: New Clinics, Massive Billing",
+    teaser: "46 new Arizona providers appeared in 2022+ and immediately billed over $800M combined. Many operated for less than a year. Phoenix dominates.",
+    stat: "$800M+",
+    statLabel: "from new entrants",
+    color: "from-orange-500 to-amber-500",
+    accent: "text-orange-400",
+    icon: "🏜️",
+  },
+  {
+    slug: "ny-home-care",
+    title: "The New York Home Care Machine",
+    teaser: "New York dominates Medicaid personal care spending. Brooklyn alone has dozens of agencies billing $200M+ each. The top 100 T1019 billers: $47B+.",
+    stat: "$47B+",
+    statLabel: "home care spending",
+    color: "from-blue-500 to-indigo-500",
+    accent: "text-blue-400",
+    icon: "🏠",
+  },
+  {
+    slug: "most-patients",
+    title: "Who Bills for the Most Patients?",
+    teaser: "Some providers serve over 100 million beneficiaries. Transportation brokers and managed care orgs dominate. Individual doctors typically see hundreds.",
+    stat: "108M",
+    statLabel: "top bene count",
+    color: "from-green-500 to-emerald-500",
+    accent: "text-green-400",
+    icon: "👥",
   },
 ];
 
