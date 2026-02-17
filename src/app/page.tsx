@@ -280,10 +280,10 @@ export default function Home() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            { slug: "covid-testing", title: "The $4.7 Billion COVID Testing Bonanza", stat: "$4.7B", color: "text-emerald-400", border: "hover:border-emerald-500/20" },
-            { slug: "pandemic-profiteers", title: "Who Made the Most Money During COVID?", stat: "+942%", color: "text-red-400", border: "hover:border-red-500/20" },
-            { slug: "most-expensive", title: "The Most Expensive Things Medicaid Pays For", stat: "$92,158", color: "text-amber-400", border: "hover:border-amber-500/20" },
-            { slug: "top-doctors", title: "Only 2 Individuals in Top 2,000 Billers", stat: "2 of 2,000", color: "text-indigo-400", border: "hover:border-indigo-500/20" },
+            { slug: "specialty-drugs", title: "Inside Medicaid's Most Expensive Drugs", stat: "$3.5B+", color: "text-amber-400", border: "hover:border-amber-500/20" },
+            { slug: "arizona-problem", title: "The Arizona Problem: New Clinics, Massive Billing", stat: "$800M+", color: "text-orange-400", border: "hover:border-orange-500/20" },
+            { slug: "ny-home-care", title: "The New York Home Care Machine", stat: "$47B+", color: "text-blue-400", border: "hover:border-blue-500/20" },
+            { slug: "most-patients", title: "Who Bills for the Most Patients?", stat: "108M", color: "text-green-400", border: "hover:border-green-500/20" },
           ].map((insight, idx) => (
             <Link key={insight.slug} href={`/insights/${insight.slug}`}
               className={`bg-dark-800 border border-dark-500/50 rounded-xl p-4 ${insight.border} transition-all group`}>

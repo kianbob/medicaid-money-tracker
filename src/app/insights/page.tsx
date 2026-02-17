@@ -16,146 +16,178 @@ export const metadata: Metadata = {
   },
 };
 
-const insights = [
+type Insight = {
+  slug: string;
+  title: string;
+  teaser: string;
+  stat: string;
+  statLabel: string;
+  color: string;
+  accent: string;
+  icon: string;
+};
+
+const insightCategories: { label: string; description: string; accent: string; items: Insight[] }[] = [
   {
-    slug: "specialty-drugs",
-    title: "Inside Medicaid's Most Expensive Drugs",
-    teaser: "50 provider-administered J-codes billed through Medicaid. The most expensive costs $92,158 per claim. Many are billed by just 1–3 providers nationwide.",
-    stat: "$3.5B+",
-    statLabel: "J-code spending",
-    color: "from-amber-500 to-orange-500",
-    accent: "text-amber-400",
-    icon: "💊",
+    label: "Featured Investigations",
+    description: "Deep-dive reporting into the most striking patterns in the data.",
+    accent: "bg-red-500",
+    items: [
+      {
+        slug: "arizona-problem",
+        title: "The Arizona Problem: New Clinics, Massive Billing",
+        teaser: "46 new Arizona providers appeared in 2022+ and immediately billed over $800M combined. Many operated for less than a year. Phoenix dominates.",
+        stat: "$800M+",
+        statLabel: "from new entrants",
+        color: "from-orange-500 to-amber-500",
+        accent: "text-orange-400",
+        icon: "🏜️",
+      },
+      {
+        slug: "ny-home-care",
+        title: "The New York Home Care Machine",
+        teaser: "New York dominates Medicaid personal care spending. Brooklyn alone has dozens of agencies billing $200M+ each. The top 100 T1019 billers: $47B+.",
+        stat: "$47B+",
+        statLabel: "home care spending",
+        color: "from-blue-500 to-indigo-500",
+        accent: "text-blue-400",
+        icon: "🏠",
+      },
+      {
+        slug: "pandemic-profiteers",
+        title: "Who Made the Most Money During COVID?",
+        teaser: "The City of Chicago went from $23M to $240M — a 942% increase. What were they billing for?",
+        stat: "+942%",
+        statLabel: "biggest jump",
+        color: "from-red-500 to-orange-500",
+        accent: "text-red-400",
+        icon: "📈",
+      },
+      {
+        slug: "billing-networks",
+        title: "The Hidden Billing Networks of Medicaid",
+        teaser: "65% of all claims have a different billing NPI than servicing NPI. Cleveland Clinic bills for 5,745 providers. 174,774 'ghost billers' never provide services.",
+        stat: "65%",
+        statLabel: "via intermediary",
+        color: "from-violet-500 to-purple-500",
+        accent: "text-violet-400",
+        icon: "🕸️",
+      },
+    ],
   },
   {
-    slug: "covid-vaccines",
-    title: "Who Got Paid the Most to Give COVID Vaccines?",
-    teaser: "Tribal hospitals dominate the top of the list. Shiprock Hospital in New Mexico billed $11.8M alone.",
-    stat: "$280M+",
-    statLabel: "total vaccine spending",
-    color: "from-blue-500 to-cyan-500",
-    accent: "text-cyan-400",
-    icon: "💉",
+    label: "Spending Deep Dives",
+    description: "Where does $1.09 trillion actually go? Follow the money through specific codes and categories.",
+    accent: "bg-amber-500",
+    items: [
+      {
+        slug: "covid-vaccines",
+        title: "Who Got Paid the Most to Give COVID Vaccines?",
+        teaser: "Tribal hospitals dominate the top of the list. Shiprock Hospital in New Mexico billed $11.8M alone.",
+        stat: "$280M+",
+        statLabel: "total vaccine spending",
+        color: "from-blue-500 to-cyan-500",
+        accent: "text-cyan-400",
+        icon: "💉",
+      },
+      {
+        slug: "covid-testing",
+        title: "The $4.7 Billion COVID Testing Bonanza",
+        teaser: "A single test code billed $3.9 billion. One New Jersey lab — Infinity Diagnostics — billed $129M.",
+        stat: "$4.7B",
+        statLabel: "testing spending",
+        color: "from-emerald-500 to-teal-500",
+        accent: "text-emerald-400",
+        icon: "🧪",
+      },
+      {
+        slug: "most-expensive",
+        title: "The Most Expensive Things Medicaid Pays For",
+        teaser: "One procedure costs $92,158 per claim. It's a drug for spinal muscular atrophy.",
+        stat: "$92,158",
+        statLabel: "per claim",
+        color: "from-amber-500 to-yellow-500",
+        accent: "text-amber-400",
+        icon: "💰",
+      },
+      {
+        slug: "specialty-drugs",
+        title: "Inside Medicaid's Most Expensive Drugs",
+        teaser: "50 provider-administered J-codes billed through Medicaid. The most expensive costs $92,158 per claim. Many are billed by just 1–3 providers nationwide.",
+        stat: "$3.5B+",
+        statLabel: "J-code spending",
+        color: "from-amber-500 to-orange-500",
+        accent: "text-amber-400",
+        icon: "💊",
+      },
+      {
+        slug: "fastest-growing",
+        title: "The Procedures Growing Fastest in Medicaid",
+        teaser: "One code grew 8,935% in five years. ABA therapy for autism grew 1,500%+, connecting to Minnesota fraud.",
+        stat: "8,935%",
+        statLabel: "growth",
+        color: "from-purple-500 to-pink-500",
+        accent: "text-purple-400",
+        icon: "🚀",
+      },
+    ],
   },
   {
-    slug: "covid-testing",
-    title: "The $4.7 Billion COVID Testing Bonanza",
-    teaser: "A single test code billed $3.9 billion. One New Jersey lab — Infinity Diagnostics — billed $129M.",
-    stat: "$4.7B",
-    statLabel: "testing spending",
-    color: "from-emerald-500 to-teal-500",
-    accent: "text-emerald-400",
-    icon: "🧪",
-  },
-  {
-    slug: "pandemic-profiteers",
-    title: "Who Made the Most Money During COVID?",
-    teaser: "The City of Chicago went from $23M to $240M — a 942% increase. What were they billing for?",
-    stat: "+942%",
-    statLabel: "biggest jump",
-    color: "from-red-500 to-orange-500",
-    accent: "text-red-400",
-    icon: "📈",
-  },
-  {
-    slug: "most-expensive",
-    title: "The Most Expensive Things Medicaid Pays For",
-    teaser: "One procedure costs $92,158 per claim. It's a drug for spinal muscular atrophy.",
-    stat: "$92,158",
-    statLabel: "per claim",
-    color: "from-amber-500 to-yellow-500",
-    accent: "text-amber-400",
-    icon: "💰",
-  },
-  {
-    slug: "fastest-growing",
-    title: "The Procedures Growing Fastest in Medicaid",
-    teaser: "One code grew 8,935% in five years. ABA therapy for autism grew 1,500%+, connecting to Minnesota fraud.",
-    stat: "8,935%",
-    statLabel: "growth",
-    color: "from-purple-500 to-pink-500",
-    accent: "text-purple-400",
-    icon: "🚀",
-  },
-  {
-    slug: "top-doctors",
-    title: "The Highest-Paid Individual Medicaid Providers",
-    teaser: "Only 2 individual people — not organizations — appear in the top 2,000 billers. One is a psychologist in Wisconsin.",
-    stat: "$77.3M",
-    statLabel: "top individual",
-    color: "from-indigo-500 to-blue-500",
-    accent: "text-indigo-400",
-    icon: "👤",
-  },
-  {
-    slug: "specialty-breakdown",
-    title: "Where Does $1 Trillion in Medicaid Money Actually Go?",
-    teaser: "264 home health providers received $71B. Just 15 'Supports Brokerage' providers got $10.8B — averaging $720M each.",
-    stat: "$720M",
-    statLabel: "avg per provider",
-    color: "from-teal-500 to-green-500",
-    accent: "text-teal-400",
-    icon: "🏥",
-  },
-  {
-    slug: "billing-networks",
-    title: "The Hidden Billing Networks of Medicaid",
-    teaser: "65% of all claims have a different billing NPI than servicing NPI. Cleveland Clinic bills for 5,745 providers. 174,774 'ghost billers' never provide services.",
-    stat: "65%",
-    statLabel: "via intermediary",
-    color: "from-violet-500 to-purple-500",
-    accent: "text-violet-400",
-    icon: "🕸️",
-  },
-  {
-    slug: "dual-billing",
-    title: "The Dual-Billing Pattern: When Claim Counts Match Too Perfectly",
-    teaser: "Mass DDS bills T2016 and T2023 with 82,639 vs 82,963 claims — 0.4% difference, $958M total. This pattern appears in confirmed fraud cases.",
-    stat: "0.01%",
-    statLabel: "closest match",
-    color: "from-orange-500 to-red-500",
-    accent: "text-orange-400",
-    icon: "🔀",
-  },
-  {
-    slug: "smooth-billers",
-    title: "The Providers Who Bill Exactly the Same Amount Every Month",
-    teaser: "14 providers billing $100K+/month maintain less than 5% variation for years. Normal practices vary 15-40%. These are under 5%.",
-    stat: "CV=0.03",
-    statLabel: "smoothest biller",
-    color: "from-cyan-500 to-blue-500",
-    accent: "text-cyan-400",
-    icon: "📊",
-  },
-  {
-    slug: "arizona-problem",
-    title: "The Arizona Problem: New Clinics, Massive Billing",
-    teaser: "46 new Arizona providers appeared in 2022+ and immediately billed over $800M combined. Many operated for less than a year. Phoenix dominates.",
-    stat: "$800M+",
-    statLabel: "from new entrants",
-    color: "from-orange-500 to-amber-500",
-    accent: "text-orange-400",
-    icon: "🏜️",
-  },
-  {
-    slug: "ny-home-care",
-    title: "The New York Home Care Machine",
-    teaser: "New York dominates Medicaid personal care spending. Brooklyn alone has dozens of agencies billing $200M+ each. The top 100 T1019 billers: $47B+.",
-    stat: "$47B+",
-    statLabel: "home care spending",
-    color: "from-blue-500 to-indigo-500",
-    accent: "text-blue-400",
-    icon: "🏠",
-  },
-  {
-    slug: "most-patients",
-    title: "Who Bills for the Most Patients?",
-    teaser: "Some providers serve over 100 million beneficiaries. Transportation brokers and managed care orgs dominate. Individual doctors typically see hundreds.",
-    stat: "108M",
-    statLabel: "top bene count",
-    color: "from-green-500 to-emerald-500",
-    accent: "text-green-400",
-    icon: "👥",
+    label: "Provider Analysis",
+    description: "Who bills, how much, and what patterns emerge across 617,000+ providers.",
+    accent: "bg-blue-500",
+    items: [
+      {
+        slug: "top-doctors",
+        title: "The Highest-Paid Individual Medicaid Providers",
+        teaser: "Only 2 individual people — not organizations — appear in the top 2,000 billers. One is a psychologist in Wisconsin.",
+        stat: "$77.3M",
+        statLabel: "top individual",
+        color: "from-indigo-500 to-blue-500",
+        accent: "text-indigo-400",
+        icon: "👤",
+      },
+      {
+        slug: "most-patients",
+        title: "Who Bills for the Most Patients?",
+        teaser: "Some providers serve over 100 million beneficiaries. Transportation brokers and managed care orgs dominate. Individual doctors typically see hundreds.",
+        stat: "108M",
+        statLabel: "top bene count",
+        color: "from-green-500 to-emerald-500",
+        accent: "text-green-400",
+        icon: "👥",
+      },
+      {
+        slug: "smooth-billers",
+        title: "The Providers Who Bill Exactly the Same Amount Every Month",
+        teaser: "14 providers billing $100K+/month maintain less than 5% variation for years. Normal practices vary 15-40%. These are under 5%.",
+        stat: "CV=0.03",
+        statLabel: "smoothest biller",
+        color: "from-cyan-500 to-blue-500",
+        accent: "text-cyan-400",
+        icon: "📊",
+      },
+      {
+        slug: "specialty-breakdown",
+        title: "Where Does $1 Trillion in Medicaid Money Actually Go?",
+        teaser: "264 home health providers received $71B. Just 15 'Supports Brokerage' providers got $10.8B — averaging $720M each.",
+        stat: "$720M",
+        statLabel: "avg per provider",
+        color: "from-teal-500 to-green-500",
+        accent: "text-teal-400",
+        icon: "🏥",
+      },
+      {
+        slug: "dual-billing",
+        title: "The Dual-Billing Pattern: When Claim Counts Match Too Perfectly",
+        teaser: "Mass DDS bills T2016 and T2023 with 82,639 vs 82,963 claims — 0.4% difference, $958M total. This pattern appears in confirmed fraud cases.",
+        stat: "0.01%",
+        statLabel: "closest match",
+        color: "from-orange-500 to-red-500",
+        accent: "text-orange-400",
+        icon: "🔀",
+      },
+    ],
   },
 ];
 
@@ -263,46 +295,49 @@ export default function InsightsIndex() {
         </div>
       </section>
 
-      {/* Insight Cards Grid */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 pb-16">
-        <div className="grid md:grid-cols-2 gap-5">
-          {insights.map((insight, idx) => (
-            <Link
-              key={insight.slug}
-              href={`/insights/${insight.slug}`}
-              className="group relative bg-dark-800 border border-dark-500/50 rounded-2xl overflow-hidden hover:border-dark-400 transition-all hover:-translate-y-0.5"
-            >
-              {/* Gradient accent bar */}
-              <div className={`h-1 bg-gradient-to-r ${insight.color}`} />
-              <div className="p-6">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl" role="img" aria-hidden="true">{insight.icon}</span>
-                  <div className="flex-1 min-w-0">
-                    {idx === 0 && (
-                      <span className="inline-flex items-center bg-green-500/15 border border-green-500/30 rounded-full px-2 py-0.5 text-[10px] font-semibold text-green-400 mb-2">
-                        Latest
-                      </span>
-                    )}
-                    <h2 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug mb-2">
-                      {insight.title}
-                    </h2>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-4">
-                      {insight.teaser}
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <span className={`text-2xl font-extrabold tabular-nums ${insight.accent}`}>{insight.stat}</span>
-                      <span className="text-xs text-slate-600 uppercase tracking-wider">{insight.statLabel}</span>
+      {/* Insight Cards by Category */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 pb-16 space-y-14">
+        {insightCategories.map((category) => (
+          <div key={category.label}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className={`w-1 h-5 ${category.accent} rounded-full`} />
+              <h2 className="text-lg font-bold text-white">{category.label}</h2>
+            </div>
+            <p className="text-sm text-slate-500 mb-5 ml-3">{category.description}</p>
+            <div className="grid md:grid-cols-2 gap-5">
+              {category.items.map((insight) => (
+                <Link
+                  key={insight.slug}
+                  href={`/insights/${insight.slug}`}
+                  className="group relative bg-dark-800 border border-dark-500/50 rounded-2xl overflow-hidden hover:border-dark-400 transition-all hover:-translate-y-0.5"
+                >
+                  <div className={`h-1 bg-gradient-to-r ${insight.color}`} />
+                  <div className="p-6">
+                    <div className="flex items-start gap-4">
+                      <span className="text-3xl" role="img" aria-hidden="true">{insight.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug mb-2">
+                          {insight.title}
+                        </h3>
+                        <p className="text-sm text-slate-400 leading-relaxed mb-4">
+                          {insight.teaser}
+                        </p>
+                        <div className="flex items-center gap-3">
+                          <span className={`text-2xl font-extrabold tabular-nums ${insight.accent}`}>{insight.stat}</span>
+                          <span className="text-xs text-slate-600 uppercase tracking-wider">{insight.statLabel}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 mt-4 text-xs font-medium text-blue-400 group-hover:text-blue-300 transition-colors">
+                      Read the full investigation
+                      <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </div>
                   </div>
-                </div>
-                <div className="flex items-center gap-1 mt-4 text-xs font-medium text-blue-400 group-hover:text-blue-300 transition-colors">
-                  Read the full investigation
-                  <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* Most Suspicious Providers */}
