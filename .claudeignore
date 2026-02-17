@@ -1,0 +1,23 @@
+# Large data directories - don't load into context
+public/data/providers/
+public/data/code-providers/
+public/data/state-providers/
+
+# Build output
+.next/
+node_modules/
+out/
+
+# Large JSON data files (Claude can read specific ones when needed)
+public/data/all-procedures.json
+public/data/top-providers-1000.json
+public/data/code-benchmarks.json
+public/data/state-code-benchmarks.json
+public/data/code-descriptions.json
+public/data/hcpcs-descriptions.json
+
+# Scripts (not needed for frontend work)
+scripts/
+
+# Reference data
+reference-data/
