@@ -270,7 +270,11 @@ export default function ProcedureDetailPage({ params }: Props) {
                           {p.name || `NPI: ${p.npi}`}
                         </Link>
                         {(p.city || p.state) && (
-                          <p className="text-[10px] text-slate-500 mt-0.5">{p.city && p.state ? `${p.city}, ${p.state}` : p.state || p.city}{p.specialty ? ` \u00b7 ${p.specialty}` : ''}</p>
+                          <p className="text-[10px] text-slate-500 mt-0.5">
+                            {p.city ? `${p.city}, ` : ''}
+                            {p.state ? <Link href={`/states/${p.state}`} className="hover:text-blue-400 transition-colors">{p.state}</Link> : ''}
+                            {p.specialty ? ` \u00b7 ${p.specialty}` : ''}
+                          </p>
                         )}
                       </td>
                       <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.totalPaid)}</td>
@@ -365,9 +369,14 @@ export default function ProcedureDetailPage({ params }: Props) {
         ) : null;
       })()}
 
-      <Link href="/procedures" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
-        &larr; All procedures
-      </Link>
+      <div className="flex flex-wrap gap-4">
+        <Link href="/procedures" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
+          &larr; All procedures
+        </Link>
+        <Link href="/providers" className="text-slate-400 hover:text-slate-300 text-xs font-medium transition-colors">
+          Top providers &rarr;
+        </Link>
+      </div>
     </div>
   );
 }

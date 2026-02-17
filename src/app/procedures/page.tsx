@@ -8,16 +8,32 @@ import allProcedures from "../../../public/data/all-procedures.json";
 export default function ProceduresPage() {
   const procedures = allProcedures as any[];
   const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("spending");
   const [visibleCount, setVisibleCount] = useState(100);
 
   const filtered = useMemo(() => {
-    if (!search) return procedures;
-    const q = search.toLowerCase();
-    return procedures.filter(p =>
-      p.code.toLowerCase().includes(q) ||
-      (hcpcsDescription(p.code) || '').toLowerCase().includes(q)
-    );
-  }, [procedures, search]);
+    let result = procedures;
+    if (search) {
+      const q = search.toLowerCase();
+      result = result.filter(p =>
+        p.code.toLowerCase().includes(q) ||
+        (hcpcsDescription(p.code) || '').toLowerCase().includes(q)
+      );
+    }
+    if (sortBy === "code") {
+      result = [...result].sort((a, b) => a.code.localeCompare(b.code));
+    } else if (sortBy === "claims") {
+      result = [...result].sort((a, b) => (b.totalClaims || 0) - (a.totalClaims || 0));
+    } else if (sortBy === "cpc") {
+      result = [...result].sort((a, b) => {
+        const aCpc = a.totalClaims > 0 ? a.totalPaid / a.totalClaims : 0;
+        const bCpc = b.totalClaims > 0 ? b.totalPaid / b.totalClaims : 0;
+        return bCpc - aCpc;
+      });
+    }
+    // default "spending" — data is already sorted by totalPaid desc
+    return result;
+  }, [procedures, search, sortBy]);
 
   const totalSpending = procedures.reduce((sum: number, p: any) => sum + p.totalPaid, 0);
 
@@ -38,14 +54,24 @@ export default function ProceduresPage() {
         </p>
       </div>
 
-      <div className="mb-6">
+      <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <input
           type="search"
           placeholder="Search by code or description (e.g., T1019, psychotherapy, ambulance)..."
           value={search}
           onChange={(e) => { setSearch(e.target.value); setVisibleCount(100); }}
-          className="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+          className="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
         />
+        <select
+          value={sortBy}
+          onChange={(e) => { setSortBy(e.target.value); setVisibleCount(100); }}
+          className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
+        >
+          <option value="spending">Highest Spending</option>
+          <option value="code">Code A-Z</option>
+          <option value="claims">Most Claims</option>
+          <option value="cpc">Highest Cost Per Claim</option>
+        </select>
       </div>
 
       <p className="text-xs text-slate-500 mb-4">

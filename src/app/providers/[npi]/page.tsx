@@ -220,6 +220,20 @@ export default function ProviderPage({ params }: Props) {
             );
           })()}
         </div>
+        {(flagCount > 0 || mlScore !== null) && (
+          <div className="flex flex-wrap gap-3 mt-3">
+            {flagCount > 0 && (
+              <Link href="/watchlist" className="text-xs text-red-400 hover:text-red-300 font-medium transition-colors">
+                View on Fraud Watchlist &rarr;
+              </Link>
+            )}
+            {mlScore !== null && (
+              <Link href="/ml-analysis" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                View ML Analysis &rarr;
+              </Link>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Limited Data Banner */}
@@ -575,9 +589,12 @@ export default function ProviderPage({ params }: Props) {
                       <Link href={`/procedures/${proc.code}`} className="text-white hover:text-blue-400 transition-colors">
                         <span className="font-mono text-xs font-medium">{proc.code}</span>
                       </Link>
-                      {hcpcsDescription(proc.code) && (
-                        <span className="text-[10px] text-slate-500 ml-2">{hcpcsDescription(proc.code)}</span>
+                      {(proc.description || hcpcsDescription(proc.code)) && (
+                        <span className="text-[10px] text-slate-500 ml-2">{proc.description || hcpcsDescription(proc.code)}</span>
                       )}
+                      <Link href={`/procedures/${proc.code}`} className="hidden lg:inline text-[10px] text-blue-400/70 hover:text-blue-400 ml-2 transition-colors">
+                        See all providers &rarr;
+                      </Link>
                     </div>
 
                     {/* Total */}
@@ -637,8 +654,8 @@ export default function ProviderPage({ params }: Props) {
                             </span>
                           )}
                         </div>
-                        {hcpcsDescription(proc.code) && (
-                          <p className="text-[10px] text-slate-500 mt-0.5">{hcpcsDescription(proc.code)}</p>
+                        {(proc.description || hcpcsDescription(proc.code)) && (
+                          <p className="text-[10px] text-slate-500 mt-0.5">{proc.description || hcpcsDescription(proc.code)}</p>
                         )}
                       </div>
                       <div className="text-right shrink-0">

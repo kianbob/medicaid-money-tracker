@@ -97,7 +97,7 @@ export default function StateDetailPage({ params }: Props) {
         <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name} Medicaid Spending</h1>
         <p className="text-sm text-slate-400 mt-2">
           Top provider spending in {name} from 2018&ndash;2024.
-          {flaggedCount > 0 && <> <span className="text-red-400 font-semibold">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''}</span> flagged by fraud detection.</>}
+          {flaggedCount > 0 && <> <Link href="/watchlist" className="text-red-400 hover:text-red-300 font-semibold transition-colors">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''} on the fraud watchlist</Link>.</>}
         </p>
       </div>
 
@@ -190,7 +190,7 @@ export default function StateDetailPage({ params }: Props) {
                       <Link href={`/procedures/${p.code}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
                         <span className="font-mono">{p.code}</span>
                       </Link>
-                      {hcpcsDescription(p.code) && <p className="text-[10px] text-slate-500 mt-0.5">{hcpcsDescription(p.code)}</p>}
+                      {(p.description || hcpcsDescription(p.code)) && <p className="text-[10px] text-slate-500 mt-0.5">{p.description || hcpcsDescription(p.code)}</p>}
                     </td>
                     <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.payments || p.total_payments || p.totalPaid || 0)}</td>
                     <td className="px-4 py-2.5 text-right text-slate-400 text-xs hidden sm:table-cell tabular-nums">{formatNumber(p.claims || p.total_claims || p.totalClaims || 0)}</td>

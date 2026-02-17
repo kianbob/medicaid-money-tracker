@@ -10,6 +10,7 @@ export default function ProvidersPage() {
   const [search, setSearch] = useState("");
   const [stateFilter, setStateFilter] = useState("all");
   const [flagFilter, setFlagFilter] = useState("all");
+  const [sortBy, setSortBy] = useState("spending");
   const [visibleCount, setVisibleCount] = useState(50);
 
   const states = useMemo(() => {
@@ -32,8 +33,18 @@ export default function ProvidersPage() {
     if (stateFilter !== "all") result = result.filter(p => p.state === stateFilter);
     if (flagFilter === "flagged") result = result.filter(p => parseFlags(p.flags).length > 0);
     else if (flagFilter === "clean") result = result.filter(p => parseFlags(p.flags).length === 0);
+
+    if (sortBy === "name") {
+      result = [...result].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+    } else if (sortBy === "claims") {
+      result = [...result].sort((a, b) => (b.totalClaims || 0) - (a.totalClaims || 0));
+    } else if (sortBy === "flags") {
+      result = [...result].sort((a, b) => parseFlags(b.flags).length - parseFlags(a.flags).length);
+    }
+    // default "spending" — data is already sorted by totalPaid desc
+
     return result;
-  }, [providers, search, stateFilter, flagFilter]);
+  }, [providers, search, stateFilter, flagFilter, sortBy]);
 
   const totalSpending = providers.reduce((sum: number, p: any) => sum + p.totalPaid, 0);
 
@@ -79,6 +90,16 @@ export default function ProvidersPage() {
           <option value="all">All Providers</option>
           <option value="flagged">Flagged Only</option>
           <option value="clean">No Flags</option>
+        </select>
+        <select
+          value={sortBy}
+          onChange={(e) => { setSortBy(e.target.value); setVisibleCount(50); }}
+          className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
+        >
+          <option value="spending">Highest Spending</option>
+          <option value="name">Name A-Z</option>
+          <option value="claims">Most Claims</option>
+          <option value="flags">Most Flags</option>
         </select>
       </div>
 
