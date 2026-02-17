@@ -4,6 +4,7 @@ import { formatMoney, formatNumber, formatMoneyFull, formatCpc, riskLabel, riskC
 import topProviders from "../../../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
+import stats from "../../../../public/data/stats.json";
 import fs from "fs";
 import path from "path";
 
@@ -248,7 +249,7 @@ export default function ProviderPage({ params }: Props) {
       )}
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total Paid</p>
           <p className="text-xl font-bold text-green-400 tabular-nums">{formatMoney(totalPaid)}</p>
@@ -266,8 +267,29 @@ export default function ProviderPage({ params }: Props) {
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Avg Cost/Claim</p>
           <p className="text-xl font-bold text-white tabular-nums">{formatMoney(avgPerClaim)}</p>
-          {growthRate !== 0 && <p className={`text-[10px] ${growthRate > 100 ? 'text-red-400' : 'text-slate-600'}`}>{growthRate > 0 ? '+' : ''}{growthRate.toFixed(0)}% growth</p>}
         </div>
+      </div>
+
+      {/* Growth Rate + Context */}
+      <div className="flex flex-wrap gap-3 mb-10">
+        {growthRate !== 0 && (
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg border ${growthRate > 100 ? 'bg-red-500/8 border-red-500/20' : growthRate > 0 ? 'bg-amber-500/8 border-amber-500/20' : 'bg-green-500/8 border-green-500/20'}`}>
+            <span className={`text-sm font-bold ${growthRate > 100 ? 'text-red-400' : growthRate > 0 ? 'text-amber-400' : 'text-green-400'}`}>
+              {growthRate > 0 ? '\u2191' : '\u2193'} {Math.abs(growthRate).toFixed(0)}% growth
+            </span>
+            <span className="text-[10px] text-slate-500">since first billing year</span>
+          </div>
+        )}
+        {totalPaid > 0 && (() => {
+          const rank = (topProviders as any[]).findIndex((p: any) => p.npi === npi) + 1;
+          const pctAbove = ((1 - (totalPaid > 0 ? rank > 0 ? rank / (stats as any).providers : 0.001 : 1)) * 100);
+          return rank > 0 ? (
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border bg-dark-800 border-dark-500/50">
+              <span className="text-sm font-semibold text-white">#{rank}</span>
+              <span className="text-[10px] text-slate-500">of {formatNumber((stats as any).providers)} providers by spending (top {pctAbove.toFixed(1)}%)</span>
+            </div>
+          ) : null;
+        })()}
       </div>
 
       {/* Monthly Trend */}
@@ -445,6 +467,33 @@ export default function ProviderPage({ params }: Props) {
         </div>
       )}
 
+      {/* Similar Providers */}
+      {state && (() => {
+        const sameState = (topProviders as any[]).filter((p: any) => p.state === state && p.npi !== npi).slice(0, 5);
+        return sameState.length > 0 ? (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-10">
+            <div className="px-5 py-4 border-b border-dark-500/50 flex items-center justify-between">
+              <h2 className="text-sm font-bold text-white">Other Top Providers in {stateName(state)}</h2>
+              <Link href={`/states/${state}`} className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                View all &rarr;
+              </Link>
+            </div>
+            <div className="divide-y divide-dark-600/50">
+              {sameState.map((p: any) => (
+                <Link key={p.npi} href={`/providers/${p.npi}`}
+                  className="flex items-center gap-3 px-5 py-3 hover:bg-dark-700/50 transition-colors group">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{p.name || `NPI: ${p.npi}`}</p>
+                    <p className="text-[10px] text-slate-500">{p.specialty ? p.specialty.substring(0, 50) : ''}</p>
+                  </div>
+                  <p className="text-xs text-white font-bold tabular-nums shrink-0">{formatMoney(p.totalPaid)}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null;
+      })()}
+
       {/* Related Links */}
       <div className="flex flex-wrap gap-3">
         <Link href="/providers" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
@@ -457,9 +506,12 @@ export default function ProviderPage({ params }: Props) {
         )}
         {state && (
           <Link href={`/states/${state}`} className="text-slate-400 hover:text-slate-300 text-xs font-medium transition-colors">
-            {stateName(state)} providers &rarr;
+            All providers in {stateName(state)} &rarr;
           </Link>
         )}
+        <Link href="/analysis" className="text-slate-400 hover:text-slate-300 text-xs font-medium transition-colors">
+          How we detect fraud &rarr;
+        </Link>
       </div>
     </div>
   );

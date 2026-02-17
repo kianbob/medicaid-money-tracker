@@ -106,14 +106,14 @@ export default function AnalysisPage() {
       {/* Overview Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-12">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Smart Tests</p>
-          <p className="text-2xl font-bold text-white">4</p>
-          <p className="text-[10px] text-slate-600">code-specific analyses</p>
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Fraud Tests</p>
+          <p className="text-2xl font-bold text-white">13</p>
+          <p className="text-[10px] text-slate-600">4 smart + 9 legacy</p>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Providers Flagged</p>
-          <p className="text-2xl font-bold text-red-400 tabular-nums">{smart.length}</p>
-          <p className="text-[10px] text-slate-600">from smart analysis</p>
+          <p className="text-2xl font-bold text-red-400 tabular-nums">{totalFlagged}</p>
+          <p className="text-[10px] text-slate-600">merged watchlist</p>
         </div>
         <div className="bg-dark-800 border border-red-500/20 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Critical Risk</p>
@@ -129,6 +129,58 @@ export default function AnalysisPage() {
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Codes Benchmarked</p>
           <p className="text-2xl font-bold text-blue-400 tabular-nums">9,578</p>
           <p className="text-[10px] text-slate-600">HCPCS codes with decile data</p>
+        </div>
+      </div>
+
+      {/* Data Source */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-12">
+        <h2 className="text-sm font-bold text-white mb-3">Data Source &amp; Dataset</h2>
+        <p className="text-sm text-slate-300 leading-relaxed mb-4">
+          All data comes from the <a href="https://opendata.hhs.gov/datasets/medicaid-provider-spending/" className="text-blue-400 hover:underline font-medium">HHS Open Data Platform</a> &mdash;
+          Medicaid Provider Spending dataset. This is aggregated, provider-level claims data covering every billing
+          code from 2018 through 2024, released by the HHS DOGE team on February 13, 2026.
+        </p>
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+          {[
+            { label: "Records", value: "227M" },
+            { label: "Total Payments", value: "$1.09T" },
+            { label: "Providers", value: "617,503" },
+            { label: "Procedure Codes", value: "10,881" },
+            { label: "Benchmarked Codes", value: "9,578" },
+            { label: "Date Range", value: "2018\u20132024" },
+          ].map((item) => (
+            <div key={item.label} className="bg-dark-700/50 rounded-lg p-2.5 border border-dark-500/30">
+              <p className="text-[10px] text-slate-500 uppercase tracking-widest">{item.label}</p>
+              <p className="text-sm font-bold text-white">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* How We're Different */}
+      <div className="bg-purple-500/8 border border-purple-500/20 rounded-xl p-5 mb-12">
+        <h2 className="text-sm font-bold text-purple-400 mb-3">How Our Analysis Is Different</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="space-y-3 text-sm text-slate-400">
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 font-bold shrink-0 mt-0.5">1.</span>
+              <p><strong className="text-white">Code-specific benchmarks.</strong> We compare a provider&apos;s cost per claim against the median <em>for that exact procedure code</em>, not a generic overall average. A dermatologist and a dialysis center have different normal costs.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 font-bold shrink-0 mt-0.5">2.</span>
+              <p><strong className="text-white">13 independent tests.</strong> We run 4 code-specific smart tests and 9 legacy statistical tests. Multiple overlapping flags increase confidence.</p>
+            </div>
+          </div>
+          <div className="space-y-3 text-sm text-slate-400">
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 font-bold shrink-0 mt-0.5">3.</span>
+              <p><strong className="text-white">National decile distributions.</strong> We compute p10&ndash;p99 for 9,578 codes so providers can be placed in precise percentile ranges, not just &ldquo;above/below average.&rdquo;</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-purple-400 font-bold shrink-0 mt-0.5">4.</span>
+              <p><strong className="text-white">OIG cross-reference.</strong> We checked all {totalFlagged} flagged providers against 82,715 excluded providers. Zero matches &mdash; our analysis surfaces new, uninvestigated activity.</p>
+            </div>
+          </div>
         </div>
       </div>
 

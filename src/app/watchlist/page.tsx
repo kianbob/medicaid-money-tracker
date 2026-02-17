@@ -150,6 +150,10 @@ export default function WatchlistPage() {
           The primary watchlist uses <span className="text-white font-semibold">code-specific benchmarks</span> to compare
           each provider&apos;s billing against the national median for that exact procedure code.
         </p>
+        <p className="text-sm text-slate-500 mt-2">
+          These {allProviders.length} providers collectively received <span className="text-white font-semibold">{formatMoney(totalFlaggedSpending)}</span> in
+          Medicaid payments &mdash; flagged across {smartCount} code-specific and {allProviders.length - smartCount} legacy analyses.
+        </p>
       </div>
 
       {/* OIG Banner */}
@@ -249,10 +253,39 @@ export default function WatchlistPage() {
         </div>
       </div>
 
-      {/* Results count */}
-      <p className="text-xs text-slate-500 mb-4">
-        Showing <strong className="text-white">{Math.min(visibleCount, filtered.length)}</strong> of {filtered.length} flagged providers
-      </p>
+      {/* Results count + Export */}
+      <div className="flex items-center justify-between mb-4">
+        <p className="text-xs text-slate-500">
+          Showing <strong className="text-white">{Math.min(visibleCount, filtered.length)}</strong> of {filtered.length} flagged providers
+        </p>
+        <button
+          onClick={() => {
+            const headers = ['NPI', 'Name', 'Specialty', 'City', 'State', 'Total Paid', 'Flag Count', 'Flags'];
+            const rows = filtered.map(p => [
+              p.npi,
+              `"${(p.name || '').replace(/"/g, '""')}"`,
+              `"${(p.specialty || '').replace(/"/g, '""')}"`,
+              `"${(p.city || '').replace(/"/g, '""')}"`,
+              p.state,
+              p.totalPaid.toFixed(2),
+              p.flagCount,
+              `"${p.flags.join('; ')}"`,
+            ].join(','));
+            const csv = [headers.join(','), ...rows].join('\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'medicaid-watchlist.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+          }}
+          className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors flex items-center gap-1"
+        >
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+          Export CSV
+        </button>
+      </div>
 
       {/* Table */}
       <div className="space-y-2">

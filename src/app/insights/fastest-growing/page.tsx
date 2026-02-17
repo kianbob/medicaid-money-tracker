@@ -26,8 +26,11 @@ export default function FastestGrowing() {
 
       {/* Headline */}
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 text-xs font-medium text-purple-400 mb-4">
-          Spending Trends
+        <div className="flex items-center gap-3 mb-4 flex-wrap">
+          <span className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1 text-xs font-medium text-purple-400">Spending Trends</span>
+          <span className="text-xs text-slate-500">February 16, 2026</span>
+          <span className="text-xs text-slate-600">&middot;</span>
+          <span className="text-xs text-slate-500">4 min read</span>
         </div>
         <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           The Procedures Growing Fastest in Medicaid

@@ -201,36 +201,27 @@ export default function ProcedureDetailPage({ params }: Props) {
       </div>
 
       {/* Context for well-known codes */}
-      {(params.code === 'T1019' || params.code === 'T2016' || params.code === 'A0427') && (
-        <div className="bg-blue-500/8 border border-blue-500/20 rounded-xl p-5 mb-8">
-          <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">Investigation Context</h3>
-          {params.code === 'T1019' && (
-            <p className="text-sm text-slate-300 leading-relaxed">
-              Personal care services (T1019) is the <strong className="text-white">#1 spending code</strong> in all of Medicaid.
-              Services are provided in private homes, making them difficult to verify.
-              The HHS OIG identifies personal care as the highest fraud-risk Medicaid category.
-            </p>
-          )}
-          {params.code === 'T2016' && (
-            <p className="text-sm text-slate-300 leading-relaxed">
-              Residential habilitation (T2016) is a per-diem code for waiver-based residential care.
-              Typical rates range from $200&ndash;400/day. Our analysis found Massachusetts DDS agencies
-              billing <strong className="text-white">$13,000&ndash;15,000/day</strong> &mdash; 37&ndash;51x the median rate.
-              Note: per diem codes cover an entire day of care, so high values may reflect bundled services.
-            </p>
-          )}
-          {params.code === 'A0427' && (
-            <p className="text-sm text-slate-300 leading-relaxed">
-              ALS emergency ambulance transport (A0427) has a national median of about{' '}
-              <strong className="text-white">$163/trip</strong>. We found Chicago billing{' '}
-              <strong className="text-white">$1,611/trip</strong> &mdash; nearly 10x the national average.
-            </p>
-          )}
-        </div>
-      )}
+      {(() => {
+        const contextMap: Record<string, string> = {
+          'T1019': 'Personal care services (T1019) is the <strong>#1 spending code</strong> in all of Medicaid. Services are provided in private homes, making them difficult to verify. The HHS OIG identifies personal care as the highest fraud-risk Medicaid category.',
+          'T2016': 'Residential habilitation (T2016) is a per-diem code for waiver-based residential care. Typical rates range from $200\u2013400/day. Our analysis found Massachusetts DDS agencies billing <strong>$13,000\u201315,000/day</strong> \u2014 37\u201351x the median rate. Per diem codes cover an entire day of care, so high values may reflect bundled services.',
+          'A0427': 'ALS emergency ambulance transport (A0427) has a national median of about <strong>$163/trip</strong>. We found Chicago billing <strong>$1,611/trip</strong> \u2014 nearly 10x the national average.',
+          '99213': 'Office visit for an established patient with low complexity (99213) is one of the most commonly billed codes in all of healthcare. It represents a standard follow-up visit and is used millions of times annually across Medicaid. Due to its volume, even small per-claim anomalies can represent significant spending.',
+          '99214': 'Office visit for an established patient with moderate complexity (99214) is the higher-level counterpart to 99213. Upcoding from 99213 to 99214 is a well-documented fraud pattern \u2014 providers bill for a more complex visit than what actually occurred to receive higher reimbursement.',
+          'H2015': 'Comprehensive community support services (H2015) covers intensive community-based behavioral health services. This code has seen significant growth alongside the expansion of community-based mental health programs and is closely monitored for billing anomalies.',
+          'H2016': 'Comprehensive community support per diem (H2016) covers a full day of community-based behavioral health services. Per diem billing for community support has been flagged by investigators as an area with limited verification mechanisms.',
+        };
+        const context = contextMap[params.code];
+        return context ? (
+          <div className="bg-blue-500/8 border border-blue-500/20 rounded-xl p-5 mb-8">
+            <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">Investigation Context</h3>
+            <p className="text-sm text-slate-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: context }} />
+          </div>
+        ) : null;
+      })()}
 
       {/* Top Providers for this code (if available) */}
-      {detailProviders.length > 0 && (
+      {detailProviders.length > 0 ? (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-8">
           <div className="px-5 py-4 border-b border-dark-500/50">
             <h2 className="text-sm font-bold text-white">Top Providers Using This Code</h2>
@@ -260,7 +251,44 @@ export default function ProcedureDetailPage({ params }: Props) {
             </table>
           </div>
         </div>
-      )}
+      ) : benchmark?.providerCount ? (
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+          <h2 className="text-sm font-bold text-white mb-2">Provider Coverage</h2>
+          <p className="text-sm text-slate-400">
+            We have <span className="text-white font-semibold">{formatNumber(benchmark.providerCount)}</span> providers
+            billing this code in our dataset. Individual provider breakdowns are available for top-spending procedure codes.
+          </p>
+        </div>
+      ) : null}
+
+      {/* Related Procedures */}
+      {(() => {
+        const codePrefix = params.code.replace(/[0-9]/g, '');
+        const codeNum = parseInt(params.code.replace(/[^0-9]/g, ''), 10);
+        const related = (allProcedures as any[])
+          .filter((p: any) => {
+            if (p.code === params.code) return false;
+            const pPrefix = p.code.replace(/[0-9]/g, '');
+            const pNum = parseInt(p.code.replace(/[^0-9]/g, ''), 10);
+            return pPrefix === codePrefix && Math.abs(pNum - codeNum) <= 10;
+          })
+          .slice(0, 5);
+        return related.length > 0 ? (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+            <h2 className="text-sm font-bold text-white mb-3">Related Procedures</h2>
+            <div className="flex flex-wrap gap-2">
+              {related.map((p: any) => (
+                <Link key={p.code} href={`/procedures/${p.code}`}
+                  className="inline-flex items-center gap-2 bg-dark-700/50 border border-dark-500/30 rounded-lg px-3 py-2 hover:border-dark-400 transition-colors group">
+                  <span className="font-mono text-xs font-semibold text-white group-hover:text-blue-400 transition-colors">{p.code}</span>
+                  {hcpcsDescription(p.code) && <span className="text-[10px] text-slate-500">{hcpcsDescription(p.code)}</span>}
+                  <span className="text-[10px] text-slate-600 tabular-nums">{formatMoney(p.totalPaid)}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null;
+      })()}
 
       <Link href="/procedures" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
         &larr; All procedures

@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName, hcpcsDescription } from "@/lib/format";
 import statesSummary from "../../../../public/data/states-summary.json";
+import smartWatchlist from "../../../../public/data/smart-watchlist.json";
+import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import fs from "fs";
 import path from "path";
 
@@ -58,6 +60,21 @@ export default function StateDetailPage({ params }: Props) {
   const procedures = stateData?.top_procedures || [];
   const trends = stateData?.yearly_trends || [];
 
+  // Compute state ranking
+  const sortedStates = (statesSummary as any[]).filter((s: any) => s.state !== 'Unknown').sort((a: any, b: any) => b.total_payments - a.total_payments);
+  const stateRank = sortedStates.findIndex((s: any) => s.state === code) + 1;
+
+  // Count flagged providers in this state
+  const smartInState = (smartWatchlist as any[]).filter((w: any) => w.state === code);
+  const oldInState = (oldWatchlist as any[]).filter((w: any) => w.state === code);
+  const flaggedNpis = new Set<string>();
+  smartInState.forEach((w: any) => flaggedNpis.add(w.npi));
+  oldInState.forEach((w: any) => flaggedNpis.add(w.npi));
+  const flaggedCount = flaggedNpis.size;
+
+  // Related states (top 5 excluding current)
+  const relatedStates = sortedStates.filter((s: any) => s.state !== code).slice(0, 5);
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
@@ -71,10 +88,16 @@ export default function StateDetailPage({ params }: Props) {
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl font-black text-blue-400">{code}</span>
+          {stateRank > 0 && (
+            <span className="text-xs font-bold text-slate-500 bg-dark-700 px-2 py-0.5 rounded">
+              #{stateRank} of {sortedStates.length} states
+            </span>
+          )}
         </div>
         <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">{name} Medicaid Spending</h1>
         <p className="text-sm text-slate-400 mt-2">
-          Top provider spending in {name} from 2018&ndash;2024
+          Top provider spending in {name} from 2018&ndash;2024.
+          {flaggedCount > 0 && <> <span className="text-red-400 font-semibold">{flaggedCount} provider{flaggedCount !== 1 ? 's' : ''}</span> flagged by fraud detection.</>}
         </p>
       </div>
 
@@ -179,6 +202,20 @@ export default function StateDetailPage({ params }: Props) {
         </div>
       )}
 
+      {/* Related States */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
+        <h2 className="text-sm font-bold text-white mb-3">See Also: Top Spending States</h2>
+        <div className="flex flex-wrap gap-2">
+          {relatedStates.map((s: any) => (
+            <Link key={s.state} href={`/states/${s.state}`}
+              className="inline-flex items-center gap-2 bg-dark-700/50 border border-dark-500/30 rounded-lg px-3 py-2 hover:border-dark-400 transition-colors group">
+              <span className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">{s.state}</span>
+              <span className="text-[10px] text-slate-500">{formatMoney(s.total_payments)}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
       <div className="flex gap-4">
         <Link href="/states" className="text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
           &larr; All states
@@ -186,6 +223,11 @@ export default function StateDetailPage({ params }: Props) {
         <Link href="/providers" className="text-slate-400 hover:text-slate-300 text-xs font-medium transition-colors">
           All providers &rarr;
         </Link>
+        {flaggedCount > 0 && (
+          <Link href="/watchlist" className="text-red-400 hover:text-red-300 text-xs font-medium transition-colors">
+            Fraud watchlist &rarr;
+          </Link>
+        )}
       </div>
     </div>
   );

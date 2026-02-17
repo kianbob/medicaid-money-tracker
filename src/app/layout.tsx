@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import GlobalSearch from "@/components/GlobalSearch";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
+    default: "Medicaid Money Tracker \u2014 Follow the Money",
     template: "%s \u2014 Medicaid Money Tracker",
   },
-  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers and 10,881 procedure codes. 880+ providers flagged by code-specific fraud detection. Built from 227 million HHS records (2018\u20132024).",
+  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers and 10,881 procedure codes. 1,360+ providers flagged by 13 fraud detection tests. Built from 227 million HHS records (2018\u20132024).",
   metadataBase: new URL("https://medicaidmoneytracker.com"),
   openGraph: {
     title: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
-    description: "We analyzed 227 million Medicaid billing records and flagged 880+ providers using code-specific fraud detection. See where your healthcare tax dollars go.",
+    description: "We analyzed 227 million Medicaid billing records and flagged 1,360+ providers using 13 fraud detection tests. See where your healthcare tax dollars go.",
     type: "website",
     siteName: "Medicaid Money Tracker",
     locale: "en_US",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Medicaid Money Tracker \u2014 $1.09T in Spending, Exposed",
-    description: "227M Medicaid billing records. 880+ providers flagged via code-specific fraud detection. See where your healthcare tax dollars go.",
+    description: "227M Medicaid billing records. 1,360+ providers flagged via 13 fraud detection tests. See where your healthcare tax dollars go.",
   },
   robots: {
     index: true,
@@ -42,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "WebSite",
               "name": "Medicaid Money Tracker",
               "url": "https://medicaidmoneytracker.com",
-              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 880+ providers flagged by code-specific fraud detection.",
+              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 1,360+ providers flagged by 13 fraud detection tests.",
               "publisher": {
                 "@type": "Organization",
                 "name": "TheDataProject.ai",
@@ -58,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Dataset",
               "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
-              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. Code-specific fraud detection flagging 880+ providers.",
+              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 13 fraud detection tests flagging 1,360+ providers.",
               "url": "https://medicaidmoneytracker.com",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "isBasedOn": {
@@ -106,16 +107,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   Analysis
                 </Link>
-                <Link href="/trends" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Trends
-                </Link>
                 <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   About
                 </Link>
+                <div className="ml-2">
+                  <GlobalSearch />
+                </div>
               </div>
 
-              {/* Mobile hamburger nav */}
-              <div className="md:hidden">
+              {/* Mobile: search + hamburger */}
+              <div className="md:hidden flex items-center gap-1">
+                <GlobalSearch />
                 <details className="relative group">
                   <summary className="list-none cursor-pointer p-2 rounded-lg hover:bg-dark-600 transition-colors" aria-label="Open menu">
                     <svg className="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -159,7 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="border-t border-dark-500/50 mt-24 py-12 px-4" role="contentinfo">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-4 gap-8 text-sm">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-sm">
               <div>
                 <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Explore</p>
                 <div className="space-y-2">
@@ -175,7 +177,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/watchlist" className="block text-slate-500 hover:text-red-400 transition-colors">Fraud Watchlist</Link>
                   <Link href="/insights" className="block text-slate-500 hover:text-purple-400 transition-colors">Insights</Link>
                   <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Fraud Analysis</Link>
-                  <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
+                  <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">About &amp; Methodology</Link>
                 </div>
               </div>
               <div>
@@ -192,6 +194,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <a href="https://thedataproject.ai" className="text-blue-400/80 hover:text-blue-400 hover:underline transition-colors">TheDataProject.ai</a>
                 </p>
                 <p className="text-slate-600 mt-1">Data-driven transparency from public records.</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Help</p>
+                <div className="space-y-2">
+                  <a href="https://thedataproject.ai" className="block text-slate-500 hover:text-blue-400 transition-colors">Report an Issue</a>
+                  <a href="https://thedataproject.ai" className="block text-slate-500 hover:text-blue-400 transition-colors">Contact Us</a>
+                </div>
               </div>
             </div>
             <div className="border-t border-dark-600/50 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">

@@ -127,13 +127,20 @@ export default function Home() {
           </Link>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
-          <div className="flex items-end gap-3 h-32">
-            {yearlyTrends.map((y: any) => {
+          <div className="flex items-end gap-3 h-40">
+            {yearlyTrends.map((y: any, i: number) => {
               const maxP = Math.max(...yearlyTrends.map((t: any) => t.payments));
               const pct = (y.payments / maxP) * 100;
+              const prev = i > 0 ? (yearlyTrends[i - 1] as any).payments : null;
+              const yoyPct = prev ? ((y.payments - prev) / prev * 100) : null;
               return (
                 <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
                   <p className="text-[10px] text-slate-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">{formatMoney(y.payments)}</p>
+                  {yoyPct !== null && (
+                    <p className={`text-[9px] font-semibold mb-1 tabular-nums ${yoyPct >= 0 ? 'text-amber-400/70' : 'text-green-400/70'}`}>
+                      {yoyPct >= 0 ? '+' : ''}{yoyPct.toFixed(1)}%
+                    </p>
+                  )}
                   <div
                     className="w-full bg-blue-500/40 hover:bg-blue-400/60 rounded-t transition-colors bar-segment"
                     style={{ height: `${pct}%` }}
@@ -245,6 +252,29 @@ export default function Home() {
               </p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* How We Did This */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="methodology-heading">
+        <div className="flex items-center gap-2 mb-6">
+          <div className="w-1 h-6 bg-slate-500 rounded-full" />
+          <h2 id="methodology-heading" className="text-xl font-bold text-white">How We Did This</h2>
+        </div>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            We analyzed <span className="text-white font-semibold">227 million Medicaid billing records</span> released by HHS, covering 617,503 providers and
+            10,881 procedure codes from 2018&ndash;2024. We ran <span className="text-white font-semibold">13 fraud detection tests</span> &mdash;
+            including 4 code-specific smart tests that compare each provider&apos;s cost per claim against the national median for that exact procedure code.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/analysis" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
+              See our fraud analysis &rarr;
+            </Link>
+            <Link href="/about" className="text-sm text-slate-400 hover:text-slate-300 font-medium transition-colors">
+              Full methodology &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 

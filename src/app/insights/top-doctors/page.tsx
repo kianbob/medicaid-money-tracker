@@ -26,8 +26,11 @@ export default function TopDoctors() {
 
       {/* Headline */}
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-3 py-1 text-xs font-medium text-indigo-400 mb-4">
-          Provider Analysis
+        <div className="flex items-center gap-3 mb-4 flex-wrap">
+          <span className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-3 py-1 text-xs font-medium text-indigo-400">Provider Analysis</span>
+          <span className="text-xs text-slate-500">February 16, 2026</span>
+          <span className="text-xs text-slate-600">&middot;</span>
+          <span className="text-xs text-slate-500">3 min read</span>
         </div>
         <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           The Highest-Paid Individual Medicaid Providers

@@ -207,6 +207,56 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section aria-labelledby="faq-heading">
+          <h2 id="faq-heading" className="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: "Where does this data come from?",
+                a: "All data comes from the HHS Open Data Platform \u2014 the Medicaid Provider Spending dataset. It contains aggregated, provider-level claims data covering every billing code from 2018 through 2024, totaling 227 million records. The data was released publicly by HHS on February 13, 2026.",
+              },
+              {
+                q: "What does 'flagged' mean?",
+                a: "A 'flagged' provider has been identified by one or more of our 13 statistical fraud detection tests as having billing patterns that are unusual compared to peers. This could mean billing significantly above the national median for a specific procedure code, having explosive spending growth, or other anomalies. Being flagged is not proof of fraud \u2014 it means the billing patterns warrant further investigation.",
+              },
+              {
+                q: "Is this proof of fraud?",
+                a: "No. Statistical flags indicate unusual patterns, not proof of wrongdoing. Many flagged providers have legitimate reasons for their billing patterns \u2014 government agencies serve large populations, home care management programs bill on behalf of thousands of caregivers, and specialty drugs have inherently high costs. Our analysis surfaces patterns that may warrant investigation by qualified auditors.",
+              },
+              {
+                q: "How do I report suspected fraud?",
+                a: "If you suspect Medicaid fraud, you can report it to the HHS Office of Inspector General (OIG) at 1-800-HHS-TIPS (1-800-447-8477) or online at oig.hhs.gov. You can also contact your state\u2019s Medicaid Fraud Control Unit (MFCU). Whistleblower protections exist under the False Claims Act for those who report fraud.",
+              },
+              {
+                q: "How often is this updated?",
+                a: "The underlying HHS data covers 2018\u20132024. We update our analysis when HHS releases new data. The current analysis was published in February 2026 based on the initial public data release.",
+              },
+            ].map((faq, i) => (
+              <div key={i} className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+                <h3 className="text-sm font-bold text-white mb-2">{faq.q}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  { "@type": "Question", "name": "Where does this data come from?", "acceptedAnswer": { "@type": "Answer", "text": "All data comes from the HHS Open Data Platform \u2014 the Medicaid Provider Spending dataset. It contains aggregated, provider-level claims data covering every billing code from 2018 through 2024, totaling 227 million records." } },
+                  { "@type": "Question", "name": "What does 'flagged' mean?", "acceptedAnswer": { "@type": "Answer", "text": "A flagged provider has been identified by one or more of our 13 statistical fraud detection tests as having billing patterns that are unusual compared to peers. Being flagged is not proof of fraud." } },
+                  { "@type": "Question", "name": "Is this proof of fraud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Statistical flags indicate unusual patterns, not proof of wrongdoing. Our analysis surfaces patterns that may warrant investigation by qualified auditors." } },
+                  { "@type": "Question", "name": "How do I report suspected fraud?", "acceptedAnswer": { "@type": "Answer", "text": "Report suspected Medicaid fraud to the HHS Office of Inspector General (OIG) at 1-800-HHS-TIPS or online at oig.hhs.gov." } },
+                  { "@type": "Question", "name": "How often is this updated?", "acceptedAnswer": { "@type": "Answer", "text": "The underlying HHS data covers 2018\u20132024. We update our analysis when HHS releases new data." } },
+                ],
+              }),
+            }}
+          />
+        </section>
+
         {/* Built By */}
         <section aria-labelledby="built-heading">
           <h2 id="built-heading" className="text-xl font-bold text-white mb-4">Built By</h2>
