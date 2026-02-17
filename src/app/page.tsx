@@ -6,15 +6,22 @@ import smartWatchlist from "../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../public/data/expanded-watchlist.json";
 import statesSummary from "../../public/data/states-summary.json";
 import yearlyTrends from "../../public/data/yearly-trends.json";
+import mlScores from "../../public/data/ml-scores.json";
 
 export default function Home() {
   const top5Providers = topProviders.slice(0, 5);
   const top5States = (statesSummary as any[]).filter((s: any) => s.state !== 'Unknown').slice(0, 5);
 
-  // Deduplicate watchlist
+  // Deduplicate watchlist (statistical + ML-only providers)
   const allWatchlistNpis = new Set<string>();
   (smartWatchlist as any[]).forEach((w: any) => allWatchlistNpis.add(w.npi));
   (oldWatchlist as any[]).forEach((w: any) => allWatchlistNpis.add(w.npi));
+  // Add ML-only providers (score >= 0.5 with no statistical flags)
+  for (const p of [...((mlScores as any).topProviders || []), ...((mlScores as any).smallProviderFlags || [])]) {
+    if ((p as any).mlScore >= 0.5 && !allWatchlistNpis.has((p as any).npi)) {
+      allWatchlistNpis.add((p as any).npi);
+    }
+  }
   const watchlistCount = allWatchlistNpis.size;
 
   const totalFlaggedSpending = (smartWatchlist as any[]).reduce((sum: number, p: any) => sum + (p.totalPaid || 0), 0);
@@ -69,7 +76,7 @@ export default function Home() {
             { label: "Total Spending", value: formatMoney(stats.totalPaid), sub: "2018\u20132024", color: "text-white" },
             { label: "Billing Records", value: formatNumber(stats.records), sub: "Individual claims", color: "text-blue-400" },
             { label: "Providers Analyzed", value: formatNumber(stats.providers), sub: "Unique NPIs", color: "text-slate-300" },
-            { label: "Flagged Providers", value: String(watchlistCount), sub: "code-specific analysis", color: "text-red-400" },
+            { label: "Flagged Providers", value: String(watchlistCount), sub: "statistical + ML analysis", color: "text-red-400" },
             { label: "Procedure Codes", value: formatNumber(10881), sub: "HCPCS codes", color: "text-purple-400" },
           ].map((stat) => (
             <div key={stat.label} className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors">
@@ -122,7 +129,7 @@ export default function Home() {
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-red-500/20 transition-all group">
             <p className="text-3xl font-extrabold text-red-400 tabular-nums mb-2">{watchlistCount}</p>
             <p className="text-sm font-semibold text-white mb-1">Providers Flagged</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Using code-specific benchmarks that compare each provider against the national median for their exact procedure codes. None appear on the OIG exclusion list.</p>
+            <p className="text-xs text-slate-500 leading-relaxed">Using 13 statistical tests and machine learning trained on 514 confirmed fraud cases. None of the statistically-flagged providers appear on the OIG exclusion list.</p>
             <Link href="/watchlist" className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 mt-3 font-medium transition-colors">
               View watchlist <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
@@ -295,9 +302,10 @@ export default function Home() {
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
           <p className="text-sm text-slate-300 leading-relaxed mb-4">
             We analyzed <span className="text-white font-semibold">227 million Medicaid billing records</span> released by HHS, covering 617,503 providers and
-            10,881 procedure codes from 2018&ndash;2024. We ran <span className="text-white font-semibold">13 fraud detection tests</span> &mdash;
-            including 4 code-specific smart tests that compare each provider&apos;s cost per claim against the national median for that exact procedure code.
-            We also trained a <span className="text-white font-semibold">random forest ML model</span> (AUC: 0.77) on 514 OIG-excluded providers to score all 594K providers for fraud similarity.
+            10,881 procedure codes from 2018&ndash;2024. We combined <span className="text-white font-semibold">13 statistical fraud tests</span> &mdash;
+            including 4 code-specific smart tests that compare each provider&apos;s cost per claim against the national median &mdash; with
+            a <span className="text-white font-semibold">random forest ML model</span> (AUC: 0.77) trained on 514 OIG-excluded providers.
+            These are unified into <span className="text-white font-semibold">risk tiers</span> (Critical, High, Elevated, ML Flag) for a single view of the most suspicious billing patterns.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/watchlist" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">

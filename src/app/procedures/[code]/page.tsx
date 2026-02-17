@@ -289,13 +289,19 @@ export default function ProcedureDetailPage({ params }: Props) {
                     <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                       <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
                       <td className="px-4 py-2.5">
-                        <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
-                          {toTitleCase(p.name) || `NPI: ${p.npi}`}
-                        </Link>
-                        {(p.city || p.state) && (
+                        {p.name ? (
+                          <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
+                            {toTitleCase(p.name)}
+                          </Link>
+                        ) : (
+                          <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-mono transition-colors">
+                            {p.npi}
+                          </Link>
+                        )}
+                        {p.city && p.state && (
                           <p className="text-[10px] text-slate-500 mt-0.5">
-                            {p.city ? `${toTitleCase(p.city)}, ` : ''}
-                            {p.state ? <Link href={`/states/${p.state}`} className="hover:text-blue-400 transition-colors">{p.state}</Link> : ''}
+                            {toTitleCase(p.city)},{' '}
+                            <Link href={`/states/${p.state}`} className="hover:text-blue-400 transition-colors">{p.state}</Link>
                             {p.specialty ? ` \u00b7 ${toTitleCase(p.specialty)}` : ''}
                           </p>
                         )}
@@ -341,9 +347,15 @@ export default function ProcedureDetailPage({ params }: Props) {
                 {detailProviders.slice(0, 10).map((p: any) => (
                   <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                     <td className="px-4 py-2.5">
-                      <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
-                        {toTitleCase(p.name) || `NPI: ${p.npi}`}
-                      </Link>
+                      {p.name ? (
+                        <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
+                          {toTitleCase(p.name)}
+                        </Link>
+                      ) : (
+                        <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-mono transition-colors">
+                          {p.npi}
+                        </Link>
+                      )}
                     </td>
                     <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.paid || p.totalPaid || 0)}</td>
                     <td className="px-4 py-2.5 text-right text-slate-400 text-xs hidden sm:table-cell tabular-nums">{formatNumber(p.claims || p.totalClaims || 0)}</td>

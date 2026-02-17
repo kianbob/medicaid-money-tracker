@@ -142,7 +142,8 @@ export default function ProviderPage({ params }: Props) {
   }));
 
   // ML Score lookup
-  const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi);
+  const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi)
+    || ((mlScores as any).smallProviderFlags as any[])?.find((p: any) => p.npi === npi);
   const mlScore = mlEntry?.mlScore ?? null;
 
   // Merge flags from smart watchlist + old watchlist + detail JSON

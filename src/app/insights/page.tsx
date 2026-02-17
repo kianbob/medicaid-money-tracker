@@ -148,12 +148,20 @@ function buildSummary(provider: any): string {
   return parts.slice(0, 2).join(' ');
 }
 
+function toTitleCase(str: string): string {
+  if (!str) return str;
+  if (str === str.toUpperCase() && str.length > 3) {
+    return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+  }
+  return str;
+}
+
 function getProviderName(npi: string): string | null {
   try {
     const detailPath = path.join(process.cwd(), 'public', 'data', 'providers', `${npi}.json`);
     if (fs.existsSync(detailPath)) {
       const detail = JSON.parse(fs.readFileSync(detailPath, 'utf-8'));
-      return detail.name || null;
+      return toTitleCase(detail.name) || null;
     }
   } catch {}
   return null;
@@ -176,7 +184,7 @@ export default function InsightsIndex() {
   for (const p of sortedThree) {
     if (seenNpis.has(p.npi)) continue;
     seenNpis.add(p.npi);
-    suspiciousList.push({ ...p, source: 'smart' });
+    suspiciousList.push({ ...p, name: toTitleCase(p.name), source: 'smart' });
   }
 
   // Add high ML small providers

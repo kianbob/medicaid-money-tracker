@@ -7,6 +7,14 @@ import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import fs from "fs";
 import path from "path";
 
+function toTitleCase(str: string): string {
+  if (!str) return str;
+  if (str === str.toUpperCase() && str.length > 3) {
+    return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+  }
+  return str;
+}
+
 interface Props {
   params: { code: string };
 }
@@ -163,12 +171,12 @@ export default function StateDetailPage({ params }: Props) {
                 className="flex items-center gap-3 bg-dark-800 border border-dark-500/50 rounded-lg px-4 py-3 hover:bg-dark-700 hover:border-dark-400 transition-all group">
                 <span className="text-xs font-bold text-slate-600 w-6 text-right tabular-nums">{i + 1}</span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{p.name || `NPI: ${p.npi}`}</p>
+                  <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{toTitleCase(p.name) || `NPI: ${p.npi}`}</p>
                   {(p.specialty || p.city) && (
                     <p className="text-[10px] text-slate-500 mt-0.5">
-                      {p.specialty ? <span className="text-slate-400">{p.specialty.substring(0, 50)}</span> : null}
+                      {p.specialty ? <span className="text-slate-400">{toTitleCase(p.specialty).substring(0, 50)}</span> : null}
                       {p.specialty && p.city ? ' \u00b7 ' : ''}
-                      {p.city || ''}
+                      {p.city ? toTitleCase(p.city) : ''}
                     </p>
                   )}
                 </div>
@@ -226,7 +234,7 @@ export default function StateDetailPage({ params }: Props) {
                     className={`flex items-center gap-3 border rounded-lg px-4 py-3 hover:border-opacity-60 transition-all group ${riskBgColor(p.flagCount)}`}>
                     <div className={`w-2 h-2 rounded-full shrink-0 ${p.flagCount >= 3 ? 'bg-red-500' : p.flagCount >= 2 ? 'bg-amber-500' : 'bg-yellow-500'}`} />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{p.name || `NPI: ${p.npi}`}</p>
+                      <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{toTitleCase(p.name) || `NPI: ${p.npi}`}</p>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {p.flags.slice(0, 3).map((f: string) => {
                           const info = getFlagInfo(f);
