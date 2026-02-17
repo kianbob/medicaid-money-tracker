@@ -123,6 +123,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         accent: "text-teal-400",
         icon: "🗺️",
       },
+      {
+        slug: "round-numbers",
+        title: "Round Number Billing: When Every Claim Ends in Zeros",
+        teaser: "100 providers submit heavy round-number claims — nearly 68,000 at exact dollar amounts like $500, $1,000, $2,500 — totaling $128M. Legitimate billing rarely produces round numbers.",
+        stat: "68K",
+        statLabel: "round claims",
+        color: "from-amber-500 to-yellow-500",
+        accent: "text-amber-400",
+        icon: "🔢",
+      },
     ],
   },
   {
