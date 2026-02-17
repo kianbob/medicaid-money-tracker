@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Download Medicaid Data",
   description: "Download Medicaid spending data including risk watchlists, ML fraud scores, top providers, state summaries, and procedure benchmarks. All data derived from HHS Open Data.",
   openGraph: {
-    title: "Download Medicaid Data \u2014 Medicaid Money Tracker",
+    title: "Download Medicaid Data \u2014 OpenMedicaid",
     description: "Download risk watchlists, ML scores, provider data, and procedure benchmarks from our analysis of 227M Medicaid billing records.",
   },
 };
@@ -234,7 +234,7 @@ export default function DownloadsPage() {
           </p>
           <p>
             <strong className="text-white">Suggested citation:</strong>{" "}
-            Medicaid Money Tracker by TheDataProject.ai. Analysis of HHS Medicaid Provider Spending data (2018&ndash;2024). Available at medicaid-money-tracker.vercel.app.
+            OpenMedicaid by TheDataProject.ai. Analysis of HHS Medicaid Provider Spending data (2018&ndash;2024). Available at openmedicaid.org.
           </p>
           <p>
             <strong className="text-white">Important caveats:</strong>{" "}

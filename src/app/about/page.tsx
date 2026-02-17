@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "About & Methodology \u2014 How We Detect Medicaid Fraud",
   description: "How we analyzed 227 million Medicaid billing records from HHS to identify statistical anomalies. Methodology, data sources, and FAQ.",
   openGraph: {
-    title: "About & Methodology \u2014 Medicaid Money Tracker",
+    title: "About & Methodology \u2014 OpenMedicaid",
     description: "How we analyzed 227M Medicaid billing records with code-specific fraud detection. OIG cross-referencing, transparent methodology, and important caveats.",
   },
 };
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </p>
           </div>
           <p className="text-sm text-slate-300 leading-relaxed">
-            We built Medicaid Money Tracker to make this data permanently accessible &mdash; not as a one-time blog post,
+            We built OpenMedicaid to make this data permanently accessible &mdash; not as a one-time blog post,
             but as a searchable resource where journalists, researchers, policymakers, and citizens can explore how
             $1.09 trillion was distributed.
           </p>
@@ -285,7 +285,7 @@ export default function AboutPage() {
             {[
               { date: "February 13, 2026", title: "HHS Data Release", desc: "HHS DOGE open-sources 227 million aggregated Medicaid billing records covering 2018\u20132024 \u2014 the largest Medicaid dataset in department history." },
               { date: "February 14\u201315, 2026", title: "Analysis & Fraud Detection", desc: "Built 13 statistical fraud tests including 4 code-specific smart tests with national benchmarks across 9,578 HCPCS codes. Trained random forest ML model on 514 OIG-excluded providers (AUC: 0.77)." },
-              { date: "February 16, 2026", title: "Site Launch", desc: "Medicaid Money Tracker goes live with 12,800+ static pages covering 1,889 providers, 10,881 procedures, and 49 states. Data journalism articles published." },
+              { date: "February 16, 2026", title: "Site Launch", desc: "OpenMedicaid goes live with 12,800+ static pages covering 1,889 providers, 10,881 procedures, and 49 states. Data journalism articles published." },
             ].map((item, i) => (
               <div key={i} className="relative pl-8 pb-8 last:pb-0">
                 <div className="absolute left-0 top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 border-2 border-dark-900 -translate-x-[calc(50%-0.5px)]" aria-hidden="true" />
@@ -301,7 +301,7 @@ export default function AboutPage() {
         <section aria-labelledby="built-heading">
           <h2 id="built-heading" className="text-xl font-bold text-white mb-4">Built By</h2>
           <p className="text-sm text-slate-300 leading-relaxed">
-            Medicaid Money Tracker is a project of{" "}
+            OpenMedicaid is a project of{" "}
             <a href="https://thedataproject.ai" className="text-blue-400 hover:underline font-medium">TheDataProject.ai</a>,
             building data-driven transparency tools from public records.
           </p>

@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${name} \u2014 Medicaid Spending Profile`,
     description: `Medicaid spending profile for ${name} (NPI: ${params.npi}). View total payments, claims, procedures, monthly trends, and fraud risk assessment.${flagged}`,
     openGraph: {
-      title: `${name} \u2014 Medicaid Money Tracker`,
+      title: `${name} \u2014 OpenMedicaid`,
       description: `Medicaid spending for ${name}. Total payments, procedure breakdown, and billing analysis.${flagged}`,
     },
   };
@@ -257,7 +257,7 @@ export default function ProviderPage({ params }: Props) {
           {(specialty || city || state) && <span className="text-slate-600">&middot;</span>}
           <span className="font-mono text-xs text-slate-500">NPI: {npi}</span>
           <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name} received ${formatMoney(totalPaid)} in Medicaid payments. See the full spending profile →`)}&url=${encodeURIComponent(`https://medicaid-money-tracker.vercel.app/providers/${npi}`)}`}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name} received ${formatMoney(totalPaid)} in Medicaid payments. See the full spending profile →`)}&url=${encodeURIComponent(`https://openmedicaid.org/providers/${npi}`)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-300 transition-colors px-2 py-0.5 rounded border border-dark-500/50 hover:border-dark-400"

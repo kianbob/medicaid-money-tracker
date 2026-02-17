@@ -229,7 +229,7 @@ export default function SpecialtyDrugs() {
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS Medicaid Provider Spending Data (2018–2024) · 227M records</p>
           <div className="flex items-center gap-3">
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Medicaid's most expensive drug costs ${formatMoney(mostExpensive.costPerClaim)} per claim. ${totalCodes} specialty J-codes total ${formatMoney(totalSpending)} in spending.`)}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/specialty-drugs")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Medicaid's most expensive drug costs ${formatMoney(mostExpensive.costPerClaim)} per claim. ${totalCodes} specialty J-codes total ${formatMoney(totalSpending)} in spending.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/specialty-drugs")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>

@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${name} Medicaid Spending \u2014 Provider Analysis`,
     description: `${name} Medicaid provider spending analysis. ${summary ? `${formatMoney(summary.total_payments)} across ${summary.provider_count} top providers.` : ''} Top providers, procedures, and yearly trends.`,
     openGraph: {
-      title: `${name} Medicaid Spending \u2014 Medicaid Money Tracker`,
+      title: `${name} Medicaid Spending \u2014 OpenMedicaid`,
       description: `Explore ${name}'s top Medicaid providers and procedures. ${summary ? formatMoney(summary.total_payments) + ' in total spending.' : ''}`,
     },
   };

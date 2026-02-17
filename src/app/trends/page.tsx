@@ -5,7 +5,7 @@ import { SpendingAreaChart, ClaimsAreaChart } from "@/components/Charts";
 import yearlyTrends from "../../../public/data/yearly-trends.json";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending Trends 2018-2024 | Medicaid Money Tracker",
+  title: "Medicaid Spending Trends 2018-2024 | OpenMedicaid",
   description: "Year-over-year Medicaid spending trends from $108B in 2018 to $185B in 2024. COVID-19 impact, pandemic unwinding, and key takeaways.",
   openGraph: {
     title: "Medicaid Spending Trends 2018-2024",

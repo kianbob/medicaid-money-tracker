@@ -217,7 +217,7 @@ export default function SpecialtyBreakdown() {
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS Medicaid Provider Spending Data (2018&ndash;2024) &middot; 227M records</p>
           <div className="flex items-center gap-3">
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Where does $1 trillion in Medicaid money go? 264 Home Health providers got $71B. 15 Supports Brokerage providers got $10.8B ($720M each!).")}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/specialty-breakdown")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Where does $1 trillion in Medicaid money go? 264 Home Health providers got $71B. 15 Supports Brokerage providers got $10.8B ($720M each!).")}&url=${encodeURIComponent("https://openmedicaid.org/insights/specialty-breakdown")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>

@@ -172,7 +172,7 @@ export default function Home() {
         </Link>
         <div className="mt-3 flex justify-end">
           <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('This Medicaid provider grew from $1.6M to $112.6M in one year — a 6,886% increase. See the data →')}&url=${encodeURIComponent('https://medicaid-money-tracker.vercel.app/providers/1396049987')}`}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('This Medicaid provider grew from $1.6M to $112.6M in one year — a 6,886% increase. See the data →')}&url=${encodeURIComponent('https://openmedicaid.org/providers/1396049987')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-slate-300 transition-colors px-3 py-1.5 rounded-lg border border-dark-500/50 hover:border-dark-400"

@@ -182,7 +182,7 @@ export default function TopDoctors() {
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS Medicaid Provider Spending Data (2018&ndash;2024) &middot; 227M records</p>
           <div className="flex items-center gap-3">
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Only 2 individual people appear in the top 2,000 Medicaid billers. Almost all top billing is by organizations, not doctors.")}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/top-doctors")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Only 2 individual people appear in the top 2,000 Medicaid billers. Almost all top billing is by organizations, not doctors.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/top-doctors")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>

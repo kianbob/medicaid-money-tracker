@@ -11,24 +11,24 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-headli
 
 export const metadata: Metadata = {
   title: {
-    default: "Medicaid Money Tracker \u2014 Follow the Money",
-    template: "%s \u2014 Medicaid Money Tracker",
+    default: "OpenMedicaid \u2014 Follow the Money",
+    template: "%s \u2014 OpenMedicaid",
   },
   description: "Explore $1.09 trillion in Medicaid spending across 227M billing records. 1,860 providers flagged by statistical analysis and machine learning. Search providers, procedures, and states.",
-  metadataBase: new URL("https://medicaid-money-tracker.vercel.app"),
+  metadataBase: new URL("https://openmedicaid.org"),
   alternates: {
     canonical: "./",
   },
   openGraph: {
-    title: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
+    title: "OpenMedicaid \u2014 $1.09 Trillion in Spending, Exposed",
     description: "We analyzed 227 million Medicaid billing records and flagged 1,860+ providers using 13 fraud detection tests and ML analysis. See where your healthcare tax dollars go.",
     type: "website",
-    siteName: "Medicaid Money Tracker",
+    siteName: "OpenMedicaid",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medicaid Money Tracker \u2014 $1.09T in Spending, Exposed",
+    title: "OpenMedicaid \u2014 $1.09T in Spending, Exposed",
     description: "227M Medicaid billing records. 1,860+ providers flagged via 13 fraud detection tests and ML analysis. See where your healthcare tax dollars go.",
   },
   robots: {
@@ -47,8 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Medicaid Money Tracker",
-              "url": "https://medicaid-money-tracker.vercel.app",
+              "name": "OpenMedicaid",
+              "url": "https://openmedicaid.org",
               "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 1,860+ providers flagged by 13 fraud detection tests and ML analysis.",
               "publisher": {
                 "@type": "Organization",
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@type": "SearchAction",
                 "target": {
                   "@type": "EntryPoint",
-                  "urlTemplate": "https://medicaid-money-tracker.vercel.app/providers?q={search_term_string}"
+                  "urlTemplate": "https://openmedicaid.org/providers?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "Dataset",
               "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
               "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 13 fraud detection tests and ML analysis flagging 1,860+ providers.",
-              "url": "https://medicaid-money-tracker.vercel.app",
+              "url": "https://openmedicaid.org",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "isBasedOn": {
                 "@type": "Dataset",
@@ -104,9 +104,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="sticky top-0 z-50 bg-dark-900/80 backdrop-blur-xl border-b border-dark-500/50" role="navigation" aria-label="Main navigation">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-14">
-              <Link href="/" className="flex items-center gap-2 group" aria-label="Medicaid Money Tracker \u2014 Home">
+              <Link href="/" className="flex items-center gap-2 group" aria-label="OpenMedicaid \u2014 Home">
                 <div className="w-7 h-7 rounded-md bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-black">M</div>
-                <span className="font-bold text-[15px] text-white tracking-tight group-hover:text-blue-400 transition-colors hidden sm:inline">Medicaid Money Tracker</span>
+                <span className="font-bold text-[15px] text-white tracking-tight group-hover:text-blue-400 transition-colors hidden sm:inline">OpenMedicaid</span>
               </Link>
 
               {/* Desktop nav */}

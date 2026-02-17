@@ -101,7 +101,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${label} \u2014 Medicaid Procedure Spending`,
     description: `Medicaid spending for HCPCS code ${params.code}${desc ? ` (${desc})` : ''}. ${proc ? `${formatMoney(proc.totalPaid)} in total payments across ${formatNumber(proc.providerCount)} providers.` : ''}${benchmarkText} Analysis of 227M billing records.`,
     openGraph: {
-      title: `${label} \u2014 Medicaid Money Tracker`,
+      title: `${label} \u2014 OpenMedicaid`,
       description: `Medicaid spending for procedure ${params.code}.${desc ? ` ${desc}.` : ''} Total payments, claim volumes, and provider statistics.`,
     },
   };

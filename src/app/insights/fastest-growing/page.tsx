@@ -172,7 +172,7 @@ export default function FastestGrowing() {
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS Medicaid Provider Spending Data (2018&ndash;2024) &middot; 227M records</p>
           <div className="flex items-center gap-3">
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("One Medicaid procedure code grew 8,935% in 5 years. ABA therapy codes grew 1,500%+, connected to MN autism fraud. See the data.")}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/fastest-growing")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("One Medicaid procedure code grew 8,935% in 5 years. ABA therapy codes grew 1,500%+, connected to MN autism fraud. See the data.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/fastest-growing")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>

@@ -407,7 +407,7 @@ export default function HighestConfidence() {
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS T-MSIS Other Services File (2018&ndash;2024) &middot; 227M records</p>
           <div className="flex items-center gap-3">
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("These Medicaid providers were flagged by multiple independent fraud detection systems. When statistical tests, change point detection, and Benford's Law all agree, the probability of a false positive drops dramatically.")}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/highest-confidence")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("These Medicaid providers were flagged by multiple independent fraud detection systems. When statistical tests, change point detection, and Benford's Law all agree, the probability of a false positive drops dramatically.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/highest-confidence")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>

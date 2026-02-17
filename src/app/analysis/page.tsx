@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Methodology — How We Detect Medicaid Fraud Across 617K Providers",
   description: "Our fraud detection methodology: 13 statistical tests across 227M claims, code-specific benchmarks, decile distributions, and OIG cross-reference. Transparent limitations and data sources.",
   openGraph: {
-    title: "Methodology — Medicaid Money Tracker",
+    title: "Methodology — OpenMedicaid",
     description: "13 statistical tests, 227M claims, $1.09T analyzed. Code-specific fraud detection methodology, transparent limitations, and complete data source documentation.",
   },
 };

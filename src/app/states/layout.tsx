@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending by State \u2014 All 50 States | Medicaid Money Tracker",
+  title: "Medicaid Spending by State \u2014 All 50 States | OpenMedicaid",
   description: "Medicaid provider spending across all 50 states, ranked by total payments. New York leads at $81.1B. See top providers, procedures, and yearly trends for each state.",
   openGraph: {
     title: "Medicaid Spending by State \u2014 All 50 States",

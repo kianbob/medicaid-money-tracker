@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Insights — Data Stories from $1.09 Trillion in Medicaid Spending",
   description: "Deep-dive investigations into Medicaid spending data: COVID vaccine billing, pandemic profiteers, the most expensive procedures, and more. Built from 227 million HHS records.",
   openGraph: {
-    title: "Insights — Medicaid Money Tracker",
+    title: "Insights — OpenMedicaid",
     description: "Deep-dive investigations into $1.09 trillion in Medicaid spending. COVID billing, pandemic profiteers, the most expensive procedures, and more.",
   },
 };
