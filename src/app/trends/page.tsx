@@ -4,11 +4,11 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import yearlyTrends from "../../../public/data/yearly-trends.json";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending Trends 2018\u20132024 | Medicaid Money Tracker",
-  description: "Medicaid spending grew 70% from $108.7B (2018) to $185.0B (2024). Year-by-year breakdown with provider counts, claim volumes, COVID-19 impact, and Medicaid unwinding analysis.",
+  title: "Medicaid Spending Trends 2018-2024 | Medicaid Money Tracker",
+  description: "Year-over-year Medicaid spending trends from $108B in 2018 to $185B in 2024. COVID-19 impact, pandemic unwinding, and key takeaways.",
   openGraph: {
-    title: "Medicaid Spending Trends 2018\u20132024",
-    description: "Medicaid spending grew from $108.7B in 2018 to $185.0B in 2024. See year-by-year trends with COVID-19 impact analysis.",
+    title: "Medicaid Spending Trends 2018-2024",
+    description: "Year-over-year Medicaid spending trends from $108B in 2018 to $185B in 2024. COVID-19 impact, pandemic unwinding, and key takeaways.",
   },
 };
 

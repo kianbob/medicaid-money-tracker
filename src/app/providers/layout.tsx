@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Top 1,000 Medicaid Providers by Spending | Medicaid Money Tracker",
-  description: "The 1,000 highest-spending Medicaid providers from 2018–2024. Search by name, state, or specialty. Filter by fraud flags. Detailed spending profiles for each provider.",
+  description: "The 1,000 highest-spending Medicaid providers from 2018-2024, representing $305B in payments. Search and filter by name, state, or specialty.",
   openGraph: {
     title: "Top 1,000 Medicaid Providers by Spending",
-    description: "The highest-spending Medicaid providers from 2018–2024, with fraud risk flags and detailed billing profiles.",
+    description: "The 1,000 highest-spending Medicaid providers from 2018-2024, representing $305B in payments. Search and filter by name, state, or specialty.",
   },
 };
 
