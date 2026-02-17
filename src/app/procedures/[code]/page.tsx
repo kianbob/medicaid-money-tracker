@@ -168,10 +168,21 @@ export default function ProcedureDetailPage({ params }: Props) {
                 );
               })}
             </div>
-            <p className="text-[10px] text-slate-500 mt-2">
-              50% of providers bill between <span className="text-white font-semibold">{formatCpc(benchmark.p25)}</span> and{' '}
-              <span className="text-white font-semibold">{formatCpc(benchmark.p75)}</span> per claim for this code.
-            </p>
+            <div className="space-y-1 mt-3">
+              <p className="text-[10px] text-slate-500">
+                50% of providers bill between <span className="text-white font-semibold">{formatCpc(benchmark.p25)}</span> and{' '}
+                <span className="text-white font-semibold">{formatCpc(benchmark.p75)}</span> per claim for this code.
+              </p>
+              <p className="text-[10px] text-slate-500">
+                90% bill between <span className="text-white font-semibold">{formatCpc(benchmark.p10)}</span> and{' '}
+                <span className="text-white font-semibold">{formatCpc(benchmark.p90)}</span>.
+              </p>
+              {benchmark.p99 != null && (
+                <p className="text-[10px] text-slate-500">
+                  Top 1% bill above <span className="text-red-400 font-semibold">{formatCpc(benchmark.p99)}</span>.
+                </p>
+              )}
+            </div>
           </div>
         </div>
       )}

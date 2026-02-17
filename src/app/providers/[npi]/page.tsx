@@ -151,8 +151,8 @@ export default function ProviderPage({ params }: Props) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-12 text-center">
         <h1 className="text-3xl font-bold text-white mb-4">Limited Data Available</h1>
-        <p className="text-slate-400 mb-2">NPI {npi} ranks outside our top 1,000 providers by total spending.</p>
-        <p className="text-slate-500 text-sm mb-6">We have limited detail data available for this provider. Browse our top providers or search by state for more coverage.</p>
+        <p className="text-slate-400 mb-2">This provider ranks outside our top analyzed providers. Limited data available.</p>
+        <p className="text-slate-500 text-sm mb-6">NPI {npi} is not in our top 1,000 by total spending. Browse our top providers or search by state for more coverage.</p>
         <div className="flex flex-wrap gap-3 justify-center">
           <Link href="/providers" className="text-blue-400 hover:underline font-medium">&larr; Browse top 1,000 providers</Link>
           <Link href="/states" className="text-blue-400 hover:underline font-medium">Explore by state &rarr;</Link>
@@ -303,6 +303,17 @@ export default function ProviderPage({ params }: Props) {
             <h2 className="text-sm font-bold text-white">Procedure Breakdown</h2>
             <p className="text-[10px] text-slate-500 mt-0.5">Cost per claim compared to national benchmarks</p>
           </div>
+
+          {/* Table header */}
+          <div className="hidden md:grid grid-cols-[1fr_auto_auto_auto_auto_auto] gap-x-4 px-4 py-2 border-b border-dark-600/50 text-[10px] uppercase tracking-wider text-slate-500">
+            <span>Procedure</span>
+            <span className="text-right w-20">Total</span>
+            <span className="text-right w-24">Your Cost/Claim</span>
+            <span className="text-right w-24">National Median</span>
+            <span className="text-right w-16">vs Median</span>
+            <span className="text-right w-20">Percentile</span>
+          </div>
+
           <div className="divide-y divide-dark-600/50">
             {procedures.map((proc: any) => {
               const pctOfTotal = totalPaid > 0 ? ((proc.payments || proc.paid || 0) / totalPaid) * 100 : 0;
@@ -312,63 +323,114 @@ export default function ProviderPage({ params }: Props) {
               const ratio = proc.cpcRatio || (hasBenchmark ? provCpc / proc.nationalMedianCpc : 0);
 
               return (
-                <div key={proc.code} className="px-4 py-3.5 hover:bg-dark-700/50 transition-colors">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <Link href={`/procedures/${proc.code}`} className="text-white hover:text-blue-400 transition-colors">
-                          <span className="font-mono text-xs font-medium">{proc.code}</span>
-                        </Link>
-                        {hasBenchmark && (
-                          <span className={`text-[10px] px-1.5 py-0.5 rounded border ${decileBgColor(decile)} ${decileColor(decile)}`}>
-                            {decile}
-                          </span>
-                        )}
-                      </div>
+                <div key={proc.code} className="px-4 py-3 hover:bg-dark-700/50 transition-colors">
+                  {/* Desktop: table row */}
+                  <div className="hidden md:grid grid-cols-[1fr_auto_auto_auto_auto_auto] gap-x-4 items-center">
+                    {/* Procedure info */}
+                    <div className="min-w-0">
+                      <Link href={`/procedures/${proc.code}`} className="text-white hover:text-blue-400 transition-colors">
+                        <span className="font-mono text-xs font-medium">{proc.code}</span>
+                      </Link>
                       {hcpcsDescription(proc.code) && (
-                        <p className="text-[10px] text-slate-500 mt-0.5">{hcpcsDescription(proc.code)}</p>
+                        <span className="text-[10px] text-slate-500 ml-2">{hcpcsDescription(proc.code)}</span>
                       )}
                     </div>
-                    <div className="text-right shrink-0">
-                      <p className="font-mono text-white font-semibold text-xs tabular-nums">{formatMoney(proc.payments || proc.paid || 0)}</p>
-                      <p className="text-[10px] text-slate-500 tabular-nums">{formatNumber(proc.claims)} claims &middot; {pctOfTotal.toFixed(1)}%</p>
+
+                    {/* Total */}
+                    <div className="text-right w-20">
+                      <p className="font-mono text-white text-xs tabular-nums">{formatMoney(proc.payments || proc.paid || 0)}</p>
+                      <p className="text-[10px] text-slate-500 tabular-nums">{formatNumber(proc.claims)} claims</p>
+                    </div>
+
+                    {/* Your Cost/Claim */}
+                    <div className="text-right w-24">
+                      <p className={`font-mono text-xs font-semibold tabular-nums ${hasBenchmark ? decileColor(decile) : 'text-slate-300'}`}>
+                        {formatCpc(provCpc)}
+                      </p>
+                    </div>
+
+                    {/* National Median */}
+                    <div className="text-right w-24">
+                      <p className="font-mono text-xs text-slate-300 tabular-nums">
+                        {hasBenchmark ? formatCpc(proc.nationalMedianCpc) : '\u2014'}
+                      </p>
+                    </div>
+
+                    {/* vs Median */}
+                    <div className="text-right w-16">
+                      {hasBenchmark && ratio > 0 ? (
+                        <span className={`font-mono text-xs font-semibold tabular-nums ${ratio >= 3 ? 'text-red-400' : ratio >= 1.5 ? 'text-yellow-400' : 'text-green-400'}`}>
+                          {ratio.toFixed(1)}&times;
+                        </span>
+                      ) : (
+                        <span className="text-slate-600">&mdash;</span>
+                      )}
+                    </div>
+
+                    {/* Percentile */}
+                    <div className="text-right w-20">
+                      {hasBenchmark ? (
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded border ${decileBgColor(decile)} ${decileColor(decile)}`}>
+                          {decile}
+                        </span>
+                      ) : (
+                        <span className="text-slate-600">&mdash;</span>
+                      )}
                     </div>
                   </div>
 
-                  {/* Benchmark comparison */}
-                  {hasBenchmark && (
-                    <div className="mt-2 flex items-center gap-3 flex-wrap">
-                      <div className="flex items-center gap-4 text-[10px]">
-                        <span className="text-slate-500">
-                          Provider: <span className={`font-semibold ${decileColor(decile)}`}>{formatCpc(provCpc)}</span>/claim
-                        </span>
-                        <span className="text-slate-600">|</span>
-                        <span className="text-slate-500">
-                          Median: <span className="text-slate-300">{formatCpc(proc.nationalMedianCpc)}</span>
-                        </span>
-                        <span className="text-slate-600">|</span>
-                        <span className="text-slate-500">
-                          Avg: <span className="text-slate-300">{formatCpc(proc.nationalAvgCpc)}</span>
-                        </span>
+                  {/* Mobile: stacked layout */}
+                  <div className="md:hidden">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <Link href={`/procedures/${proc.code}`} className="text-white hover:text-blue-400 transition-colors">
+                            <span className="font-mono text-xs font-medium">{proc.code}</span>
+                          </Link>
+                          {hasBenchmark && (
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded border ${decileBgColor(decile)} ${decileColor(decile)}`}>
+                              {decile}
+                            </span>
+                          )}
+                        </div>
+                        {hcpcsDescription(proc.code) && (
+                          <p className="text-[10px] text-slate-500 mt-0.5">{hcpcsDescription(proc.code)}</p>
+                        )}
                       </div>
-                      {ratio > 0 && (
-                        <span className={`text-[10px] font-semibold ${ratio >= 3 ? 'text-red-400' : ratio >= 1.5 ? 'text-yellow-400' : 'text-green-400'}`}>
-                          {ratio.toFixed(1)}&times; median
-                        </span>
-                      )}
+                      <div className="text-right shrink-0">
+                        <p className="font-mono text-white font-semibold text-xs tabular-nums">{formatMoney(proc.payments || proc.paid || 0)}</p>
+                        <p className="text-[10px] text-slate-500 tabular-nums">{formatNumber(proc.claims)} claims &middot; {pctOfTotal.toFixed(1)}%</p>
+                      </div>
                     </div>
-                  )}
 
-                  {/* Visual benchmark bar */}
+                    {hasBenchmark && (
+                      <div className="mt-2 flex items-center gap-3 flex-wrap">
+                        <div className="flex items-center gap-4 text-[10px]">
+                          <span className="text-slate-500">
+                            Your Cost: <span className={`font-semibold ${decileColor(decile)}`}>{formatCpc(provCpc)}</span>/claim
+                          </span>
+                          <span className="text-slate-600">|</span>
+                          <span className="text-slate-500">
+                            Median: <span className="text-slate-300">{formatCpc(proc.nationalMedianCpc)}</span>
+                          </span>
+                        </div>
+                        {ratio > 0 && (
+                          <span className={`text-[10px] font-semibold ${ratio >= 3 ? 'text-red-400' : ratio >= 1.5 ? 'text-yellow-400' : 'text-green-400'}`}>
+                            {ratio.toFixed(1)}&times; median
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Visual benchmark bar (both mobile and desktop) */}
                   {hasBenchmark && proc.p90 > 0 && (
                     <div className="mt-1.5">
                       <div className="relative h-1.5 bg-dark-600 rounded-full overflow-hidden">
-                        {/* P90 marker */}
                         <div
                           className="absolute top-0 h-full bg-slate-500/30 rounded-full"
                           style={{ width: `${Math.min(100, (proc.p90 / Math.max(provCpc, proc.p90, proc.p99 || proc.p90) * 100))}%` }}
                         />
-                        {/* Provider position */}
                         <div
                           className={`absolute top-0 h-full rounded-full ${decile === 'Normal range' ? 'bg-green-500/60' : decile === 'Top 25%' ? 'bg-yellow-500/60' : decile === 'Top 10%' ? 'bg-orange-500/60' : 'bg-red-500/60'}`}
                           style={{ width: `${Math.min(100, (provCpc / Math.max(provCpc, proc.p90, proc.p99 || proc.p90) * 100))}%` }}
