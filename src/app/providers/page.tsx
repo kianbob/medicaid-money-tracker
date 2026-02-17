@@ -123,10 +123,19 @@ export default function ProvidersPage() {
                   {p.specialty ? p.specialty.substring(0, 50) : ''} {p.city ? `\u00b7 ${p.city}, ${p.state}` : ''}
                 </p>
               </div>
-              <div className="hidden sm:flex flex-wrap gap-1 max-w-[180px] justify-end shrink-0">
-                {flags.slice(0, 2).map((f: string) => (
-                  <span key={f} className={`text-[9px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>{flagLabel(f)}</span>
-                ))}
+              <div className="hidden sm:flex flex-wrap gap-1 max-w-[220px] justify-end shrink-0">
+                {flags.length <= 3 ? (
+                  flags.map((f: string) => (
+                    <span key={f} className={`text-[9px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>{flagLabel(f)}</span>
+                  ))
+                ) : (
+                  <>
+                    {flags.slice(0, 3).map((f: string) => (
+                      <span key={f} className={`text-[9px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>{flagLabel(f)}</span>
+                    ))}
+                    <span className="text-[9px] text-slate-500 px-1">+{flags.length - 3} more</span>
+                  </>
+                )}
               </div>
               <div className="text-right shrink-0 w-20">
                 <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>

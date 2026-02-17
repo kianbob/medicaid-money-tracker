@@ -100,6 +100,21 @@ export default function ProcedureDetailPage({ params }: Props) {
         )}
       </div>
 
+      {/* Summary */}
+      <p className="text-sm text-slate-400 leading-relaxed mb-8">
+        {desc || `HCPCS code ${params.code}`} is the <span className="text-white font-semibold">#{rank.toLocaleString()}</span> most-billed
+        Medicaid procedure code, with <span className="text-white font-semibold">{formatMoney(proc.totalPaid)}</span> in
+        payments across <span className="text-white font-semibold">{formatNumber(proc.totalClaims)}</span> claims
+        from 2018&ndash;2024.
+        {benchmark?.medianCostPerClaim != null && (
+          <> The national median cost per claim is <span className="text-white font-semibold">{formatCpc(benchmark.medianCostPerClaim)}</span>.</>
+        )}
+        {benchmark?.p90 != null && benchmark?.medianCostPerClaim != null && benchmark.medianCostPerClaim > 0 && benchmark.p90 / benchmark.medianCostPerClaim >= 2 && (
+          <> Costs vary widely &mdash; the 90th percentile is <span className="text-white font-semibold">{formatCpc(benchmark.p90)}</span> per claim,{' '}
+          <span className="text-white font-semibold">{(benchmark.p90 / benchmark.medianCostPerClaim).toFixed(1)}&times;</span> the median.</>
+        )}
+      </p>
+
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">

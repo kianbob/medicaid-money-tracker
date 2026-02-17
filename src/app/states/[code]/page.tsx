@@ -136,16 +136,16 @@ export default function StateDetailPage({ params }: Props) {
       {trends.length > 0 && (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
           <h2 className="text-sm font-bold text-white mb-4">Yearly Spending Trend</h2>
-          <div className="flex items-end gap-4 h-36">
+          <div className="flex items-end gap-2 sm:gap-4 h-36">
             {trends.map((y: any) => {
               const maxP = Math.max(...trends.map((t: any) => t.payments || t.total_payments || 0));
               const val = y.payments || y.total_payments || 0;
               const pct = maxP > 0 ? (val / maxP) * 100 : 0;
               return (
                 <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
-                  <p className="text-[9px] text-slate-400 mb-1 tabular-nums font-medium">{formatMoney(val)}</p>
+                  <p className="text-[9px] text-slate-400 mb-1 tabular-nums font-medium opacity-0 group-hover:opacity-100 transition-opacity sm:opacity-100">{formatMoney(val)}</p>
                   <div className="w-full bg-blue-500/40 hover:bg-blue-400/60 rounded-t transition-colors" style={{ height: `${Math.max(4, pct)}%` }} />
-                  <p className="text-[11px] text-slate-500 mt-2 font-medium">{y.year}</p>
+                  <p className="text-[10px] sm:text-[11px] text-white mt-2 font-semibold tabular-nums">{y.year}</p>
                 </div>
               );
             })}
@@ -164,7 +164,13 @@ export default function StateDetailPage({ params }: Props) {
                 <span className="text-xs font-bold text-slate-600 w-6 text-right tabular-nums">{i + 1}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{p.name || `NPI: ${p.npi}`}</p>
-                  <p className="text-[10px] text-slate-500">{p.specialty ? p.specialty.substring(0, 50) : ''} {p.city ? `\u00b7 ${p.city}` : ''}</p>
+                  {(p.specialty || p.city) && (
+                    <p className="text-[10px] text-slate-500 mt-0.5">
+                      {p.specialty ? <span className="text-slate-400">{p.specialty.substring(0, 50)}</span> : null}
+                      {p.specialty && p.city ? ' \u00b7 ' : ''}
+                      {p.city || ''}
+                    </p>
+                  )}
                 </div>
                 <div className="text-right shrink-0">
                   <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.total_payments || p.totalPaid || 0)}</p>

@@ -23,6 +23,17 @@ function buildNameLookup(): Map<string, string> {
   return lookup;
 }
 
+// Build flag count lookup from watchlist data
+const flagCountLookup = new Map<string, number>();
+for (const p of smartWatchlist as any[]) {
+  flagCountLookup.set(p.npi, p.flagCount || p.flags?.length || 0);
+}
+for (const p of oldWatchlist as any[]) {
+  if (!flagCountLookup.has(p.npi)) {
+    flagCountLookup.set(p.npi, p.flag_count || p.flags?.length || 0);
+  }
+}
+
 const FEATURE_LABELS: Record<string, string> = {
   total_paid: "Total Payments",
   total_claims: "Total Claims",
@@ -313,9 +324,10 @@ export default function MlAnalysisPage() {
                     Total Paid {sortIndicator('totalPaid')}
                   </button>
                 </th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden sm:table-cell">Codes</th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden md:table-cell">Self-Bill Ratio</th>
-                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden lg:table-cell">
+                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden sm:table-cell">Flags</th>
+                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden md:table-cell">Codes</th>
+                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden lg:table-cell">Self-Bill Ratio</th>
+                <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden xl:table-cell">
                   <button onClick={() => handleSort('activeMonths')} className="hover:text-slate-300 transition-colors">
                     Active Months {sortIndicator('activeMonths')}
                   </button>
@@ -326,6 +338,7 @@ export default function MlAnalysisPage() {
               {sortedTopProviders.map((p: any, i: number) => {
                 const pct = (p.mlScore * 100);
                 const name = nameLookup.get(p.npi);
+                const flags = flagCountLookup.get(p.npi) || 0;
                 return (
                   <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                     <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
@@ -352,9 +365,16 @@ export default function MlAnalysisPage() {
                       </div>
                     </td>
                     <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.totalPaid)}</td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden sm:table-cell">{p.codeCount}</td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden md:table-cell">{(p.selfBillingRatio * 100).toFixed(0)}%</td>
-                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden lg:table-cell">{p.activeMonths}</td>
+                    <td className="px-4 py-2.5 text-right text-xs tabular-nums hidden sm:table-cell">
+                      {flags > 0 ? (
+                        <span className={`font-semibold ${flags >= 3 ? 'text-red-400' : flags >= 2 ? 'text-orange-400' : 'text-yellow-400'}`}>{flags}</span>
+                      ) : (
+                        <span className="text-slate-600">&mdash;</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden md:table-cell">{p.codeCount}</td>
+                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden lg:table-cell">{(p.selfBillingRatio * 100).toFixed(0)}%</td>
+                    <td className="px-4 py-2.5 text-right text-slate-400 text-xs tabular-nums hidden xl:table-cell">{p.activeMonths}</td>
                   </tr>
                 );
               })}
