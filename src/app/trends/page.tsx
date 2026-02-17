@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber } from "@/lib/format";
+import { SpendingAreaChart, ClaimsAreaChart } from "@/components/Charts";
 import yearlyTrends from "../../../public/data/yearly-trends.json";
 
 export const metadata: Metadata = {
@@ -16,7 +17,6 @@ export default function TrendsPage() {
   const trends = yearlyTrends as any[];
   const totalSpending = trends.reduce((sum: number, y: any) => sum + y.payments, 0);
   const maxPayments = Math.max(...trends.map((y: any) => y.payments));
-  const maxClaims = Math.max(...trends.map((y: any) => y.claims));
   const firstYear = trends[0];
   const lastYear = trends[trends.length - 1];
   const totalGrowth = ((lastYear.payments - firstYear.payments) / firstYear.payments * 100);
@@ -70,20 +70,8 @@ export default function TrendsPage() {
 
       {/* Spending Chart */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 mb-10">
-        <h2 className="text-sm font-bold text-white mb-6">Total Payments by Year</h2>
-        <div className="flex items-end gap-4 h-48">
-          {trends.map((y: any) => {
-            const pct = (y.payments / maxPayments) * 100;
-            return (
-              <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
-                <p className="text-xs text-white font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">{formatMoney(y.payments)}</p>
-                <div className="w-full bg-gradient-to-t from-blue-600/60 to-blue-400/40 hover:from-blue-500/80 hover:to-blue-300/60 rounded-t-lg transition-colors bar-segment"
-                  style={{ height: `${pct}%` }} />
-                <p className="text-sm text-slate-400 mt-3 font-semibold">{y.year}</p>
-              </div>
-            );
-          })}
-        </div>
+        <h2 className="text-sm font-bold text-white mb-4">Total Payments by Year</h2>
+        <SpendingAreaChart data={trends} />
       </div>
 
       {/* COVID-19 Annotation */}
@@ -123,20 +111,8 @@ export default function TrendsPage() {
 
       {/* Claims Chart */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 mb-10">
-        <h2 className="text-sm font-bold text-white mb-6">Total Claims by Year</h2>
-        <div className="flex items-end gap-4 h-36">
-          {trends.map((y: any) => {
-            const pct = (y.claims / maxClaims) * 100;
-            return (
-              <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
-                <p className="text-xs text-slate-300 font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">{formatNumber(y.claims)}</p>
-                <div className="w-full bg-gradient-to-t from-purple-600/60 to-purple-400/40 hover:from-purple-500/80 hover:to-purple-300/60 rounded-t-lg transition-colors bar-segment"
-                  style={{ height: `${pct}%` }} />
-                <p className="text-sm text-slate-400 mt-3 font-semibold">{y.year}</p>
-              </div>
-            );
-          })}
-        </div>
+        <h2 className="text-sm font-bold text-white mb-4">Total Claims by Year</h2>
+        <ClaimsAreaChart data={trends} />
       </div>
 
       {/* Year-by-Year Table */}

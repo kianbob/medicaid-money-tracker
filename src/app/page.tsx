@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatMoney, formatNumber, riskLabel, riskColor, riskDot, flagLabel, flagColor, parseFlags, stateName } from "@/lib/format";
+import { HomepageBarChart } from "@/components/Charts";
 import stats from "../../public/data/stats.json";
 import topProviders from "../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../public/data/smart-watchlist.json";
@@ -191,29 +192,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
-          <div className="flex items-end gap-3 h-40">
-            {yearlyTrends.map((y: any, i: number) => {
-              const maxP = Math.max(...yearlyTrends.map((t: any) => t.payments));
-              const pct = (y.payments / maxP) * 100;
-              const prev = i > 0 ? (yearlyTrends[i - 1] as any).payments : null;
-              const yoyPct = prev ? ((y.payments - prev) / prev * 100) : null;
-              return (
-                <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
-                  <p className="text-[10px] text-slate-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">{formatMoney(y.payments)}</p>
-                  {yoyPct !== null && (
-                    <p className={`text-[9px] font-semibold mb-1 tabular-nums ${yoyPct >= 0 ? 'text-amber-400/70' : 'text-green-400/70'}`}>
-                      {yoyPct >= 0 ? '+' : ''}{yoyPct.toFixed(1)}%
-                    </p>
-                  )}
-                  <div
-                    className="w-full bg-blue-500/40 hover:bg-blue-400/60 rounded-t transition-colors bar-segment"
-                    style={{ height: `${pct}%` }}
-                  />
-                  <p className="text-[11px] text-slate-500 mt-2 font-medium">{y.year}</p>
-                </div>
-              );
-            })}
-          </div>
+          <HomepageBarChart data={yearlyTrends as any[]} />
           <div className="flex items-center justify-between mt-4 pt-3 border-t border-dark-500/50">
             <p className="text-xs text-slate-500">Medicaid spending grew <span className="text-white font-semibold">{formatMoney(latestYear.payments - (yearlyTrends[0] as any).payments)}</span> from 2018 to 2024</p>
             {yoyGrowth !== 0 && (

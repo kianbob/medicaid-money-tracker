@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName, hcpcsDescription, getFlagInfo, riskColor, riskBgColor } from "@/lib/format";
+import { StateSpendingChart } from "@/components/Charts";
 import statesSummary from "../../../../public/data/states-summary.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
@@ -144,20 +145,7 @@ export default function StateDetailPage({ params }: Props) {
       {trends.length > 0 && (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
           <h2 className="text-sm font-bold text-white mb-4">Yearly Spending Trend</h2>
-          <div className="flex items-end gap-2 sm:gap-4 h-36">
-            {trends.map((y: any) => {
-              const maxP = Math.max(...trends.map((t: any) => t.payments || t.total_payments || 0));
-              const val = y.payments || y.total_payments || 0;
-              const pct = maxP > 0 ? (val / maxP) * 100 : 0;
-              return (
-                <div key={y.year} className="flex-1 flex flex-col items-center justify-end h-full group">
-                  <p className="text-[9px] text-slate-400 mb-1 tabular-nums font-medium opacity-0 group-hover:opacity-100 transition-opacity sm:opacity-100">{formatMoney(val)}</p>
-                  <div className="w-full bg-blue-500/40 hover:bg-blue-400/60 rounded-t transition-colors" style={{ height: `${Math.max(4, pct)}%` }} />
-                  <p className="text-[10px] sm:text-[11px] text-white mt-2 font-semibold tabular-nums">{y.year}</p>
-                </div>
-              );
-            })}
-          </div>
+          <StateSpendingChart data={trends} />
         </div>
       )}
 
