@@ -93,6 +93,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         accent: "text-purple-400",
         icon: "🔢",
       },
+      {
+        slug: "change-points",
+        title: "Billing Behavior Shifts: When Providers Suddenly Change",
+        teaser: "CUSUM change point detection found 170 providers whose monthly billing shifted 3x+ overnight. The biggest jump: 113x — from $96K/month to $10.9M/month.",
+        stat: "113x",
+        statLabel: "biggest shift",
+        color: "from-teal-500 to-cyan-500",
+        accent: "text-teal-400",
+        icon: "📉",
+      },
     ],
   },
   {

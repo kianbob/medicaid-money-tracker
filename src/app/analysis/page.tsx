@@ -359,11 +359,79 @@ export default function AnalysisPage() {
       </section>
 
       {/* ───────────────────────────────────────────── */}
+      {/* SECTION 3: Advanced Detection Methods */}
+      {/* ───────────────────────────────────────────── */}
+      <section className="mb-16">
+        <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">3</span>
+          Advanced Detection Methods
+        </h2>
+        <p className="text-sm text-slate-400 mb-8 max-w-3xl">
+          Beyond the 13 core statistical tests, we apply additional analytical techniques drawn from forensic accounting,
+          time-series analysis, and information theory to surface patterns invisible to threshold-based tests.
+        </p>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <Link href="/insights/impossible-volume" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 transition-all group">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
+                <span className="text-sm">&#9201;</span>
+              </div>
+              <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Billing Velocity (Impossible Volume)</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Calculates claims-per-working-day for every provider. Flags those filing 50+ claims daily &mdash;
+              a pace that would require each patient visit to last seconds.
+            </p>
+          </Link>
+
+          <Link href="/insights/benford-analysis" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 transition-all group">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center shrink-0">
+                <span className="text-sm">&#128290;</span>
+              </div>
+              <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Benford&apos;s Law Analysis</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Tests whether each provider&apos;s claim amounts follow the expected leading-digit distribution.
+              Fabricated numbers tend to violate Benford&apos;s Law; natural financial data follows it.
+            </p>
+          </Link>
+
+          <Link href="/insights/change-points" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 transition-all group">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-teal-500/15 border border-teal-500/30 flex items-center justify-center shrink-0">
+                <span className="text-sm">&#128200;</span>
+              </div>
+              <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">CUSUM Change Point Detection</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Identifies the exact month each provider&apos;s billing behavior structurally shifted using cumulative sum
+              analysis. Flags providers whose monthly billing jumped 3x or more overnight.
+            </p>
+          </Link>
+
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
+                <span className="text-sm">&#128202;</span>
+              </div>
+              <h3 className="text-sm font-bold text-white">HCPCS Concentration Index</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Measures how concentrated a provider&apos;s billing is across procedure codes using the Herfindahl-Hirschman
+              Index. Extreme concentration in a single code &mdash; especially a high-value one &mdash; is a common fraud pattern.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ───────────────────────────────────────────── */}
       {/* Decile & Risk Methodology */}
       {/* ───────────────────────────────────────────── */}
       <section className="mb-16">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">3</span>
+          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">4</span>
           Decile Analysis &amp; Risk Levels
         </h2>
 
@@ -485,7 +553,7 @@ export default function AnalysisPage() {
       {/* ───────────────────────────────────────────── */}
       <section className="mb-16">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">4</span>
+          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">5</span>
           Known Limitations
         </h2>
         <p className="text-sm text-slate-400 mb-6 max-w-3xl">
@@ -553,7 +621,7 @@ export default function AnalysisPage() {
       {/* ───────────────────────────────────────────── */}
       <section className="mb-16">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">5</span>
+          <span className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-sm">6</span>
           Data Source
         </h2>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
@@ -620,7 +688,7 @@ export default function AnalysisPage() {
       {/* ───────────────────────────────────────────── */}
       <section className="mb-16">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-sm text-purple-400">6</span>
+          <span className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-sm text-purple-400">7</span>
           How We Compare
         </h2>
         <div className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-6">
