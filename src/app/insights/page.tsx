@@ -247,6 +247,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         accent: "text-orange-400",
         icon: "🔀",
       },
+      {
+        slug: "self-billers",
+        title: "Solo Operators: Providers Billing $5M+ Entirely Themselves",
+        teaser: "100 providers bill $5M+ where 95%+ of payments go to self-billed claims — billing and servicing NPI are the same. Together they account for over $72B.",
+        stat: "$72B+",
+        statLabel: "self-billed spending",
+        color: "from-rose-500 to-pink-500",
+        accent: "text-rose-400",
+        icon: "👤",
+      },
     ],
   },
 ];
@@ -534,11 +544,11 @@ export default function InsightsIndex() {
             Know something about a flagged provider? Have data we should look at? Get in touch.
           </p>
           <a
-            href="mailto:kianventures@gmail.com"
+            href="mailto:kian@thedataproject.ai"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-2.5 rounded-lg transition-all text-sm"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-            kianventures@gmail.com
+            kian@thedataproject.ai
           </a>
           <p className="text-[10px] text-slate-600 mt-3">
             All tips are confidential. Whistleblower protections exist under the False Claims Act.
