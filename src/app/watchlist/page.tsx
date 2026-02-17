@@ -2,20 +2,45 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { formatMoney, formatNumber, riskLabel, riskColor, riskDot, riskBgColor, flagLabel, flagColor, getFlagInfo, parseFlags } from "@/lib/format";
-import watchlistData from "../../../public/data/expanded-watchlist.json";
+import { formatMoney, formatNumber, formatCpc, riskLabel, riskColor, riskDot, riskBgColor, flagLabel, flagColor, getFlagInfo, parseFlags, hcpcsDescription } from "@/lib/format";
+import smartWatchlist from "../../../public/data/smart-watchlist.json";
+import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import providersData from "../../../public/data/top-providers-1000.json";
 
-// Merge watchlist flags with provider data
+// Merge smart watchlist (primary) with old watchlist
 function getMergedProviders() {
+  const seen = new Set<string>();
+  const result: any[] = [];
   const providerMap = new Map<string, any>();
   for (const p of providersData as any[]) {
     providerMap.set(p.npi, p);
   }
 
-  return (watchlistData as any[]).map(w => {
+  // Smart watchlist first (primary)
+  for (const w of smartWatchlist as any[]) {
+    seen.add(w.npi);
     const provider = providerMap.get(w.npi);
-    return {
+    result.push({
+      npi: w.npi,
+      name: w.name || provider?.name || `NPI: ${w.npi}`,
+      specialty: w.specialty || provider?.specialty || '',
+      city: w.city || provider?.city || '',
+      state: w.state || provider?.state || '',
+      totalPaid: w.totalPaid || provider?.totalPaid || 0,
+      totalClaims: provider?.totalClaims || 0,
+      flagCount: w.flagCount || w.flags?.length || 0,
+      flags: w.flags || [],
+      flagDetails: w.flagDetails || {},
+      source: 'smart',
+    });
+  }
+
+  // Add old watchlist entries not already in smart
+  for (const w of oldWatchlist as any[]) {
+    if (seen.has(w.npi)) continue;
+    seen.add(w.npi);
+    const provider = providerMap.get(w.npi);
+    result.push({
       npi: w.npi,
       name: provider?.name || `NPI: ${w.npi}`,
       specialty: provider?.specialty || '',
@@ -23,11 +48,34 @@ function getMergedProviders() {
       state: provider?.state || '',
       totalPaid: provider?.totalPaid || 0,
       totalClaims: provider?.totalClaims || 0,
-      flagCount: w.flag_count,
+      flagCount: w.flag_count || 0,
       flags: w.flags || [],
       flagDetails: w.flag_details || {},
-    };
-  }).sort((a, b) => b.flagCount - a.flagCount || b.totalPaid - a.totalPaid);
+      source: 'legacy',
+    });
+  }
+
+  return result.sort((a, b) => b.flagCount - a.flagCount || b.totalPaid - a.totalPaid);
+}
+
+function formatFlagDetail(flag: string, details: any): string {
+  if (!details) return '';
+  switch (flag) {
+    case 'code_specific_outlier': {
+      const desc = hcpcsDescription(details.code);
+      return `${details.code}${desc ? ` (${desc})` : ''}: ${formatCpc(details.providerCpc)}/claim vs ${formatCpc(details.nationalMedianCpc)} median (${details.ratio?.toFixed(1)}\u00d7)`;
+    }
+    case 'billing_swing':
+      return `${formatMoney(details.fromPay)} (${details.fromYear}) \u2192 ${formatMoney(details.toPay)} (${details.toYear}), ${details.pctChange?.toFixed(0)}% change`;
+    case 'massive_new_entrant':
+      return `First appeared ${details.firstMonth || details.firstYear}, ${formatMoney(details.totalPaid)} total, ${formatMoney(details.avgMonthlyBilling)}/mo`;
+    case 'rate_outlier_multi_code': {
+      const codes = (details.topOutlierCodes || []).slice(0, 3).map((c: any) => `${c.code} (${c.ratio?.toFixed(1)}\u00d7)`).join(', ');
+      return `${details.codesAboveP90} codes above p90${codes ? `: ${codes}` : ''}`;
+    }
+    default:
+      return '';
+  }
 }
 
 export default function WatchlistPage() {
@@ -54,6 +102,7 @@ export default function WatchlistPage() {
     return result;
   }, [allProviders, riskFilter, flagFilter, search]);
 
+  const smartCount = allProviders.filter(p => p.source === 'smart').length;
   const criticalCount = allProviders.filter(p => p.flagCount >= 3).length;
   const highCount = allProviders.filter(p => p.flagCount === 2).length;
   const moderateCount = allProviders.filter(p => p.flagCount === 1).length;
@@ -87,9 +136,9 @@ export default function WatchlistPage() {
           Fraud Watchlist
         </h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
-          <span className="text-white font-semibold">{allProviders.length} Medicaid providers</span> flagged across{" "}
-          <span className="text-white font-semibold">9 independent fraud detection tests</span>.
-          Flags indicate statistical anomalies worth investigating &mdash; not proof of wrongdoing.
+          <span className="text-white font-semibold">{allProviders.length} Medicaid providers</span> flagged by our fraud detection analysis.
+          The primary watchlist uses <span className="text-white font-semibold">code-specific benchmarks</span> to compare
+          each provider&apos;s billing against the national median for that exact procedure code.
         </p>
       </div>
 
@@ -102,7 +151,7 @@ export default function WatchlistPage() {
           <div>
             <p className="text-sm font-semibold text-amber-400 mb-0.5">OIG Cross-Reference: Zero Matches</p>
             <p className="text-xs text-slate-400 leading-relaxed">
-              We cross-referenced all {allProviders.length} flagged providers against the HHS OIG exclusion list
+              We cross-referenced all flagged providers against the HHS OIG exclusion list
               (82,715 excluded providers). <strong className="text-white">None appear on the list</strong> &mdash; suggesting
               our analysis surfaces new, uninvestigated suspicious activity.
             </p>
@@ -115,7 +164,7 @@ export default function WatchlistPage() {
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Flagged Providers</p>
           <p className="text-2xl font-bold text-red-400 tabular-nums">{allProviders.length}</p>
-          <p className="text-[10px] text-slate-600">from 9 fraud tests</p>
+          <p className="text-[10px] text-slate-600">{smartCount} from code-specific analysis</p>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total Spending</p>
@@ -198,40 +247,58 @@ export default function WatchlistPage() {
       {/* Table */}
       <div className="space-y-2">
         {filtered.slice(0, visibleCount).map((p, i) => (
-          <Link
-            key={p.npi}
-            href={`/providers/${p.npi}`}
-            className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-4 py-3.5 hover:bg-dark-700 hover:border-dark-400 transition-all group"
-          >
-            <div className="flex items-center gap-3 shrink-0">
-              <span className="text-xs font-bold text-slate-600 w-6 text-right tabular-nums">{i + 1}</span>
-              <div className={`w-2.5 h-2.5 rounded-full ${riskDot(p.flagCount)} ${p.flagCount >= 3 ? 'risk-dot-critical' : ''}`}
-                title={`${riskLabel(p.flagCount)} risk`} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm text-white font-semibold truncate group-hover:text-blue-400 transition-colors">{p.name}</p>
-              <div className="flex items-center gap-2 mt-1 flex-wrap">
-                <span className="text-[10px] text-slate-500">{p.specialty ? p.specialty.substring(0, 40) : ''}</span>
-                {p.city && <span className="text-[10px] text-slate-600">&middot; {p.city}, {p.state}</span>}
+          <div key={p.npi} className="bg-dark-800 border border-dark-500/50 rounded-xl hover:bg-dark-700 hover:border-dark-400 transition-all">
+            <Link
+              href={`/providers/${p.npi}`}
+              className="flex items-center gap-4 px-4 py-3.5 group"
+            >
+              <div className="flex items-center gap-3 shrink-0">
+                <span className="text-xs font-bold text-slate-600 w-6 text-right tabular-nums">{i + 1}</span>
+                <div className={`w-2.5 h-2.5 rounded-full ${riskDot(p.flagCount)} ${p.flagCount >= 3 ? 'risk-dot-critical' : ''}`}
+                  title={`${riskLabel(p.flagCount)} risk`} />
               </div>
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="hidden sm:flex flex-wrap gap-1 max-w-[200px] justify-end">
-                {p.flags.slice(0, 3).map((f: string) => (
-                  <span key={f} className={`text-[10px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>
-                    {flagLabel(f)}
-                  </span>
-                ))}
-                {p.flags.length > 3 && (
-                  <span className="text-[10px] text-slate-500">+{p.flags.length - 3}</span>
-                )}
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-white font-semibold truncate group-hover:text-blue-400 transition-colors">{p.name}</p>
+                <div className="flex items-center gap-2 mt-1 flex-wrap">
+                  <span className="text-[10px] text-slate-500">{p.specialty ? p.specialty.substring(0, 40) : ''}</span>
+                  {p.city && <span className="text-[10px] text-slate-600">&middot; {p.city}, {p.state}</span>}
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
-                <p className={`text-[10px] font-semibold ${riskColor(p.flagCount)}`}>{riskLabel(p.flagCount)}</p>
+              <div className="flex items-center gap-3 shrink-0">
+                <div className="hidden sm:flex flex-wrap gap-1 max-w-[220px] justify-end">
+                  {p.flags.slice(0, 3).map((f: string) => (
+                    <span key={f} className={`text-[10px] px-1.5 py-0.5 rounded border ${flagColor(f)}`}>
+                      {flagLabel(f)}
+                    </span>
+                  ))}
+                  {p.flags.length > 3 && (
+                    <span className="text-[10px] text-slate-500">+{p.flags.length - 3}</span>
+                  )}
+                </div>
+                <div className="text-right">
+                  <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
+                  <p className={`text-[10px] font-semibold ${riskColor(p.flagCount)}`}>{riskLabel(p.flagCount)}</p>
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+            {/* Expanded flag details for smart watchlist entries */}
+            {p.source === 'smart' && p.flags.some((f: string) => formatFlagDetail(f, p.flagDetails[f])) && (
+              <div className="px-4 pb-3 -mt-1">
+                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                  {p.flags.map((f: string) => {
+                    const detail = formatFlagDetail(f, p.flagDetails[f]);
+                    if (!detail) return null;
+                    const info = getFlagInfo(f);
+                    return (
+                      <p key={f} className="text-[10px] text-slate-500">
+                        <span className={`font-semibold ${info.color}`}>{info.label}:</span> {detail}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         ))}
       </div>
 

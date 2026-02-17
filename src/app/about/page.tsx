@@ -4,15 +4,22 @@ import { getFlagInfo } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "About & Methodology \u2014 How We Detect Medicaid Fraud",
-  description: "How we built the Medicaid Money Tracker: data sources, 9 fraud detection tests, OIG cross-reference, Minnesota autism fraud context, and important caveats. Analyzing 227 million HHS records.",
+  description: "How we built the Medicaid Money Tracker: data sources, code-specific fraud detection, decile analysis, OIG cross-reference, Minnesota autism fraud context, and important caveats. Analyzing 227 million HHS records.",
   openGraph: {
     title: "About & Methodology \u2014 Medicaid Money Tracker",
-    description: "How we analyzed 227M Medicaid billing records with 9 fraud detection tests. OIG cross-referencing, transparent methodology, and important caveats.",
+    description: "How we analyzed 227M Medicaid billing records with code-specific fraud detection. OIG cross-referencing, transparent methodology, and important caveats.",
   },
 };
 
 export default function AboutPage() {
-  const tests = [
+  const smartTests = [
+    { id: 'code_specific_outlier', threshold: 'Billing >3\u00d7 the national median cost/claim for a specific HCPCS code', example: 'Provider bills $296/claim for G9005 when the national median is $47 (6.3\u00d7)' },
+    { id: 'billing_swing', threshold: '>200% year-over-year change AND >$1M absolute change', example: 'Provider went from $34.6M to $107M in one year (209% increase)' },
+    { id: 'massive_new_entrant', threshold: 'First appeared 2022+ and already billing >$5M total', example: 'Health home LLC appeared Sep 2022 and already billed $239M' },
+    { id: 'rate_outlier_multi_code', threshold: 'Billing above p90 for 2+ procedure codes simultaneously', example: 'Above 90th percentile for both T2022 and G0506 simultaneously' },
+  ];
+
+  const legacyTests = [
     { id: 'outlier_spending', threshold: '3+ standard deviations above mean total spending', example: 'Residential care agency billing $15,000/day when median is $300/day' },
     { id: 'unusual_cost_per_claim', threshold: '3x+ the median cost per claim for same procedure', example: 'Chicago EMS at $1,611/ambulance trip vs. $163 median nationally' },
     { id: 'beneficiary_stuffing', threshold: 'Claims-per-beneficiary ratio far above peers', example: 'Home health agency filing 26 claims/patient when peers average 4' },
@@ -76,8 +83,8 @@ export default function AboutPage() {
               { label: "Total Payments", value: "$1.09T" },
               { label: "Providers", value: "617,503" },
               { label: "Procedure Codes", value: "10,881" },
+              { label: "Codes Benchmarked", value: "9,578" },
               { label: "Date Range", value: "2018\u20132024" },
-              { label: "Fraud Tests", value: "9" },
             ].map((item) => (
               <div key={item.label} className="bg-dark-800 border border-dark-500/50 rounded-lg p-3">
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest">{item.label}</p>
@@ -87,20 +94,47 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 9 Fraud Tests */}
-        <section aria-labelledby="methodology-heading">
-          <h2 id="methodology-heading" className="text-xl font-bold text-white mb-4">9 Fraud Detection Tests</h2>
+        {/* Smart Fraud Tests */}
+        <section aria-labelledby="smart-methodology-heading">
+          <h2 id="smart-methodology-heading" className="text-xl font-bold text-white mb-2">Code-Specific Fraud Detection (Primary)</h2>
           <p className="text-sm text-slate-300 leading-relaxed mb-6">
-            We apply <strong className="text-white">9 independent statistical tests</strong> to identify unusual billing patterns.
-            Providers flagged by multiple tests receive higher risk ratings.
+            Our primary analysis uses <strong className="text-white">code-specific benchmarks</strong> &mdash;
+            comparing each provider&apos;s cost per claim against the national median for that exact procedure code.
+            We compute decile distributions (p10&ndash;p99) for 9,578 HCPCS codes to identify providers billing
+            significantly above their code-specific benchmarks.
           </p>
           <div className="space-y-3">
-            {tests.map((test, i) => {
+            {smartTests.map((test, i) => {
               const info = getFlagInfo(test.id);
               return (
                 <div key={test.id} className={`border rounded-xl p-4 ${info.bgColor}`}>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`text-[10px] font-bold ${info.color}`}>Test {i + 1}</span>
+                    <span className={`text-[10px] font-bold ${info.color}`}>Smart Test {i + 1}</span>
+                    <h3 className={`text-sm font-bold ${info.color}`}>{info.label}</h3>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed mb-1.5">{info.description}</p>
+                  <p className="text-[10px] text-slate-500"><strong className="text-slate-300">Threshold:</strong> {test.threshold}</p>
+                  <p className="text-[10px] text-slate-500"><strong className="text-slate-300">Example:</strong> {test.example}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Legacy Fraud Tests */}
+        <section aria-labelledby="legacy-methodology-heading">
+          <h2 id="legacy-methodology-heading" className="text-xl font-bold text-white mb-2">Legacy Fraud Tests (Supplementary)</h2>
+          <p className="text-sm text-slate-300 leading-relaxed mb-6">
+            These 9 additional tests from our earlier analysis remain active. Providers flagged by these tests
+            are included in the combined watchlist.
+          </p>
+          <div className="space-y-3">
+            {legacyTests.map((test, i) => {
+              const info = getFlagInfo(test.id);
+              return (
+                <div key={test.id} className={`border rounded-xl p-4 ${info.bgColor}`}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className={`text-[10px] font-bold ${info.color}`}>Test {i + 5}</span>
                     <h3 className={`text-sm font-bold ${info.color}`}>{info.label}</h3>
                   </div>
                   <p className="text-xs text-slate-400 leading-relaxed mb-1.5">{info.description}</p>
@@ -123,7 +157,7 @@ export default function AboutPage() {
             <div className="bg-dark-800/60 rounded-lg p-4 mt-3 border border-amber-500/10">
               <p className="text-amber-400 font-bold text-base mb-1">Result: Zero matches</p>
               <p className="text-xs text-slate-400">
-                None of our 788 flagged providers appear on the OIG exclusion list, suggesting
+                None of our flagged providers appear on the OIG exclusion list, suggesting
                 our analysis surfaces <strong className="text-white">new suspicious activity</strong>.
               </p>
             </div>
@@ -153,7 +187,10 @@ export default function AboutPage() {
             <ul className="text-sm text-slate-300 space-y-3">
               {[
                 { title: "Statistical flags are not proof of fraud.", desc: "Our tests identify unusual patterns that may warrant investigation. Many flagged providers have legitimate reasons for unusual billing." },
-                { title: "State agencies may legitimately have high spending.", desc: "Government entities often serve as billing pass-throughs. Their cost structures differ from private practices." },
+                { title: "Government entities may legitimately bill high.", desc: "State agencies, county health departments, and cities often serve as fiscal agents for large populations. Their aggregate billing is high by design." },
+                { title: "Home care management programs are special cases.", desc: "Organizations like Public Partnerships LLC and Consumer Direct manage billing on behalf of thousands of individual caregivers in self-directed care programs. High aggregate billing is inherent to their model, though self-directed care is a fraud-prone category." },
+                { title: "Per diem codes should account for daily rates.", desc: "Codes like T2016 (residential habilitation) cover an entire day of care. High per-diem rates may reflect bundled services. Dividing by ~30 days brings some values closer to expected daily rates." },
+                { title: "Specialty drugs have legitimately high costs.", desc: "J-codes for injectable drugs reflect actual drug prices, not provider markup." },
                 { title: "This data is aggregated, not claims-level.", desc: "We see billing totals per provider per procedure per month \u2014 not individual claims." },
                 { title: "Some anomalies reflect state-specific policies.", desc: "States set their own reimbursement rates, eligibility rules, and covered services." },
                 { title: "We don't make medical judgments.", desc: "We cannot evaluate whether services were medically necessary, appropriately coded, or properly authorized." },

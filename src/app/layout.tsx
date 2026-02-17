@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     default: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
     template: "%s \u2014 Medicaid Money Tracker",
   },
-  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers and 10,881 procedure codes. 788 providers flagged by 9 fraud detection tests. Built from 227 million HHS records (2018\u20132024).",
+  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers and 10,881 procedure codes. 880+ providers flagged by code-specific fraud detection. Built from 227 million HHS records (2018\u20132024).",
   metadataBase: new URL("https://medicaidmoneytracker.com"),
   openGraph: {
     title: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
-    description: "We analyzed 227 million Medicaid billing records and flagged 788 providers across 9 fraud detection tests. See where your healthcare tax dollars go.",
+    description: "We analyzed 227 million Medicaid billing records and flagged 880+ providers using code-specific fraud detection. See where your healthcare tax dollars go.",
     type: "website",
     siteName: "Medicaid Money Tracker",
     locale: "en_US",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Medicaid Money Tracker \u2014 $1.09T in Spending, Exposed",
-    description: "227M Medicaid billing records. 788 providers flagged. 9 fraud tests. See where your healthcare tax dollars go.",
+    description: "227M Medicaid billing records. 880+ providers flagged via code-specific fraud detection. See where your healthcare tax dollars go.",
   },
   robots: {
     index: true,
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "WebSite",
               "name": "Medicaid Money Tracker",
               "url": "https://medicaidmoneytracker.com",
-              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 788 providers flagged by 9 fraud detection tests.",
+              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 880+ providers flagged by code-specific fraud detection.",
               "publisher": {
                 "@type": "Organization",
                 "name": "TheDataProject.ai",
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Dataset",
               "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
-              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. Includes 9 statistical fraud detection tests flagging 788 providers.",
+              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. Code-specific fraud detection flagging 880+ providers.",
               "url": "https://medicaidmoneytracker.com",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "isBasedOn": {

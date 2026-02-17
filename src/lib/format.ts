@@ -125,6 +125,31 @@ const FLAG_INFO: Record<string, FlagInfo> = {
     color: 'text-red-400',
     bgColor: 'bg-red-500/15 border-red-500/30',
   },
+  // ── Smart fraud tests (code-specific) ──
+  'code_specific_outlier': {
+    label: 'Code-Specific Cost Outlier',
+    description: 'Billing over 3\u00d7 the national median for specific procedure codes.',
+    color: 'text-red-400',
+    bgColor: 'bg-red-500/15 border-red-500/30',
+  },
+  'billing_swing': {
+    label: 'Major Billing Swing',
+    description: 'Experienced over 200% change in year-over-year billing with >$1M absolute change.',
+    color: 'text-purple-400',
+    bgColor: 'bg-purple-500/15 border-purple-500/30',
+  },
+  'massive_new_entrant': {
+    label: 'Massive New Entrant',
+    description: 'Started billing recently but already receiving millions in Medicaid payments.',
+    color: 'text-amber-400',
+    bgColor: 'bg-amber-500/15 border-amber-500/30',
+  },
+  'rate_outlier_multi_code': {
+    label: 'Multi-Code Rate Outlier',
+    description: 'Billing above the 90th percentile across multiple procedure codes simultaneously.',
+    color: 'text-orange-400',
+    bgColor: 'bg-orange-500/15 border-orange-500/30',
+  },
 };
 
 export function getFlagInfo(flag: string): FlagInfo {
@@ -278,6 +303,33 @@ const HCPCS_DESCRIPTIONS: Record<string, string> = {
   // Other procedure codes
   '0128': 'Insertion of brain-computer interface',
 };
+
+// ── Decile/benchmark display helpers ─────────────────────────
+
+export function decileColor(decile: string): string {
+  switch (decile) {
+    case 'Top 1%': return 'text-red-400';
+    case 'Top 5%': return 'text-red-400';
+    case 'Top 10%': return 'text-orange-400';
+    case 'Top 25%': return 'text-yellow-400';
+    default: return 'text-green-400';
+  }
+}
+
+export function decileBgColor(decile: string): string {
+  switch (decile) {
+    case 'Top 1%': return 'bg-red-500/15 border-red-500/30';
+    case 'Top 5%': return 'bg-red-500/10 border-red-500/20';
+    case 'Top 10%': return 'bg-orange-500/10 border-orange-500/20';
+    case 'Top 25%': return 'bg-yellow-500/10 border-yellow-500/20';
+    default: return 'bg-green-500/10 border-green-500/20';
+  }
+}
+
+export function formatCpc(n: number | null | undefined): string {
+  if (n == null || isNaN(n)) return '\u2014';
+  return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
 export function hcpcsDescription(code: string): string {
   return HCPCS_DESCRIPTIONS[code] || '';

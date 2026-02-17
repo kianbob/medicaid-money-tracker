@@ -2,19 +2,23 @@ import Link from "next/link";
 import { formatMoney, formatNumber, riskLabel, riskColor, riskDot, flagLabel, flagColor, parseFlags, stateName } from "@/lib/format";
 import stats from "../../public/data/stats.json";
 import topProviders from "../../public/data/top-providers-1000.json";
-import watchlist from "../../public/data/expanded-watchlist.json";
+import smartWatchlist from "../../public/data/smart-watchlist.json";
+import oldWatchlist from "../../public/data/expanded-watchlist.json";
 import statesSummary from "../../public/data/states-summary.json";
 import yearlyTrends from "../../public/data/yearly-trends.json";
 
 export default function Home() {
   const top5Providers = topProviders.slice(0, 5);
   const top5States = (statesSummary as any[]).filter((s: any) => s.state !== 'Unknown').slice(0, 5);
-  const totalFlaggedSpending = watchlist.reduce((sum: number, p: any) => {
-    // Get spending from top-providers list
-    const provider = topProviders.find((tp: any) => tp.npi === p.npi);
-    return sum + ((provider as any)?.totalPaid || 0);
-  }, 0);
-  const criticalCount = watchlist.filter((p: any) => p.flag_count >= 3).length;
+
+  // Deduplicate watchlist
+  const allWatchlistNpis = new Set<string>();
+  (smartWatchlist as any[]).forEach((w: any) => allWatchlistNpis.add(w.npi));
+  (oldWatchlist as any[]).forEach((w: any) => allWatchlistNpis.add(w.npi));
+  const watchlistCount = allWatchlistNpis.size;
+
+  const totalFlaggedSpending = (smartWatchlist as any[]).reduce((sum: number, p: any) => sum + (p.totalPaid || 0), 0);
+  const criticalCount = (smartWatchlist as any[]).filter((p: any) => (p.flagCount || 0) >= 3).length;
   const latestYear = yearlyTrends[yearlyTrends.length - 1] as any;
   const prevYear = yearlyTrends[yearlyTrends.length - 2] as any;
   const yoyGrowth = prevYear ? ((latestYear.payments - prevYear.payments) / prevYear.payments * 100) : 0;
@@ -40,8 +44,8 @@ export default function Home() {
           </div>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 animate-fade-in-delay-1 leading-relaxed">
             We analyzed every Medicaid billing record released by HHS &mdash; and ran{" "}
-            <span className="text-white font-medium">9 fraud detection tests</span> across 617,000+ providers.{" "}
-            <span className="text-white font-medium">788 providers</span> raised red flags.
+            <span className="text-white font-medium">code-specific fraud detection</span> across 617,000+ providers.{" "}
+            <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags.
           </p>
           <div className="flex flex-wrap gap-3 animate-fade-in-delay-2">
             <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-500/30 hover:-translate-y-0.5">
@@ -65,7 +69,7 @@ export default function Home() {
             { label: "Total Spending", value: formatMoney(stats.totalPaid), sub: "2018\u20132024", color: "text-white" },
             { label: "Billing Records", value: formatNumber(stats.records), sub: "Individual claims", color: "text-blue-400" },
             { label: "Providers Analyzed", value: formatNumber(stats.providers), sub: "Unique NPIs", color: "text-slate-300" },
-            { label: "Flagged Providers", value: String(watchlist.length), sub: "9 fraud tests", color: "text-red-400" },
+            { label: "Flagged Providers", value: String(watchlistCount), sub: "code-specific analysis", color: "text-red-400" },
             { label: "Procedure Codes", value: formatNumber(10881), sub: "HCPCS codes", color: "text-purple-400" },
           ].map((stat) => (
             <div key={stat.label} className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors">
@@ -85,9 +89,9 @@ export default function Home() {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-red-500/20 transition-all group">
-            <p className="text-3xl font-extrabold text-red-400 tabular-nums mb-2">788</p>
+            <p className="text-3xl font-extrabold text-red-400 tabular-nums mb-2">{watchlistCount}</p>
             <p className="text-sm font-semibold text-white mb-1">Providers Flagged</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Across 9 independent fraud detection tests &mdash; up from 76 in our initial analysis. None appear on the OIG exclusion list.</p>
+            <p className="text-xs text-slate-500 leading-relaxed">Using code-specific benchmarks that compare each provider against the national median for their exact procedure codes. None appear on the OIG exclusion list.</p>
             <Link href="/watchlist" className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 mt-3 font-medium transition-colors">
               View watchlist <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
@@ -101,7 +105,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-purple-500/20 transition-all group">
-            <p className="text-3xl font-extrabold text-purple-400 tabular-nums mb-2">0 of 788</p>
+            <p className="text-3xl font-extrabold text-purple-400 tabular-nums mb-2">0 of {watchlistCount}</p>
             <p className="text-sm font-semibold text-white mb-1">On OIG Exclusion List</p>
             <p className="text-xs text-slate-500 leading-relaxed">Cross-referenced against 82,715 excluded providers. Zero matches &mdash; suggesting our analysis surfaces new, uninvestigated activity.</p>
             <Link href="/about" className="inline-flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300 mt-3 font-medium transition-colors">
@@ -251,7 +255,7 @@ export default function Home() {
           <div className="relative">
             <h2 id="cta-heading" className="text-3xl md:text-4xl font-extrabold text-white mb-4">Where are your tax dollars going?</h2>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
-              We ran 9 fraud detection tests on 617,000 providers and flagged 788 for investigation.
+              We used code-specific benchmarks on 617,000 providers and flagged {watchlistCount} for investigation.
               Explore the data yourself.
             </p>
             <div className="flex flex-wrap justify-center gap-3">

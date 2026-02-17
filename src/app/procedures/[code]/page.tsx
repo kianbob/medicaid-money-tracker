@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
+import { formatMoney, formatNumber, formatCpc, hcpcsDescription } from "@/lib/format";
 import allProcedures from "../../../../public/data/all-procedures.json";
 import topProcedures from "../../../../public/data/top-procedures.json";
+import codeBenchmarks from "../../../../public/data/code-benchmarks.json";
 import fs from "fs";
 import path from "path";
 
@@ -18,9 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const proc = (allProcedures as any[]).find((p: any) => p.code === params.code);
   const desc = hcpcsDescription(params.code);
   const label = desc ? `${params.code} \u2014 ${desc}` : params.code;
+  const benchmark = (codeBenchmarks as Record<string, any>)[params.code];
+  const benchmarkText = benchmark?.medianCostPerClaim != null ? ` National median: ${formatCpc(benchmark.medianCostPerClaim)}/claim.` : '';
   return {
     title: `${label} \u2014 Medicaid Procedure Spending`,
-    description: `Medicaid spending for HCPCS code ${params.code}${desc ? ` (${desc})` : ''}. ${proc ? `${formatMoney(proc.totalPaid)} in total payments across ${formatNumber(proc.providerCount)} providers.` : ''} Analysis of 227M billing records.`,
+    description: `Medicaid spending for HCPCS code ${params.code}${desc ? ` (${desc})` : ''}. ${proc ? `${formatMoney(proc.totalPaid)} in total payments across ${formatNumber(proc.providerCount)} providers.` : ''}${benchmarkText} Analysis of 227M billing records.`,
     openGraph: {
       title: `${label} \u2014 Medicaid Money Tracker`,
       description: `Medicaid spending for procedure ${params.code}.${desc ? ` ${desc}.` : ''} Total payments, claim volumes, and provider statistics.`,
@@ -31,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function ProcedureDetailPage({ params }: Props) {
   const proc = (allProcedures as any[]).find((p: any) => p.code === params.code);
   const topProc = (topProcedures as any[]).find((p: any) => p.code === params.code);
+  const benchmark = (codeBenchmarks as Record<string, any>)[params.code];
   const desc = hcpcsDescription(params.code);
 
   if (!proc) {
@@ -105,6 +109,73 @@ export default function ProcedureDetailPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Benchmark Distribution */}
+      {benchmark && benchmark.medianCostPerClaim != null && (
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+          <h2 className="text-sm font-bold text-white mb-4">National Cost Distribution</h2>
+          <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+            How much do providers bill per claim for <span className="font-mono text-white">{params.code}</span>?
+            Based on {formatNumber(benchmark.providerCount)} providers billing this code nationally.
+          </p>
+
+          {/* Key stats grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+            <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Median</p>
+              <p className="text-lg font-bold text-white tabular-nums">{formatCpc(benchmark.medianCostPerClaim)}</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Average</p>
+              <p className="text-lg font-bold text-slate-300 tabular-nums">{formatCpc(benchmark.avgCostPerClaim)}</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Std Dev</p>
+              <p className="text-lg font-bold text-slate-300 tabular-nums">{formatCpc(benchmark.stddevCpc)}</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Max</p>
+              <p className="text-lg font-bold text-slate-300 tabular-nums">{formatCpc(benchmark.maxCpc)}</p>
+            </div>
+          </div>
+
+          {/* Distribution visualization */}
+          <div className="space-y-2">
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Percentile Distribution (Cost per Claim)</p>
+            <div className="relative">
+              {[
+                { label: 'p10', value: benchmark.p10, desc: '10th percentile' },
+                { label: 'p25', value: benchmark.p25, desc: '25th percentile' },
+                { label: 'Median', value: benchmark.medianCostPerClaim, desc: '50th percentile' },
+                { label: 'p75', value: benchmark.p75, desc: '75th percentile' },
+                { label: 'p90', value: benchmark.p90, desc: '90th percentile' },
+                { label: 'p95', value: benchmark.p95, desc: '95th percentile' },
+                { label: 'p99', value: benchmark.p99, desc: '99th percentile' },
+              ].map((pct) => {
+                const maxVal = benchmark.p99 || benchmark.p95 || benchmark.p90 || benchmark.medianCostPerClaim || 1;
+                const barWidth = maxVal > 0 && pct.value != null ? Math.min(100, (pct.value / maxVal) * 100) : 0;
+                const isMedian = pct.label === 'Median';
+                return (
+                  <div key={pct.label} className="flex items-center gap-3 py-1">
+                    <span className={`text-[10px] w-12 text-right shrink-0 ${isMedian ? 'text-white font-bold' : 'text-slate-500'}`}>{pct.label}</span>
+                    <div className="flex-1 h-2 bg-dark-600 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${isMedian ? 'bg-blue-500' : 'bg-blue-500/30'}`}
+                        style={{ width: `${barWidth}%` }}
+                      />
+                    </div>
+                    <span className={`text-[10px] tabular-nums w-20 text-right ${isMedian ? 'text-white font-bold' : 'text-slate-400'}`}>{formatCpc(pct.value)}</span>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-[10px] text-slate-500 mt-2">
+              50% of providers bill between <span className="text-white font-semibold">{formatCpc(benchmark.p25)}</span> and{' '}
+              <span className="text-white font-semibold">{formatCpc(benchmark.p75)}</span> per claim for this code.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* About */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
         <h2 className="text-sm font-bold text-white mb-3">About This Procedure</h2>
@@ -134,6 +205,7 @@ export default function ProcedureDetailPage({ params }: Props) {
               Residential habilitation (T2016) is a per-diem code for waiver-based residential care.
               Typical rates range from $200&ndash;400/day. Our analysis found Massachusetts DDS agencies
               billing <strong className="text-white">$13,000&ndash;15,000/day</strong> &mdash; 37&ndash;51x the median rate.
+              Note: per diem codes cover an entire day of care, so high values may reflect bundled services.
             </p>
           )}
           {params.code === 'A0427' && (
