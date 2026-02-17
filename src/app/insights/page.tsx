@@ -141,6 +141,16 @@ const insightCategories: { label: string; description: string; accent: string; i
     accent: "bg-amber-500",
     items: [
       {
+        slug: "spending-growth",
+        title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years",
+        teaser: "Medicaid spending grew 83% from 2018 to 2023. COVID was the turning point — 2021 added $30.5B in a single year. Provider counts grew from 324K to 360K. 2024 partial data suggests another record.",
+        stat: "+83%",
+        statLabel: "in 6 years",
+        color: "from-blue-500 to-cyan-500",
+        accent: "text-blue-400",
+        icon: "📈",
+      },
+      {
         slug: "covid-vaccines",
         title: "Who Got Paid the Most to Give COVID Vaccines?",
         teaser: "Tribal hospitals dominate the top of the list. Shiprock Hospital in New Mexico billed $11.8M alone.",

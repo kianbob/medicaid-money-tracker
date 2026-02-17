@@ -532,4 +532,81 @@ export function RiskRankingsChart({ data }: { data: RiskRankDatum[] }) {
   );
 }
 
+/* ─── 9. Spending Growth AreaChart (Insights: spending-growth) ─── */
+
+interface SpendingGrowthDatum {
+  year: string;
+  totalPaid: number;
+}
+
+function SpendingGrowthTooltip({ active, payload, label }: any) {
+  if (!active || !payload?.length) return null;
+  const d = payload[0].payload;
+  return (
+    <div style={tooltipStyle}>
+      <p className="text-white font-semibold mb-1">{label}</p>
+      <p className="text-blue-400 tabular-nums">{formatMoney(d.totalPaid)}</p>
+      {d.yoyPct !== null && (
+        <p className={`text-xs tabular-nums mt-0.5 ${d.yoyPct >= 0 ? "text-green-400" : "text-red-400"}`}>
+          {d.yoyPct >= 0 ? "+" : ""}{d.yoyPct.toFixed(1)}% YoY
+        </p>
+      )}
+      {d.isPartial && (
+        <p className="text-xs text-yellow-400 mt-0.5">Partial year</p>
+      )}
+    </div>
+  );
+}
+
+export function SpendingGrowthChart({ data }: { data: SpendingGrowthDatum[] }) {
+  const chartData = data.map((d, i) => {
+    const prev = i > 0 ? data[i - 1] : null;
+    const yoyPct = prev ? ((d.totalPaid - prev.totalPaid) / prev.totalPaid) * 100 : null;
+    return {
+      ...d,
+      yoyPct,
+      totalPaidBillions: d.totalPaid / 1e9,
+      isPartial: d.year === "2024",
+    };
+  });
+
+  return (
+    <ResponsiveContainer width="100%" height={320}>
+      <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.45} />
+            <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.02} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(100,116,139,0.15)" vertical={false} />
+        <XAxis
+          dataKey="year"
+          tick={{ fill: "#94a3b8", fontSize: 12 }}
+          tickLine={false}
+          axisLine={{ stroke: "rgba(100,116,139,0.2)" }}
+        />
+        <YAxis
+          tick={{ fill: "#94a3b8", fontSize: 11 }}
+          tickLine={false}
+          axisLine={false}
+          tickFormatter={(v: number) => `$${v.toFixed(0)}B`}
+          domain={[0, "auto"]}
+          width={58}
+        />
+        <Tooltip content={<SpendingGrowthTooltip />} cursor={{ stroke: "rgba(59,130,246,0.3)" }} />
+        <Area
+          type="monotone"
+          dataKey="totalPaidBillions"
+          stroke="#3b82f6"
+          strokeWidth={2.5}
+          fill="url(#growthGrad)"
+          dot={{ r: 5, fill: "#3b82f6", stroke: "#1a1d23", strokeWidth: 2 }}
+          activeDot={{ r: 7, fill: "#60a5fa", stroke: "#1a1d23", strokeWidth: 2 }}
+        />
+      </AreaChart>
+    </ResponsiveContainer>
+  );
+}
+
 // PROC_COLORS moved inline to server components that need it
