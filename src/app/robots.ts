@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://medicaidmoneytracker.com/sitemap.xml',
+    sitemap: 'https://medicaid-money-tracker.vercel.app/sitemap.xml',
   };
 }

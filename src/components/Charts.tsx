@@ -13,6 +13,8 @@ import {
   ResponsiveContainer,
   Cell,
   LabelList,
+  PieChart,
+  Pie,
 } from "recharts";
 
 /* ─── Shared tooltip style ─── */
@@ -297,6 +299,118 @@ export function StateSpendingChart({ data }: { data: StateYearDatum[] }) {
           ))}
         </Bar>
       </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+/* ─── 5. Monthly Spending AreaChart (Provider detail page) ─── */
+
+interface MonthlyDatum {
+  month: string;
+  payments?: number;
+  paid?: number;
+}
+
+function MonthlyTooltip({ active, payload, label }: any) {
+  if (!active || !payload?.length) return null;
+  const d = payload[0].payload;
+  return (
+    <div style={tooltipStyle}>
+      <p className="text-white font-semibold mb-1">{d.month}</p>
+      <p className="text-blue-400 tabular-nums">{formatMoney(d.value)}</p>
+    </div>
+  );
+}
+
+export function MonthlySpendingChart({ data }: { data: MonthlyDatum[] }) {
+  const sliced = data.slice(-36);
+  const chartData = sliced.map((d) => ({
+    ...d,
+    value: d.payments || d.paid || 0,
+    label: d.month?.length >= 7 ? d.month.substring(5) : d.month,
+  }));
+
+  // Show ~6 tick labels evenly spaced
+  const tickInterval = Math.max(1, Math.floor(chartData.length / 6));
+
+  return (
+    <ResponsiveContainer width="100%" height={180}>
+      <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id="monthlyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4} />
+            <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.02} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(100,116,139,0.15)" vertical={false} />
+        <XAxis
+          dataKey="month"
+          tick={{ fill: "#94a3b8", fontSize: 10 }}
+          tickLine={false}
+          axisLine={{ stroke: "rgba(100,116,139,0.2)" }}
+          interval={tickInterval}
+        />
+        <YAxis
+          tick={{ fill: "#94a3b8", fontSize: 10 }}
+          tickLine={false}
+          axisLine={false}
+          tickFormatter={(v: number) => v >= 1e6 ? `$${(v / 1e6).toFixed(1)}M` : v >= 1e3 ? `$${(v / 1e3).toFixed(0)}K` : `$${v}`}
+          width={54}
+        />
+        <Tooltip content={<MonthlyTooltip />} cursor={{ stroke: "rgba(59,130,246,0.3)" }} />
+        <Area
+          type="monotone"
+          dataKey="value"
+          stroke="#3b82f6"
+          strokeWidth={2}
+          fill="url(#monthlyGrad)"
+          dot={false}
+          activeDot={{ r: 4, fill: "#60a5fa", stroke: "#1a1d23", strokeWidth: 2 }}
+        />
+      </AreaChart>
+    </ResponsiveContainer>
+  );
+}
+
+/* ─── 6. Risk Tier PieChart (Watchlist page) ─── */
+
+interface RiskTierDatum {
+  name: string;
+  value: number;
+  color: string;
+}
+
+function RiskTierTooltip({ active, payload }: any) {
+  if (!active || !payload?.length) return null;
+  const d = payload[0].payload;
+  return (
+    <div style={tooltipStyle}>
+      <p className="font-semibold mb-0.5" style={{ color: d.color }}>{d.name}</p>
+      <p className="text-white tabular-nums">{d.value.toLocaleString()} providers</p>
+    </div>
+  );
+}
+
+export function RiskTierChart({ data }: { data: RiskTierDatum[] }) {
+  return (
+    <ResponsiveContainer width="100%" height={160}>
+      <PieChart>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={40}
+          outerRadius={65}
+          paddingAngle={2}
+          dataKey="value"
+          stroke="none"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Pie>
+        <Tooltip content={<RiskTierTooltip />} />
+      </PieChart>
     </ResponsiveContainer>
   );
 }

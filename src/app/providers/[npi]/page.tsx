@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, formatMoneyFull, formatCpc, riskLabel, riskColor, riskDot, riskBgColor, getFlagInfo, parseFlags, hcpcsDescription, stateName, decileColor, decileBgColor } from "@/lib/format";
+import { MonthlySpendingChart } from "@/components/Charts";
 import topProviders from "../../../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
@@ -596,25 +597,7 @@ export default function ProviderPage({ params }: Props) {
       {monthly.length > 0 && (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
           <h2 className="text-sm font-bold text-white mb-4">Monthly Spending Trend</h2>
-          <div className="flex items-end gap-[2px] h-24">
-            {monthly.slice(-36).map((m: any) => {
-              const maxPaid = Math.max(...monthly.slice(-36).map((x: any) => x.payments || x.paid || 0));
-              const val = m.payments || m.paid || 0;
-              const pct = maxPaid > 0 ? (val / maxPaid) * 100 : 0;
-              return (
-                <div key={m.month} className="flex-1 flex flex-col items-center justify-end h-full group" title={`${m.month}: ${formatMoney(val)}`}>
-                  <div
-                    className="w-full bg-blue-500/40 hover:bg-blue-400/70 rounded-sm transition-colors"
-                    style={{ height: `${Math.max(2, pct)}%` }}
-                  />
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex justify-between items-center mt-2">
-            <p className="text-[10px] text-slate-500">{monthly[Math.max(0, monthly.length - 36)]?.month}</p>
-            <p className="text-[10px] text-slate-500">{monthly[monthly.length - 1]?.month}</p>
-          </div>
+          <MonthlySpendingChart data={monthly} />
         </div>
       )}
 

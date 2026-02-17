@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://medicaidmoneytracker.com';
+  const baseUrl = 'https://medicaid-money-tracker.vercel.app';
 
   // Core pages
   const corePages: MetadataRoute.Sitemap = [
@@ -26,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/insights/fastest-growing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/insights/top-doctors`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/insights/specialty-breakdown`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/compare`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/downloads`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/timeline`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/insights/arizona-problem`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/ny-home-care`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/specialty-drugs`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/most-patients`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Provider pages (from file system)

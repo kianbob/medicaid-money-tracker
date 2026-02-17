@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useMemo, useCallback, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { formatMoney, formatNumber, formatCpc, flagLabel, flagColor, getFlagInfo, hcpcsDescription } from "@/lib/format";
+import { RiskTierChart } from "@/components/Charts";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import providersData from "../../../public/data/top-providers-1000.json";
@@ -344,32 +345,43 @@ function WatchlistContent() {
         </div>
       </div>
 
-      {/* Summary Stats - Unified Tiers */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total Flagged</p>
-          <p className="text-2xl font-bold text-white tabular-nums">{allProviders.length}</p>
-          <p className="text-[10px] text-slate-600">{formatMoney(totalFlaggedSpending)} total</p>
+      {/* Summary Stats - Unified Tiers + Chart */}
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_180px] gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Total Flagged</p>
+            <p className="text-2xl font-bold text-white tabular-nums">{allProviders.length}</p>
+            <p className="text-[10px] text-slate-600">{formatMoney(totalFlaggedSpending)} total</p>
+          </div>
+          <div className="bg-dark-800 border border-red-500/20 rounded-xl p-4">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Critical</p>
+            <p className="text-2xl font-bold text-red-400 tabular-nums">{criticalCount}</p>
+            <p className="text-[10px] text-slate-600">3+ flags or 2 flags + high ML</p>
+          </div>
+          <div className="bg-dark-800 border border-orange-500/20 rounded-xl p-4">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">High</p>
+            <p className="text-2xl font-bold text-orange-400 tabular-nums">{highCount}</p>
+            <p className="text-[10px] text-slate-600">2 flags, 1 flag + high ML, or ML &ge; 80%</p>
+          </div>
+          <div className="bg-dark-800 border border-yellow-500/20 rounded-xl p-4">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Elevated</p>
+            <p className="text-2xl font-bold text-yellow-400 tabular-nums">{elevatedCount}</p>
+            <p className="text-[10px] text-slate-600">1 flag or ML &ge; 60%</p>
+          </div>
+          <div className="bg-dark-800 border border-purple-500/20 rounded-xl p-4">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">ML Flag</p>
+            <p className="text-2xl font-bold text-purple-400 tabular-nums">{mlFlagCount}</p>
+            <p className="text-[10px] text-slate-600">ML-only detection, no stat flags</p>
+          </div>
         </div>
-        <div className="bg-dark-800 border border-red-500/20 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Critical</p>
-          <p className="text-2xl font-bold text-red-400 tabular-nums">{criticalCount}</p>
-          <p className="text-[10px] text-slate-600">3+ flags or 2 flags + high ML</p>
-        </div>
-        <div className="bg-dark-800 border border-orange-500/20 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">High</p>
-          <p className="text-2xl font-bold text-orange-400 tabular-nums">{highCount}</p>
-          <p className="text-[10px] text-slate-600">2 flags, 1 flag + high ML, or ML &ge; 80%</p>
-        </div>
-        <div className="bg-dark-800 border border-yellow-500/20 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Elevated</p>
-          <p className="text-2xl font-bold text-yellow-400 tabular-nums">{elevatedCount}</p>
-          <p className="text-[10px] text-slate-600">1 flag or ML &ge; 60%</p>
-        </div>
-        <div className="bg-dark-800 border border-purple-500/20 rounded-xl p-4">
-          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">ML Flag</p>
-          <p className="text-2xl font-bold text-purple-400 tabular-nums">{mlFlagCount}</p>
-          <p className="text-[10px] text-slate-600">ML-only detection, no stat flags</p>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-3 flex flex-col items-center justify-center">
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Risk Distribution</p>
+          <RiskTierChart data={[
+            { name: 'Critical', value: criticalCount, color: '#ef4444' },
+            { name: 'High', value: highCount, color: '#f97316' },
+            { name: 'Elevated', value: elevatedCount, color: '#eab308' },
+            { name: 'ML Flag', value: mlFlagCount, color: '#a855f7' },
+          ]} />
         </div>
       </div>
 
