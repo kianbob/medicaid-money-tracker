@@ -435,7 +435,7 @@ function WatchlistContent() {
         const base = tabProviders;
         const stateCounts: Record<string, number> = {};
         for (const p of base) {
-          if (p.state) stateCounts[p.state] = (stateCounts[p.state] || 0) + 1;
+          if (p.state && /^[A-Z]{2}$/.test(p.state)) stateCounts[p.state] = (stateCounts[p.state] || 0) + 1;
         }
         const topState = Object.entries(stateCounts).sort(([,a], [,b]) => b - a)[0];
         const tabSpending = base.reduce((sum, p) => sum + p.totalPaid, 0);

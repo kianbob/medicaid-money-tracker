@@ -3,6 +3,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import GlobalSearch from "@/components/GlobalSearch";
+import NavLinks from "@/components/NavLinks";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-headline" });
@@ -101,33 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Desktop nav */}
               <div className="hidden md:flex items-center gap-0.5">
-                <Link href="/watchlist" className="text-[13px] font-semibold text-red-400 hover:text-red-300 hover:bg-red-500/10 px-3 py-1.5 rounded-md transition-all">
-                  Risk Watchlist
-                </Link>
-                <Link href="/providers" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Providers
-                </Link>
-                <Link href="/compare" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Compare
-                </Link>
-                <Link href="/states" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  States
-                </Link>
-                <Link href="/procedures" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Procedures
-                </Link>
-                <Link href="/insights" className="text-[13px] font-semibold text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 px-3 py-1.5 rounded-md transition-all">
-                  Insights
-                </Link>
-                <Link href="/analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  Methodology
-                </Link>
-                <Link href="/ml-analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  ML Methodology
-                </Link>
-                <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
-                  About
-                </Link>
+                <NavLinks />
                 <div className="ml-2">
                   <GlobalSearch />
                 </div>
@@ -185,6 +161,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </nav>
 
         <main id="main-content">{children}</main>
+        <BackToTop />
 
         <footer className="border-t border-dark-500/50 mt-24 py-12 px-4" role="contentinfo">
           <div className="max-w-7xl mx-auto">

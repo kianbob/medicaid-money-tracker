@@ -122,6 +122,40 @@ export default function StateDetailPage({ params }: Props) {
         </p>
       </div>
 
+      {/* Insight Callout */}
+      {code === 'NY' && (
+        <div className="bg-purple-500/8 border border-purple-500/20 rounded-xl p-4 mb-8">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.063 9v3.75m-5.063-3.75v3.75M3.375 5.625V18a2.25 2.25 0 002.25 2.25h12.75a2.25 2.25 0 002.25-2.25V5.625m-16.5 0A2.25 2.25 0 015.625 3.375h12.75a2.25 2.25 0 012.25 2.25m-16.5 0h16.5" /></svg>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-purple-400 mb-0.5">Read our investigation</p>
+              <Link href="/insights/ny-home-care" className="text-sm text-white hover:text-purple-300 font-medium transition-colors">
+                The New York Home Care Machine &rarr;
+              </Link>
+              <p className="text-xs text-slate-500 mt-1">$47B+ in personal care spending &mdash; how New York&apos;s home care system became Medicaid&apos;s biggest line item.</p>
+            </div>
+          </div>
+        </div>
+      )}
+      {code === 'AZ' && (
+        <div className="bg-purple-500/8 border border-purple-500/20 rounded-xl p-4 mb-8">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-purple-500/15 flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.063 9v3.75m-5.063-3.75v3.75M3.375 5.625V18a2.25 2.25 0 002.25 2.25h12.75a2.25 2.25 0 002.25-2.25V5.625m-16.5 0A2.25 2.25 0 015.625 3.375h12.75a2.25 2.25 0 012.25 2.25m-16.5 0h16.5" /></svg>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-purple-400 mb-0.5">Read our investigation</p>
+              <Link href="/insights/arizona-problem" className="text-sm text-white hover:text-purple-300 font-medium transition-colors">
+                The Arizona Problem: New Clinics, Massive Billing &rarr;
+              </Link>
+              <p className="text-xs text-slate-500 mt-1">New behavioral health clinics appearing overnight and immediately billing millions in Medicaid funds.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">

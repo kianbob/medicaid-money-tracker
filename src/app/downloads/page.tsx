@@ -132,6 +132,46 @@ export default function DownloadsPage() {
         (227 million Medicaid billing records, 2018&ndash;2024). Files are in JSON format and can be opened with any text editor, Python, R, or data analysis tool.
       </p>
 
+      {/* Unified Risk Card */}
+      <div className="bg-dark-800 border border-amber-500/30 rounded-xl p-5 mb-6">
+        <div className="flex items-start gap-3 mb-3">
+          <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.007H12v-.007z" />
+            </svg>
+          </div>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-sm font-bold text-white">Unified Risk Watchlist</h3>
+            <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+              Combine both datasets below to build a unified view of all flagged providers. The statistical watchlist
+              contains 880 providers flagged by code-specific billing tests, while the ML scores file contains
+              fraud-similarity scores from a model trained on 514 confirmed fraud cases. Join on the <code className="text-amber-400/80 text-[11px]">npi</code> field
+              to merge statistical flags with ML scores for a complete risk picture.
+            </p>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-3 mt-4">
+          <a href="/data/smart-watchlist.json" download className="flex items-center justify-between bg-red-500/8 border border-red-500/20 rounded-lg px-4 py-3 hover:bg-red-500/15 transition-colors group">
+            <div>
+              <p className="text-xs font-semibold text-red-400">Statistical Watchlist</p>
+              <p className="text-[10px] text-slate-500 mt-0.5">880 providers &middot; 682 KB &middot; JSON</p>
+            </div>
+            <svg className="w-4 h-4 text-red-400 group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </a>
+          <a href="/data/ml-scores.json" download className="flex items-center justify-between bg-purple-500/8 border border-purple-500/20 rounded-lg px-4 py-3 hover:bg-purple-500/15 transition-colors group">
+            <div>
+              <p className="text-xs font-semibold text-purple-400">ML Fraud Scores</p>
+              <p className="text-[10px] text-slate-500 mt-0.5">700 scored providers &middot; 235 KB &middot; JSON</p>
+            </div>
+            <svg className="w-4 h-4 text-purple-400 group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
       {/* Dataset Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
         {datasets.map((ds) => {
