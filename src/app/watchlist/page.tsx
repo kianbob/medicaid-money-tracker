@@ -134,13 +134,13 @@ function getMergedProviders() {
     if (mlp.mlScore < 0.5) continue;
     seen.add(mlp.npi);
     const provider = providerMap.get(mlp.npi);
-    const name = mlNameLookup[mlp.npi] || provider?.name || `NPI: ${mlp.npi}`;
+    const name = (mlp as any).name || mlNameLookup[mlp.npi] || provider?.name || `NPI: ${mlp.npi}`;
     result.push({
       npi: mlp.npi,
       name,
-      specialty: provider?.specialty || '',
-      city: provider?.city || '',
-      state: provider?.state || '',
+      specialty: (mlp as any).specialty || provider?.specialty || '',
+      city: (mlp as any).city || provider?.city || '',
+      state: (mlp as any).state || provider?.state || '',
       totalPaid: mlp.totalPaid || provider?.totalPaid || 0,
       totalClaims: mlp.totalClaims || provider?.totalClaims || 0,
       flagCount: 0,
