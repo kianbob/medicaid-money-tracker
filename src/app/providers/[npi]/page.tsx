@@ -14,16 +14,12 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const providersDir = path.join(process.cwd(), "public", "data", "providers");
-  try {
-    const files = fs.readdirSync(providersDir);
-    return files
-      .filter(f => f.endsWith('.json'))
-      .map(f => ({ npi: f.replace('.json', '') }));
-  } catch {
-    return (topProviders as any[]).map((p: any) => ({ npi: p.npi }));
-  }
+  // Only pre-render top 200 providers to avoid build OOM
+  // Rest render on-demand (still work fine, just not pre-built)
+  return (topProviders as any[]).slice(0, 200).map((p: any) => ({ npi: p.npi }));
 }
+
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const provider = (topProviders as any[]).find((p: any) => p.npi === params.npi);

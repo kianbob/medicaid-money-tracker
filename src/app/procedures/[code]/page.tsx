@@ -12,8 +12,11 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return (allProcedures as any[]).map((p: any) => ({ code: p.code }));
+  // Only pre-render top 200 procedures to avoid build OOM
+  return (topProcedures as any[]).slice(0, 200).map((p: any) => ({ code: p.code }));
 }
+
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const proc = (allProcedures as any[]).find((p: any) => p.code === params.code);
