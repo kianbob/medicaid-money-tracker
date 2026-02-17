@@ -33,14 +33,19 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+      <section className="relative overflow-hidden hero-gradient-bg" aria-labelledby="hero-heading">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600/8 via-purple-600/4 to-dark-900" aria-hidden="true" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-dark-700/80 border border-dark-500 rounded-full px-4 py-1.5 text-xs font-medium text-slate-400 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              Updated with 227M records &middot; Feb 2026 HHS Data Release
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 bg-dark-700/80 border border-dark-500 rounded-full px-4 py-1.5 text-xs font-medium text-slate-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                Updated with 227M records &middot; Feb 2026 HHS Data Release
+              </div>
+              <span className="inline-flex items-center bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1 text-[10px] font-semibold text-blue-400">
+                Last updated: February 2026
+              </span>
             </div>
             <h1 id="hero-heading" className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
               Follow the money.<br />
@@ -151,6 +156,39 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Featured Investigation */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="featured-heading">
+        <div className="flex items-center gap-2 mb-6">
+          <div className="w-1 h-6 bg-amber-500 rounded-full" />
+          <h2 id="featured-heading" className="text-xl font-bold text-white">Featured Investigation</h2>
+        </div>
+        <Link href="/providers/1396049987" className="block group">
+          <div className="relative overflow-hidden bg-gradient-to-br from-amber-500/10 via-red-500/5 to-dark-800 border border-amber-500/20 rounded-xl p-6 md:p-8 hover:border-amber-500/40 transition-all">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true" />
+            <div className="relative">
+              <span className="inline-flex items-center bg-red-500/15 border border-red-500/30 rounded-full px-3 py-1 text-[10px] font-bold text-red-400 uppercase tracking-wider mb-4">
+                Critical Risk &middot; 4 Flags
+              </span>
+              <h3 className="text-lg md:text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors leading-snug">
+                Community Assistance Resources &amp; Extended Services INC grew from $1.6M to $112.6M in one year
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed max-w-2xl mb-4">
+                A <span className="text-amber-400 font-semibold">6,886% spending increase</span> in a single year while billing <span className="text-amber-400 font-semibold">4.5&times; the median rate</span> for skills training services. Flagged by 4 of our 13 statistical fraud tests.
+              </p>
+              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                <span>NPI: 1396049987</span>
+                <span>&middot;</span>
+                <span>MN</span>
+                <span>&middot;</span>
+                <span className="text-amber-400 font-medium group-hover:text-amber-300 transition-colors">
+                  View full profile &rarr;
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
       </section>
 
       {/* Spending Trend Mini Chart */}

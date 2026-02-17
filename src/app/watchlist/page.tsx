@@ -348,6 +348,28 @@ export default function WatchlistPage() {
         </div>
       </div>
 
+      {/* Quick Stats */}
+      {(() => {
+        const stateCounts: Record<string, number> = {};
+        for (const p of allProviders) {
+          if (p.state) stateCounts[p.state] = (stateCounts[p.state] || 0) + 1;
+        }
+        const topState = Object.entries(stateCounts).sort(([,a], [,b]) => b - a)[0];
+        const avgSpending = allProviders.length > 0 ? totalFlaggedSpending / allProviders.length : 0;
+        const topFlag = flagCounts[0];
+        return (
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-8 px-1 text-xs text-slate-500">
+            {topState && (
+              <span>Most common state: <strong className="text-white font-semibold">{topState[0]}</strong> ({topState[1]} providers)</span>
+            )}
+            <span>Avg spending: <strong className="text-white font-semibold">{formatMoney(avgSpending)}</strong></span>
+            {topFlag && (
+              <span>Most common flag: <strong className="text-white font-semibold">{getFlagInfo(topFlag[0]).label}</strong> ({topFlag[1]})</span>
+            )}
+          </div>
+        );
+      })()}
+
       {/* Filters & Search */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <input

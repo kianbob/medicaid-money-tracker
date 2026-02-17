@@ -247,6 +247,13 @@ export default function ProviderPage({ params }: Props) {
             </span>
             <span className="text-xs text-slate-500">&mdash; Flagged in {flagCount} fraud detection test{flagCount !== 1 ? 's' : ''}</span>
           </div>
+          {mlScore !== null && mlScore > 0 && (
+            <div className="bg-dark-800/60 border border-slate-500/20 rounded-lg px-4 py-3 mb-4">
+              <p className="text-sm text-slate-300 leading-relaxed">
+                This provider was flagged by both <strong className="text-white">statistical tests ({flagCount} flag{flagCount !== 1 ? 's' : ''})</strong> and <strong className="text-white">machine learning (ML score: {(mlScore * 100).toFixed(0)}%)</strong>. Providers flagged by both methods are significantly more likely to warrant investigation.
+              </p>
+            </div>
+          )}
           <div className="space-y-3">
             {allFlags.map((flag: string) => {
               const info = getFlagInfo(flag);
