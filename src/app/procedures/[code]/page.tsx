@@ -344,6 +344,89 @@ export default function ProcedureDetailPage({ params }: Props) {
         ) : null;
       })()}
 
+      {/* Risk Assessment */}
+      {(() => {
+        const insightMapping: Record<string, { path: string; title: string }> = {
+          'T1019': { path: '/insights/arizona-problem', title: 'Arizona Problem' },
+          '99213': { path: '/insights/impossible-volume', title: 'Impossible Volume' },
+          '99214': { path: '/insights/impossible-volume', title: 'Impossible Volume' },
+          '99215': { path: '/insights/impossible-volume', title: 'Impossible Volume' },
+          'U0003': { path: '/insights/covid-testing', title: 'COVID Testing Boom' },
+          'U0004': { path: '/insights/covid-testing', title: 'COVID Testing Boom' },
+          'U0005': { path: '/insights/covid-testing', title: 'COVID Testing Boom' },
+          '87635': { path: '/insights/covid-testing', title: 'COVID Testing Boom' },
+          'J2326': { path: '/insights/specialty-drugs', title: 'Specialty Drug Costs' },
+          'J3490': { path: '/insights/specialty-drugs', title: 'Specialty Drug Costs' },
+          'J0585': { path: '/insights/specialty-drugs', title: 'Specialty Drug Costs' },
+          'S5150': { path: '/insights/ny-home-care', title: 'NY Home Care Machine' },
+          'S5151': { path: '/insights/ny-home-care', title: 'NY Home Care Machine' },
+          'T2025': { path: '/insights/ny-home-care', title: 'NY Home Care Machine' },
+          'H2021': { path: '/insights/ny-home-care', title: 'NY Home Care Machine' },
+          '90460': { path: '/insights/covid-vaccines', title: 'COVID Vaccine Drive' },
+          '90471': { path: '/insights/covid-vaccines', title: 'COVID Vaccine Drive' },
+          '90472': { path: '/insights/covid-vaccines', title: 'COVID Vaccine Drive' },
+        };
+        const insight = insightMapping[params.code];
+        const hasStats = benchmark || proc;
+        if (!insight && !hasStats) return null;
+
+        return (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+            <h2 className="text-sm font-bold text-white mb-4">Risk Assessment</h2>
+
+            {insight && (
+              <div className="bg-amber-500/8 border border-amber-500/20 rounded-lg p-4 mb-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-amber-400 text-lg shrink-0">&#9888;</span>
+                  <div>
+                    <p className="text-sm text-slate-300">
+                      This procedure is featured in our investigation:{' '}
+                      <Link href={insight.path} className="text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-2 transition-colors">
+                        {insight.title}
+                      </Link>
+                    </p>
+                    <p className="text-[10px] text-slate-500 mt-1">
+                      Read the full analysis for context on billing patterns associated with this code.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div>
+              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Billing Statistics</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {benchmark?.medianCostPerClaim != null && (
+                  <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Median Cost/Claim</p>
+                    <p className="text-lg font-bold text-white tabular-nums">{formatCpc(benchmark.medianCostPerClaim)}</p>
+                  </div>
+                )}
+                <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Providers Billing</p>
+                  <p className="text-lg font-bold text-amber-400 tabular-nums">{formatNumber(benchmark?.providerCount || proc.providerCount)}</p>
+                </div>
+                <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">National Spending</p>
+                  <p className="text-lg font-bold text-green-400 tabular-nums">{formatMoney(proc.totalPaid)}</p>
+                </div>
+                {benchmark?.avgCostPerClaim != null && benchmark?.medianCostPerClaim != null && benchmark.medianCostPerClaim > 0 && (
+                  <div className="bg-dark-700/50 rounded-lg p-3 border border-dark-500/30">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Avg/Median Ratio</p>
+                    <p className={`text-lg font-bold tabular-nums ${benchmark.avgCostPerClaim / benchmark.medianCostPerClaim >= 2 ? 'text-red-400' : benchmark.avgCostPerClaim / benchmark.medianCostPerClaim >= 1.5 ? 'text-yellow-400' : 'text-slate-300'}`}>
+                      {(benchmark.avgCostPerClaim / benchmark.medianCostPerClaim).toFixed(2)}&times;
+                    </p>
+                    <p className="text-[10px] text-slate-600 mt-0.5">
+                      {benchmark.avgCostPerClaim / benchmark.medianCostPerClaim >= 2 ? 'Highly skewed — outlier-driven' : benchmark.avgCostPerClaim / benchmark.medianCostPerClaim >= 1.5 ? 'Moderately skewed' : 'Normal distribution'}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Top Providers Billing This Code (code-providers data with tiers) */}
       {codeProviders && codeProviders.topProviders?.length > 0 ? (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-8">
