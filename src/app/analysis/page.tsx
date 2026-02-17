@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { formatMoney, formatNumber, getFlagInfo } from "@/lib/format";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
+import mlScores from "../../../public/data/ml-scores.json";
 
 export const metadata: Metadata = {
   title: "Methodology — How We Detect Medicaid Fraud Across 617K Providers",
@@ -17,10 +18,21 @@ export default function AnalysisPage() {
   const smart = smartWatchlist as any[];
   const old = oldWatchlist as any[];
 
-  // Deduplicate
+  // Deduplicate statistical flags
   const allNpis = new Set<string>();
   smart.forEach(w => allNpis.add(w.npi));
   old.forEach(w => allNpis.add(w.npi));
+  const statFlagged = allNpis.size;
+
+  // Add ML-only providers (mlScore >= 0.5, not already flagged)
+  const mlAll = [...((mlScores as any).topProviders || []), ...((mlScores as any).smallProviderFlags || [])];
+  let mlOnlyCount = 0;
+  for (const p of mlAll) {
+    if (p.mlScore >= 0.5 && !allNpis.has(p.npi)) {
+      mlOnlyCount++;
+      allNpis.add(p.npi);
+    }
+  }
   const totalFlagged = allNpis.size;
 
   const smartCritical = smart.filter(w => (w.flagCount || w.flags?.length || 0) >= 3).length;
@@ -233,6 +245,12 @@ export default function AnalysisPage() {
             Providers are flagged only when they trip one or more of these tests. Multiple overlapping flags from
             independent tests significantly increase confidence that the anomaly is worth investigating.
           </p>
+          <p>
+            In addition to these statistical tests, we run a <strong className="text-white">machine learning model</strong> trained
+            on 514 OIG-excluded providers to score all 617K providers for fraud similarity. The total count
+            of {totalFlagged.toLocaleString()} flagged providers includes both statistically flagged providers ({statFlagged.toLocaleString()})
+            and {mlOnlyCount.toLocaleString()} additional providers detected only by the ML model.
+          </p>
         </div>
       </section>
 
@@ -248,7 +266,7 @@ export default function AnalysisPage() {
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Providers Flagged</p>
           <p className="text-2xl font-bold text-red-400 tabular-nums">{totalFlagged.toLocaleString()}</p>
-          <p className="text-[10px] text-slate-600">of 617,503 analyzed</p>
+          <p className="text-[10px] text-slate-600">statistical + ML-detected</p>
         </div>
         <div className="bg-dark-800 border border-red-500/20 rounded-xl p-4">
           <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Critical Risk</p>

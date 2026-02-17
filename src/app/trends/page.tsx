@@ -86,6 +86,41 @@ export default function TrendsPage() {
         </div>
       </div>
 
+      {/* COVID-19 Annotation */}
+      <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-5 mb-10">
+        <div className="flex items-start gap-3">
+          <div className="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0 mt-0.5">
+            <span className="text-blue-400 text-sm font-bold">!</span>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-blue-400 mb-1">2020&ndash;2021: COVID-19 Pandemic Impact</p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Federal continuous enrollment provisions and emergency funding dramatically expanded Medicaid during the pandemic.
+              The {formatMoney((() => { const y20 = trends.find((y: any) => y.year === 2021); const y19 = trends.find((y: any) => y.year === 2020); return y20 && y19 ? y20.payments - y19.payments : 0; })())} jump
+              from 2020 to 2021 was the largest single-year increase in the dataset, driven by surging enrollment and
+              pandemic-related healthcare spending.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 2024 Annotation */}
+      <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5 mb-10">
+        <div className="flex items-start gap-3">
+          <div className="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center shrink-0 mt-0.5">
+            <span className="text-amber-400 text-sm font-bold">!</span>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-amber-400 mb-1">2024: Medicaid Unwinding</p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              The end of pandemic-era continuous enrollment protections led to millions of disenrollments nationwide,
+              contributing to the first spending decline since the dataset began. States resumed eligibility redeterminations,
+              removing beneficiaries who no longer qualified or failed to complete paperwork.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Claims Chart */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 mb-10">
         <h2 className="text-sm font-bold text-white mb-6">Total Claims by Year</h2>
@@ -163,6 +198,44 @@ export default function TrendsPage() {
             Provider counts peaked at <span className="text-white font-medium">{formatNumber(Math.max(...trends.map((y: any) => y.providers)))}</span> in 2023,
             suggesting the growth in spending is driven by both more providers entering the system and existing providers billing more.
           </p>
+        </div>
+      </div>
+
+      {/* Key Takeaways */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
+        <h2 className="text-sm font-bold text-white mb-4">Key Takeaways</h2>
+        <ul className="space-y-3 text-sm text-slate-400 leading-relaxed">
+          <li className="flex items-start gap-2">
+            <span className="text-blue-400 mt-1 shrink-0">&bull;</span>
+            <span>Medicaid spending grew <span className="text-white font-medium">{totalGrowth.toFixed(0)}%</span> over seven years, from {formatMoney(firstYear.payments)} (2018) to a peak of {formatMoney(trends.find((y: any) => y.payments === maxPayments)?.payments || 0)} (2023) &mdash; far outpacing inflation.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-400 mt-1 shrink-0">&bull;</span>
+            <span>The COVID-19 pandemic was the single biggest accelerant, with federal continuous enrollment provisions and emergency funding driving the largest year-over-year increases in the dataset.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-400 mt-1 shrink-0">&bull;</span>
+            <span>The 2024 decline marks the first spending drop since the dataset began, coinciding with Medicaid unwinding and millions of disenrollments as states resumed eligibility checks.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-400 mt-1 shrink-0">&bull;</span>
+            <span>Rapid spending growth created opportunities for fraud &mdash; our analysis identifies <Link href="/watchlist" className="text-blue-400 hover:underline">1,860 providers</Link> with suspicious billing patterns that emerged during this expansion.</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Related Insights */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
+        <h2 className="text-sm font-bold text-white mb-4">Related Insights</h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <Link href="/insights/pandemic-profiteers" className="p-4 rounded-lg border border-dark-500/50 hover:border-blue-500/30 hover:bg-dark-700/50 transition-all group">
+            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Pandemic Profiteers</p>
+            <p className="text-xs text-slate-500 mt-1">Which providers saw the biggest billing increases during COVID-19?</p>
+          </Link>
+          <Link href="/insights/fastest-growing" className="p-4 rounded-lg border border-dark-500/50 hover:border-blue-500/30 hover:bg-dark-700/50 transition-all group">
+            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Fastest Growing Procedures</p>
+            <p className="text-xs text-slate-500 mt-1">Which procedure codes drove the biggest spending increases year over year?</p>
+          </Link>
         </div>
       </div>
 

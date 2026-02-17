@@ -323,6 +323,22 @@ const HCPCS_DESCRIPTIONS: Record<string, string> = {
   'T2041': 'Supports brokerage, self-directed; per 15 min',
   // Other procedure codes
   '0128': 'Insertion of brain-computer interface',
+  // Additional HCPCS codes
+  'S9484': 'Crisis intervention mental health services, per hour',
+  'H0032': 'Mental health service plan development',
+  'H0034': 'Medication training and management, per 15 min',
+  'A0380': 'BLS mileage, per mile',
+  'A0390': 'ALS mileage, per mile',
+  'S0280': 'Medical home program, comprehensive care management',
+  'S5165': 'Home modifications, per service',
+  'T2012': 'Habilitation, educational; per 15 min',
+  'T2048': 'Behavioral health; long-term residential, per diem',
+  'G0467': 'Federally qualified health center visit, mental health',
+  'G0506': 'Comprehensive assessment of chronic care management',
+  'D4341': 'Periodontal scaling, per quadrant',
+  'S9470': 'Nutritional counseling',
+  '96153': 'Health/behavior intervention, group',
+  '82075': 'Alcohol (ethanol) breath test',
 };
 
 // ── Decile/benchmark display helpers ─────────────────────────

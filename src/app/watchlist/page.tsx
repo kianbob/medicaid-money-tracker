@@ -277,14 +277,6 @@ export default function WatchlistPage() {
         </p>
       </div>
 
-      {/* Why This Matters */}
-      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
-        <h2 className="font-headline text-sm font-bold text-white mb-2">Why This Matters</h2>
-        <p className="text-sm text-slate-300 leading-relaxed">
-          These {allProviders.length} providers collectively received {formatMoney(totalFlaggedSpending)} in taxpayer-funded Medicaid payments between 2018 and 2024. While statistical flags do not prove wrongdoing, they highlight billing patterns that deviate significantly from national norms &mdash; patterns that compliance teams, state Medicaid agencies, and oversight bodies may want to review.
-        </p>
-      </div>
-
       {/* OIG Banner */}
       <div className="bg-amber-500/8 border border-amber-500/20 rounded-xl p-4 mb-8" role="alert">
         <div className="flex items-start gap-3">
