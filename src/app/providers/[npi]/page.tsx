@@ -247,6 +247,32 @@ export default function ProviderPage({ params }: Props) {
         </div>
       )}
 
+      {/* Provider Context */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+        <h2 className="text-sm font-bold text-white mb-2">Provider Context</h2>
+        <div className="space-y-1">
+          <p className="text-sm text-slate-300 leading-relaxed">
+            {name} is {specialty ? `a ${specialty} provider` : 'a Medicaid provider'} based in {city && state ? `${city}, ${state}` : state ? stateName(state) : 'an unknown location'}.
+          </p>
+          {(() => {
+            const years = Object.keys(yearlyData).sort();
+            if (years.length < 2 && monthly.length > 0) {
+              const firstYear = monthly[0]?.month?.substring(0, 4);
+              const lastYear = monthly[monthly.length - 1]?.month?.substring(0, 4);
+              if (firstYear && lastYear && firstYear !== lastYear) {
+                return <p className="text-sm text-slate-400 leading-relaxed">Active in Medicaid billing from {firstYear} to {lastYear}.</p>;
+              }
+            } else if (years.length >= 2) {
+              return <p className="text-sm text-slate-400 leading-relaxed">Active in Medicaid billing from {years[0]} to {years[years.length - 1]}.</p>;
+            }
+            return null;
+          })()}
+          {claimsPerBene >= 10 && (
+            <p className="text-sm text-slate-400 leading-relaxed">Averaging {claimsPerBene.toFixed(1)} claims per patient.</p>
+          )}
+        </div>
+      </div>
+
       {/* Fraud Alert — Rich flag cards */}
       {flagCount > 0 && (
         <div className={`border rounded-xl p-5 mb-8 ${riskBgColor(flagCount)}`} role="alert">
@@ -294,8 +320,15 @@ export default function ProviderPage({ params }: Props) {
               );
             })}
           </div>
+          {/* Why This Matters */}
+          <div className="bg-dark-800/60 border border-slate-500/20 rounded-lg px-4 py-3 mt-4">
+            <p className="text-xs font-bold text-white mb-1">Why This Matters</p>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              This provider received {formatMoney(totalPaid)} in taxpayer-funded Medicaid payments. The billing patterns identified here suggest this provider warrants further review by compliance teams or oversight agencies.
+            </p>
+          </div>
           <p className="text-[10px] text-slate-500 mt-3">
-            Statistical flags are not proof of wrongdoing. Some entities (government agencies, home care programs) may legitimately bill at high rates. <Link href="/about" className="text-blue-400 hover:underline">Read our methodology</Link>.
+            Statistical flags are not proof of wrongdoing. Some entities (government agencies, home care programs) may legitimately bill at high rates. Hospitals, government entities, and large care organizations may legitimately bill at higher rates due to patient acuity, overhead costs, or specialized services. <Link href="/about" className="text-blue-400 hover:underline">Read our methodology</Link>.
           </p>
         </div>
       )}
@@ -421,6 +454,21 @@ export default function ProviderPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Peer Comparison */}
+      {totalPaid > 0 && (() => {
+        const rank = (topProviders as any[]).findIndex((p: any) => p.npi === npi) + 1;
+        const totalProviders = (stats as any).providers;
+        const topPct = rank > 0 ? (rank / totalProviders) * 100 : 0;
+        return rank > 0 ? (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 mb-6">
+            <p className="text-sm text-slate-300 leading-relaxed">
+              <span className="text-white font-bold">#{rank}</span> of {formatNumber(totalProviders)} providers by total spending
+              <span className="text-slate-500 ml-1">(top {topPct < 0.1 ? '<0.1' : topPct.toFixed(1)}%)</span>
+            </p>
+          </div>
+        ) : null;
+      })()}
+
       {/* Analysis Narrative */}
       {detail?.narrative && detail.narrative.length > 0 && (() => {
         const borderColors: Record<string, string> = {
@@ -476,16 +524,6 @@ export default function ProviderPage({ params }: Props) {
             <span className="text-[10px] text-slate-500">since first billing year</span>
           </div>
         )}
-        {totalPaid > 0 && (() => {
-          const rank = (topProviders as any[]).findIndex((p: any) => p.npi === npi) + 1;
-          const topPct = rank > 0 ? (rank / (stats as any).providers) * 100 : 100;
-          return rank > 0 ? (
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border bg-dark-800 border-dark-500/50">
-              <span className="text-sm font-semibold text-white">#{rank}</span>
-              <span className="text-[10px] text-slate-500">of {formatNumber((stats as any).providers)} providers by spending (top {topPct < 0.1 ? '<0.1' : topPct.toFixed(1)}%)</span>
-            </div>
-          ) : null;
-        })()}
       </div>
 
       {/* Monthly Trend */}
@@ -570,6 +608,18 @@ export default function ProviderPage({ params }: Props) {
           <div className="px-5 py-4 border-b border-dark-500/50">
             <h2 className="text-sm font-bold text-white">Procedure Breakdown</h2>
             <p className="text-[10px] text-slate-500 mt-0.5">Cost per claim compared to national benchmarks</p>
+            {(() => {
+              const topProc = procedures[0];
+              const topCode = topProc?.code || '';
+              const topPct = totalPaid > 0 ? ((topProc?.payments || 0) / totalPaid * 100) : 0;
+              const desc = hcpcsDescription(topCode);
+              const topLabel = desc ? `${topCode} (${desc})` : topCode;
+              return (
+                <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  This provider bills for {procedures.length} distinct procedure code{procedures.length !== 1 ? 's' : ''}. The top code ({topLabel}) accounts for {topPct.toFixed(0)}% of total spending.
+                </p>
+              );
+            })()}
           </div>
 
           {/* Table header */}
