@@ -96,6 +96,19 @@ function buildFlagExplanation(flag: string, details: any): string {
   }
 }
 
+// Load advanced detection datasets (once at module level)
+function loadJsonArray(filename: string): any[] {
+  try {
+    const p = path.join(process.cwd(), "public", "data", filename);
+    if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, "utf-8"));
+  } catch {}
+  return [];
+}
+const impossibleVolumeMap = new Map<string, any>(loadJsonArray("impossible-volume.json").map((d: any) => [d.npi, d]));
+const benfordFlagsMap = new Map<string, any>(loadJsonArray("benford-flags.json").map((d: any) => [d.npi, d]));
+const changePointsMap = new Map<string, any>(loadJsonArray("change-points.json").map((d: any) => [d.npi, d]));
+const suspiciousConcentrationMap = new Map<string, any>(loadJsonArray("suspicious-concentration.json").map((d: any) => [d.npi, d]));
+
 export default function ProviderPage({ params }: Props) {
   const { npi } = params;
 
@@ -380,6 +393,39 @@ export default function ProviderPage({ params }: Props) {
           </div>
         </details>
       )}
+
+      {/* Advanced Detection Signals */}
+      {flagCount > 0 && (() => {
+        const ivEntry = impossibleVolumeMap.get(npi);
+        const bfEntry = benfordFlagsMap.get(npi);
+        const cpEntry = changePointsMap.get(npi);
+        const scEntry = suspiciousConcentrationMap.get(npi);
+        if (!ivEntry && !bfEntry && !cpEntry && !scEntry) return null;
+
+        const signals: { label: string; value: string; color: string; bg: string }[] = [];
+        if (ivEntry) signals.push({ label: 'Billing Velocity', value: `${ivEntry.claimsPerDay.toFixed(1)} claims/working day`, color: 'text-red-400', bg: 'bg-red-500/10 border-red-500/25' });
+        if (bfEntry) signals.push({ label: "Benford's Law", value: `Chi-squared: ${bfEntry.chiSquared.toFixed(1)}`, color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/25' });
+        if (cpEntry) signals.push({ label: 'Change Point', value: `Billing shifted ${cpEntry.ratio.toFixed(1)}x in ${cpEntry.changeMonth}`, color: 'text-yellow-400', bg: 'bg-yellow-500/10 border-yellow-500/25' });
+        if (scEntry) signals.push({ label: 'Concentration', value: `HHI: ${scEntry.hhiIndex.toFixed(0)} on ${scEntry.codeCount} codes`, color: 'text-purple-400', bg: 'bg-purple-500/10 border-purple-500/25' });
+
+        return (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+            <h2 className="text-sm font-bold text-white mb-3">Advanced Detection Signals</h2>
+            <p className="text-[10px] text-slate-500 mb-3">Additional statistical tests from advanced fraud detection methods</p>
+            <div className="flex flex-wrap gap-2">
+              {signals.map((s) => (
+                <div key={s.label} className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${s.bg}`}>
+                  <span className={`text-xs font-semibold ${s.color}`}>{s.label}</span>
+                  <span className="text-[10px] text-slate-400">{s.value}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-[10px] text-slate-600 mt-3">
+              These signals use advanced statistical methods including digit distribution analysis, change-point detection, and market concentration metrics. <Link href="/analysis" className="text-blue-400 hover:underline">Learn more</Link>.
+            </p>
+          </div>
+        );
+      })()}
 
       {/* Risk Assessment — plain-English summary */}
       {flagCount > 0 && procedures.length > 0 && (() => {
