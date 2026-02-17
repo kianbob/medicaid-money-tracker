@@ -122,6 +122,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/ml-analysis" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   ML Methodology
                 </Link>
+                <Link href="/compare" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
+                  Compare
+                </Link>
                 <Link href="/about" className="text-[13px] font-medium text-slate-400 hover:text-white hover:bg-dark-600 px-3 py-1.5 rounded-md transition-all">
                   About
                 </Link>
@@ -165,6 +168,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Link href="/trends" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       Trends
                     </Link>
+                    <Link href="/compare" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
+                      Compare
+                    </Link>
                     <Link href="/about" className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-dark-600 hover:text-white transition-colors">
                       About
                     </Link>
@@ -187,6 +193,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/states" className="block text-slate-500 hover:text-blue-400 transition-colors">States</Link>
                   <Link href="/procedures" className="block text-slate-500 hover:text-blue-400 transition-colors">Procedures</Link>
                   <Link href="/trends" className="block text-slate-500 hover:text-blue-400 transition-colors">Trends</Link>
+                  <Link href="/compare" className="block text-slate-500 hover:text-blue-400 transition-colors">Compare</Link>
+                  <Link href="/downloads" className="block text-slate-500 hover:text-blue-400 transition-colors">Downloads</Link>
                 </div>
               </div>
               <div>
