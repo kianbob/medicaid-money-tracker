@@ -30,6 +30,8 @@ export default function ProceduresPage() {
         const bCpc = b.totalClaims > 0 ? b.totalPaid / b.totalClaims : 0;
         return bCpc - aCpc;
       });
+    } else if (sortBy === "providers") {
+      result = [...result].sort((a, b) => (b.providerCount || 0) - (a.providerCount || 0));
     }
     // default "spending" — data is already sorted by totalPaid desc
     return result;
@@ -72,6 +74,7 @@ export default function ProceduresPage() {
           <option value="code">Code A-Z</option>
           <option value="claims">Most Claims</option>
           <option value="cpc">Highest Cost Per Claim</option>
+          <option value="providers">Most Providers</option>
         </select>
       </div>
 
