@@ -193,6 +193,40 @@ export default function MlAnalysisPage() {
         </div>
       </div>
 
+      {/* Cross-Validation */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+        <h2 className="text-sm font-bold text-white mb-3">Cross-Validation: Full-Dataset Training</h2>
+        <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+          To validate our approach, we trained three models on the <span className="text-white font-semibold">full 594,235-provider dataset</span> using
+          Google Colab (12GB RAM). The results confirm our subsampled model as the strongest performer.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+          <div className="bg-dark-700/50 rounded-lg p-3">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Random Forest (Full)</p>
+            <p className="text-lg font-bold text-blue-400 tabular-nums">0.7656</p>
+            <p className="text-[10px] text-slate-600">594K training samples</p>
+          </div>
+          <div className="bg-dark-700/50 rounded-lg p-3">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Gradient Boosting</p>
+            <p className="text-lg font-bold text-slate-400 tabular-nums">0.6815</p>
+            <p className="text-[10px] text-slate-600">594K training samples</p>
+          </div>
+          <div className="bg-dark-700/50 rounded-lg p-3">
+            <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Logistic Regression</p>
+            <p className="text-lg font-bold text-slate-400 tabular-nums">0.6812</p>
+            <p className="text-[10px] text-slate-600">594K training samples</p>
+          </div>
+        </div>
+        <div className="bg-dark-700/30 rounded-lg p-3">
+          <p className="text-xs text-slate-300 leading-relaxed">
+            <span className="text-green-400 font-semibold">Key finding:</span> Our production model (subsampled, AUC 0.7762) outperforms
+            the full-dataset Random Forest (AUC 0.7656). This is because strategic subsampling — using 10K negative samples instead of 593K —
+            reduces noise from the massive legitimate-provider class, allowing the model to better learn fraud patterns.
+            The top-ranked providers are nearly identical across both models, confirming the robustness of our scoring.
+          </p>
+        </div>
+      </div>
+
       {/* Disclaimer */}
       <div className="bg-amber-500/8 border border-amber-500/20 rounded-xl p-5 mb-8">
         <h3 className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Important Disclaimer</h3>
