@@ -57,7 +57,7 @@ export default function BillingNetworks() {
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">5 min read</span>
         </div>
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           65% of Medicaid Payments Flow Through Intermediary Billers
         </h1>
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
@@ -257,6 +257,9 @@ export default function BillingNetworks() {
       <div className="border-t border-dark-500/50 pt-8">
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS T-MSIS Other Services File (2018&ndash;2024) &middot; 227M records</p>
+          <div className="flex items-center gap-3">
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("65% of Medicaid payments flow through intermediary billers. 174,774 NPIs bill but never provide services. Cleveland Clinic bills for 5,745 providers.")}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/billing-networks")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+          </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
         <div className="grid sm:grid-cols-2 gap-3">

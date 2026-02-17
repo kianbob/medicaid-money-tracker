@@ -36,7 +36,7 @@ export default function CovidVaccines() {
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">4 min read</span>
         </div>
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           Who Got Paid the Most to Give COVID Vaccines?
         </h1>
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">

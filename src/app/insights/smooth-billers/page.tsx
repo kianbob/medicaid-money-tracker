@@ -57,7 +57,7 @@ export default function SmoothBillers() {
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">4 min read</span>
         </div>
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           14 Providers Bill Like Clockwork &mdash; Is That Normal?
         </h1>
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
@@ -314,6 +314,9 @@ export default function SmoothBillers() {
       <div className="border-t border-dark-500/50 pt-8">
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS T-MSIS Other Services File (2018&ndash;2024) &middot; 227M records</p>
+          <div className="flex items-center gap-3">
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("14 Medicaid providers billing $100K+/month maintain less than 5% variation for years. Normal practices vary 15-40%. These are under 5%.")}&url=${encodeURIComponent("https://medicaidmoneytracker.com/insights/smooth-billers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+          </div>
         </div>
         <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
         <div className="grid sm:grid-cols-2 gap-3">

@@ -294,6 +294,10 @@ const HCPCS_DESCRIPTIONS: Record<string, string> = {
   'J9299': 'Nivolumab (Opdivo) injection, 1 mg',
   'J0222': 'Patisiran (Onpattro) injection, 0.1 mg',
   'J2350': 'Ocrelizumab (Ocrevus) injection, 1 mg',
+  'J0584': 'Burosumab-twza (Crysvita) injection, 1 mg',
+  'Q4205': 'Membrane graft or membrane wrap, per sq cm',
+  'J7192': 'Factor VIII (recombinant antihemophilic factor), per IU',
+  'J3357': 'Ustekinumab (Stelara) injection, 1 mg',
   // Fast-growing procedure codes
   'S5121': 'Attendant care services, in-home, per 15 min',
   'W1793': 'State-defined waiver service',

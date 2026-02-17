@@ -32,7 +32,7 @@ export default function TopDoctors() {
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">3 min read</span>
         </div>
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           The Highest-Paid Individual Medicaid Providers
         </h1>
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
@@ -138,20 +138,20 @@ export default function TopDoctors() {
               <span className="text-indigo-400 font-semibold tabular-nums">{formatMoney(individualsData[0].totalPaid)}</span>
             </div>
             <div className="w-full bg-dark-600 rounded-full h-2 overflow-hidden">
-              <div className="bg-indigo-500 h-full rounded-full" style={{ width: '5.6%' }} />
+              <div className="bg-indigo-500 h-full rounded-full" style={{ width: '1.1%' }} />
             </div>
           </div>
           <div>
             <div className="flex justify-between text-sm mb-1">
               <span className="text-slate-400">Top organization (Public Partnerships LLC)</span>
-              <span className="text-white font-semibold tabular-nums">$1.38B</span>
+              <span className="text-white font-semibold tabular-nums">$7.18B</span>
             </div>
             <div className="w-full bg-dark-600 rounded-full h-2 overflow-hidden">
               <div className="bg-white h-full rounded-full" style={{ width: '100%' }} />
             </div>
           </div>
         </div>
-        <p className="text-xs text-slate-600 mt-3">The top organization billed 18x more than the top individual.</p>
+        <p className="text-xs text-slate-600 mt-3">The top organization billed 93x more than the top individual.</p>
       </div>
 
       {/* Key Takeaways */}
@@ -168,7 +168,7 @@ export default function TopDoctors() {
           </li>
           <li className="flex items-start gap-2">
             <span className="text-indigo-400 mt-0.5">&#9656;</span>
-            <span>The top organization (Public Partnerships LLC) billed <span className="text-white font-semibold">18x more</span> than the top individual.</span>
+            <span>The top organization (Public Partnerships LLC) billed <span className="text-white font-semibold">93x more</span> than the top individual.</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-indigo-400 mt-0.5">&#9656;</span>
