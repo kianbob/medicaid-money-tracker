@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, useEffect, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { formatMoney, formatNumber, formatCpc, flagLabel, flagColor, getFlagInfo, hcpcsDescription } from "@/lib/format";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
@@ -179,14 +180,40 @@ function formatFlagDetail(flag: string, details: any): string {
 type SortOption = 'risk' | 'flags' | 'spending' | 'name' | 'ml';
 type TabOption = 'all' | 'stat' | 'ml';
 
+const VALID_TABS: TabOption[] = ['all', 'stat', 'ml'];
+
 export default function WatchlistPage() {
+  return (
+    <Suspense fallback={<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"><p className="text-slate-400">Loading watchlist...</p></div>}>
+      <WatchlistContent />
+    </Suspense>
+  );
+}
+
+function WatchlistContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Read initial values from URL
+  const initialTab = VALID_TABS.includes(searchParams.get('tab') as TabOption) ? searchParams.get('tab') as TabOption : 'all';
+  const initialState = searchParams.get('state') || 'all';
+
   const allProviders = useMemo(() => getMergedProviders(), []);
-  const [activeTab, setActiveTab] = useState<TabOption>("all");
+  const [activeTab, setActiveTab] = useState<TabOption>(initialTab);
   const [riskFilter, setRiskFilter] = useState<string>("all");
   const [flagFilter, setFlagFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState<SortOption>("risk");
-  const [stateFilter, setStateFilter] = useState<string>("all");
+  const [sortBy, setSortBy] = useState<SortOption>(initialTab === 'ml' ? 'ml' : 'risk');
+  const [stateFilter, setStateFilter] = useState<string>(initialState);
+
+  // Update URL when tab or state changes
+  const updateUrl = useCallback((tab: TabOption, state: string) => {
+    const params = new URLSearchParams();
+    if (tab !== 'all') params.set('tab', tab);
+    if (state !== 'all') params.set('state', state);
+    const qs = params.toString();
+    router.replace(`/watchlist${qs ? `?${qs}` : ''}`, { scroll: false });
+  }, [router]);
 
   // Split providers by detection method
   const statProviders = useMemo(() => allProviders.filter(p => p.flagCount > 0), [allProviders]);
@@ -206,6 +233,7 @@ export default function WatchlistPage() {
     setFlagFilter("all");
     setSortBy(tab === 'ml' ? 'ml' : 'risk');
     setVisibleCount(50);
+    updateUrl(tab, stateFilter);
   };
 
   // Extract unique states for filter dropdown
@@ -486,7 +514,7 @@ export default function WatchlistPage() {
           <select
             id="state-select"
             value={stateFilter}
-            onChange={(e) => setStateFilter(e.target.value)}
+            onChange={(e) => { setStateFilter(e.target.value); updateUrl(activeTab, e.target.value); }}
             className="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 transition-colors"
           >
             <option value="all">All States</option>

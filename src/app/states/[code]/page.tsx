@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName, hcpcsDescription, getFlagInfo, riskColor, riskBgColor } from "@/lib/format";
 import { StateSpendingChart } from "@/components/Charts";
+import StateProviderList from "@/components/StateProviderList";
 import statesSummary from "../../../../public/data/states-summary.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
@@ -151,34 +152,7 @@ export default function StateDetailPage({ params }: Props) {
 
       {/* Top Providers */}
       {providers.length > 0 && (
-        <div className="mb-10">
-          <h2 className="text-sm font-bold text-white mb-4">Top Providers in {name}</h2>
-          <div className="space-y-1.5">
-            {providers.slice(0, 20).map((p: any, i: number) => (
-              <Link key={p.npi} href={`/providers/${p.npi}`}
-                className="flex items-center gap-3 bg-dark-800 border border-dark-500/50 rounded-lg px-4 py-3 hover:bg-dark-700 hover:border-dark-400 transition-all group">
-                <span className="text-xs font-bold text-slate-600 w-6 text-right tabular-nums">{i + 1}</span>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm text-white font-medium truncate group-hover:text-blue-400 transition-colors">{toTitleCase(p.name) || `NPI: ${p.npi}`}</p>
-                  {(p.specialty || p.city) && (
-                    <p className="text-[10px] text-slate-500 mt-0.5">
-                      {p.specialty ? <span className="text-slate-400">{toTitleCase(p.specialty).substring(0, 50)}</span> : null}
-                      {p.specialty && p.city ? ' \u00b7 ' : ''}
-                      {p.city ? toTitleCase(p.city) : ''}
-                    </p>
-                  )}
-                </div>
-                <div className="text-right shrink-0">
-                  <p className="text-sm text-white font-bold tabular-nums">{formatMoney(p.total_payments || p.totalPaid || 0)}</p>
-                  <p className="text-[10px] text-slate-600 tabular-nums">{formatNumber(p.total_claims || p.totalClaims || 0)} claims</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-          {providers.length > 20 && (
-            <p className="text-xs text-slate-500 mt-3 text-center">Showing top 20 of {providers.length} providers</p>
-          )}
-        </div>
+        <StateProviderList providers={providers} stateName={name} />
       )}
 
       {/* Flagged Providers in State */}
