@@ -460,4 +460,4 @@ export function StateProcedurePieChart({ data }: { data: StateProcDatum[] }) {
   );
 }
 
-export { PROC_COLORS };
+// PROC_COLORS moved inline to server components that need it

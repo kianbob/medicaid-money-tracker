@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName, hcpcsDescription, getFlagInfo, riskColor, riskBgColor } from "@/lib/format";
-import { StateSpendingChart, StateProcedurePieChart, PROC_COLORS } from "@/components/Charts";
+import { StateSpendingChart, StateProcedurePieChart } from "@/components/Charts";
+
+const PROC_COLORS = ["#3b82f6", "#8b5cf6", "#f59e0b", "#10b981", "#ef4444"];
 import StateProviderList from "@/components/StateProviderList";
 import statesSummary from "../../../../public/data/states-summary.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
