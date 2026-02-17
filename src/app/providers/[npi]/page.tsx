@@ -6,6 +6,7 @@ import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import stats from "../../../../public/data/stats.json";
 import mlScores from "../../../../public/data/ml-scores.json";
+import specialtyBenchmarks from "../../../../public/data/specialty-benchmarks.json";
 import fs from "fs";
 import path from "path";
 
@@ -350,6 +351,104 @@ export default function ProviderPage({ params }: Props) {
             </p>
           </div>
         ) : null;
+      })()}
+
+      {/* Specialty Peer Comparison */}
+      {totalPaid > 0 && specialty && (() => {
+        const bench = (specialtyBenchmarks as Record<string, any>)[specialty];
+        if (!bench || bench.count < 5) return null;
+
+        // Determine percentile position
+        let percentileLabel = '';
+        let warningLevel: 'none' | 'amber' | 'red' = 'none';
+        if (totalPaid >= bench.p99) {
+          percentileLabel = '99th';
+          warningLevel = 'red';
+        } else if (totalPaid >= bench.p90) {
+          percentileLabel = '90th';
+          warningLevel = 'amber';
+        } else if (totalPaid >= bench.p75) {
+          percentileLabel = '75th';
+        } else if (totalPaid >= bench.median) {
+          percentileLabel = '50th';
+        } else if (totalPaid >= bench.p25) {
+          percentileLabel = '25th';
+        } else {
+          percentileLabel = 'below 25th';
+        }
+
+        // Calculate marker position on the bar (0-100%)
+        // Use log scale for better visual distribution since spending ranges are huge
+        const logScale = (val: number) => Math.log10(Math.max(val, 1));
+        const logMin = logScale(bench.p25 * 0.5);
+        const logMax = logScale(bench.p99 * 1.2);
+        const logRange = logMax - logMin;
+        const toPosition = (val: number) => Math.max(0, Math.min(100, ((logScale(val) - logMin) / logRange) * 100));
+
+        const p25Pos = toPosition(bench.p25);
+        const medianPos = toPosition(bench.median);
+        const p75Pos = toPosition(bench.p75);
+        const p90Pos = toPosition(bench.p90);
+        const providerPos = toPosition(totalPaid);
+
+        return (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+            <h2 className="text-sm font-bold text-white mb-1">Compared to {specialty} Peers</h2>
+            <p className="text-[10px] text-slate-500 mb-4">Total spending distribution among {formatNumber(bench.count)} providers in this specialty</p>
+
+            {/* Horizontal benchmark bar */}
+            <div className="relative mb-4">
+              {/* Track */}
+              <div className="relative h-3 bg-dark-600 rounded-full overflow-visible">
+                {/* Interquartile range (p25-p75) */}
+                <div
+                  className="absolute top-0 h-full bg-slate-500/25 rounded-full"
+                  style={{ left: `${p25Pos}%`, width: `${p75Pos - p25Pos}%` }}
+                />
+
+                {/* Marker: P25 */}
+                <div className="absolute top-0 h-full w-px bg-slate-500/60" style={{ left: `${p25Pos}%` }} />
+                {/* Marker: Median */}
+                <div className="absolute top-0 h-full w-0.5 bg-slate-400/80" style={{ left: `${medianPos}%` }} />
+                {/* Marker: P75 */}
+                <div className="absolute top-0 h-full w-px bg-slate-500/60" style={{ left: `${p75Pos}%` }} />
+                {/* Marker: P90 */}
+                <div className="absolute top-0 h-full w-px bg-amber-500/50" style={{ left: `${p90Pos}%` }} />
+
+                {/* Provider marker */}
+                <div
+                  className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 ${warningLevel === 'red' ? 'bg-red-400 border-red-300' : warningLevel === 'amber' ? 'bg-amber-400 border-amber-300' : 'bg-blue-400 border-blue-300'}`}
+                  style={{ left: `${providerPos}%`, transform: `translate(-50%, -50%)` }}
+                />
+              </div>
+
+              {/* Labels under the bar */}
+              <div className="relative h-4 mt-1">
+                <span className="absolute text-[9px] text-slate-500 -translate-x-1/2" style={{ left: `${p25Pos}%` }}>P25</span>
+                <span className="absolute text-[9px] text-slate-400 font-semibold -translate-x-1/2" style={{ left: `${medianPos}%` }}>Median</span>
+                <span className="absolute text-[9px] text-slate-500 -translate-x-1/2" style={{ left: `${p75Pos}%` }}>P75</span>
+                <span className="absolute text-[9px] text-amber-500/70 -translate-x-1/2" style={{ left: `${p90Pos}%` }}>P90</span>
+              </div>
+            </div>
+
+            {/* Text summary */}
+            <p className="text-sm text-slate-300 leading-relaxed">
+              This provider&apos;s total spending of <span className="text-white font-semibold">{formatMoney(totalPaid)}</span> is at the <span className="text-white font-semibold">{percentileLabel} percentile</span> among {formatNumber(bench.count)} {specialty} providers.
+            </p>
+
+            {/* Warning text */}
+            {warningLevel === 'red' && (
+              <p className="text-xs text-red-400 font-semibold mt-2">
+                Above 99th percentile for this specialty &mdash; higher spending than {Math.floor(bench.count * 0.99)} of {formatNumber(bench.count)} peers
+              </p>
+            )}
+            {warningLevel === 'amber' && (
+              <p className="text-xs text-amber-400 font-semibold mt-2">
+                Above 90th percentile for this specialty &mdash; higher spending than {Math.floor(bench.count * 0.9)} of {formatNumber(bench.count)} peers
+              </p>
+            )}
+          </div>
+        );
       })()}
 
       {/* Active Billing Period */}
