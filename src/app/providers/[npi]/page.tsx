@@ -247,32 +247,6 @@ export default function ProviderPage({ params }: Props) {
         </div>
       )}
 
-      {/* Provider Context */}
-      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
-        <h2 className="text-sm font-bold text-white mb-2">Provider Context</h2>
-        <div className="space-y-1">
-          <p className="text-sm text-slate-300 leading-relaxed">
-            {name} is {specialty ? `a ${specialty} provider` : 'a Medicaid provider'} based in {city && state ? `${city}, ${state}` : state ? stateName(state) : 'an unknown location'}.
-          </p>
-          {(() => {
-            const years = Object.keys(yearlyData).sort();
-            if (years.length < 2 && monthly.length > 0) {
-              const firstYear = monthly[0]?.month?.substring(0, 4);
-              const lastYear = monthly[monthly.length - 1]?.month?.substring(0, 4);
-              if (firstYear && lastYear && firstYear !== lastYear) {
-                return <p className="text-sm text-slate-400 leading-relaxed">Active in Medicaid billing from {firstYear} to {lastYear}.</p>;
-              }
-            } else if (years.length >= 2) {
-              return <p className="text-sm text-slate-400 leading-relaxed">Active in Medicaid billing from {years[0]} to {years[years.length - 1]}.</p>;
-            }
-            return null;
-          })()}
-          {claimsPerBene >= 10 && (
-            <p className="text-sm text-slate-400 leading-relaxed">Averaging {claimsPerBene.toFixed(1)} claims per patient.</p>
-          )}
-        </div>
-      </div>
-
       {/* Fraud Alert — Rich flag cards */}
       {flagCount > 0 && (
         <div className={`border rounded-xl p-5 mb-8 ${riskBgColor(flagCount)}`} role="alert">
@@ -320,14 +294,7 @@ export default function ProviderPage({ params }: Props) {
               );
             })}
           </div>
-          {/* Why This Matters */}
-          <div className="bg-dark-800/60 border border-slate-500/20 rounded-lg px-4 py-3 mt-4">
-            <p className="text-xs font-bold text-white mb-1">Why This Matters</p>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              This provider received {formatMoney(totalPaid)} in taxpayer-funded Medicaid payments. The billing patterns identified here suggest this provider warrants further review by compliance teams or oversight agencies.
-            </p>
-          </div>
-          <p className="text-[10px] text-slate-500 mt-3">
+          <p className="text-[10px] text-slate-500 mt-4">
             Statistical flags are not proof of wrongdoing. Some entities (government agencies, home care programs) may legitimately bill at high rates. Hospitals, government entities, and large care organizations may legitimately bill at higher rates due to patient acuity, overhead costs, or specialized services. <Link href="/about" className="text-blue-400 hover:underline">Read our methodology</Link>.
           </p>
         </div>
