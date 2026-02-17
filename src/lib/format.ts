@@ -1,3 +1,5 @@
+import codeDescriptions from '../../public/data/code-descriptions.json';
+
 export function formatMoney(n: number): string {
   if (n >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
   if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
@@ -351,7 +353,7 @@ export function formatCpc(n: number | null | undefined): string {
 }
 
 export function hcpcsDescription(code: string): string {
-  return HCPCS_DESCRIPTIONS[code] || '';
+  return HCPCS_DESCRIPTIONS[code] || (codeDescriptions as Record<string, string>)[code] || '';
 }
 
 export function allHcpcsCodes(): Array<{ code: string; desc: string }> {
