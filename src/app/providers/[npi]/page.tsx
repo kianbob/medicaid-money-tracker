@@ -170,7 +170,7 @@ export default function ProviderPage({ params }: Props) {
   if (!detail && !providerEntry && !smartEntry) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">Limited Data Available</h1>
+        <h1 className="font-headline text-3xl font-bold text-white mb-4">Limited Data Available</h1>
         <p className="text-slate-400 mb-2">This provider ranks outside our top analyzed providers. Limited data available.</p>
         <p className="text-slate-500 text-sm mb-6">NPI {npi} is not in our top 1,000 by total spending. Browse our top providers or search by state for more coverage.</p>
         <div className="flex flex-wrap gap-3 justify-center">

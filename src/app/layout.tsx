@@ -12,8 +12,11 @@ export const metadata: Metadata = {
     default: "Medicaid Money Tracker \u2014 Follow the Money",
     template: "%s \u2014 Medicaid Money Tracker",
   },
-  description: "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers and 10,881 procedure codes. 1,860+ providers flagged by 13 fraud detection tests and ML analysis. Built from 227 million HHS records (2018\u20132024).",
-  metadataBase: new URL("https://medicaidmoneytracker.com"),
+  description: "Explore $1.09 trillion in Medicaid spending across 227M billing records. 1,860 providers flagged by statistical analysis and machine learning. Search providers, procedures, and states.",
+  metadataBase: new URL("https://medicaid-money-tracker.vercel.app"),
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: "Medicaid Money Tracker \u2014 $1.09 Trillion in Spending, Exposed",
     description: "We analyzed 227 million Medicaid billing records and flagged 1,860+ providers using 13 fraud detection tests and ML analysis. See where your healthcare tax dollars go.",
@@ -43,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Medicaid Money Tracker",
-              "url": "https://medicaidmoneytracker.com",
+              "url": "https://medicaid-money-tracker.vercel.app",
               "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 1,860+ providers flagged by 13 fraud detection tests and ML analysis.",
               "publisher": {
                 "@type": "Organization",
@@ -61,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "Dataset",
               "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
               "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 13 fraud detection tests and ML analysis flagging 1,860+ providers.",
-              "url": "https://medicaidmoneytracker.com",
+              "url": "https://medicaid-money-tracker.vercel.app",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "isBasedOn": {
                 "@type": "Dataset",

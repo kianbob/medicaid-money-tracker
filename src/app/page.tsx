@@ -142,7 +142,7 @@ export default function Home() {
                   Featured Investigation
                 </span>
                 <span className="inline-flex items-center bg-red-500/15 border border-red-500/30 rounded-full px-3 py-1 text-[10px] font-bold text-red-400 uppercase tracking-wider">
-                  Critical Risk &middot; 4 Flags
+                  Critical Risk &middot; 7 Flags
                 </span>
               </div>
               <p className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 tabular-nums mb-3 animate-count">
@@ -152,12 +152,12 @@ export default function Home() {
                 Community Assistance Resources &amp; Extended Services INC grew from $1.6M to $112.6M in one year
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed max-w-2xl mb-4">
-                A <span className="text-amber-400 font-semibold">6,886% spending increase</span> in a single year while billing <span className="text-amber-400 font-semibold">4.5&times; the median rate</span> for skills training services. Flagged by 4 of our 13 statistical fraud tests.
+                A <span className="text-amber-400 font-semibold">6,886% spending increase</span> in a single year while billing <span className="text-amber-400 font-semibold">4.5&times; the median rate</span> for skills training services. Flagged by 7 of our 13 statistical fraud tests.
               </p>
               <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500">
                 <span>NPI: 1396049987</span>
                 <span>&middot;</span>
-                <span>MN</span>
+                <span>NY</span>
                 <span>&middot;</span>
                 <span className="text-amber-400 font-medium group-hover:text-amber-300 transition-colors">
                   View full profile &rarr;

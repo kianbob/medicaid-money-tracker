@@ -4,7 +4,7 @@ import { getFlagInfo } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "About & Methodology \u2014 How We Detect Medicaid Fraud",
-  description: "How we built the Medicaid Money Tracker: data sources, code-specific fraud detection, decile analysis, OIG cross-reference, Minnesota autism fraud context, and important caveats. Analyzing 227 million HHS records.",
+  description: "How we analyzed 227 million Medicaid billing records from HHS to identify statistical anomalies. Methodology, data sources, and FAQ.",
   openGraph: {
     title: "About & Methodology \u2014 Medicaid Money Tracker",
     description: "How we analyzed 227M Medicaid billing records with code-specific fraud detection. OIG cross-referencing, transparent methodology, and important caveats.",

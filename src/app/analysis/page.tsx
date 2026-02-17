@@ -35,9 +35,14 @@ export default function AnalysisPage() {
   }
   const totalFlagged = allNpis.size;
 
-  const smartCritical = smart.filter(w => (w.flagCount || w.flags?.length || 0) >= 3).length;
-  const smartHigh = smart.filter(w => (w.flagCount || w.flags?.length || 0) === 2).length;
-  const smartModerate = smart.filter(w => (w.flagCount || w.flags?.length || 0) === 1).length;
+  // Count risk tiers across both watchlists (deduplicated)
+  const oldOnly = old.filter(w => !new Set(smart.map((s: any) => s.npi)).has(w.npi));
+  const smartCritical = smart.filter(w => (w.flagCount || w.flags?.length || 0) >= 3).length
+    + oldOnly.filter((w: any) => (w.flag_count || w.flags?.length || 0) >= 3).length;
+  const smartHigh = smart.filter(w => (w.flagCount || w.flags?.length || 0) === 2).length
+    + oldOnly.filter((w: any) => (w.flag_count || w.flags?.length || 0) === 2).length;
+  const smartModerate = smart.filter(w => (w.flagCount || w.flags?.length || 0) === 1).length
+    + oldOnly.filter((w: any) => (w.flag_count || w.flags?.length || 0) === 1).length;
 
   // Count smart flags
   const smartFlagCounts: Record<string, number> = {};

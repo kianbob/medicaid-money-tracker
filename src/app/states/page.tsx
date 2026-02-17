@@ -4,10 +4,10 @@ import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import statesSummary from "../../../public/data/states-summary.json";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending by State",
-  description: "Explore Medicaid provider spending across all 50 states. See which states have the highest payments, most providers, and spending trends from 2018-2024.",
+  title: "Medicaid Spending by State \u2014 All 50 States | Medicaid Money Tracker",
+  description: "Medicaid provider spending across all 50 states, ranked by total payments. New York leads at $81.1B. See top providers, procedures, and yearly trends for each state.",
   openGraph: {
-    title: "Medicaid Spending by State \u2014 Medicaid Money Tracker",
+    title: "Medicaid Spending by State \u2014 All 50 States",
     description: "State-by-state breakdown of Medicaid provider spending. New York leads with $81.1B, followed by California at $36.8B.",
   },
 };

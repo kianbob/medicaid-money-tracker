@@ -4,11 +4,11 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import yearlyTrends from "../../../public/data/yearly-trends.json";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending Trends (2018\u20132024)",
-  description: "Year-over-year Medicaid spending trends from 2018 to 2024. Track how $1.09 trillion in payments grew over time, with provider counts, claim volumes, and growth rates.",
+  title: "Medicaid Spending Trends 2018\u20132024 | Medicaid Money Tracker",
+  description: "Medicaid spending grew 70% from $108.7B (2018) to $185.0B (2024). Year-by-year breakdown with provider counts, claim volumes, COVID-19 impact, and Medicaid unwinding analysis.",
   openGraph: {
-    title: "Medicaid Spending Trends \u2014 Medicaid Money Tracker",
-    description: "Medicaid spending grew from $108.7B in 2018 to $185.0B in 2024. See year-by-year trends.",
+    title: "Medicaid Spending Trends 2018\u20132024",
+    description: "Medicaid spending grew from $108.7B in 2018 to $185.0B in 2024. See year-by-year trends with COVID-19 impact analysis.",
   },
 };
 
@@ -222,6 +222,29 @@ export default function TrendsPage() {
             <span>Rapid spending growth created opportunities for fraud &mdash; our analysis identifies <Link href="/watchlist" className="text-blue-400 hover:underline">1,860 providers</Link> with suspicious billing patterns that emerged during this expansion.</span>
           </li>
         </ul>
+      </div>
+
+      {/* What This Means */}
+      <div className="bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-dark-800 border border-blue-500/20 rounded-xl p-6 mb-10">
+        <h2 className="text-lg font-bold text-white mb-4">What This Means</h2>
+        <div className="space-y-3 text-sm text-slate-300 leading-relaxed">
+          <p>
+            Medicaid spending nearly doubled in seven years, driven by pandemic emergency measures that expanded enrollment
+            and suspended eligibility checks. This rapid growth created an environment where fraudulent billing could more
+            easily go undetected &mdash; more money flowing through the system with fewer guardrails.
+          </p>
+          <p>
+            The 2024 decline signals a correction as states resume normal operations, but spending remains{" "}
+            <span className="text-white font-semibold">{totalGrowth.toFixed(0)}% above 2018 levels</span>. The
+            providers, procedures, and billing patterns that emerged during this expansion period deserve the closest scrutiny.
+          </p>
+          <p>
+            Our analysis flagged <Link href="/watchlist" className="text-blue-400 hover:underline font-medium">1,860 providers</Link> whose
+            billing patterns deviate significantly from their peers &mdash; many of whom saw their largest billing increases during
+            the 2020&ndash;2023 growth period. Understanding <em>when</em> anomalies appeared matters as much as understanding
+            <em> what</em> the anomalies are.
+          </p>
+        </div>
       </div>
 
       {/* Related Insights */}

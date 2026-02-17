@@ -51,7 +51,7 @@ export default function ProcedureDetailPage({ params }: Props) {
   if (!proc) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">Procedure Not Found</h1>
+        <h1 className="font-headline text-3xl font-bold text-white mb-4">Procedure Not Found</h1>
         <p className="text-slate-400 mb-4">Procedure code {params.code} is not in our dataset.</p>
         <Link href="/procedures" className="text-blue-400 hover:underline font-medium">&larr; Back to procedures</Link>
       </div>
