@@ -63,6 +63,15 @@ export default function ProcedureDetailPage({ params }: Props) {
     } catch {}
   }
 
+  // Try to load code-providers data (7,020 codes with tier/vsMedian)
+  let codeProviders: any = null;
+  try {
+    const cpPath = path.join(process.cwd(), "public", "data", "code-providers", `${params.code}.json`);
+    if (fs.existsSync(cpPath)) {
+      codeProviders = JSON.parse(fs.readFileSync(cpPath, "utf-8"));
+    }
+  } catch {}
+
   // Rank among all procedures
   const rank = (allProcedures as any[]).findIndex((p: any) => p.code === params.code) + 1;
 
@@ -220,8 +229,71 @@ export default function ProcedureDetailPage({ params }: Props) {
         ) : null;
       })()}
 
-      {/* Top Providers for this code (if available) */}
-      {detailProviders.length > 0 ? (
+      {/* Top Providers Billing This Code (code-providers data with tiers) */}
+      {codeProviders && codeProviders.topProviders?.length > 0 ? (
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-8">
+          <div className="px-5 py-4 border-b border-dark-500/50">
+            <h2 className="text-sm font-bold text-white">Top Providers Billing This Code</h2>
+            <p className="text-[10px] text-slate-500 mt-0.5">Ranked by total Medicaid payments for {params.code}</p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-dark-500/50">
+                  <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold w-8">#</th>
+                  <th scope="col" className="text-left px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Provider</th>
+                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Total Paid</th>
+                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden sm:table-cell">Cost/Claim</th>
+                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden md:table-cell">vs Median</th>
+                  <th scope="col" className="text-right px-4 py-2.5 text-[10px] uppercase tracking-widest text-slate-500 font-semibold hidden lg:table-cell">Tier</th>
+                </tr>
+              </thead>
+              <tbody>
+                {codeProviders.topProviders.slice(0, 20).map((p: any, i: number) => {
+                  const tierConfig: Record<string, { label: string; color: string; bg: string }> = {
+                    p99: { label: 'Top 1%', color: 'text-red-400', bg: 'bg-red-500/15 border-red-500/30' },
+                    p90: { label: 'Top 10%', color: 'text-orange-400', bg: 'bg-orange-500/15 border-orange-500/30' },
+                    p75: { label: 'Above 75th', color: 'text-yellow-400', bg: 'bg-yellow-500/10 border-yellow-500/20' },
+                    above_median: { label: 'Above Median', color: 'text-slate-400', bg: 'bg-slate-500/10 border-slate-500/20' },
+                    below_median: { label: 'Below Median', color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/20' },
+                  };
+                  const tier = tierConfig[p.tier] || tierConfig.above_median;
+                  const vsColor = p.vsMedian >= 3 ? 'text-red-400' : p.vsMedian >= 1.5 ? 'text-yellow-400' : p.vsMedian >= 1 ? 'text-slate-300' : 'text-green-400';
+                  return (
+                    <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
+                      <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
+                      <td className="px-4 py-2.5">
+                        <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
+                          {p.name || `NPI: ${p.npi}`}
+                        </Link>
+                        {(p.city || p.state) && (
+                          <p className="text-[10px] text-slate-500 mt-0.5">{p.city && p.state ? `${p.city}, ${p.state}` : p.state || p.city}{p.specialty ? ` \u00b7 ${p.specialty}` : ''}</p>
+                        )}
+                      </td>
+                      <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.totalPaid)}</td>
+                      <td className="px-4 py-2.5 text-right font-mono text-xs tabular-nums text-slate-300 hidden sm:table-cell">{formatCpc(p.costPerClaim)}</td>
+                      <td className="px-4 py-2.5 text-right hidden md:table-cell">
+                        {p.vsMedian != null && (
+                          <span className={`text-xs font-semibold tabular-nums ${vsColor}`}>{p.vsMedian.toFixed(1)}&times; median</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-2.5 text-right hidden lg:table-cell">
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded border ${tier.bg} ${tier.color}`}>{tier.label}</span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="px-5 py-3 border-t border-dark-500/50">
+            <p className="text-[10px] text-slate-500">
+              Showing top {Math.min(20, codeProviders.topProviders.length)} of{' '}
+              <span className="text-white font-semibold">{formatNumber(codeProviders.providerCount)}</span> providers billing this code
+            </p>
+          </div>
+        </div>
+      ) : detailProviders.length > 0 ? (
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl overflow-hidden mb-8">
           <div className="px-5 py-4 border-b border-dark-500/50">
             <h2 className="text-sm font-bold text-white">Top Providers Using This Code</h2>

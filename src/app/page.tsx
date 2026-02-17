@@ -266,10 +266,14 @@ export default function Home() {
             We analyzed <span className="text-white font-semibold">227 million Medicaid billing records</span> released by HHS, covering 617,503 providers and
             10,881 procedure codes from 2018&ndash;2024. We ran <span className="text-white font-semibold">13 fraud detection tests</span> &mdash;
             including 4 code-specific smart tests that compare each provider&apos;s cost per claim against the national median for that exact procedure code.
+            We also trained a <span className="text-white font-semibold">random forest ML model</span> (AUC: 0.77) on 514 OIG-excluded providers to score all 594K providers for fraud similarity.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/analysis" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
               See our fraud analysis &rarr;
+            </Link>
+            <Link href="/ml-analysis" className="text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors">
+              ML fraud detection &rarr;
             </Link>
             <Link href="/about" className="text-sm text-slate-400 hover:text-slate-300 font-medium transition-colors">
               Full methodology &rarr;

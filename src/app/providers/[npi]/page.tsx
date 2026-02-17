@@ -5,6 +5,7 @@ import topProviders from "../../../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import stats from "../../../../public/data/stats.json";
+import mlScores from "../../../../public/data/ml-scores.json";
 import fs from "fs";
 import path from "path";
 
@@ -127,6 +128,10 @@ export default function ProviderPage({ params }: Props) {
   const monthly = detail?.monthly || [];
   const procedures = detail?.procedures || detail?.topProcedures || [];
 
+  // ML Score lookup
+  const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi);
+  const mlScore = mlEntry?.mlScore ?? null;
+
   // Merge flags from smart watchlist + old watchlist + detail JSON
   const smartFlags = smartEntry?.flags || [];
   const oldFlags = oldEntry ? (oldEntry.flags || []) : [];
@@ -191,6 +196,16 @@ export default function ProviderPage({ params }: Props) {
           {!city && state && <Link href={`/states/${state}`} className="hover:text-blue-400 transition-colors">{stateName(state)}</Link>}
           {(specialty || city || state) && <span className="text-slate-600">&middot;</span>}
           <span className="font-mono text-xs text-slate-500">NPI: {npi}</span>
+          {mlScore !== null && (() => {
+            const pct = mlScore * 100;
+            const color = pct >= 80 ? 'text-red-400' : pct >= 60 ? 'text-orange-400' : pct >= 30 ? 'text-yellow-400' : 'text-green-400';
+            const bg = pct >= 80 ? 'bg-red-500/15 border-red-500/30' : pct >= 60 ? 'bg-orange-500/15 border-orange-500/30' : pct >= 30 ? 'bg-yellow-500/10 border-yellow-500/20' : 'bg-green-500/10 border-green-500/20';
+            return (
+              <Link href="/ml-analysis" className={`inline-flex items-center gap-1.5 text-[10px] px-2 py-0.5 rounded border ${bg} ${color} font-semibold hover:opacity-80 transition-opacity`}>
+                ML Risk: {pct.toFixed(0)}%
+              </Link>
+            );
+          })()}
         </div>
       </div>
 
