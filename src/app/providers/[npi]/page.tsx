@@ -384,6 +384,51 @@ export default function ProviderPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Analysis Narrative */}
+      {detail?.narrative && detail.narrative.length > 0 && (() => {
+        const borderColors: Record<string, string> = {
+          'Provider Overview': 'border-l-blue-500',
+          'Key Findings': 'border-l-yellow-500',
+          'Important Context': 'border-l-green-500',
+          'Why This Matters': 'border-l-slate-500',
+        };
+        const icons: Record<string, string> = {
+          'Key Findings': '\ud83d\udcca',
+          'Important Context': '\u2139\ufe0f',
+        };
+        return (
+          <div className="mb-10">
+            <h2 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+              <span>\ud83d\udd0d</span> Analysis
+            </h2>
+            <div className="space-y-3">
+              {detail.narrative.map((section: any, i: number) => {
+                const border = borderColors[section.title] || 'border-l-slate-600';
+                const icon = icons[section.title] || '';
+                return (
+                  <div key={i} className={`bg-dark-800 border border-dark-500/50 border-l-4 ${border} rounded-lg p-4`}>
+                    <h3 className="text-xs font-bold text-white mb-2">{section.title}</h3>
+                    {section.text && (
+                      <p className="text-sm text-slate-300 leading-relaxed">{section.text}</p>
+                    )}
+                    {section.items && section.items.length > 0 && (
+                      <ul className="space-y-1.5 mt-1">
+                        {section.items.map((item: string, j: number) => (
+                          <li key={j} className="flex items-start gap-2 text-sm text-slate-300 leading-relaxed">
+                            <span className="shrink-0 mt-0.5 text-xs">{icon || '\u2022'}</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Growth Rate + Context */}
       <div className="flex flex-wrap gap-3 mb-10">
         {growthRate !== 0 && (
@@ -431,6 +476,54 @@ export default function ProviderPage({ params }: Props) {
           </div>
         </div>
       )}
+
+      {/* Yearly Trend with % Change */}
+      {monthly.length > 12 && (() => {
+        const yearlyMap: Record<string, number> = {};
+        for (const m of monthly) {
+          const year = m.month?.substring(0, 4);
+          if (year) {
+            yearlyMap[year] = (yearlyMap[year] || 0) + (m.payments || m.paid || 0);
+          }
+        }
+        const years = Object.keys(yearlyMap).sort();
+        if (years.length < 2) return null;
+        const maxVal = Math.max(...years.map(y => yearlyMap[y]));
+        return (
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
+            <h2 className="text-sm font-bold text-white mb-4">Yearly Spending</h2>
+            <div className="space-y-2">
+              {years.map((year, idx) => {
+                const val = yearlyMap[year];
+                const pct = maxVal > 0 ? (val / maxVal) * 100 : 0;
+                const prevVal = idx > 0 ? yearlyMap[years[idx - 1]] : null;
+                const change = prevVal && prevVal > 0 ? ((val - prevVal) / prevVal) * 100 : null;
+                return (
+                  <div key={year}>
+                    {idx > 0 && change !== null && (
+                      <div className="flex justify-center my-0.5">
+                        <span className={`text-[10px] font-semibold tabular-nums ${change >= 0 ? 'text-red-400' : 'text-green-400'}`}>
+                          {change >= 0 ? '+' : ''}{change.toFixed(0)}%
+                        </span>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-slate-400 font-mono w-10 shrink-0">{year}</span>
+                      <div className="flex-1 h-5 bg-dark-600 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-blue-500/50 rounded-full"
+                          style={{ width: `${Math.max(2, pct)}%` }}
+                        />
+                      </div>
+                      <span className="text-xs text-white font-mono tabular-nums w-16 text-right shrink-0">{formatMoney(val)}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Procedure Breakdown with Benchmarks */}
       {procedures.length > 0 && (
