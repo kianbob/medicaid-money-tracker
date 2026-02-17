@@ -519,7 +519,7 @@ function WatchlistContent() {
           className="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
         />
         {activeTab !== 'ml' && (
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-2 flex-wrap">
           {([
             { key: "all", label: "All", count: tabProviders.length },
             { key: "critical", label: "Critical", count: tabProviders.filter(p => p.tier === 'Critical').length, color: "red" },

@@ -525,9 +525,9 @@ export default function ProviderPage({ params }: Props) {
             <p className="text-[10px] text-slate-500 mb-4">Total spending distribution among {formatNumber(bench.count)} providers in this specialty</p>
 
             {/* Horizontal benchmark bar */}
-            <div className="relative mb-4">
+            <div className="relative mb-4 max-w-full overflow-hidden">
               {/* Track */}
-              <div className="relative h-3 bg-dark-600 rounded-full overflow-visible">
+              <div className="relative h-3 bg-dark-600 rounded-full overflow-hidden">
                 {/* Interquartile range (p25-p75) */}
                 <div
                   className="absolute top-0 h-full bg-slate-500/25 rounded-full"

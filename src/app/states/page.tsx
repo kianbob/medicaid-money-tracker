@@ -155,7 +155,7 @@ export default function StatesPage() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 min-w-0 overflow-x-hidden">
           {sortedFlagData.map((s: any) => {
             const geo = geoRiskMap.get(s.state);
             const fpc = geo?.flagsPerCapita ?? 0;
