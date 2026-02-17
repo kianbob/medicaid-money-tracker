@@ -460,4 +460,76 @@ export function StateProcedurePieChart({ data }: { data: StateProcDatum[] }) {
   );
 }
 
+/* ─── 8. Risk Rankings Horizontal BarChart (States page) ─── */
+
+interface RiskRankDatum {
+  state: string;
+  flagsPerCapita: number;
+  flaggedCount: number;
+  population: number;
+}
+
+function RiskRankTooltip({ active, payload }: any) {
+  if (!active || !payload?.length) return null;
+  const d = payload[0].payload;
+  return (
+    <div style={tooltipStyle}>
+      <p className="text-white font-semibold mb-1">{d.state}</p>
+      <p className="text-red-400 tabular-nums">{d.flagsPerCapita.toFixed(2)} per 100K</p>
+      <p className="text-slate-400 text-xs tabular-nums">{d.flaggedCount} flags &middot; Pop {(d.population / 1e6).toFixed(1)}M</p>
+    </div>
+  );
+}
+
+export function RiskRankingsChart({ data }: { data: RiskRankDatum[] }) {
+  const maxVal = Math.max(...data.map(d => d.flagsPerCapita));
+
+  return (
+    <ResponsiveContainer width="100%" height={data.length * 40 + 20}>
+      <BarChart data={data} layout="vertical" margin={{ top: 5, right: 60, left: 5, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(100,116,139,0.12)" horizontal={false} />
+        <XAxis
+          type="number"
+          tick={{ fill: "#94a3b8", fontSize: 11 }}
+          tickLine={false}
+          axisLine={{ stroke: "rgba(100,116,139,0.2)" }}
+          domain={[0, Math.ceil(maxVal * 10) / 10]}
+          tickFormatter={(v: number) => v.toFixed(1)}
+        />
+        <YAxis
+          type="category"
+          dataKey="state"
+          tick={{ fill: "#e2e8f0", fontSize: 12, fontWeight: 600 }}
+          tickLine={false}
+          axisLine={false}
+          width={36}
+        />
+        <Tooltip content={<RiskRankTooltip />} cursor={{ fill: "rgba(239,68,68,0.06)" }} />
+        <Bar dataKey="flagsPerCapita" radius={[0, 4, 4, 0]} maxBarSize={28}>
+          {data.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={
+                entry.flagsPerCapita > 0.8
+                  ? "rgba(239,68,68,0.7)"
+                  : entry.flagsPerCapita > 0.6
+                    ? "rgba(245,158,11,0.7)"
+                    : entry.flagsPerCapita > 0.3
+                      ? "rgba(59,130,246,0.7)"
+                      : "rgba(59,130,246,0.4)"
+              }
+            />
+          ))}
+          <LabelList
+            dataKey="flagsPerCapita"
+            position="right"
+            formatter={(v: any) => Number(v).toFixed(2)}
+            style={{ fill: "#94a3b8", fontSize: 10, fontWeight: 600 }}
+          />
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
 // PROC_COLORS moved inline to server components that need it
