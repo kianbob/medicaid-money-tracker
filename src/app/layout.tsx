@@ -91,6 +91,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })
           }}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXEHT6SJLF"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HXEHT6SJLF');
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.className} ${playfair.variable} bg-dark-900 text-slate-200 min-h-screen`}>
         {/* Disclaimer Banner */}
