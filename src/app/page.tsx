@@ -129,6 +129,43 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Most Flagged Providers */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-labelledby="flagged-providers-heading">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <div className="w-1 h-6 bg-red-500 rounded-full" />
+            <h2 id="flagged-providers-heading" className="font-headline text-xl font-bold text-white">Most Flagged Providers</h2>
+          </div>
+          <Link href="/watchlist" className="text-xs text-red-400 hover:text-red-300 font-medium transition-colors">
+            View all 1,860 flagged providers &rarr;
+          </Link>
+        </div>
+        <div className="space-y-2">
+          {[
+            { name: "Cares Inc", npi: "1396049987", city: "New York", state: "NY", flags: 7, totalPaid: 1040000000 },
+            { name: "Consumer Direct Care Network Virginia", npi: "1538649983", city: "Missoula", state: "MT", flags: 3, totalPaid: 2110000000 },
+            { name: "City of Chicago", npi: "1376554592", city: "Chicago", state: "IL", flags: 3, totalPaid: 1230000000 },
+            { name: "Dept of Intellectual and Dev Disabilities, TN", npi: "1356709976", city: "Nashville", state: "TN", flags: 3, totalPaid: 1450000000 },
+            { name: "Commonwealth of Massachusetts", npi: "1518096411", city: "Beverly", state: "MA", flags: 3, totalPaid: 1140000000 },
+          ].map((p, i) => (
+            <Link key={p.npi} href={`/providers/${p.npi}`}
+              className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:bg-dark-700 hover:border-dark-400 transition-all group">
+              <span className="text-2xl font-extrabold text-slate-700 w-8 text-right group-hover:text-slate-500 transition-colors tabular-nums">{i + 1}</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-white font-semibold truncate group-hover:text-blue-400 transition-colors">{p.name}</p>
+                <p className="text-xs text-slate-500 mt-0.5">{p.city}, {p.state}</p>
+              </div>
+              <div className="flex items-center gap-3 shrink-0">
+                <span className={`inline-flex items-center justify-center text-xs font-bold text-white rounded-full px-2.5 py-0.5 ${p.flags >= 7 ? 'bg-red-500' : 'bg-amber-500'}`}>
+                  {p.flags} flag{p.flags !== 1 ? 's' : ''}
+                </span>
+                <p className="text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Latest Insights — moved up for engagement */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-labelledby="insights-heading">
         <div className="flex items-center justify-between mb-4">

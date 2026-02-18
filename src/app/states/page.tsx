@@ -118,6 +118,44 @@ export default function StatesPage() {
         </p>
       </div>
 
+      {/* Top States by Spending - Horizontal Bar Chart */}
+      <div className="mb-12">
+        <h2 className="text-xl font-bold text-white mb-1">
+          Top States by Medicaid Spending
+        </h2>
+        <p className="text-sm text-slate-400 mb-4">
+          The 10 highest-spending states account for the majority of Medicaid provider payments.
+        </p>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 sm:p-6 space-y-3">
+          {states.slice(0, 10).map((s: any, i: number) => {
+            const pct = (s.total_payments / states[0].total_payments) * 100;
+            return (
+              <Link
+                key={s.state}
+                href={`/states/${s.state}`}
+                className="flex items-center gap-3 group"
+              >
+                <span className="text-xs font-bold text-slate-500 w-5 text-right tabular-nums">
+                  {i + 1}
+                </span>
+                <span className="text-sm font-semibold text-slate-300 w-24 sm:w-32 truncate group-hover:text-blue-400 transition-colors">
+                  {stateName(s.state)}
+                </span>
+                <div className="flex-1 min-w-0 relative h-7 bg-dark-600 rounded">
+                  <div
+                    className="absolute inset-y-0 left-0 bg-blue-500/70 rounded transition-all"
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
+                <span className="text-sm font-bold text-white tabular-nums w-20 text-right shrink-0">
+                  {formatMoney(s.total_payments)}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Flagged Providers Heat Map */}
       <div className="mb-12">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
