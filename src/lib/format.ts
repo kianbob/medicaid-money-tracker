@@ -1,6 +1,7 @@
 import codeDescriptions from '../../public/data/code-descriptions.json';
 
 export function formatMoney(n: number): string {
+  if (n < 0) return '-' + formatMoney(-n);
   if (n >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
   if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
   if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
