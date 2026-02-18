@@ -201,6 +201,40 @@ export default function ProviderPage({ params }: Props) {
     },
   };
 
+  const totalPaidDisplay = detail?.totalPaid ? `$${(detail.totalPaid / 1e9).toFixed(1)}B` : providerEntry?.totalPaid ? formatMoney(providerEntry.totalPaid) : 'N/A';
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': `Is ${name} flagged for Medicaid fraud?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': flagCount > 0
+            ? `${name} (NPI: ${npi}) has been flagged by ${flagCount} statistical fraud detection test${flagCount > 1 ? 's' : ''}. These flags indicate unusual billing patterns compared to peers — not proof of fraud.`
+            : `${name} (NPI: ${npi}) has not been flagged by our statistical fraud detection tests. Their billing patterns fall within normal ranges for their specialty.`
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `How much does ${name} bill Medicaid?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `${name} received ${totalPaidDisplay} in total Medicaid payments from 2018-2024, based on HHS billing records.${specialty ? ` They are classified as a ${specialty} provider.` : ''}${city && state ? ` Located in ${city}, ${state}.` : ''}`
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `What is NPI ${npi}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `NPI ${npi} is the National Provider Identifier for ${name}.${specialty ? ` They are a ${specialty} provider` : ''}${city && state ? ` based in ${city}, ${state}` : ''}. This NPI is registered with the CMS NPI Registry.`
+        }
+      },
+    ],
+  };
+
   // Not found — but we show a graceful message for providers outside top 1000
   if (!detail && !providerEntry && !smartEntry) {
     return (
@@ -231,6 +265,10 @@ export default function ProviderPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-4">
