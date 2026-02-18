@@ -97,6 +97,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Data */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8" aria-labelledby="data-sources-heading">
+        <h2 id="data-sources-heading" className="sr-only">Our Data Sources</h2>
+        <div className="grid md:grid-cols-3 gap-3">
+          {[
+            {
+              title: "HHS Open Data",
+              description: "Official Medicaid Provider Spending dataset from the U.S. Department of Health & Human Services. 227M billing records, 2018\u20132024.",
+              href: "https://data.cms.gov/",
+              icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
+            },
+            {
+              title: "OIG Exclusion List",
+              description: "Cross-referenced against 82,715 providers excluded by the Office of Inspector General for fraud and abuse.",
+              href: "https://oig.hhs.gov/exclusions/",
+              icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+            },
+            {
+              title: "CMS NPI Registry",
+              description: "Provider names, specialties, and locations verified against the National Provider Identifier registry.",
+              href: "https://npiregistry.cms.hhs.gov/",
+              icon: "M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2",
+            },
+          ].map((source) => (
+            <a
+              key={source.title}
+              href={source.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 bg-dark-800/50 border border-dark-500/30 rounded-xl px-4 py-3.5 hover:border-dark-400/50 transition-all group"
+            >
+              <svg className="w-5 h-5 text-slate-600 mt-0.5 shrink-0 group-hover:text-slate-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={source.icon} />
+              </svg>
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-slate-400 group-hover:text-slate-300 transition-colors flex items-center gap-1">
+                  {source.title}
+                  <svg className="w-3 h-3 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                </p>
+                <p className="text-[11px] text-slate-600 leading-relaxed mt-0.5">{source.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* Investigation Highlight */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="investigation-heading">
         <div className="flex items-center gap-2 mb-6">
