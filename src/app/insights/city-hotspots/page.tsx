@@ -67,6 +67,29 @@ export default function CityHotspots() {
         </p>
       </div>
 
+      {/* Key Findings */}
+      <div className="bg-dark-800 border-l-4 border-l-amber-500 rounded-r-xl p-5 mb-12">
+        <h2 className="text-white font-bold text-base mb-3">Key Findings</h2>
+        <ul className="space-y-2.5">
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-amber-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Brooklyn leads the nation:</span> 64 flagged providers billing $13.7B combined</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-amber-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">All 5 NYC boroughs combined: 111 flagged providers</span> — more than any state except New York itself</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-amber-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Nashville has the highest average spending</span> per flagged provider at <span className="text-white font-semibold">$858M</span></span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-amber-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Phoenix and surrounding Arizona cities</span> account for <span className="text-white font-semibold">71 flagged providers</span></span>
+          </li>
+        </ul>
+      </div>
+
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
