@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatMoney, formatNumber, riskLabel, riskColor, riskDot, flagLabel, flagColor, parseFlags, stateName } from "@/lib/format";
+import { formatMoney, formatNumber, riskDot, parseFlags, stateName } from "@/lib/format";
 import { HomepageBarChart } from "@/components/Charts";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import stats from "../../public/data/stats.json";
@@ -26,8 +26,6 @@ export default function Home() {
   }
   const watchlistCount = allWatchlistNpis.size;
 
-  const totalFlaggedSpending = (smartWatchlist as any[]).reduce((sum: number, p: any) => sum + (p.totalPaid || 0), 0);
-  const criticalCount = (smartWatchlist as any[]).filter((p: any) => (p.flagCount || 0) >= 3).length;
   const latestYear = yearlyTrends[yearlyTrends.length - 1] as any;
   const prevYear = yearlyTrends[yearlyTrends.length - 2] as any;
   const yoyGrowth = prevYear ? ((latestYear.payments - prevYear.payments) / prevYear.payments * 100) : 0;
@@ -97,83 +95,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Data */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8" aria-labelledby="data-sources-heading">
-        <h2 id="data-sources-heading" className="sr-only">Our Data Sources</h2>
-        <div className="grid md:grid-cols-3 gap-3">
+      {/* Latest Insights — moved up for engagement */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-labelledby="insights-heading">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <div className="w-1 h-6 bg-purple-500 rounded-full" />
+            <h2 id="insights-heading" className="font-headline text-xl font-bold text-white">Latest Investigations</h2>
+          </div>
+          <Link href="/insights" className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            All 24 stories &rarr;
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            {
-              title: "HHS Open Data",
-              description: "Official Medicaid Provider Spending dataset from the U.S. Department of Health & Human Services. 227M billing records, 2018\u20132024.",
-              href: "https://data.cms.gov/",
-              icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
-            },
-            {
-              title: "OIG Exclusion List",
-              description: "Cross-referenced against 82,715 providers excluded by the Office of Inspector General for fraud and abuse.",
-              href: "https://oig.hhs.gov/exclusions/",
-              icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-            },
-            {
-              title: "CMS NPI Registry",
-              description: "Provider names, specialties, and locations verified against the National Provider Identifier registry.",
-              href: "https://npiregistry.cms.hhs.gov/",
-              icon: "M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2",
-            },
-          ].map((source) => (
-            <a
-              key={source.title}
-              href={source.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-3 bg-dark-800/50 border border-dark-500/30 rounded-xl px-4 py-3.5 hover:border-dark-400/50 transition-all group"
-            >
-              <svg className="w-5 h-5 text-slate-600 mt-0.5 shrink-0 group-hover:text-slate-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={source.icon} />
-              </svg>
-              <div className="min-w-0">
-                <p className="text-xs font-semibold text-slate-400 group-hover:text-slate-300 transition-colors flex items-center gap-1">
-                  {source.title}
-                  <svg className="w-3 h-3 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                </p>
-                <p className="text-[11px] text-slate-600 leading-relaxed mt-0.5">{source.description}</p>
-              </div>
-            </a>
+            { slug: "specialty-drugs", title: "Inside Medicaid's Most Expensive Drugs", stat: "$3.5B+", color: "text-amber-400", border: "hover:border-amber-500/20" },
+            { slug: "arizona-problem", title: "The Arizona Problem: New Clinics, Massive Billing", stat: "$800M+", color: "text-orange-400", border: "hover:border-orange-500/20" },
+            { slug: "ny-home-care", title: "The New York Home Care Machine", stat: "$47B+", color: "text-blue-400", border: "hover:border-blue-500/20" },
+            { slug: "most-patients", title: "Who Bills for the Most Patients?", stat: "108M+", color: "text-green-400", border: "hover:border-green-500/20" },
+          ].map((insight, idx) => (
+            <Link key={insight.slug} href={`/insights/${insight.slug}`}
+              className={`bg-dark-800 border border-dark-500/50 rounded-xl p-4 ${insight.border} transition-all group`}>
+              {idx === 0 && (
+                <span className="inline-flex items-center bg-green-500/15 border border-green-500/30 rounded-full px-2 py-0.5 text-[10px] font-semibold text-green-400 mb-2">
+                  Latest
+                </span>
+              )}
+              <p className={`text-2xl font-extrabold tabular-nums mb-2 ${insight.color}`}>{insight.stat}</p>
+              <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors leading-snug">{insight.title}</p>
+              <p className="text-xs text-slate-600 mt-2 flex items-center gap-1">
+                Read more
+                <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </p>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Investigation Highlight */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="investigation-heading">
-        <div className="flex items-center gap-2 mb-6">
+      {/* Key Findings — compact 2-column */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12" aria-labelledby="investigation-heading">
+        <div className="flex items-center gap-2 mb-4">
           <div className="w-1 h-6 bg-red-500 rounded-full" />
           <h2 id="investigation-heading" className="font-headline text-xl font-bold text-white">Key Findings</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-red-500/20 transition-all group">
-            <p className="text-3xl font-extrabold text-red-400 tabular-nums mb-2">{watchlistCount}</p>
-            <p className="text-sm font-semibold text-white mb-1">Providers Flagged</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Using 13 statistical tests, 5 advanced detection methods, and machine learning trained on 514 confirmed fraud cases. None appear on the OIG exclusion list.</p>
-            <Link href="/watchlist" className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 mt-3 font-medium transition-colors">
-              View watchlist <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
-          </div>
-          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-amber-500/20 transition-all group">
-            <p className="text-3xl font-extrabold text-amber-400 tabular-nums mb-2">$122.7B</p>
-            <p className="text-sm font-semibold text-white mb-1">Personal Care Spending</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Code T1019 alone accounts for 11% of all Medicaid spending. The OIG calls personal care the #1 fraud-risk category.</p>
-            <Link href="/procedures/T1019" className="inline-flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 mt-3 font-medium transition-colors">
-              See details <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
-          </div>
-          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 hover:border-purple-500/20 transition-all group">
-            <p className="text-3xl font-extrabold text-purple-400 tabular-nums mb-2">0 of {watchlistCount}</p>
-            <p className="text-sm font-semibold text-white mb-1">On OIG Exclusion List</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Cross-referenced against 82,715 excluded providers. Zero matches &mdash; suggesting our analysis surfaces new, uninvestigated activity.</p>
-            <Link href="/about" className="inline-flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300 mt-3 font-medium transition-colors">
-              Our methodology <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
-          </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <Link href="/watchlist" className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:border-red-500/20 transition-all group">
+            <p className="text-2xl font-extrabold text-red-400 tabular-nums shrink-0">{watchlistCount}</p>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Providers Flagged</p>
+              <p className="text-[11px] text-slate-500 leading-snug">13 statistical tests + ML model. None on OIG exclusion list.</p>
+            </div>
+          </Link>
+          <Link href="/procedures/T1019" className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:border-amber-500/20 transition-all group">
+            <p className="text-2xl font-extrabold text-amber-400 tabular-nums shrink-0">$122.7B</p>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors">Personal Care Spending</p>
+              <p className="text-[11px] text-slate-500 leading-snug">T1019 alone is 11% of all Medicaid. OIG&apos;s #1 fraud-risk category.</p>
+            </div>
+          </Link>
+          <Link href="/about" className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:border-purple-500/20 transition-all group sm:col-span-2 lg:col-span-1">
+            <p className="text-2xl font-extrabold text-purple-400 tabular-nums shrink-0">0/{watchlistCount}</p>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors">On OIG Exclusion List</p>
+              <p className="text-[11px] text-slate-500 leading-snug">Cross-referenced 82,715 excluded providers. Zero matches.</p>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -316,48 +301,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest Insights */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="insights-heading">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <div className="w-1 h-6 bg-purple-500 rounded-full" />
-            <h2 id="insights-heading" className="font-headline text-xl font-bold text-white">Latest Insights</h2>
-          </div>
-          <Link href="/insights" className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            All stories &rarr;
-          </Link>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {[
-            { slug: "specialty-drugs", title: "Inside Medicaid's Most Expensive Drugs", stat: "$3.5B+", color: "text-amber-400", border: "hover:border-amber-500/20" },
-            { slug: "arizona-problem", title: "The Arizona Problem: New Clinics, Massive Billing", stat: "$800M+", color: "text-orange-400", border: "hover:border-orange-500/20" },
-            { slug: "ny-home-care", title: "The New York Home Care Machine", stat: "$47B+", color: "text-blue-400", border: "hover:border-blue-500/20" },
-            { slug: "most-patients", title: "Who Bills for the Most Patients?", stat: "108M+", color: "text-green-400", border: "hover:border-green-500/20" },
-          ].map((insight, idx) => (
-            <Link key={insight.slug} href={`/insights/${insight.slug}`}
-              className={`bg-dark-800 border border-dark-500/50 rounded-xl p-4 ${insight.border} transition-all group`}>
-              {idx === 0 && (
-                <span className="inline-flex items-center bg-green-500/15 border border-green-500/30 rounded-full px-2 py-0.5 text-[10px] font-semibold text-green-400 mb-2">
-                  Latest
-                </span>
-              )}
-              <p className={`text-2xl font-extrabold tabular-nums mb-2 ${insight.color}`}>{insight.stat}</p>
-              <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors leading-snug">{insight.title}</p>
-              <p className="text-xs text-slate-600 mt-2 flex items-center gap-1">
-                Read more
-                <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </p>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-4 text-center">
-          <Link href="/insights" className="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            View All 24 Investigations
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          </Link>
-        </div>
-      </section>
-
       {/* How We Did This */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="methodology-heading">
         <div className="flex items-center gap-2 mb-6">
@@ -402,23 +345,11 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-4" aria-labelledby="cta-heading">
-        <div className="relative overflow-hidden bg-dark-800 border border-dark-500/50 rounded-2xl p-8 md:p-14 text-center">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 via-transparent to-purple-600/5" aria-hidden="true" />
-          <div className="relative">
-            <p className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 tabular-nums animate-count mb-4">
-              {watchlistCount}
-            </p>
-            <h2 id="cta-heading" className="font-headline text-2xl md:text-3xl font-extrabold text-white mb-3">Red Flags in $1.09 Trillion</h2>
-            <p className="text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
-              We analyzed every Medicaid provider in the country using 13 statistical tests and machine learning. See who got flagged.
-            </p>
-            <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
-              View the Risk Watchlist
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
-          </div>
-        </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-4 text-center">
+        <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:-translate-y-0.5">
+          Explore the Data
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </Link>
       </section>
     </div>
   );
