@@ -197,6 +197,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/procedures" className="block text-slate-500 hover:text-blue-400 transition-colors">Procedures</Link>
                   <Link href="/trends" className="block text-slate-500 hover:text-blue-400 transition-colors">Trends</Link>
                   <Link href="/compare" className="block text-slate-500 hover:text-blue-400 transition-colors">Compare</Link>
+                  <Link href="/lookup" className="block text-slate-500 hover:text-blue-400 transition-colors">Provider Lookup</Link>
                   <Link href="/downloads" className="block text-slate-500 hover:text-blue-400 transition-colors">Downloads</Link>
                 </div>
               </div>
@@ -208,7 +209,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/timeline" className="block text-slate-500 hover:text-blue-400 transition-colors">Timeline</Link>
                   <Link href="/analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">Methodology</Link>
                   <Link href="/ml-analysis" className="block text-slate-500 hover:text-blue-400 transition-colors">ML Methodology</Link>
-                  <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">About &amp; Methodology</Link>
+                  <Link href="/about" className="block text-slate-500 hover:text-blue-400 transition-colors">About</Link>
                 </div>
               </div>
               <div>
@@ -230,6 +231,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Help</p>
                 <div className="space-y-2">
                   <a href="mailto:kian@thedataproject.ai" className="block text-slate-500 hover:text-blue-400 transition-colors">Contact Us</a>
+                  <a href="/feed.xml" className="block text-slate-500 hover:text-blue-400 transition-colors">RSS Feed</a>
                 </div>
               </div>
             </div>
