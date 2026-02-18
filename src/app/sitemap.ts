@@ -48,6 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/insights/dual-billing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/insights/smooth-billers`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/ml-analysis`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/guides/how-medicaid-fraud-works`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/top-billing-codes`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ];
 
   // Provider pages (from file system)
