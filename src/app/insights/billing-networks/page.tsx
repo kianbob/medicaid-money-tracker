@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import intermediaryData from "../../../../public/data/billing-intermediaries.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
@@ -342,17 +343,7 @@ export default function BillingIntermediaries() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("The top 100 Medicaid billing intermediaries control $42.6B in payments. 80% are also on the fraud watchlist.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/billing-networks")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/dual-billing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Dual-Billing Pattern</p>
-            <p className="text-xs text-slate-500 mt-1">When claim counts match too perfectly &rarr;</p>
-          </Link>
-          <Link href="/insights/smooth-billers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Providers Who Bill Like Clockwork</p>
-            <p className="text-xs text-slate-500 mt-1">Suspiciously uniform monthly billing &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="billing-networks" relatedSlugs={["self-billers", "billing-similarity", "most-patients"]} />
       </div>
     </article>
   );

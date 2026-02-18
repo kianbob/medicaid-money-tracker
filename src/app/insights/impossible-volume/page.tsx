@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber, formatMoneyFull } from "@/lib/format";
 import volumeData from "../../../../public/data/impossible-volume.json";
 import fs from "fs";
@@ -266,17 +267,7 @@ export default function ImpossibleVolume() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("200 Medicaid providers file 50+ claims per working day. The top provider averages 60,000+ claims daily. Physically impossible for a single provider.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/impossible-volume")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/arizona-problem" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Arizona Problem</p>
-            <p className="text-xs text-slate-500 mt-1">New clinics appear and immediately bill $800M+ &rarr;</p>
-          </Link>
-          <Link href="/insights/smooth-billers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Smooth Billers</p>
-            <p className="text-xs text-slate-500 mt-1">Providers who bill the exact same amount every month &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="impossible-volume" relatedSlugs={["benford-analysis", "round-numbers", "highest-confidence"]} />
       </div>
     </article>
   );

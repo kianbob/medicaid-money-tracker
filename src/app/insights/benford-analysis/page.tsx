@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import benfordData from "../../../../public/data/benford-flags.json";
 import fs from "fs";
@@ -287,17 +288,7 @@ export default function BenfordAnalysis() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("We tested 617K Medicaid providers against Benford's Law. 200 providers show billing patterns that deviate significantly from what natural financial data looks like.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/benford-analysis")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/impossible-volume" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Impossible Billing Volume</p>
-            <p className="text-xs text-slate-500 mt-1">200 providers file 50+ claims per working day &rarr;</p>
-          </Link>
-          <Link href="/insights/smooth-billers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Smooth Billers</p>
-            <p className="text-xs text-slate-500 mt-1">Providers who bill the exact same amount every month &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="benford-analysis" relatedSlugs={["impossible-volume", "round-numbers", "smooth-billers"]} />
       </div>
     </article>
   );

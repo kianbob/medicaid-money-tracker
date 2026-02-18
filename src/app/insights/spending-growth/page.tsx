@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import { SpendingGrowthChart } from "@/components/Charts";
 import yearlySummary from "../../../../public/data/yearly-summary.json";
@@ -268,17 +269,7 @@ export default function SpendingGrowth() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Medicaid spending grew 83% in 6 years — from $109B to $199B. COVID was the turning point: 2021 added $30.5B in a single year.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/spending-growth")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/fastest-growing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Procedures Growing Fastest in Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">One code grew 8,935% in five years &rarr;</p>
-          </Link>
-          <Link href="/insights/pandemic-profiteers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Who Made the Most Money During COVID?</p>
-            <p className="text-xs text-slate-500 mt-1">The City of Chicago went from $23M to $240M &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="spending-growth" relatedSlugs={["pandemic-profiteers", "fastest-growing", "specialty-breakdown"]} />
       </div>
     </article>
   );

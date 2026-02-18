@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import fs from "fs";
 import path from "path";
 import { formatMoney, formatNumber } from "@/lib/format";
@@ -252,17 +253,7 @@ export default function ArizonaProblem() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${totalProviders} new Arizona providers appeared in 2022+ and immediately billed ${formatMoney(totalSpending)}. Average time active: ${avgMonths} months.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/arizona-problem")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/pandemic-profiteers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Who Made the Most Money During COVID?</p>
-            <p className="text-xs text-slate-500 mt-1">The biggest pandemic billing jumps →</p>
-          </Link>
-          <Link href="/insights/fastest-growing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Procedures Growing Fastest in Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">ABA therapy grew 1,500%+ →</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="arizona-problem" relatedSlugs={["geographic-hotspots", "city-hotspots", "change-points"]} />
       </div>
     </article>
   );

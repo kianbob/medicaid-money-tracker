@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, stateName } from "@/lib/format";
 import { CityHotspotsChart } from "@/components/Charts";
 import cityData from "../../../../public/data/city-fraud-hotspots.json";
@@ -235,17 +236,7 @@ export default function CityHotspots() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Brooklyn NY leads America's Medicaid fraud hotspots with 64 flagged providers and $13.7B in spending. NYC boroughs total 111 flags. Nashville averages $858M per flagged provider.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/city-hotspots")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/ny-home-care" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The New York Home Care Machine</p>
-            <p className="text-xs text-slate-500 mt-1">$47B+ in personal care spending &rarr;</p>
-          </Link>
-          <Link href="/insights/arizona-problem" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Arizona Problem: New Clinics, Massive Billing</p>
-            <p className="text-xs text-slate-500 mt-1">46 new providers, $800M+ in billing &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="city-hotspots" relatedSlugs={["geographic-hotspots", "arizona-problem", "ny-home-care"]} />
       </div>
     </article>
   );

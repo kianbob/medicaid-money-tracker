@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import compositeScores from "../../../../public/data/composite-scores.json";
 import fs from "fs";
@@ -410,21 +411,7 @@ export default function HighestConfidence() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("These Medicaid providers were flagged by multiple independent fraud detection systems. When statistical tests, change point detection, and Benford's Law all agree, the probability of a false positive drops dramatically.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/highest-confidence")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-3 gap-3">
-          <Link href="/insights/benford-analysis" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Benford&apos;s Law Analysis</p>
-            <p className="text-xs text-slate-500 mt-1">200 providers with unnatural digit distributions &rarr;</p>
-          </Link>
-          <Link href="/insights/impossible-volume" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Impossible Volume</p>
-            <p className="text-xs text-slate-500 mt-1">Providers filing 50+ claims per working day &rarr;</p>
-          </Link>
-          <Link href="/insights/change-points" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Change Point Detection</p>
-            <p className="text-xs text-slate-500 mt-1">170 providers whose billing shifted 3x+ overnight &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="highest-confidence" relatedSlugs={["benford-analysis", "change-points", "impossible-volume"]} />
       </div>
     </article>
   );
