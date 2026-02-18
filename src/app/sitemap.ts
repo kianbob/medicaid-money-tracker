@@ -50,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/ml-analysis`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/guides/how-medicaid-fraud-works`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/guides/top-billing-codes`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/medicaid-fraud-by-state`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/understanding-hcpcs-codes`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/reading-medicaid-billing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/check`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/cares-inc-exposed`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/chicago-exposed`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/srh-chn-exposed`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
   ];
 
   // Provider pages (from file system)
