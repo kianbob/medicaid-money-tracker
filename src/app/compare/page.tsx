@@ -247,11 +247,69 @@ export default function ComparePage() {
 
       {/* Empty state */}
       {selected.length === 0 && (
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-12 text-center">
-          <p className="text-slate-400 text-sm mb-2">No providers selected yet</p>
-          <p className="text-slate-500 text-xs">
-            Search for providers above to start comparing. Data is available for the top 1,000 providers by spending.
-          </p>
+        <div className="space-y-6">
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-12 text-center">
+            <p className="text-slate-400 text-sm mb-2">No providers selected yet</p>
+            <p className="text-slate-500 text-xs">
+              Search for providers above to start comparing. Data is available for the top 1,000 providers by spending.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-bold text-white mb-3">Try a comparison</h2>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <button
+                onClick={async () => {
+                  for (const npi of ["1922467554", "1720151046", "1396051694"]) {
+                    await addProvider(npi);
+                  }
+                }}
+                className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 text-left hover:border-blue-500/40 hover:bg-dark-700/50 transition-all group"
+              >
+                <p className="text-xs font-bold text-blue-400 mb-1.5 group-hover:text-blue-300 transition-colors">NYC Home Care Giants</p>
+                <p className="text-[11px] text-slate-300 mb-2.5 leading-relaxed">
+                  Freedom Care LLC, Premier Home Health Care, Assistcarehome Healthcare
+                </p>
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  Three of the largest NYC home care agencies — do their billing patterns differ?
+                </p>
+              </button>
+
+              <button
+                onClick={async () => {
+                  for (const npi of ["1376554592", "1699703827"]) {
+                    await addProvider(npi);
+                  }
+                }}
+                className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 text-left hover:border-purple-500/40 hover:bg-dark-700/50 transition-all group"
+              >
+                <p className="text-xs font-bold text-purple-400 mb-1.5 group-hover:text-purple-300 transition-colors">Government vs Private</p>
+                <p className="text-[11px] text-slate-300 mb-2.5 leading-relaxed">
+                  City of Chicago, Los Angeles County Dept of Mental Health
+                </p>
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  How do government billing patterns compare to private providers?
+                </p>
+              </button>
+
+              <button
+                onClick={async () => {
+                  for (const npi of ["1396049987", "1538649983"]) {
+                    await addProvider(npi);
+                  }
+                }}
+                className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 text-left hover:border-amber-500/40 hover:bg-dark-700/50 transition-all group"
+              >
+                <p className="text-xs font-bold text-amber-400 mb-1.5 group-hover:text-amber-300 transition-colors">The Growth Outliers</p>
+                <p className="text-[11px] text-slate-300 mb-2.5 leading-relaxed">
+                  CARES INC, Consumer Direct Care Network Virginia
+                </p>
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  Two providers with explosive growth — similar patterns or different stories?
+                </p>
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
