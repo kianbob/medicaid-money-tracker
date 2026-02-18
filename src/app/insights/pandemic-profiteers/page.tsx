@@ -44,6 +44,29 @@ export default function PandemicProfiteers() {
         </p>
       </div>
 
+      {/* Key Findings */}
+      <div className="bg-dark-800 border-l-4 border-l-red-500 rounded-r-xl p-5 mb-12">
+        <h2 className="text-white font-bold text-base mb-3">Key Findings</h2>
+        <ul className="space-y-2.5">
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-red-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">City of Chicago: $23M → $240M (+942%)</span> — the single largest percentage jump among major billers</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-red-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Consumer Direct Care Network Virginia: $0 → $2.1B</span> — didn&apos;t exist before 2020</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-red-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">COVID testing code U0003 generated $3.9B</span> in total Medicaid payments</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-red-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">46 new Arizona providers</span> appeared post-pandemic and immediately billed <span className="text-white font-semibold">$800M+ combined</span></span>
+          </li>
+        </ul>
+      </div>
+
       {/* Featured Cards */}
       <div className="grid md:grid-cols-3 gap-4 mb-12">
         {pandemicData.slice(0, 3).map((p: any) => (
