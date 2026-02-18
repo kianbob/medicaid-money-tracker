@@ -57,6 +57,29 @@ export default function ProceduresPage() {
         </p>
       </div>
 
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+        <h2 className="text-lg font-bold text-white mb-1">Top Procedures by Spending</h2>
+        <p className="text-xs text-slate-500 mb-4">Top 5 by total Medicaid spending</p>
+        <ol className="space-y-2">
+          {[
+            { code: 'T1019', desc: 'Personal care services', amount: '$86.9B' },
+            { code: 'T1020', desc: 'Personal care services, per diem', amount: '$13.1B' },
+            { code: '99213', desc: 'Office visit, established patient', amount: '$7.2B' },
+            { code: 'T2016', desc: 'Habilitation, residential, per diem', amount: '$6.8B' },
+            { code: '99214', desc: 'Office visit, est. patient, moderate', amount: '$5.9B' },
+          ].map((item, i) => (
+            <li key={item.code} className="flex items-baseline gap-3">
+              <span className="text-slate-500 text-sm font-bold w-4 text-right">{i + 1}.</span>
+              <Link href={`/procedures/${item.code}`} className="group flex items-baseline gap-2 min-w-0">
+                <span className="font-mono text-sm font-bold text-blue-400 group-hover:text-blue-300 transition-colors">{item.code}</span>
+                <span className="text-slate-400 text-sm truncate">{item.desc}</span>
+              </Link>
+              <span className="font-mono text-sm font-semibold text-white ml-auto whitespace-nowrap">{item.amount}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <input
           type="search"
