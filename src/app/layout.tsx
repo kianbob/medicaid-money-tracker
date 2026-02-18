@@ -41,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="alternate" type="application/rss+xml" title="OpenMedicaid" href="/feed.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
