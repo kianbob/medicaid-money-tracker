@@ -156,6 +156,45 @@ export default function TrendsPage() {
         </div>
       </div>
 
+      {/* What Changed Timeline */}
+      <div className="mb-10">
+        <h2 className="text-lg font-bold text-white mb-5">What Changed</h2>
+        <div className="space-y-4">
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-amber-400">
+            <p className="text-2xl font-extrabold text-white">2020</p>
+            <p className="text-sm font-semibold text-amber-400 mt-0.5">COVID Hits</p>
+            <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+              Families First Act freezes Medicaid disenrollment. Enrollment surges from 71M to 90M+.
+              Spending rises modestly (+4.1%) as elective procedures drop.
+            </p>
+          </div>
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-red-400">
+            <p className="text-2xl font-extrabold text-white">2021</p>
+            <p className="text-sm font-semibold text-red-400 mt-0.5">The Explosion</p>
+            <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+              $30.5B in new spending &mdash; the largest single-year jump. Deferred care returns,
+              telehealth expands permanently, 35K new providers enter the system.
+            </p>
+          </div>
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-blue-400">
+            <p className="text-2xl font-extrabold text-white">2022&ndash;2023</p>
+            <p className="text-sm font-semibold text-blue-400 mt-0.5">Sustained Growth</p>
+            <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+              Spending continues climbing 10%+ annually even as the emergency winds down.
+              Total reaches $199B in 2023.
+            </p>
+          </div>
+          <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-green-400">
+            <p className="text-2xl font-extrabold text-white">2024</p>
+            <p className="text-sm font-semibold text-green-400 mt-0.5">The Correction Begins</p>
+            <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+              States resume eligibility checks. Millions disenrolled. Partial-year data at $185B
+              already suggests spending remains elevated.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Key Observations */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-10">
         <h2 className="text-sm font-bold text-white mb-4">Key Observations</h2>
