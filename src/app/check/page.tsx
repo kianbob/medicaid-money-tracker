@@ -33,7 +33,7 @@ const allFlagged = new Map<string, WatchlistEntry>();
   if (p.name) allFlagged.set(p.npi, p);
 });
 
-const mlData = mlScores as { topProviders: MlEntry[]; smallProviderFlags: MlEntry[] };
+const mlData = mlScores as unknown as { topProviders: MlEntry[]; smallProviderFlags: MlEntry[] };
 [...mlData.topProviders, ...mlData.smallProviderFlags].forEach((p) => {
   if (!allFlagged.has(p.npi)) {
     allFlagged.set(p.npi, {
@@ -177,11 +177,14 @@ export default function CheckPage() {
                       <div className="space-y-1">
                         {p.flags && !(Array.isArray(p.flags) && p.flags.length === 1 && p.flags[0] === "ML Flag") && (
                           <div className="flex flex-wrap gap-1">
-                            {getFlagInfo(Array.isArray(p.flags) ? p.flags.join(',') : p.flags).map((f: any, i: number) => (
-                              <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/20">
-                                {f.label}
-                              </span>
-                            ))}
+                            {(Array.isArray(p.flags) ? p.flags : [p.flags]).filter(Boolean).map((flag: string, i: number) => {
+                              const f = getFlagInfo(flag);
+                              return (
+                                <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/20">
+                                  {f.label}
+                                </span>
+                              );
+                            })}
                           </div>
                         )}
                         {p.mlScore && (
