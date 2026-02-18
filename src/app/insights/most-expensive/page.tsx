@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
+import RelatedInsights from "@/components/RelatedInsights";
 import expensiveData from "../../../../public/data/most-expensive-procedures.json";
 
 export const metadata: Metadata = {
@@ -187,17 +188,7 @@ export default function MostExpensive() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("The most expensive thing Medicaid pays for: $92,158 PER CLAIM for one drug injection. See the full list of the 50 costliest procedures.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/most-expensive")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/fastest-growing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Procedures Growing Fastest in Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">One code grew 8,935% in five years &rarr;</p>
-          </Link>
-          <Link href="/insights/specialty-breakdown" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Where Does $1 Trillion Actually Go?</p>
-            <p className="text-xs text-slate-500 mt-1">Spending by specialty type &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="most-expensive" relatedSlugs={["specialty-drugs", "specialty-breakdown", "fastest-growing"]} />
       </div>
     </article>
   );

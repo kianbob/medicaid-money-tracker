@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatPercent, hcpcsDescription } from "@/lib/format";
+import RelatedInsights from "@/components/RelatedInsights";
 import growthData from "../../../../public/data/fastest-growing-procedures.json";
 
 export const metadata: Metadata = {
@@ -175,17 +176,7 @@ export default function FastestGrowing() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("One Medicaid procedure code grew 8,935% in 5 years. ABA therapy codes grew 1,500%+, connected to MN autism fraud. See the data.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/fastest-growing")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/most-expensive" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Most Expensive Things Medicaid Pays For</p>
-            <p className="text-xs text-slate-500 mt-1">$92,158 per claim &rarr;</p>
-          </Link>
-          <Link href="/insights/specialty-breakdown" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Where Does $1 Trillion Actually Go?</p>
-            <p className="text-xs text-slate-500 mt-1">Spending by specialty type &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="fastest-growing" relatedSlugs={["spending-growth", "most-expensive", "change-points"]} />
       </div>
     </article>
   );

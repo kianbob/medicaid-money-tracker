@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatNumber } from "@/lib/format";
+import RelatedInsights from "@/components/RelatedInsights";
 import vaccineData from "../../../../public/data/covid-vaccine-top-billers.json";
 
 export const metadata: Metadata = {
@@ -180,17 +181,7 @@ export default function CovidVaccines() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Who got paid the most to give COVID vaccines through Medicaid? Tribal hospitals dominate the list.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/covid-vaccines")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/covid-testing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The $4.7 Billion COVID Testing Bonanza</p>
-            <p className="text-xs text-slate-500 mt-1">Where COVID testing dollars went &rarr;</p>
-          </Link>
-          <Link href="/insights/pandemic-profiteers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Who Made the Most Money During COVID?</p>
-            <p className="text-xs text-slate-500 mt-1">The biggest pandemic billing jumps &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="covid-vaccines" relatedSlugs={["covid-testing", "pandemic-profiteers", "spending-growth"]} />
       </div>
     </article>
   );

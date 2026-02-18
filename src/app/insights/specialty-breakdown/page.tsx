@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatNumber } from "@/lib/format";
+import RelatedInsights from "@/components/RelatedInsights";
 import specialtyData from "../../../../public/data/specialty-breakdown.json";
 
 export const metadata: Metadata = {
@@ -220,17 +221,7 @@ export default function SpecialtyBreakdown() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Where does $1 trillion in Medicaid money go? 264 Home Health providers got $71B. 15 Supports Brokerage providers got $10.8B ($720M each!).")}&url=${encodeURIComponent("https://openmedicaid.org/insights/specialty-breakdown")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/top-doctors" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Highest-Paid Individual Providers</p>
-            <p className="text-xs text-slate-500 mt-1">Only 2 individuals in the top 2,000 &rarr;</p>
-          </Link>
-          <Link href="/insights/most-expensive" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Most Expensive Medicaid Procedures</p>
-            <p className="text-xs text-slate-500 mt-1">$92,158 per claim &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="specialty-breakdown" relatedSlugs={["spending-growth", "most-expensive", "ny-home-care"]} />
       </div>
     </article>
   );

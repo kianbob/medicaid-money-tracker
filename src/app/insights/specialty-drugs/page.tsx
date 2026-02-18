@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
+import RelatedInsights from "@/components/RelatedInsights";
 import pharmaData from "../../../../public/data/specialty-pharma.json";
 
 /* Extra J-code descriptions not in the main hcpcsDescription lookup */
@@ -232,17 +233,7 @@ export default function SpecialtyDrugs() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Medicaid's most expensive drug costs ${formatMoney(mostExpensive.costPerClaim)} per claim. ${totalCodes} specialty J-codes total ${formatMoney(totalSpending)} in spending.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/specialty-drugs")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/most-expensive" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Most Expensive Things Medicaid Pays For</p>
-            <p className="text-xs text-slate-500 mt-1">$92,158 per claim for spinal muscular atrophy →</p>
-          </Link>
-          <Link href="/insights/specialty-breakdown" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Where Does $1 Trillion in Medicaid Money Go?</p>
-            <p className="text-xs text-slate-500 mt-1">15 Supports Brokerage providers averaged $720M each →</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="specialty-drugs" relatedSlugs={["most-expensive", "round-numbers", "benford-analysis"]} />
       </div>
     </article>
   );
