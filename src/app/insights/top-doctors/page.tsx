@@ -186,7 +186,7 @@ export default function TopDoctors() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Only 2 individual people appear in the top 2,000 Medicaid billers. Almost all top billing is by organizations, not doctors.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/top-doctors")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="top-doctors" relatedSlugs={["self-billers", "billing-networks", "most-patients"]} />
+        <RelatedInsights currentSlug="top-doctors" relatedSlugs={["most-patients", "specialty-breakdown", "most-expensive"]} />
       </div>
     </article>
   );

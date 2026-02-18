@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
+import RelatedInsights from "@/components/RelatedInsights";
 import dualData from "../../../../public/data/dual-billing.json";
 import fs from "fs";
 import path from "path";
@@ -283,17 +284,7 @@ export default function DualBilling() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("When two procedure codes have nearly identical claim counts across 80,000+ services, every encounter is being billed twice. See the data.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/dual-billing")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/billing-networks" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Hidden Billing Networks of Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">65% of payments flow through intermediaries &rarr;</p>
-          </Link>
-          <Link href="/insights/smooth-billers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Providers Who Bill Like Clockwork</p>
-            <p className="text-xs text-slate-500 mt-1">Suspiciously uniform monthly billing &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="dual-billing" relatedSlugs={["billing-networks", "self-billers", "billing-similarity"]} />
       </div>
     </article>
   );

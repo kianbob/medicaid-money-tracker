@@ -268,7 +268,7 @@ export default function RoundNumbers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("100 Medicaid providers show heavy round-number billing — nearly 68,000 claims at exact round dollar amounts totaling $128M. Legitimate billing rarely produces perfectly round numbers.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/round-numbers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="round-numbers" relatedSlugs={["benford-analysis", "smooth-billers", "impossible-volume"]} />
+        <RelatedInsights currentSlug="round-numbers" relatedSlugs={["smooth-billers", "benford-analysis", "self-billers"]} />
       </div>
     </article>
   );

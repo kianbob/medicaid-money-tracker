@@ -253,7 +253,7 @@ export default function ArizonaProblem() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${totalProviders} new Arizona providers appeared in 2022+ and immediately billed ${formatMoney(totalSpending)}. Average time active: ${avgMonths} months.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/arizona-problem")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="arizona-problem" relatedSlugs={["geographic-hotspots", "city-hotspots", "change-points"]} />
+        <RelatedInsights currentSlug="arizona-problem" relatedSlugs={["geographic-hotspots", "city-hotspots", "ny-home-care"]} />
       </div>
     </article>
   );

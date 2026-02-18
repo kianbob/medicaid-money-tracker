@@ -288,7 +288,7 @@ export default function BenfordAnalysis() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("We tested 617K Medicaid providers against Benford's Law. 200 providers show billing patterns that deviate significantly from what natural financial data looks like.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/benford-analysis")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="benford-analysis" relatedSlugs={["impossible-volume", "round-numbers", "smooth-billers"]} />
+        <RelatedInsights currentSlug="benford-analysis" relatedSlugs={["round-numbers", "smooth-billers", "change-points"]} />
       </div>
     </article>
   );

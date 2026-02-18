@@ -188,7 +188,7 @@ export default function MostExpensive() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("The most expensive thing Medicaid pays for: $92,158 PER CLAIM for one drug injection. See the full list of the 50 costliest procedures.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/most-expensive")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="most-expensive" relatedSlugs={["specialty-drugs", "specialty-breakdown", "fastest-growing"]} />
+        <RelatedInsights currentSlug="most-expensive" relatedSlugs={["specialty-drugs", "fastest-growing", "spending-growth"]} />
       </div>
     </article>
   );

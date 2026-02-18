@@ -176,7 +176,7 @@ export default function FastestGrowing() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("One Medicaid procedure code grew 8,935% in 5 years. ABA therapy codes grew 1,500%+, connected to MN autism fraud. See the data.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/fastest-growing")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="fastest-growing" relatedSlugs={["spending-growth", "most-expensive", "change-points"]} />
+        <RelatedInsights currentSlug="fastest-growing" relatedSlugs={["spending-growth", "most-expensive", "pandemic-profiteers"]} />
       </div>
     </article>
   );

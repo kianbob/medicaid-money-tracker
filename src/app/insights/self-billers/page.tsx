@@ -302,7 +302,7 @@ export default function SelfBillers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("100 Medicaid providers bill $5M+ with 95%+ self-billing ratios — processing millions of claims entirely themselves. Together they account for over $72B.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/self-billers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="self-billers" relatedSlugs={["billing-networks", "top-doctors", "impossible-volume"]} />
+        <RelatedInsights currentSlug="self-billers" relatedSlugs={["billing-networks", "round-numbers", "dual-billing"]} />
       </div>
     </article>
   );

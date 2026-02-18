@@ -343,7 +343,7 @@ export default function BillingIntermediaries() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("The top 100 Medicaid billing intermediaries control $42.6B in payments. 80% are also on the fraud watchlist.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/billing-networks")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="billing-networks" relatedSlugs={["self-billers", "billing-similarity", "most-patients"]} />
+        <RelatedInsights currentSlug="billing-networks" relatedSlugs={["self-billers", "billing-similarity", "dual-billing"]} />
       </div>
     </article>
   );

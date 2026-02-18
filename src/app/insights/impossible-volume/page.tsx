@@ -267,7 +267,7 @@ export default function ImpossibleVolume() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("200 Medicaid providers file 50+ claims per working day. The top provider averages 60,000+ claims daily. Physically impossible for a single provider.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/impossible-volume")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="impossible-volume" relatedSlugs={["benford-analysis", "round-numbers", "highest-confidence"]} />
+        <RelatedInsights currentSlug="impossible-volume" relatedSlugs={["highest-confidence", "change-points", "most-patients"]} />
       </div>
     </article>
   );

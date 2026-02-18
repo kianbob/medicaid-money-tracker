@@ -267,7 +267,7 @@ export default function MostPatients() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`The top Medicaid provider bills for ${formatNumber(top.totalBenes)} beneficiaries. ${millionPlus.length} providers each serve 1M+.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/most-patients")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="most-patients" relatedSlugs={["billing-networks", "self-billers", "ny-home-care"]} />
+        <RelatedInsights currentSlug="most-patients" relatedSlugs={["top-doctors", "impossible-volume", "ny-home-care"]} />
       </div>
     </article>
   );

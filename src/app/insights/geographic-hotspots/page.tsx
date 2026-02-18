@@ -261,7 +261,7 @@ export default function GeographicHotspots() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Vermont has the highest Medicaid fraud flag rate per capita (1.08/100K). NY leads in total flags (114). Where do fraud signals really concentrate?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/geographic-hotspots")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["city-hotspots", "arizona-problem", "spending-growth"]} />
+        <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["city-hotspots", "arizona-problem", "ny-home-care"]} />
       </div>
     </article>
   );

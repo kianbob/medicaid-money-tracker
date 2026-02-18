@@ -269,7 +269,7 @@ export default function SpendingGrowth() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Medicaid spending grew 83% in 6 years — from $109B to $199B. COVID was the turning point: 2021 added $30.5B in a single year.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/spending-growth")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="spending-growth" relatedSlugs={["pandemic-profiteers", "fastest-growing", "specialty-breakdown"]} />
+        <RelatedInsights currentSlug="spending-growth" relatedSlugs={["fastest-growing", "pandemic-profiteers", "most-expensive"]} />
       </div>
     </article>
   );

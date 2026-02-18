@@ -285,7 +285,7 @@ export default function ChangePoints() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("CUSUM change point analysis found 7,314 Medicaid providers whose monthly billing shifted 3x+ overnight. The biggest jump: 113x.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/change-points")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="change-points" relatedSlugs={["fastest-growing", "pandemic-profiteers", "highest-confidence"]} />
+        <RelatedInsights currentSlug="change-points" relatedSlugs={["benford-analysis", "impossible-volume", "highest-confidence"]} />
       </div>
     </article>
   );

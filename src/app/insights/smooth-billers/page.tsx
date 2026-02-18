@@ -319,7 +319,7 @@ export default function SmoothBillers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("14 Medicaid providers billing $100K+/month maintain less than 5% variation for years. Normal practices vary 15-40%. These are under 5%.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/smooth-billers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="smooth-billers" relatedSlugs={["benford-analysis", "round-numbers", "change-points"]} />
+        <RelatedInsights currentSlug="smooth-billers" relatedSlugs={["round-numbers", "benford-analysis", "billing-similarity"]} />
       </div>
     </article>
   );

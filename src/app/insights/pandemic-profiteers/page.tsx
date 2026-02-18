@@ -176,7 +176,7 @@ export default function PandemicProfiteers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Who made the most money during COVID? City of Chicago: $23M → $240M (+942%). See the full Medicaid data.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/pandemic-profiteers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="pandemic-profiteers" relatedSlugs={["spending-growth", "covid-testing", "change-points"]} />
+        <RelatedInsights currentSlug="pandemic-profiteers" relatedSlugs={["covid-vaccines", "covid-testing", "spending-growth"]} />
       </div>
     </article>
   );

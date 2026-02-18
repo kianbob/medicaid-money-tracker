@@ -191,7 +191,7 @@ export default function CovidTesting() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("The $4.7 Billion COVID Testing Bonanza: A single test code billed $3.9B to Medicaid. One NJ lab billed $129M.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/covid-testing")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="covid-testing" relatedSlugs={["covid-vaccines", "pandemic-profiteers", "round-numbers"]} />
+        <RelatedInsights currentSlug="covid-testing" relatedSlugs={["covid-vaccines", "pandemic-profiteers", "fastest-growing"]} />
       </div>
     </article>
   );

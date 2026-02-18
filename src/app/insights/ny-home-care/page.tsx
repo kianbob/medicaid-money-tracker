@@ -238,7 +238,7 @@ export default function NYHomeCare() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`NY's home care machine: ${nyProviders.length} of top 100 personal care billers are in New York. Brooklyn alone: ${formatMoney(brooklynSpending)}. See the data.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/ny-home-care")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="ny-home-care" relatedSlugs={["self-billers", "city-hotspots", "most-patients"]} />
+        <RelatedInsights currentSlug="ny-home-care" relatedSlugs={["arizona-problem", "city-hotspots", "most-patients"]} />
       </div>
     </article>
   );

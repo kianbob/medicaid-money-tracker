@@ -221,7 +221,7 @@ export default function SpecialtyBreakdown() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Where does $1 trillion in Medicaid money go? 264 Home Health providers got $71B. 15 Supports Brokerage providers got $10.8B ($720M each!).")}&url=${encodeURIComponent("https://openmedicaid.org/insights/specialty-breakdown")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="specialty-breakdown" relatedSlugs={["spending-growth", "most-expensive", "ny-home-care"]} />
+        <RelatedInsights currentSlug="specialty-breakdown" relatedSlugs={["most-expensive", "top-doctors", "spending-growth"]} />
       </div>
     </article>
   );

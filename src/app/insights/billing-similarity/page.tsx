@@ -304,7 +304,7 @@ export default function BillingSimilarity() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("246 pairs of flagged Medicaid providers have >95% identical billing patterns. 67 pairs match at 100%. Are they the same org under different NPIs?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/billing-similarity")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="billing-similarity" relatedSlugs={["billing-networks", "highest-confidence", "round-numbers"]} />
+        <RelatedInsights currentSlug="billing-similarity" relatedSlugs={["billing-networks", "smooth-billers", "round-numbers"]} />
       </div>
     </article>
   );

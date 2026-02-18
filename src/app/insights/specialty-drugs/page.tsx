@@ -233,7 +233,7 @@ export default function SpecialtyDrugs() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Medicaid's most expensive drug costs ${formatMoney(mostExpensive.costPerClaim)} per claim. ${totalCodes} specialty J-codes total ${formatMoney(totalSpending)} in spending.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/specialty-drugs")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="specialty-drugs" relatedSlugs={["most-expensive", "round-numbers", "benford-analysis"]} />
+        <RelatedInsights currentSlug="specialty-drugs" relatedSlugs={["most-expensive", "spending-growth", "fastest-growing"]} />
       </div>
     </article>
   );
