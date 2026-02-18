@@ -81,6 +81,29 @@ export default function ArizonaProblem() {
         </p>
       </div>
 
+      {/* Key Findings */}
+      <div className="bg-dark-800 border-l-4 border-l-blue-500 rounded-r-xl p-5 mb-12">
+        <h2 className="text-white font-bold text-base mb-3">Key Findings</h2>
+        <ul className="space-y-2.5">
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-blue-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">46 new providers appeared in Arizona in 2022+</span> and immediately billed over <span className="text-white font-semibold">$800M combined</span></span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-blue-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Many operated for less than 12 months</span> before disappearing from the billing data</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-blue-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Phoenix dominates</span> with the highest concentration of new-entrant flags</span>
+          </li>
+          <li className="flex items-start gap-2 text-sm text-slate-300">
+            <span className="text-blue-400 mt-0.5 shrink-0">&#9656;</span>
+            <span><span className="text-white font-semibold">Arizona&apos;s per-capita fraud flag rate</span> significantly exceeds the national average</span>
+          </li>
+        </ul>
+      </div>
+
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
