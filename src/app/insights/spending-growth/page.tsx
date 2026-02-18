@@ -110,7 +110,7 @@ export default function SpendingGrowth() {
           <div className="w-1 h-5 bg-blue-500 rounded-full" />
           Year-by-Year Breakdown
         </h2>
-        <div className="overflow-x-auto">
+        <div className="table-wrapper">
           <table className="w-full text-sm responsive-table">
             <thead>
               <tr className="border-b border-dark-500 text-left">

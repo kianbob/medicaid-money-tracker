@@ -167,6 +167,18 @@ input[type="search"]::-webkit-search-cancel-button {
   appearance: none;
 }
 
+/* Responsive table wrapper for mobile overflow */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+}
+
+.table-wrapper table {
+  min-width: 600px;
+}
+
 /* Print styles */
 @media print {
   /* Hide nav, footer, disclaimer banner, back-to-top, and print-hide elements */

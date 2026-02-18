@@ -203,7 +203,7 @@ export default function ImpossibleVolume() {
           <div className="w-1 h-5 bg-red-500 rounded-full" />
           Top 30 Highest-Volume Providers
         </h2>
-        <div className="overflow-x-auto">
+        <div className="table-wrapper">
           <table className="w-full text-sm responsive-table">
             <thead>
               <tr className="border-b border-dark-500 text-left">
