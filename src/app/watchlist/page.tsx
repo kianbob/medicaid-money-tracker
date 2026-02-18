@@ -421,6 +421,19 @@ function WatchlistContent() {
         </div>
       </div>
 
+      {/* Explore by Category */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {['Home Care', 'Mental Health', 'Transportation', 'Government', 'Hospitals'].map((cat) => (
+          <button
+            key={cat}
+            onClick={() => { setSearch(cat); updateUrl(activeTab, stateFilter, cat); }}
+            className="text-xs px-3 py-1 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 cursor-pointer transition-colors"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       {/* Summary Stats - Unified Tiers + Chart */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_180px] gap-3 mb-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
