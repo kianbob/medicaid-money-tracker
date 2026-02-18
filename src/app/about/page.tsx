@@ -219,20 +219,41 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* How to Use This Data */}
+        {/* Who This Is For */}
         <section aria-labelledby="usage-heading">
-          <h2 id="usage-heading" className="text-xl font-bold text-white mb-4">How to Use This Data</h2>
-          <ul className="space-y-4">
-            <li className="text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Journalists:</strong> Search for providers in your state or city. Cross-reference flagged providers with local reporting. Download our datasets for your own analysis.
-            </li>
-            <li className="text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Researchers:</strong> Our methodology page documents every test. Download raw data from our downloads page. Cite us using the suggested citation on the downloads page.
-            </li>
-            <li className="text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Citizens:</strong> Look up your healthcare provider by NPI. Explore how Medicaid money flows in your state. Share findings that concern you with your representatives.
-            </li>
-          </ul>
+          <h2 id="usage-heading" className="text-xl font-bold text-white mb-4">Who This Is For</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+              <p className="text-lg mb-2">📰</p>
+              <h3 className="text-sm font-bold text-white mb-2">Journalists</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Search for providers in your state or city. Cross-reference flagged providers with local reporting. Download our datasets for your own analysis. <a href="/downloads" className="text-blue-400 hover:underline">Get the data &rarr;</a></p>
+            </div>
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+              <p className="text-lg mb-2">🏛️</p>
+              <h3 className="text-sm font-bold text-white mb-2">Policymakers</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Identify risk areas in your state. See which procedure codes and provider types drive the most spending. Use data to inform oversight decisions. <a href="/states" className="text-blue-400 hover:underline">Explore by state &rarr;</a></p>
+            </div>
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+              <p className="text-lg mb-2">📊</p>
+              <h3 className="text-sm font-bold text-white mb-2">Researchers</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Our methodology page documents every test. Download raw data from our downloads page. Cite us using the suggested citation. <a href="/analysis" className="text-blue-400 hover:underline">Read methodology &rarr;</a></p>
+            </div>
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+              <p className="text-lg mb-2">⚖️</p>
+              <h3 className="text-sm font-bold text-white mb-2">Legal &amp; Compliance</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Screen providers against our fraud detection flags. Benchmark billing rates against national medians. Export data for your own analysis. <a href="/watchlist" className="text-blue-400 hover:underline">View watchlist &rarr;</a></p>
+            </div>
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+              <p className="text-lg mb-2">🏥</p>
+              <h3 className="text-sm font-bold text-white mb-2">Healthcare Executives</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Benchmark your organization against peers. Understand how your billing compares to specialty medians. Identify areas of potential audit risk. <a href="/compare" className="text-blue-400 hover:underline">Compare providers &rarr;</a></p>
+            </div>
+            <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5">
+              <p className="text-lg mb-2">🗳️</p>
+              <h3 className="text-sm font-bold text-white mb-2">Citizens &amp; Taxpayers</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Look up any Medicaid provider by NPI. See how money flows in your state. Share findings that concern you with your representatives. <a href="/lookup" className="text-blue-400 hover:underline">Look up a provider &rarr;</a></p>
+            </div>
+          </div>
         </section>
 
         {/* FAQ */}

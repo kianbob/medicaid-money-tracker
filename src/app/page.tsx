@@ -96,8 +96,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Start Here */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+          <p className="text-sm text-slate-300"><span className="text-white font-semibold">New here?</span> Start with our top investigations, or jump straight to the <Link href="/watchlist" className="text-blue-400 hover:underline">Risk Watchlist</Link> to see all 1,860 flagged providers.</p>
+          <div className="flex gap-2 shrink-0">
+            <Link href="/insights" className="text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">All 24 investigations &rarr;</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Investigations */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-labelledby="featured-investigations-heading">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" aria-labelledby="featured-investigations-heading">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-1 h-6 bg-red-500 rounded-full" />
           <h2 id="featured-investigations-heading" className="font-headline text-xl font-bold text-white">🔍 Featured Investigations</h2>
