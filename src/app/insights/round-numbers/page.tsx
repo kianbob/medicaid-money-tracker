@@ -224,6 +224,7 @@ export default function RoundNumbers() {
                     <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-amber-400 transition-colors">
                       {lookupName(p.npi)}
                     </Link>
+                    <p className="text-[10px] text-slate-600">NPI: {p.npi}</p>
                   </td>
                   <td data-label="Patterns" className="py-2.5 pr-3 text-right text-amber-400 font-semibold tabular-nums">{p.roundPatterns}</td>
                   <td data-label="Claims" className="py-2.5 pr-3 text-right text-white tabular-nums">{formatNumber(p.totalRoundClaims)}</td>

@@ -244,6 +244,7 @@ export default function BenfordAnalysis() {
                     <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-purple-400 transition-colors">
                       {lookupName(p.npi)}
                     </Link>
+                    <p className="text-[10px] text-slate-600">NPI: {p.npi}</p>
                   </td>
                   <td data-label="Chi-Squared" className="py-2.5 pr-3 text-right text-purple-400 font-semibold tabular-nums">{p.chiSquared.toFixed(4)}</td>
                   <td data-label="Total Paid" className="py-2.5 pr-3 text-right text-slate-400 tabular-nums">{formatMoney(p.totalPaid)}</td>
