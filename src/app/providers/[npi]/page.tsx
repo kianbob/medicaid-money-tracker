@@ -233,13 +233,24 @@ export default function ProviderPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
+      <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-4">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>
         <Link href="/providers" className="hover:text-blue-400 transition-colors">Providers</Link>
         <span className="mx-1.5">/</span>
         <span className="text-slate-300">{name}</span>
       </nav>
+
+      {/* Quick Actions */}
+      <div className="flex gap-2 mb-6">
+        <Link href="/compare" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">
+          ⚖️ Compare
+        </Link>
+        <Link href={`/providers/${npi}/report`} className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">
+          🖨️ Print Report
+        </Link>
+        <CopyLinkButton className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors" />
+      </div>
 
       {/* Header */}
       <div className="mb-8">

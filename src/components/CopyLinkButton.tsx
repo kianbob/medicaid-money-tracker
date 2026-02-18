@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function CopyLinkButton() {
+export function CopyLinkButton({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -15,7 +15,7 @@ export function CopyLinkButton() {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-300 transition-colors px-2 py-0.5 rounded border border-dark-500/50 hover:border-dark-400"
+      className={className || "inline-flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-300 transition-colors px-2 py-0.5 rounded border border-dark-500/50 hover:border-dark-400"}
     >
       {copied ? (
         <>
