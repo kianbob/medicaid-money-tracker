@@ -11,7 +11,7 @@ type WatchlistEntry = {
   npi: string;
   name?: string;
   totalPaid?: number;
-  flags?: string;
+  flags?: string | string[];
   flagCount?: number;
   city?: string;
   state?: string;
@@ -42,7 +42,7 @@ const mlData = mlScores as { topProviders: MlEntry[]; smallProviderFlags: MlEntr
       city: p.city || undefined,
       state: p.state || undefined,
       specialty: p.specialty || undefined,
-      flags: "ML Flag",
+      flags: ["ML Flag"],
       flagCount: 0,
     });
   }
@@ -175,9 +175,9 @@ export default function CheckPage() {
                     </p>
                     {p.isFlagged ? (
                       <div className="space-y-1">
-                        {p.flags && p.flags !== "ML Flag" && (
+                        {p.flags && !(Array.isArray(p.flags) && p.flags.length === 1 && p.flags[0] === "ML Flag") && (
                           <div className="flex flex-wrap gap-1">
-                            {getFlagInfo(p.flags).map((f: any, i: number) => (
+                            {getFlagInfo(Array.isArray(p.flags) ? p.flags.join(',') : p.flags).map((f: any, i: number) => (
                               <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 border border-red-500/20">
                                 {f.label}
                               </span>

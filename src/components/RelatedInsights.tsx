@@ -99,6 +99,18 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
     title: 'Dual-Billing Anomalies',
     description: 'Providers billing under multiple identifiers or arrangements',
   },
+  'cares-inc-exposed': {
+    title: 'CARES INC: 6,886% Billing Explosion',
+    description: 'From $1.6M to $112.6M in one year — seven fraud flags triggered',
+  },
+  'chicago-exposed': {
+    title: 'City of Chicago: 942% Surge',
+    description: '$23M to $240M in ambulance billing at 10× the national median',
+  },
+  'srh-chn-exposed': {
+    title: 'SRH CHN: $239M From Nowhere',
+    description: 'A brand-new entity billing hundreds of millions immediately',
+  },
 };
 
 interface RelatedInsightsProps {
