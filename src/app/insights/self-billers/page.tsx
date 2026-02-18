@@ -4,8 +4,7 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import selfBillers from "../../../../public/data/self-billers.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import expandedWatchlist from "../../../../public/data/expanded-watchlist.json";
-import fs from "fs";
-import path from "path";
+import topProviders from "../../../../public/data/top-providers-1000.json";
 
 export const metadata: Metadata = {
   title: "Solo Operators: Providers Billing $5M+ Entirely Themselves — OpenMedicaid",
@@ -16,23 +15,20 @@ export const metadata: Metadata = {
   },
 };
 
-function titleCase(s: string): string {
-  if (!s) return "";
-  return s
-    .toLowerCase()
-    .split(" ")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+// Build name lookup map from top providers and watchlists
+const nameMap = new Map<string, string>();
+for (const p of topProviders as any[]) {
+  if (p.npi && p.name) nameMap.set(p.npi, p.name);
+}
+for (const p of smartWatchlist as any[]) {
+  if (p.npi && p.name && !nameMap.has(p.npi)) nameMap.set(p.npi, p.name);
+}
+for (const p of expandedWatchlist as any[]) {
+  if (p.npi && p.name && !nameMap.has(p.npi)) nameMap.set(p.npi, p.name);
 }
 
 function lookupName(npi: string): string {
-  try {
-    const filePath = path.join(process.cwd(), "public", "data", "providers", `${npi}.json`);
-    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    return titleCase(data.name || data.providerName || "") || `NPI: ${npi}`;
-  } catch {
-    return `NPI: ${npi}`;
-  }
+  return nameMap.get(npi) || "Unknown Provider";
 }
 
 const providers = selfBillers as any[];
@@ -252,9 +248,12 @@ export default function SelfBillers() {
                     <td data-label="Rank" className="py-2.5 pr-3 text-slate-600 tabular-nums">{i + 1}</td>
                     <td data-label="Provider" className="py-2.5 pr-3">
                       <div className="flex items-center gap-1.5">
-                        <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-rose-400 transition-colors">
-                          {lookupName(p.npi)}
-                        </Link>
+                        <div>
+                          <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-rose-400 transition-colors">
+                            {lookupName(p.npi)}
+                          </Link>
+                          <p className="text-[10px] text-slate-600 tabular-nums">NPI: {p.npi}</p>
+                        </div>
                         {isWatchlisted && (
                           <span className="text-[8px] font-bold px-1 py-0.5 rounded bg-red-500/15 border border-red-500/30 text-red-400">WL</span>
                         )}
