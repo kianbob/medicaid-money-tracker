@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import selfBillers from "../../../../public/data/self-billers.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
@@ -301,17 +302,7 @@ export default function SelfBillers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("100 Medicaid providers bill $5M+ with 95%+ self-billing ratios — processing millions of claims entirely themselves. Together they account for over $72B.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/self-billers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/billing-networks" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Hidden Billing Networks of Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">65% of all claims have a different billing NPI than servicing NPI &rarr;</p>
-          </Link>
-          <Link href="/insights/impossible-volume" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Impossible Billing Volume: 50+ Claims Per Day</p>
-            <p className="text-xs text-slate-500 mt-1">200 providers file more than 50 claims per working day &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="self-billers" relatedSlugs={["billing-networks", "top-doctors", "impossible-volume"]} />
       </div>
     </article>
   );

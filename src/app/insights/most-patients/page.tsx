@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import beneData from "../../../../public/data/top-beneficiary-counts.json";
 import fs from "fs";
@@ -266,17 +267,7 @@ export default function MostPatients() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`The top Medicaid provider bills for ${formatNumber(top.totalBenes)} beneficiaries. ${millionPlus.length} providers each serve 1M+.`)}&url=${encodeURIComponent("https://openmedicaid.org/insights/most-patients")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/top-doctors" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Highest-Paid Individual Medicaid Providers</p>
-            <p className="text-xs text-slate-500 mt-1">Only 2 individuals in the top 2,000 →</p>
-          </Link>
-          <Link href="/insights/billing-networks" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Hidden Billing Networks of Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">65% of claims via intermediary →</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="most-patients" relatedSlugs={["billing-networks", "self-billers", "ny-home-care"]} />
       </div>
     </article>
   );

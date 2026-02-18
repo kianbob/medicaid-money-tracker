@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import geoData from "../../../../public/data/geographic-risk.json";
 
@@ -260,17 +261,7 @@ export default function GeographicHotspots() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Vermont has the highest Medicaid fraud flag rate per capita (1.08/100K). NY leads in total flags (114). Where do fraud signals really concentrate?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/geographic-hotspots")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/arizona-problem" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Arizona Problem: New Clinics, Massive Billing</p>
-            <p className="text-xs text-slate-500 mt-1">46 new providers, $800M+ in billing &rarr;</p>
-          </Link>
-          <Link href="/insights/ny-home-care" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The New York Home Care Machine</p>
-            <p className="text-xs text-slate-500 mt-1">$47B+ in personal care spending &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["city-hotspots", "arizona-problem", "spending-growth"]} />
       </div>
     </article>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import similarData from "../../../../public/data/similar-providers.json";
 import fs from "fs";
 import path from "path";
@@ -303,17 +304,7 @@ export default function BillingSimilarity() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("246 pairs of flagged Medicaid providers have >95% identical billing patterns. 67 pairs match at 100%. Are they the same org under different NPIs?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/billing-similarity")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/billing-networks" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Hidden Billing Networks</p>
-            <p className="text-xs text-slate-500 mt-1">65% of claims have a different billing NPI than servicing NPI &rarr;</p>
-          </Link>
-          <Link href="/insights/impossible-volume" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Impossible Billing Volume</p>
-            <p className="text-xs text-slate-500 mt-1">200 providers file 50+ claims per working day &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="billing-similarity" relatedSlugs={["billing-networks", "highest-confidence", "round-numbers"]} />
       </div>
     </article>
   );

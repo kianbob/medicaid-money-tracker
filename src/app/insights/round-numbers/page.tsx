@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import roundBillers from "../../../../public/data/round-billers.json";
 import fs from "fs";
@@ -267,17 +268,7 @@ export default function RoundNumbers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("100 Medicaid providers show heavy round-number billing — nearly 68,000 claims at exact round dollar amounts totaling $128M. Legitimate billing rarely produces perfectly round numbers.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/round-numbers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/benford-analysis" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">When the Numbers Don&apos;t Add Up: Benford&apos;s Law</p>
-            <p className="text-xs text-slate-500 mt-1">200 providers with statistically significant digit anomalies &rarr;</p>
-          </Link>
-          <Link href="/insights/smooth-billers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Providers Who Bill Exactly the Same Every Month</p>
-            <p className="text-xs text-slate-500 mt-1">14 providers with less than 5% monthly variation &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="round-numbers" relatedSlugs={["benford-analysis", "smooth-billers", "impossible-volume"]} />
       </div>
     </article>
   );

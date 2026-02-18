@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import consistencyData from "../../../../public/data/billing-consistency.json";
 import fs from "fs";
@@ -318,17 +319,7 @@ export default function SmoothBillers() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("14 Medicaid providers billing $100K+/month maintain less than 5% variation for years. Normal practices vary 15-40%. These are under 5%.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/smooth-billers")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/billing-networks" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Hidden Billing Networks of Medicaid</p>
-            <p className="text-xs text-slate-500 mt-1">65% of payments flow through intermediaries &rarr;</p>
-          </Link>
-          <Link href="/insights/dual-billing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">The Dual-Billing Pattern</p>
-            <p className="text-xs text-slate-500 mt-1">When claim counts match too perfectly &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="smooth-billers" relatedSlugs={["benford-analysis", "round-numbers", "change-points"]} />
       </div>
     </article>
   );

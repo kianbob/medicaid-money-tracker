@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney } from "@/lib/format";
 import changePointData from "../../../../public/data/change-points.json";
 
@@ -284,17 +285,7 @@ export default function ChangePoints() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("CUSUM change point analysis found 7,314 Medicaid providers whose monthly billing shifted 3x+ overnight. The biggest jump: 113x.")}&url=${encodeURIComponent("https://openmedicaid.org/insights/change-points")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <h3 className="text-sm font-semibold text-slate-400 mb-3">Related Insights</h3>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <Link href="/insights/fastest-growing" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Fastest Growing Procedures</p>
-            <p className="text-xs text-slate-500 mt-1">One code grew 8,935% in five years &rarr;</p>
-          </Link>
-          <Link href="/insights/pandemic-profiteers" className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors group">
-            <p className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors">Pandemic Profiteers</p>
-            <p className="text-xs text-slate-500 mt-1">Who made the most money during COVID? &rarr;</p>
-          </Link>
-        </div>
+        <RelatedInsights currentSlug="change-points" relatedSlugs={["fastest-growing", "pandemic-profiteers", "highest-confidence"]} />
       </div>
     </article>
   );
