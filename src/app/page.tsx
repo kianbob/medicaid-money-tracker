@@ -59,6 +59,7 @@ export default function Home() {
             <span className="text-white font-medium">code-specific fraud detection</span> across 617,000+ providers.{" "}
             <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags.
           </p>
+          <p className="text-sm text-slate-500 mb-6">Built for journalists, researchers, and watchdogs.</p>
           <div className="flex flex-wrap gap-3">
             <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-500/30 hover:-translate-y-0.5">
               View Risk Watchlist
@@ -280,8 +281,12 @@ export default function Home() {
                   <p className="text-xs text-slate-500 mt-0.5">{p.specialty} {p.city ? `\u00b7 ${p.city}, ${p.state}` : ''}</p>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  {flags.length > 0 && (
-                    <div className={`w-2 h-2 rounded-full ${riskDot(flags.length)}`} title={`${flags.length} flag${flags.length > 1 ? 's' : ''}`} />
+                  {flags.length > 0 ? (
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${flags.length >= 5 ? 'bg-red-500/20 text-red-400' : flags.length >= 3 ? 'bg-amber-500/20 text-amber-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                      {flags.length} flag{flags.length > 1 ? 's' : ''}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] text-slate-600 px-2 py-0.5 rounded-full bg-dark-600">No flags</span>
                   )}
                   <div className="text-right">
                     <p className="text-white font-bold tabular-nums">{formatMoney(p.totalPaid)}</p>
@@ -314,7 +319,7 @@ export default function Home() {
                 <span className="text-lg font-black text-white group-hover:text-blue-400 transition-colors">{s.state}</span>
               </div>
               <p className="text-xl font-bold text-green-400 tabular-nums">{formatMoney(s.total_payments)}</p>
-              <p className="text-[10px] text-slate-600 mt-1">{stateName(s.state)} &middot; {s.provider_count} top providers</p>
+              <p className="text-[10px] text-slate-600 mt-1">{stateName(s.state)} &middot; {s.provider_count} high-billing providers</p>
             </Link>
           ))}
         </div>
