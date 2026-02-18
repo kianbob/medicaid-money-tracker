@@ -304,6 +304,12 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <div className="mt-4 text-center">
+          <Link href="/insights" className="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            View All 24 Investigations
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </Link>
+        </div>
       </section>
 
       {/* How We Did This */}

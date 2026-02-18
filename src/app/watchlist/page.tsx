@@ -369,6 +369,20 @@ function WatchlistContent() {
           These providers collectively received <span className="text-white font-semibold">{formatMoney(totalFlaggedSpending)}</span> in
           Medicaid payments. Risk tiers combine statistical flag counts with ML fraud-similarity scores.
         </p>
+        <p className="text-xs text-slate-600 mt-2">
+          Data last updated: February 2026 | Source: HHS Medicaid Provider Spending 2018&ndash;2024
+        </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3">
+          <Link href="/analysis" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+            Learn about our methodology &rarr;
+          </Link>
+          <Link href="/insights/city-hotspots" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+            Explore by city &rarr;
+          </Link>
+          <Link href="/insights/geographic-hotspots" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+            Explore by state &rarr;
+          </Link>
+        </div>
       </div>
 
       {/* OIG Banner */}
@@ -628,6 +642,7 @@ function WatchlistContent() {
             const a = document.createElement('a');
             a.href = url;
             a.download = 'medicaid-watchlist.csv';
+            a.rel = 'nofollow';
             a.click();
             URL.revokeObjectURL(url);
           }}
@@ -680,10 +695,12 @@ function WatchlistContent() {
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-2 mt-1 flex-wrap">
-                  <span className="text-[10px] text-slate-500">{p.specialty ? p.specialty.substring(0, 40) : ''}</span>
-                  {p.city && <span className="text-[10px] text-slate-600">&middot; {p.city}, {p.state}</span>}
-                </div>
+                {(p.city || p.state) && (
+                  <p className="text-[11px] text-slate-500 mt-0.5">{p.city}{p.city && p.state ? ', ' : ''}{p.state}</p>
+                )}
+                {p.specialty && (
+                  <p className="text-[10px] text-slate-600 mt-0.5">{p.specialty.substring(0, 50)}</p>
+                )}
               </div>
               <div className="flex items-center gap-3 shrink-0">
                 {activeTab === 'ml' ? (
