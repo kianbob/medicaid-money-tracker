@@ -68,6 +68,18 @@ export default function AboutPage() {
           </p>
         </section>
 
+        {/* Who Built This */}
+        <section aria-labelledby="who-heading">
+          <h2 id="who-heading" className="text-xl font-bold text-white mb-4">Who Built This</h2>
+          <p className="text-sm text-slate-300 leading-relaxed">
+            OpenMedicaid is a project of{" "}
+            <a href="https://thedataproject.ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium">TheDataProject.ai</a>
+            {" "}&mdash; an independent data journalism operation that builds tools to make public records accessible.
+            We analyze government datasets that are technically public but practically inaccessible, turning raw data
+            into searchable, investigative resources.
+          </p>
+        </section>
+
         {/* Data Source */}
         <section aria-labelledby="data-heading">
           <h2 id="data-heading" className="text-xl font-bold text-white mb-4">Data Source</h2>
@@ -207,6 +219,22 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* How to Use This Data */}
+        <section aria-labelledby="usage-heading">
+          <h2 id="usage-heading" className="text-xl font-bold text-white mb-4">How to Use This Data</h2>
+          <ul className="space-y-4">
+            <li className="text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Journalists:</strong> Search for providers in your state or city. Cross-reference flagged providers with local reporting. Download our datasets for your own analysis.
+            </li>
+            <li className="text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Researchers:</strong> Our methodology page documents every test. Download raw data from our downloads page. Cite us using the suggested citation on the downloads page.
+            </li>
+            <li className="text-sm text-slate-300 leading-relaxed">
+              <strong className="text-white">Citizens:</strong> Look up your healthcare provider by NPI. Explore how Medicaid money flows in your state. Share findings that concern you with your representatives.
+            </li>
+          </ul>
+        </section>
+
         {/* FAQ */}
         <section aria-labelledby="faq-heading">
           <h2 id="faq-heading" className="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
@@ -295,20 +323,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* Built By */}
-        <section aria-labelledby="built-heading">
-          <h2 id="built-heading" className="text-xl font-bold text-white mb-4">Built By</h2>
-          <p className="text-sm text-slate-300 leading-relaxed">
-            OpenMedicaid is a project of{" "}
-            <a href="https://thedataproject.ai" className="text-blue-400 hover:underline font-medium">TheDataProject.ai</a>,
-            building data-driven transparency tools from public records.
-          </p>
-          <p className="text-xs text-slate-400 mt-3">
-            If you&apos;re a journalist, researcher, or policymaker interested in this data,{" "}
-            <a href="https://thedataproject.ai" className="text-blue-400 hover:underline">get in touch</a>.
-          </p>
         </section>
 
         {/* Follow Us */}
