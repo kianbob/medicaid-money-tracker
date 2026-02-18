@@ -196,58 +196,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Investigation */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="featured-heading">
-        <div className="flex items-center gap-2 mb-6">
-          <div className="w-1 h-6 bg-amber-500 rounded-full" />
-          <h2 id="featured-heading" className="font-headline text-xl font-bold text-white">Featured Investigation</h2>
-        </div>
-        <Link href="/providers/1396049987" className="block group">
-          <div className="relative overflow-hidden bg-gradient-to-br from-amber-500/10 via-red-500/5 to-dark-800 border border-amber-500/20 rounded-xl p-6 md:p-8 hover:border-amber-500/40 transition-all border-l-4 border-l-red-500/60">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" aria-hidden="true" />
-            <div className="relative">
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="inline-flex items-center bg-amber-500/15 border border-amber-500/30 rounded px-2.5 py-1 text-[10px] font-black text-amber-400 uppercase tracking-widest">
-                  Featured Investigation
-                </span>
-                <span className="inline-flex items-center bg-red-500/15 border border-red-500/30 rounded-full px-3 py-1 text-[10px] font-bold text-red-400 uppercase tracking-wider">
-                  Critical Risk &middot; 7 Flags
-                </span>
-              </div>
-              <p className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-amber-400 tabular-nums mb-3 animate-count">
-                6,886%
-              </p>
-              <h3 className="text-lg md:text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors leading-snug">
-                Community Assistance Resources &amp; Extended Services INC grew from $1.6M to $112.6M in one year
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed max-w-2xl mb-4">
-                A <span className="text-amber-400 font-semibold">6,886% spending increase</span> in a single year while billing <span className="text-amber-400 font-semibold">4.5&times; the median rate</span> for skills training services. Flagged by 7 of our 13 statistical fraud tests.
-              </p>
-              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500">
-                <span>NPI: 1396049987</span>
-                <span>&middot;</span>
-                <span>NY</span>
-                <span>&middot;</span>
-                <span className="text-amber-400 font-medium group-hover:text-amber-300 transition-colors">
-                  View full profile &rarr;
-                </span>
-              </div>
-            </div>
-          </div>
-        </Link>
-        <div className="mt-3 flex justify-end">
-          <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('This Medicaid provider grew from $1.6M to $112.6M in one year — a 6,886% increase. See the data →')}&url=${encodeURIComponent('https://openmedicaid.org/providers/1396049987')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 hover:text-slate-300 transition-colors px-3 py-1.5 rounded-lg border border-dark-500/50 hover:border-dark-400"
-          >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            Share on X
-          </a>
-        </div>
-      </section>
-
       {/* Spending Trend Mini Chart */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="trend-heading">
         <div className="flex items-center justify-between mb-6">
@@ -357,6 +305,40 @@ export default function Home() {
               Our methodology &rarr;
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Our Data */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-labelledby="data-sources-heading">
+        <div className="flex items-center gap-2 mb-6">
+          <div className="w-1 h-6 bg-blue-500 rounded-full" />
+          <h2 id="data-sources-heading" className="font-headline text-xl font-bold text-white">Our Data</h2>
+        </div>
+        <div className="grid sm:grid-cols-3 gap-3">
+          <a href="https://opendata.hhs.gov/datasets/medicaid-provider-spending/" target="_blank" rel="noopener" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-blue-500/30 transition-colors group">
+            <div className="flex items-center gap-2 mb-2">
+              <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+              <h3 className="text-sm font-bold text-white">HHS Open Data</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">227 million Medicaid billing records from the HHS Open Data Platform, covering 2018&ndash;2024.</p>
+            <p className="text-[10px] text-blue-400/60 mt-2 group-hover:text-blue-400 transition-colors">opendata.hhs.gov &rarr;</p>
+          </a>
+          <a href="https://oig.hhs.gov/exclusions/" target="_blank" rel="noopener" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-blue-500/30 transition-colors group">
+            <div className="flex items-center gap-2 mb-2">
+              <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              <h3 className="text-sm font-bold text-white">OIG Exclusion List</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">82,715 excluded providers from the HHS Office of Inspector General, cross-referenced against our watchlist.</p>
+            <p className="text-[10px] text-blue-400/60 mt-2 group-hover:text-blue-400 transition-colors">oig.hhs.gov &rarr;</p>
+          </a>
+          <a href="https://npiregistry.cms.hhs.gov/" target="_blank" rel="noopener" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-blue-500/30 transition-colors group">
+            <div className="flex items-center gap-2 mb-2">
+              <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" /></svg>
+              <h3 className="text-sm font-bold text-white">NPI Registry</h3>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">Provider names, specialties, and locations from the CMS National Provider Identifier registry.</p>
+            <p className="text-[10px] text-blue-400/60 mt-2 group-hover:text-blue-400 transition-colors">npiregistry.cms.hhs.gov &rarr;</p>
+          </a>
         </div>
       </section>
 
