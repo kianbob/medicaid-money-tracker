@@ -402,6 +402,25 @@ function WatchlistContent() {
         </div>
       </div>
 
+      {/* Key Findings */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-red-500">
+          <p className="text-xs text-slate-500 uppercase">Highest Growth</p>
+          <p className="text-lg font-bold text-white">CARES INC</p>
+          <p className="text-sm text-red-400">+6,886% growth (2018-2023)</p>
+        </div>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-amber-500">
+          <p className="text-xs text-slate-500 uppercase">Largest New Entity</p>
+          <p className="text-lg font-bold text-white">SRH CHN Lead Health Home</p>
+          <p className="text-sm text-amber-400">$239M billed as brand-new entity</p>
+        </div>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-purple-500">
+          <p className="text-xs text-slate-500 uppercase">Most Fraud Flags</p>
+          <p className="text-lg font-bold text-white">CARES INC</p>
+          <p className="text-sm text-purple-400">7 independent fraud indicators triggered</p>
+        </div>
+      </div>
+
       {/* Summary Stats - Unified Tiers + Chart */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_180px] gap-3 mb-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">

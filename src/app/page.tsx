@@ -95,6 +95,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Investigations */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-labelledby="featured-investigations-heading">
+        <div className="flex items-center gap-2 mb-4">
+          <div className="w-1 h-6 bg-red-500 rounded-full" />
+          <h2 id="featured-investigations-heading" className="font-headline text-xl font-bold text-white">🔍 Featured Investigations</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link href="/insights/pandemic-profiteers" className="group bg-dark-800 border border-dark-500/50 rounded-xl p-6 border-l-4 border-l-red-500 hover:border-dark-400 transition-all">
+            <h3 className="text-lg font-bold text-white mb-2">Pandemic Profiteers</h3>
+            <p className="text-sm text-slate-400 mb-4">Providers whose billing surged during COVID and never came back down</p>
+            <p className="text-xs text-red-400 flex items-center gap-1 font-medium">
+              Read investigation
+              <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </p>
+          </Link>
+          <Link href="/insights/city-hotspots" className="group bg-dark-800 border border-dark-500/50 rounded-xl p-6 border-l-4 border-l-amber-500 hover:border-dark-400 transition-all">
+            <h3 className="text-lg font-bold text-white mb-2">City Fraud Hotspots</h3>
+            <p className="text-sm text-slate-400 mb-4">Brooklyn leads with 64 flagged providers billing $13.7B combined</p>
+            <p className="text-xs text-amber-400 flex items-center gap-1 font-medium">
+              Read investigation
+              <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </p>
+          </Link>
+          <Link href="/insights/arizona-problem" className="group bg-dark-800 border border-dark-500/50 rounded-xl p-6 border-l-4 border-l-blue-500 hover:border-dark-400 transition-all">
+            <h3 className="text-lg font-bold text-white mb-2">The Arizona Problem</h3>
+            <p className="text-sm text-slate-400 mb-4">46 new providers appeared post-pandemic with aggressive billing patterns</p>
+            <p className="text-xs text-blue-400 flex items-center gap-1 font-medium">
+              Read investigation
+              <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {/* Latest Insights — moved up for engagement */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-labelledby="insights-heading">
         <div className="flex items-center justify-between mb-4">
