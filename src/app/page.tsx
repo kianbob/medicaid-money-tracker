@@ -57,7 +57,8 @@ export default function Home() {
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
             We analyzed every Medicaid billing record released by HHS &mdash; and ran{" "}
             <span className="text-white font-medium">code-specific fraud detection</span> across 617,000+ providers.{" "}
-            <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags.
+            <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags &mdash; collectively billing{" "}
+            <span className="text-white font-medium">$229.6 billion</span> in taxpayer funds.
           </p>
           <p className="text-sm text-slate-500 mb-6">Built for journalists, researchers, taxpayers, and anyone who thinks $1 trillion in government spending deserves scrutiny.</p>
           <div className="flex flex-wrap gap-3">
@@ -83,7 +84,7 @@ export default function Home() {
             { label: "Billing Records", value: formatNumber(stats.records), sub: "Individual claims", color: "text-blue-400" },
             { label: "Providers Analyzed", value: formatNumber(stats.providers), sub: "Unique NPIs", color: "text-slate-300" },
             { label: "Flagged Providers", value: String(watchlistCount), sub: "statistical + ML analysis", color: "text-red-400" },
-            { label: "Procedure Codes", value: formatNumber(10881), sub: "HCPCS codes", color: "text-purple-400" },
+            { label: "Flagged Spending", value: "$229.6B", sub: "billed by flagged providers", color: "text-amber-400" },
           ].map((stat) => (
             <div key={stat.label} className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors">
               <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">{stat.label}</p>
