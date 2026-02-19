@@ -6,7 +6,7 @@ import data from "../../../../public/data/mn-fraud-capital.json";
 
 export const metadata: Metadata = {
   title: "Minnesota: America's Medicaid Fraud Capital — OpenMedicaid",
-  description: "Minnesota has 4x its population share of fraud-heavy OIG exclusions. 81% of all interpreter fraud in America is in one state. How generous programs with weak oversight became a magnet for organized fraud.",
+  description: "Minnesota has 4x its population share of fraud-heavy OIG exclusions, the $250M+ Feeding Our Future scandal, autism therapy fraud, and a housing program so broken the state shut it down. How generous programs with weak oversight became a magnet for organized fraud.",
   openGraph: {
     title: "Minnesota: America's Medicaid Fraud Capital",
     description: "One state has 4x its population share of Medicaid fraud exclusions. Home care, transportation, and interpreter services are the epicenter.",
@@ -36,7 +36,7 @@ export default function MinnesotaFraudCapital() {
           <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-3 py-1 text-xs font-medium text-red-400">Investigation</span>
           <span className="text-xs text-slate-500">February 19, 2026</span>
           <span className="text-xs text-slate-600">&middot;</span>
-          <span className="text-xs text-slate-500">8 min read</span>
+          <span className="text-xs text-slate-500">12 min read</span>
         </div>
         <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
           Minnesota: America&apos;s Medicaid Fraud Capital
@@ -258,6 +258,106 @@ export default function MinnesotaFraudCapital() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* The Bigger Picture: 2020s Minnesota Fraud Scandals */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-white mb-4">The Bigger Picture: Minnesota&apos;s Fraud Epidemic Goes Far Beyond Medicaid</h2>
+        <p className="text-slate-300 mb-4">
+          Our OIG exclusion data captures only the Medicaid/Medicare fraud side. But Minnesota&apos;s fraud problem
+          extends across virtually every federal social services program the state administers — and the scale is staggering.
+        </p>
+
+        <div className="space-y-4 mb-6">
+          {/* Feeding Our Future */}
+          <div className="bg-gradient-to-r from-red-500/5 to-orange-500/5 border border-red-500/20 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-2xl">🍽️</span>
+              <h3 className="text-lg font-semibold text-white">Feeding Our Future — $250M+ Stolen</h3>
+              <span className="text-xs bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full">Largest Pandemic Fraud in US History</span>
+            </div>
+            <p className="text-sm text-slate-300 mb-3">
+              A Minnesota nonprofit that claimed to distribute meals to schoolchildren during COVID-19. Federal prosecutors say 
+              it stole over <strong className="text-white">$250 million</strong> while providing few or no meals at most locations. 
+              Attorney General Merrick Garland called it the country&apos;s largest pandemic relief fraud scheme.
+            </p>
+            <p className="text-sm text-slate-300 mb-3">
+              At its peak, Feeding Our Future listed 299 &quot;meal sites&quot; claiming to serve 90 million meals in under 2 years — 
+              over 120,000 meals per day. One site the FBI surveilled claimed 6,000 meals/day but averaged about 40 visitors.
+              Only ~3% of funding was actually spent on food.
+            </p>
+            <p className="text-sm text-slate-300 mb-3">
+              As of early 2026, <strong className="text-white">79 individuals have been indicted</strong>, with more than 50 guilty pleas and 
+              7 found guilty at trial, including scheme leader Aimee Bock. The state&apos;s education department flagged fraud signs 
+              as early as 2019, but a lawsuit alleging racial discrimination created a chilling effect on oversight — a state 
+              legislative audit later confirmed this pressure compromised the agency&apos;s ability to investigate.
+            </p>
+            <div className="bg-slate-800/40 rounded-lg p-3 mt-3">
+              <p className="text-xs text-slate-400">
+                <strong className="text-slate-300">Political connections:</strong> The scheme involved ties to Minneapolis Mayor Jacob Frey&apos;s 
+                office (adviser Abdi Salah pled guilty to wire fraud), council member Jamal Osman (whose wife ran a meal site 
+                receiving $400K+), and state senator Omar Fateh. Multiple politicians returned donations from implicated individuals.
+              </p>
+            </div>
+          </div>
+
+          {/* Autism Therapy (EIDBI) */}
+          <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-2xl">🧩</span>
+              <h3 className="text-lg font-semibold text-white">Autism Therapy (EIDBI) Fraud</h3>
+            </div>
+            <p className="text-sm text-slate-300 mb-2">
+              Federal investigators found at least a dozen Feeding Our Future defendants also owned or were associated 
+              with autism therapy centers in Minnesota. In December 2025, Asha Farhan Hassan pled guilty to stealing 
+              <strong className="text-white"> $14 million</strong> in EIDBI (Early Intensive Developmental and Behavioral Intervention) funding.
+              Minnesota has since <strong className="text-white">paused payments in 14 Medicaid programs</strong> including autism therapy 
+              while conducting audits.
+            </p>
+          </div>
+
+          {/* Housing Stabilization */}
+          <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-2xl">🏠</span>
+              <h3 className="text-lg font-semibold text-white">Housing Stabilization — Shut Down Entirely</h3>
+            </div>
+            <p className="text-sm text-slate-300 mb-2">
+              Minnesota&apos;s Integrated Community Supports (ICS) program went from $4.6 million/year at launch in 2021 to 
+              <strong className="text-white"> $180 million in 2025</strong> — &quot;explosive growth&quot; that Minnesota has now recognized was 
+              largely fraudulent. At least 17 providers were suspended for credible fraud allegations. One ICS enrollee, 
+              Rick Clemmer, died in 2025 from a medical emergency with no one present — despite his provider billing 
+              for 12 hours of daily one-on-one care. Minnesota has since <strong className="text-white">shut down the entire 
+              housing stabilization system</strong>.
+            </p>
+          </div>
+
+          {/* Substance Abuse */}
+          <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-2xl">💊</span>
+              <h3 className="text-lg font-semibold text-white">Substance Abuse Treatment Fraud</h3>
+            </div>
+            <p className="text-sm text-slate-300 mb-2">
+              Evergreen, a substance abuse provider, billed for <strong className="text-white">203 hours of service from a single 
+              employee in one day</strong>. Its CEO and CFO pled guilty to conspiracy to commit wire fraud. Separately, 
+              Kyros (Minnesota&apos;s largest addiction recovery provider) used a shell nonprofit to bill Medicaid 
+              for questionable services like &quot;watching movies&quot; — routing 96% of the nonprofit&apos;s revenue back to for-profit Kyros 
+              subsidiaries. DHS halted payments in 2024.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-amber-500/5 to-red-500/5 border border-amber-500/20 rounded-xl p-5 mb-6">
+          <h3 className="text-white font-semibold mb-2">⚡ The Common Thread</h3>
+          <p className="text-sm text-slate-300">
+            These aren&apos;t isolated incidents — they&apos;re interconnected. The same individuals and networks 
+            appear across multiple fraud schemes: Feeding Our Future defendants running autism therapy centers, 
+            housing fraud operators expanding into personal care, substance abuse providers exploiting billing loopholes.
+            Minnesota&apos;s oversight apparatus failed to connect the dots across programs, allowing the same actors to 
+            exploit multiple funding streams simultaneously.
+          </p>
         </div>
       </section>
 
