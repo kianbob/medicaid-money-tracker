@@ -72,6 +72,9 @@ export default function Home() {
             <Link href="/states" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-6 py-3 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
               Explore by State
             </Link>
+            <Link href="/check" className="inline-flex items-center gap-2 bg-dark-700 hover:bg-dark-600 text-white font-semibold px-6 py-3 rounded-lg border border-dark-500 transition-all hover:-translate-y-0.5">
+              Check a Provider
+            </Link>
           </div>
         </div>
       </section>
@@ -134,6 +137,22 @@ export default function Home() {
             <h3 className="text-lg font-bold text-white mb-2">The Arizona Problem</h3>
             <p className="text-sm text-slate-400 mb-4">46 new providers appeared post-pandemic with aggressive billing patterns</p>
             <p className="text-xs text-blue-400 flex items-center gap-1 font-medium">
+              Read investigation
+              <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </p>
+          </Link>
+          <Link href="/insights/minnesota-fraud-capital" className="group bg-dark-800 border border-dark-500/50 rounded-xl p-6 border-l-4 border-l-purple-500 hover:border-dark-400 transition-all">
+            <h3 className="text-lg font-bold text-white mb-2">Minnesota&apos;s Fraud Capital</h3>
+            <p className="text-sm text-slate-400 mb-4">How one state became a national hotspot for Medicaid billing anomalies</p>
+            <p className="text-xs text-purple-400 flex items-center gap-1 font-medium">
+              Read investigation
+              <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </p>
+          </Link>
+          <Link href="/insights/banned-but-billing" className="group bg-dark-800 border border-dark-500/50 rounded-xl p-6 border-l-4 border-l-red-500 hover:border-dark-400 transition-all">
+            <h3 className="text-lg font-bold text-white mb-2">Banned but Billing</h3>
+            <p className="text-sm text-slate-400 mb-4">OIG-excluded providers still appearing in Medicaid payment records</p>
+            <p className="text-xs text-red-400 flex items-center gap-1 font-medium">
               Read investigation
               <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </p>

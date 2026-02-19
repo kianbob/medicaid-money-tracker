@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://openmedicaid.org';
+  const baseUrl = 'https://www.openmedicaid.org';
 
   // Core pages
   const corePages: MetadataRoute.Sitemap = [

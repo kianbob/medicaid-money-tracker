@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s \u2014 OpenMedicaid",
   },
   description: "Explore $1.09 trillion in Medicaid spending across 227M billing records. 1,860 providers flagged by statistical analysis and machine learning. Search providers, procedures, and states.",
-  metadataBase: new URL("https://openmedicaid.org"),
+  metadataBase: new URL("https://www.openmedicaid.org"),
   alternates: {
     canonical: "./",
   },
