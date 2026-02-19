@@ -55,9 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/guides/understanding-hcpcs-codes`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/guides/reading-medicaid-billing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/check`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/2025-fraud-takedown`, lastModified: new Date('2026-02-19'), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/insights/cares-inc-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/insights/chicago-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/insights/srh-chn-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/doge-medicaid`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/improper-payments`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Provider pages (from file system)

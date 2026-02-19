@@ -34,6 +34,26 @@ const insightCategories: { label: string; description: string; accent: string; i
     accent: "bg-red-500",
     items: [
       {
+        slug: "2025-fraud-takedown",
+        title: "The $14.6 Billion Healthcare Fraud Takedown",
+        teaser: "324 defendants. $14.6 billion in intended losses. The largest healthcare fraud enforcement action in history — and why reactive enforcement alone cannot solve the problem.",
+        stat: "$14.6B",
+        statLabel: "in fraud charged",
+        color: "from-red-600 to-orange-500",
+        accent: "text-red-400",
+        icon: "⚖️",
+      },
+      {
+        slug: "doge-medicaid",
+        title: "DOGE vs. Medicaid: What $1.09 Trillion in Billing Data Actually Shows",
+        teaser: "Elon Musk's DOGE released Medicaid spending data for the public to find fraud. We already analyzed all 227M records. Here's what $1.09T in billing data reveals about fraud, waste, and proposed $880B in cuts.",
+        stat: "$37.4B",
+        statLabel: "improper payments",
+        color: "from-amber-500 to-orange-500",
+        accent: "text-amber-400",
+        icon: "🏛️",
+      },
+      {
         slug: "minnesota-fraud-capital",
         title: "Minnesota: America's Medicaid Fraud Capital",
         teaser: "Minnesota has 4x its population share of fraud-heavy exclusions. 81% of all interpreter fraud in the country is in one state. How generous programs with weak oversight became a magnet for organized fraud.",
@@ -42,6 +62,16 @@ const insightCategories: { label: string; description: string; accent: string; i
         color: "from-red-500 to-rose-500",
         accent: "text-red-400",
         icon: "🏔️",
+      },
+      {
+        slug: "improper-payments",
+        title: "$37.4 Billion in Improper Payments: Medicaid's Growing Error Rate",
+        teaser: "FY2025 improper payments hit $37.39 billion — a 6.12% error rate, up from 5.09%. Most is paperwork errors, not fraud. But the system keeps getting worse, not better.",
+        stat: "$37.4B",
+        statLabel: "improper payments",
+        color: "from-amber-500 to-orange-500",
+        accent: "text-amber-400",
+        icon: "💸",
       },
       {
         slug: "arizona-problem",
