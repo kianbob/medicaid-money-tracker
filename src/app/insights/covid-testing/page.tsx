@@ -89,9 +89,9 @@ export default function CovidTesting() {
 
         <p className="text-slate-300 leading-relaxed text-[15px]">
           The top 100 COVID testing billers collectively billed <span className="font-semibold text-white">{formatMoney(totalSpending)}</span> to Medicaid.
-          While the majority of this spending was likely legitimate &mdash; COVID testing was essential &mdash;
-          the sheer volume created opportunities for overbilling and fraud that investigators are still
-          examining.
+          The pandemic created a blank check for testing labs &mdash; billions in taxpayer money with minimal oversight.
+          The sheer volume created massive opportunities for overbilling and fraud that investigators are still
+          uncovering. How much of this was genuinely necessary, and how much was opportunistic billing?
         </p>
       </div>
 

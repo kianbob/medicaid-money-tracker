@@ -221,7 +221,7 @@ export default function NYHomeCare() {
           </li>
           <li className="flex items-start gap-2">
             <span className="text-amber-400 mt-0.5">&#9656;</span>
-            <span>The CDPAP program, which lets beneficiaries hire family as caregivers, drives much of this spending. Agencies act as fiscal intermediaries processing billions in payments.</span>
+            <span>The CDPAP program lets beneficiaries hire family members as caregivers &mdash; paid by taxpayers. Agencies act as fiscal intermediaries processing billions with minimal quality oversight. It&apos;s one of the most fraud-prone programs in all of Medicaid.</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-red-400 mt-0.5">&#9656;</span>

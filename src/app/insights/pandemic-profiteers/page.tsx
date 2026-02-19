@@ -124,10 +124,10 @@ export default function PandemicProfiteers() {
         <div className="bg-dark-800 border-l-4 border-blue-500 rounded-r-xl p-5">
           <p className="text-white font-semibold mb-1">Context matters</p>
           <p className="text-sm text-slate-400 leading-relaxed">
-            Not all pandemic billing jumps indicate fraud. Telehealth expanded massively, COVID testing and
-            vaccination required new infrastructure, and home health demand surged as people avoided facilities.
-            But some increases &mdash; particularly those concentrated in a single billing code or with unusual
-            per-claim costs &mdash; merit investigation.
+            The pandemic was a gold rush for Medicaid billers. Some increases were legitimate &mdash; telehealth expansion, 
+            COVID testing infrastructure, home health demand. But the government essentially wrote a blank check with 
+            minimal oversight, and the data shows that many providers took full advantage. Increases concentrated in 
+            a single billing code or with unusual per-claim costs deserve serious scrutiny.
           </p>
         </div>
       </div>

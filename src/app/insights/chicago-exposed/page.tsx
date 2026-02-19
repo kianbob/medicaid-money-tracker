@@ -126,7 +126,7 @@ export default function ChicagoExposedPage() {
         <h2 className="text-xl font-bold text-white mb-4">Important Context</h2>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6 space-y-3">
           <p className="text-sm text-slate-300 leading-relaxed">
-            <strong className="text-white">Government entities are flagged by design.</strong> Our tests compare all providers against peers — including municipalities. The City of Chicago provides essential emergency services to millions of residents.
+            <strong className="text-white">Government entities are flagged by design.</strong> Our tests compare all providers against peers — including municipalities. The City of Chicago bills massive amounts to Medicaid for services. Whether that spending is efficient or bloated is exactly the kind of question taxpayers should be asking.
           </p>
           <p className="text-sm text-slate-300 leading-relaxed">
             <strong className="text-white">These findings are statistical indicators, not accusations.</strong> The billing patterns are unusual compared to other ambulance providers nationally. Whether this reflects legitimate service delivery costs, policy changes, or billing practices that warrant investigation requires deeper auditing.

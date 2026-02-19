@@ -63,8 +63,9 @@ export default function AboutPage() {
           </div>
           <p className="text-sm text-slate-300 leading-relaxed">
             We built OpenMedicaid to make this data permanently accessible &mdash; not as a one-time blog post,
-            but as a searchable resource where journalists, researchers, policymakers, and citizens can explore how
-            $1.09 trillion was distributed.
+            but as a searchable resource where journalists, researchers, and taxpayers can explore how
+            $1.09 trillion of their money was spent. Medicaid is the single largest line item in most state budgets, 
+            yet most people have no idea where the money goes or how much is lost to waste and fraud.
           </p>
         </section>
 

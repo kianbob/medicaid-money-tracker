@@ -154,9 +154,9 @@ export default function SpendingGrowth() {
         </h2>
 
         <p className="text-slate-300 leading-relaxed text-[15px]">
-          Between 2018 and 2023, Medicaid spending grew every single year. But not all growth was
-          equal. From 2018 to 2019, spending jumped <span className="text-white font-semibold">$18.2B (+16.8%)</span>,
-          driven partly by state Medicaid expansion under the ACA. Then 2020 hit.
+          Between 2018 and 2023, Medicaid spending grew every single year &mdash; with zero political will to 
+          question whether the growth was necessary or sustainable. From 2018 to 2019, spending jumped <span className="text-white font-semibold">$18.2B (+16.8%)</span>,
+          driven partly by state Medicaid expansion under the ACA. Then 2020 gave the program a blank check.
         </p>
 
         <div className="bg-dark-800 border-l-4 border-blue-500 rounded-r-xl p-5">
@@ -164,9 +164,10 @@ export default function SpendingGrowth() {
           <p className="text-sm text-slate-400 leading-relaxed">
             The Families First Coronavirus Response Act (FFCRA) in March 2020 included a
             <span className="text-blue-400 font-semibold"> continuous enrollment requirement</span>: states
-            couldn&rsquo;t disenroll Medicaid beneficiaries during the public health emergency. Enrollment
-            surged from roughly 71 million to over 90 million. This single policy change rippled
-            through every spending category for three years.
+            couldn&rsquo;t disenroll anyone from Medicaid during the public health emergency &mdash; even if they 
+            no longer qualified. Enrollment ballooned from roughly 71 million to over 90 million, many of whom 
+            were no longer eligible. This single policy decision added tens of billions in spending for three years 
+            with zero accountability.
           </p>
         </div>
 

@@ -59,7 +59,7 @@ export default function Home() {
             <span className="text-white font-medium">code-specific fraud detection</span> across 617,000+ providers.{" "}
             <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags.
           </p>
-          <p className="text-sm text-slate-500 mb-6">Built for journalists, researchers, and watchdogs.</p>
+          <p className="text-sm text-slate-500 mb-6">Built for journalists, researchers, taxpayers, and anyone who thinks $1 trillion in government spending deserves scrutiny.</p>
           <div className="flex flex-wrap gap-3">
             <Link href="/watchlist" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-500/30 hover:-translate-y-0.5">
               View Risk Watchlist
