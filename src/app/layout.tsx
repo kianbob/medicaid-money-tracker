@@ -77,9 +77,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 13 fraud detection tests and ML analysis flagging 1,860+ providers.",
               "url": "https://openmedicaid.org",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "creator": {
+                "@type": "Organization",
+                "name": "TheDataProject.ai",
+                "url": "https://thedataproject.ai"
+              },
               "isBasedOn": {
                 "@type": "Dataset",
                 "name": "HHS Medicaid Provider Spending",
+                "description": "Federal dataset of Medicaid provider billing records published by the U.S. Department of Health and Human Services, covering fee-for-service claims from 2018 to 2024.",
                 "url": "https://opendata.hhs.gov/datasets/medicaid-provider-spending/",
                 "creator": {
                   "@type": "Organization",
