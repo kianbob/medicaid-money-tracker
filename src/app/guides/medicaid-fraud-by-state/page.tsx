@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Medicaid Fraud by State — Which States Have the Most Red Flags? — OpenMedicaid",
+  title: "Medicaid Fraud by State — Which States Have the Most Red Flags?",
   description:
     "State-by-state breakdown of Medicaid fraud signals. See which states have the most flagged providers, highest per-capita rates, and biggest spending anomalies.",
 };

@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Download Medicaid Data \u2014 OpenMedicaid",
+  title: "Download Medicaid Data",
   description: "Download Medicaid spending data including risk watchlists, ML fraud scores, top providers, state summaries, and procedure benchmarks. All data derived from HHS Open Data.",
   openGraph: {
-    title: "Download Medicaid Data \u2014 OpenMedicaid",
+    title: "Download Medicaid Data",
     description: "Download risk watchlists, ML scores, provider data, and procedure benchmarks from our analysis of 227M Medicaid billing records.",
   },
 };

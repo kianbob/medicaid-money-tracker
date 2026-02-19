@@ -3,11 +3,11 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "City of Chicago: $23M to $240M — A 942% Medicaid Billing Surge — OpenMedicaid",
+  title: "City of Chicago: $23M to $240M — A 942% Medicaid Billing Surge",
   description:
     "Deep dive into the City of Chicago's Medicaid billing (NPI 1376554592), which surged 942% from $23M to $240M. Three independent fraud detection flags triggered.",
   openGraph: {
-    title: "City of Chicago: 942% Medicaid Billing Surge — OpenMedicaid",
+    title: "City of Chicago: 942% Medicaid Billing Surge",
     description: "$23M to $240M. Three fraud flags. The full breakdown.",
   },
 };

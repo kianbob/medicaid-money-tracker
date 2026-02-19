@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Read a Medicaid Billing Record — A Beginner's Guide — OpenMedicaid",
+  title: "How to Read a Medicaid Billing Record — A Beginner's Guide",
   description:
     "Learn how to interpret Medicaid billing data. Understand NPIs, HCPCS codes, claims, beneficiaries, and what the numbers mean on provider profiles.",
 };

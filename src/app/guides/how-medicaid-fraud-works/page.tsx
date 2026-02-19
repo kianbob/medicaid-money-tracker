@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "An overview of common Medicaid fraud schemes, how they work, and how data analysis can detect them. Based on analysis of 227 million billing records.",
   openGraph: {
-    title: "How Medicaid Fraud Works — OpenMedicaid",
+    title: "How Medicaid Fraud Works",
     description:
       "Common Medicaid fraud schemes, red flags, and how data analysis can detect them.",
   },

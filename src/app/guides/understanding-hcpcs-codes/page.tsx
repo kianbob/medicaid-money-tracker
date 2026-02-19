@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Understanding HCPCS Codes — What Medicaid Billing Codes Mean — OpenMedicaid",
+  title: "Understanding HCPCS Codes — What Medicaid Billing Codes Mean",
   description:
     "A guide to HCPCS codes used in Medicaid billing. Learn what the codes mean, how they're structured, and which ones are most commonly associated with fraud.",
 };

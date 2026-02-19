@@ -8,7 +8,7 @@ import expandedWatchlist from "../../../../public/data/expanded-watchlist.json";
 import topProviders from "../../../../public/data/top-providers-1000.json";
 
 export const metadata: Metadata = {
-  title: "Solo Operators: Providers Billing $5M+ Entirely Themselves — OpenMedicaid",
+  title: "Solo Operators: Providers Billing $5M+ Entirely Themselves",
   description: "100 Medicaid providers bill $5M+ where 95%+ of payments go to self-billed claims. Together they account for over $72B. These solo operators process millions of claims essentially alone.",
   openGraph: {
     title: "Solo Operators: Providers Billing $5M+ Entirely Themselves",

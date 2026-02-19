@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "About & Methodology \u2014 How We Detect Medicaid Fraud",
   description: "How we analyzed 227 million Medicaid billing records from HHS to identify statistical anomalies. Methodology, data sources, and FAQ.",
   openGraph: {
-    title: "About & Methodology \u2014 OpenMedicaid",
+    title: "About & Methodology",
     description: "How we analyzed 227M Medicaid billing records with code-specific fraud detection. OIG cross-referencing, transparent methodology, and important caveats.",
   },
 };

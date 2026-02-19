@@ -6,7 +6,7 @@ import { CityHotspotsChart } from "@/components/Charts";
 import cityData from "../../../../public/data/city-fraud-hotspots.json";
 
 export const metadata: Metadata = {
-  title: "America's Medicaid Fraud Capitals: City-Level Analysis — OpenMedicaid",
+  title: "America's Medicaid Fraud Capitals: City-Level Analysis",
   description: "Brooklyn NY leads the nation with 64 flagged providers and $13.7B in suspicious spending. NYC boroughs account for 111 flagged providers. Arizona cities have 71 combined.",
   openGraph: {
     title: "America's Medicaid Fraud Capitals: City-Level Analysis",

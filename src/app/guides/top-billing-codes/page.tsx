@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "The most expensive Medicaid billing codes by total spending. What each code means, who bills them, and which ones carry the highest fraud risk.",
   openGraph: {
-    title: "Top Medicaid Billing Codes — OpenMedicaid",
+    title: "Top Medicaid Billing Codes",
     description:
       "The highest-spending HCPCS codes in Medicaid, explained in plain English.",
   },

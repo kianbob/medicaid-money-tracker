@@ -7,7 +7,7 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Round Number Billing: When Every Claim Ends in Zeros — OpenMedicaid",
+  title: "Round Number Billing: When Every Claim Ends in Zeros",
   description: "100 Medicaid providers show heavy round-number billing patterns — nearly 68,000 claims at exact round dollar amounts totaling $128M. Legitimate billing rarely produces perfectly round numbers.",
   openGraph: {
     title: "Round Number Billing: When Every Claim Ends in Zeros",

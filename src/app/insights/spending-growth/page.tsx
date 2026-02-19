@@ -6,7 +6,7 @@ import { SpendingGrowthChart } from "@/components/Charts";
 import yearlySummary from "../../../../public/data/yearly-summary.json";
 
 export const metadata: Metadata = {
-  title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years — OpenMedicaid",
+  title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years",
   description: "Medicaid spending grew 83% from $108.7B in 2018 to $198.8B in 2023. COVID was the turning point — 2021 alone added $30.5B. Provider counts grew from 324K to 360K.",
   openGraph: {
     title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years",

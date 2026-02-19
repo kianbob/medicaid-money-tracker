@@ -5,7 +5,7 @@ import { formatNumber } from "@/lib/format";
 import data from "../../../../public/data/mn-fraud-capital.json";
 
 export const metadata: Metadata = {
-  title: "Minnesota: America's Medicaid Fraud Capital — OpenMedicaid",
+  title: "Minnesota: America's Medicaid Fraud Capital",
   description: "Minnesota has 4x its population share of fraud-heavy OIG exclusions, the $250M+ Feeding Our Future scandal, autism therapy fraud, and a housing program so broken the state shut it down. How generous programs with weak oversight became a magnet for organized fraud.",
   openGraph: {
     title: "Minnesota: America's Medicaid Fraud Capital",
