@@ -234,7 +234,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="text-slate-600 mt-1">Data-driven transparency from public records.</p>
               </div>
               <div>
-                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Help</p>
+                <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Sister Sites</p>
+                <div className="space-y-2">
+                  <a href="https://www.openfeds.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenFeds — Federal Workforce ↗</a>
+                </div>
+                <p className="font-semibold text-slate-300 mb-3 mt-5 text-xs uppercase tracking-wider">Help</p>
                 <div className="space-y-2">
                   <a href="mailto:kian@thedataproject.ai" className="block text-slate-500 hover:text-blue-400 transition-colors">Contact Us</a>
                   <a href="/feed.xml" className="block text-slate-500 hover:text-blue-400 transition-colors">RSS Feed</a>
