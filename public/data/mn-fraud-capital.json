@@ -11,7 +11,12 @@
     "interpreterMN": 13,
     "interpreterUS": 16,
     "a1ConvictionsMN": 637,
-    "a1ConvictionsSince2023": 161
+    "a1ConvictionsSince2023": 161,
+    "prosecutionClusters": 55,
+    "largestCluster": 20,
+    "addressClusters": 21,
+    "totalInClusters": 432,
+    "feb2024ClusterSize": 17
   },
   "yearlyTrend": [
     {
@@ -674,6 +679,2987 @@
       "specialty": "NURSE/NURSES AIDE",
       "date": "19980120",
       "type": "1128b4"
+    }
+  ],
+  "prosecutionClusters": [
+    {
+      "date": "20260120",
+      "count": 12,
+      "fraudHeavyCount": 10,
+      "people": [
+        {
+          "name": "Amy Boedigheimer",
+          "city": "Maple Grove",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Edna Farah",
+          "city": "Hamel",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Foos Igal",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Latonia Jackson",
+          "city": "Minneapolis",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Deborah Johnson",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Chantal Kuou",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Muhidin Maow",
+          "city": "Minneapolis",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Lorette Mckinley",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Abdikarim Mohamed",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Michael Nornie",
+          "city": "Brooklyn Center",
+          "specialty": "COUNSELING CENTER"
+        },
+        {
+          "name": "Ahmed Nur",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Richard Vue",
+          "city": "Stillwater",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        }
+      ]
+    },
+    {
+      "date": "20251218",
+      "count": 6,
+      "fraudHeavyCount": 6,
+      "people": [
+        {
+          "name": "Bishara Abdirahman",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Maryam Bina",
+          "city": "Watertown",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Yusuf Lohos",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Nadia Loving",
+          "city": "Brainerd",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Nusayba Mohamed",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Gao Thao",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20251120",
+      "count": 9,
+      "fraudHeavyCount": 0,
+      "people": [
+        {
+          "name": "Danelle Ericksen-Bentley",
+          "city": "Saint James",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Meggan Ide",
+          "city": "Waseca",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Marko Kamel",
+          "city": "Saint Paul",
+          "specialty": "DENTIST"
+        },
+        {
+          "name": "Kimberly Miesner",
+          "city": "North Branch",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Emran Mohammad",
+          "city": "Minneapolis",
+          "specialty": "NURSE PRACTITIONER ("
+        },
+        {
+          "name": "Krista Peters",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Timothy Rowh",
+          "city": "Stillwater",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Linda Seehusen",
+          "city": "Raymond",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Timothy Smith",
+          "city": "South Saint Paul",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20251020",
+      "count": 8,
+      "fraudHeavyCount": 4,
+      "people": [
+        {
+          "name": "Natalie Blondell",
+          "city": "Princeton",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Jeffrey Cartharn",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jordan Jarvi",
+          "city": "Andover",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Victor Kamara",
+          "city": "Minneapolis",
+          "specialty": "ASSISTED LIVING FACI"
+        },
+        {
+          "name": "Kathryn Koelfgen",
+          "city": "Wayzata",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Shelby Parker",
+          "city": "Minneapolis",
+          "specialty": "COUNSELOR"
+        },
+        {
+          "name": "Katherine Peal",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Justin Winters",
+          "city": "Moorhead",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20250820",
+      "count": 10,
+      "fraudHeavyCount": 4,
+      "people": [
+        {
+          "name": "Leonard Cain",
+          "city": "Maple Grove",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jakeline Canova Cebrian",
+          "city": "Waseca",
+          "specialty": "CHECK CASHING STORE"
+        },
+        {
+          "name": "Shannyce Fitzgerald",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Kelsey Fulweiler",
+          "city": "Saint Paul",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Mandy Hyland",
+          "city": "Shakopee",
+          "specialty": "SOCIAL WORKER"
+        },
+        {
+          "name": "Steven Johnson",
+          "city": "Owatonna",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Augustine Livingstone",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Abdirashid Mohamud",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Kelly Stone",
+          "city": "Big Lake",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Patti Sweeney",
+          "city": "Mound",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20250720",
+      "count": 7,
+      "fraudHeavyCount": 5,
+      "people": [
+        {
+          "name": "Amal Budul",
+          "city": "Eden Prairie",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Kristie Dezell",
+          "city": "Marine On Saint Croi",
+          "specialty": "PHARMACIST"
+        },
+        {
+          "name": "Omar Dirie",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Joy Ebubeogu",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Fardosa Ibrahim",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Mijaunna Mapp",
+          "city": "Plymouth",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Percy Reese",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20250320",
+      "count": 4,
+      "fraudHeavyCount": 2,
+      "people": [
+        {
+          "name": "Heba Ismail",
+          "city": "Moorhead",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Cordell Johnson",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Christopher Kovanda",
+          "city": "Minneapolis",
+          "specialty": "PLASTIC SURGERY"
+        },
+        {
+          "name": "Jodi Lease",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20250120",
+      "count": 4,
+      "fraudHeavyCount": 2,
+      "people": [
+        {
+          "name": "Nasra Ali",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Quintan Cockerell",
+          "city": "Duluth",
+          "specialty": "MARKETING FIRM"
+        },
+        {
+          "name": "Xiaoyan Hu",
+          "city": "Eden Prairie",
+          "specialty": "ACUPUNCTURIST"
+        },
+        {
+          "name": "Awo Mohamed",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20241219",
+      "count": 4,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Daniel Cousins",
+          "city": "Minneapolis",
+          "specialty": "COUNSELOR"
+        },
+        {
+          "name": "Gloria Gomez",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Mustafe Ismael",
+          "city": "Owatonna",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Cassandra Vonnahme",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20241120",
+      "count": 4,
+      "fraudHeavyCount": 4,
+      "people": [
+        {
+          "name": "Ali Abdi",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Ashley Cook",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Rhonda Haymer",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Sahro Sanyare",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20241020",
+      "count": 8,
+      "fraudHeavyCount": 2,
+      "people": [
+        {
+          "name": "John Akonkoh",
+          "city": "Faribault",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Anthony Bell",
+          "city": "Duluth",
+          "specialty": "DME - ORTHOTICS"
+        },
+        {
+          "name": "Shelly Bladow",
+          "city": "Eden Prairie",
+          "specialty": "NURSE PRACTITIONER ("
+        },
+        {
+          "name": "Hunter Burroughs",
+          "city": "Duluth",
+          "specialty": "DME - GENERAL"
+        },
+        {
+          "name": "Riley Cullinane",
+          "city": "Brainerd",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Mario Gomez",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Christina Olson",
+          "city": "Waseca",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Terrence Seymour",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20240919",
+      "count": 3,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Karen Dillehay",
+          "city": "Duluth",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Joel Hansen",
+          "city": "Stillwater",
+          "specialty": "SOCIAL WORKER"
+        },
+        {
+          "name": "Sheikhnur Yusuf",
+          "city": "Minneapolis",
+          "specialty": "INTERPRETER/TRANS"
+        }
+      ]
+    },
+    {
+      "date": "20240820",
+      "count": 14,
+      "fraudHeavyCount": 9,
+      "people": [
+        {
+          "name": "Amina Artan",
+          "city": "Hopkins",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ebony Cross",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Dorothy Cummings",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Ladaphone Gonzalez",
+          "city": "Saint Paul Park",
+          "specialty": "STATE GOV'T"
+        },
+        {
+          "name": "Danisha Green",
+          "city": "Sauk Rapids",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Tiffaney Johnson",
+          "city": "Burnsville",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Christian Kolleh",
+          "city": "Rogers",
+          "specialty": "NURSING FIRM"
+        },
+        {
+          "name": "Sederick Parsons",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Cynthia Patrick",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Omer Sanyare",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Eldrick Tyus",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "David Weatherhead",
+          "city": "Saint Paul",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Winifred Wolloh",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Devonte Woodley",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20240718",
+      "count": 3,
+      "fraudHeavyCount": 2,
+      "people": [
+        {
+          "name": "Alexis Gonzalez",
+          "city": "Inver Grove Heights",
+          "specialty": "MANAGEMENT SVCS CO"
+        },
+        {
+          "name": "Angela Stover-Akore",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Chafie Thao",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20240620",
+      "count": 5,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Kehinde Adenodi",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Adonteng Akore",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Herman Bastert",
+          "city": "Saint Paul",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Raphael Malikian",
+          "city": "Duluth",
+          "specialty": "FAMILY PRACTICE"
+        },
+        {
+          "name": "Denise Walter",
+          "city": "Sleepy Eye",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20240520",
+      "count": 5,
+      "fraudHeavyCount": 3,
+      "people": [
+        {
+          "name": "Amani Akore",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Zelalem Bekele",
+          "city": "Minneapolis",
+          "specialty": "REPRESENTATIVE PAYEE"
+        },
+        {
+          "name": "Leya Blacksmith",
+          "city": "Saint Paul",
+          "specialty": "SKILLED NURSING FAC"
+        },
+        {
+          "name": "Aynalem Dawo",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ahmed Kamil",
+          "city": "Saint Paul",
+          "specialty": "INTERPRETER/TRANS"
+        }
+      ]
+    },
+    {
+      "date": "20240418",
+      "count": 3,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Leon Frid",
+          "city": "Saint Paul",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Brittany Lindner",
+          "city": "Winona",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Quinita Mchie",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20240320",
+      "count": 8,
+      "fraudHeavyCount": 5,
+      "people": [
+        {
+          "name": "Eric Cox",
+          "city": "Saint Paul Park",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Kristin Davis",
+          "city": "Hill City",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ifrah Gadid",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Ubah Jumale",
+          "city": "Chanhassen",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Christopher Patterson",
+          "city": "Burnsville",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Ali Said",
+          "city": "Savage",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Craig Spradlin",
+          "city": "East Grand Forks",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Eskender Yousuf",
+          "city": "Duluth",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        }
+      ]
+    },
+    {
+      "date": "20240220",
+      "count": 17,
+      "fraudHeavyCount": 10,
+      "people": [
+        {
+          "name": "Mary Egere",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ahmed Fahiye",
+          "city": "Minneapolis",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Ilyas Farah",
+          "city": "Minneapolis",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Ubah Hagi",
+          "city": "Saint Paul",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Hodan Hashi",
+          "city": "Saint Paul",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Tommie Johnson",
+          "city": "Maple Grove",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Varbar Kanneh",
+          "city": "Saint Paul",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Shamika Kennedy",
+          "city": "Hopkins",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Elifaa Kinyaiya",
+          "city": "Duluth",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Elijah Kollie",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Okach Kwot",
+          "city": "Duluth",
+          "specialty": "COUNSELING CENTER"
+        },
+        {
+          "name": "Ilham Mohamed",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Kaesha Norman",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Omar Osman",
+          "city": "Saint Paul",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Zelda Russell",
+          "city": "Anoka",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Edwin Weedor",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Abdirahman Yonis",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        }
+      ]
+    },
+    {
+      "date": "20240118",
+      "count": 12,
+      "fraudHeavyCount": 7,
+      "people": [
+        {
+          "name": "Kwesi Akore",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Jennifer Draheim",
+          "city": "Minneapolis",
+          "specialty": "PHARMACIST"
+        },
+        {
+          "name": "Michael Egan",
+          "city": "Duluth",
+          "specialty": "DENTIST"
+        },
+        {
+          "name": "Sahra Jama",
+          "city": "Saint Paul",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Jerome Kangas",
+          "city": "Duluth",
+          "specialty": "THERAPIST"
+        },
+        {
+          "name": "Gregory Koch",
+          "city": "Duluth",
+          "specialty": "THERAPIST"
+        },
+        {
+          "name": "Shukri Mire",
+          "city": "Eden Prairie",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Anisa Mohammed",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Meggan Moore",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jonathan Newcomb",
+          "city": "Moose Lake",
+          "specialty": "COUNSELING CENTER"
+        },
+        {
+          "name": "Kendall Perkins",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Yurub Sahal",
+          "city": "Eden Prairie",
+          "specialty": "TRANSPORTATION CO"
+        }
+      ]
+    },
+    {
+      "date": "20231220",
+      "count": 10,
+      "fraudHeavyCount": 7,
+      "people": [
+        {
+          "name": "Sumiya Ahmed",
+          "city": "Minneapolis",
+          "specialty": "ADULT HOME"
+        },
+        {
+          "name": "Glenda Cryer",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Adrienne Ford",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Joniqua Hicks",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Abdifatah Hirsi",
+          "city": "Lakeville",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Okwuchukwu Jidoefor",
+          "city": "Saint Paul",
+          "specialty": "RECRUITER/CAPPER"
+        },
+        {
+          "name": "Jamie Meide",
+          "city": "Princeton",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Sokheng Moeurn",
+          "city": "Rochester",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Rosalind Montgomery",
+          "city": "Brooklyn Center",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Yer Yang",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20230620",
+      "count": 3,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Herbert Jones",
+          "city": "Minneapolis",
+          "specialty": "RADIOLOGY"
+        },
+        {
+          "name": "Anthony Pape",
+          "city": "Duluth",
+          "specialty": "PHARMACIST"
+        },
+        {
+          "name": "Alexis Wisehart",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20230518",
+      "count": 18,
+      "fraudHeavyCount": 12,
+      "people": [
+        {
+          "name": "",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Abdifatah Ali",
+          "city": "Lakeville",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Tamera Anderson",
+          "city": "Brooten",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Joseph Bauer",
+          "city": "Mound",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Lamar Chase",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Lauren Cox",
+          "city": "Saint Paul Park",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Morayo Hassan",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ryan Hauth",
+          "city": "Sleepy Eye",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jong Kim",
+          "city": "Duluth",
+          "specialty": "INTERNAL MEDICINE"
+        },
+        {
+          "name": "Abdullahi Mohamed",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Fardowz Mohamed",
+          "city": "Minneapolis",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        },
+        {
+          "name": "Muna Mohamed",
+          "city": "Faribault",
+          "specialty": "LOCAL GOV'T"
+        },
+        {
+          "name": "Carmenlita Negron",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Tete Oniango",
+          "city": "Duluth",
+          "specialty": "GENERAL PRACTICE"
+        },
+        {
+          "name": "Ramone Robinson",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Liban Sheikhdon",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Reckeya Walker-Burke",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Ali Warsame",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20230420",
+      "count": 20,
+      "fraudHeavyCount": 16,
+      "people": [
+        {
+          "name": "Conchetta Banmore",
+          "city": "Hopkins",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Yolanda Childs",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Ellese Ford",
+          "city": "Maple Grove",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Veronica Goodwin",
+          "city": "Anoka",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Ibado Hashi",
+          "city": "Saint Paul",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Iman Hughes",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Shuaib Ibrahim",
+          "city": "Minneapolis",
+          "specialty": "CLINIC"
+        },
+        {
+          "name": "Brett Jordan",
+          "city": "North Mankato",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Karen Lewis",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Amina Mohamed",
+          "city": "Lakeville",
+          "specialty": "COUNSELING CENTER"
+        },
+        {
+          "name": "Blair Nelson",
+          "city": "Saint Paul",
+          "specialty": "FAMILY PRACTICE"
+        },
+        {
+          "name": "Stephanie Ngufor",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Joey Paul",
+          "city": "Fergus Falls",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Sukia Rabio",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Cody Roberts",
+          "city": "Redlake",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Ahmed Sigar",
+          "city": "St Cloud",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Daniel Spearman",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Desiree Trobaugh-Schaffer",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Dekeshia Tyus",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Letourius Williams",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20230320",
+      "count": 3,
+      "fraudHeavyCount": 0,
+      "people": [
+        {
+          "name": "Kellie Anderson",
+          "city": "Shakopee",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Richard Laksonen",
+          "city": "Duluth",
+          "specialty": "NURSE PRACTITIONER ("
+        },
+        {
+          "name": "Elizabeth Stephenson",
+          "city": "Waseca",
+          "specialty": "SKILLED NURSING FAC"
+        }
+      ]
+    },
+    {
+      "date": "20230119",
+      "count": 15,
+      "fraudHeavyCount": 10,
+      "people": [
+        {
+          "name": "Billan Ali",
+          "city": "Minneapolis",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Scott Charmoli",
+          "city": "Duluth",
+          "specialty": "DENTIST"
+        },
+        {
+          "name": "Joshua Cummings",
+          "city": "Eagan",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Trenea Davis",
+          "city": "Shakopee",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Brianna Foss",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Brandon Iacobo",
+          "city": "Winona",
+          "specialty": "PHARMACIST"
+        },
+        {
+          "name": "Anab Ibrahim",
+          "city": "Hopkins",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Bobby Mayweather",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jennifer Mcclinton",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Amina Mohamud",
+          "city": "Savage",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Antoinette Petty",
+          "city": "Minneapolis",
+          "specialty": "NO KNOWN AFFILIATION"
+        },
+        {
+          "name": "Abdirashid Said",
+          "city": "Minneapolis",
+          "specialty": "INTER CARE FACILITY"
+        },
+        {
+          "name": "Linda Seymour",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Tanisha Smith",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Cedric Zeno",
+          "city": "Minneapolis",
+          "specialty": "RECIPT/BENEFICIARY"
+        }
+      ]
+    },
+    {
+      "date": "20221120",
+      "count": 13,
+      "fraudHeavyCount": 8,
+      "people": [
+        {
+          "name": "Luvenia Cauley",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Foly Coker",
+          "city": "Minneapolis",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Kelsey Day",
+          "city": "Saint Paul",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Chaun Eggleston",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Courtney Fergerson",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Aaron Griep",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Paula Jackson",
+          "city": "South Saint Paul",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Krystal Johnson",
+          "city": "Onamia",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Idris Mohamed",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Brian Moss",
+          "city": "Faribault",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Taquiera Phillips",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Norlane Sloan",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Jameka Williams",
+          "city": "Willmar",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20220920",
+      "count": 8,
+      "fraudHeavyCount": 4,
+      "people": [
+        {
+          "name": "Oluwasegun Ajala",
+          "city": "Jordan",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Akpene Asempa",
+          "city": "Saint Paul",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Jeremy Benacka",
+          "city": "Maple Grove",
+          "specialty": "PHYSICAL THERAPY"
+        },
+        {
+          "name": "Shawnese Bodley",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Sandra Grandsberry",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Anora Martin",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Kendel Roline",
+          "city": "Verndale",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Sandra Stiner",
+          "city": "Waseca",
+          "specialty": "LOCAL GOV'T"
+        }
+      ]
+    },
+    {
+      "date": "20220818",
+      "count": 3,
+      "fraudHeavyCount": 2,
+      "people": [
+        {
+          "name": "Adrian Morris",
+          "city": "Rochester",
+          "specialty": "PSYCHIATRY"
+        },
+        {
+          "name": "Annie Sirleaf",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Shalonda Stewart",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20220620",
+      "count": 12,
+      "fraudHeavyCount": 11,
+      "people": [
+        {
+          "name": "Hamdi Aden",
+          "city": "Rochester",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Steven Brandenburg",
+          "city": "Duluth",
+          "specialty": "PHARMACIST"
+        },
+        {
+          "name": "Susan Ellis",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Frances Finklea",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jerome Jackson",
+          "city": "South Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Elbridge Johnson",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Tracy Lewis",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Ciera Mckee",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Angelita Newton",
+          "city": "Waseca",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Mohamed Omar",
+          "city": "Minneapolis",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Elizabeth Seitz",
+          "city": "Rochester",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Katrina Whiteman",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20220519",
+      "count": 10,
+      "fraudHeavyCount": 8,
+      "people": [
+        {
+          "name": "Adam Burke",
+          "city": "Duluth",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Amiete Clement",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Victor Clement",
+          "city": "Moose Lake",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Robert Ellis",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Preston Forthun",
+          "city": "Minneapolis",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Wanda Green",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Najlaa Jamie",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Kos Muas",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Janaei Reed",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Dedra Wilson",
+          "city": "Newport",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20220420",
+      "count": 5,
+      "fraudHeavyCount": 5,
+      "people": [
+        {
+          "name": "Denashia Bostick",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Leah Corona",
+          "city": "East Grand Forks",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Miriam Cummings",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Stacy Hinton",
+          "city": "Inver Grove Heights",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Jesus Penafiel",
+          "city": "Anoka",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20220320",
+      "count": 16,
+      "fraudHeavyCount": 13,
+      "people": [
+        {
+          "name": "Charles Bagley",
+          "city": "Duluth",
+          "specialty": "NEUROLOGY"
+        },
+        {
+          "name": "Khadija Bulhan",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Jamie Combs",
+          "city": "Saint Paul",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Trista Dahlberg",
+          "city": "Elk River",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Pierre Ford",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Reanettea Gordon",
+          "city": "Minneapolis",
+          "specialty": "HOSPITAL"
+        },
+        {
+          "name": "Abdi Gure",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "William Hayes",
+          "city": "Duluth",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Hassan Khalif",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Rashid Mohamoud",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Zamzam Shoodeh",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Khalil Turner",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Andrew Williams",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Mai Xiong",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Kaldeq Yusuf",
+          "city": "Eden Prairie",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Victor Zelee",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20211118",
+      "count": 6,
+      "fraudHeavyCount": 2,
+      "people": [
+        {
+          "name": "Michael Bryant",
+          "city": "Wrenshall",
+          "specialty": "SOCIAL WORKER"
+        },
+        {
+          "name": "Gavin Meany",
+          "city": "Lino Lakes",
+          "specialty": "FAMILY PRACTICE"
+        },
+        {
+          "name": "Jennifer Pollard",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Nadine Royter",
+          "city": "Minneapolis",
+          "specialty": "DENTAL PRACTICE"
+        },
+        {
+          "name": "Brenda Uwera",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Christopher West",
+          "city": "Sandstone",
+          "specialty": "NURSE PRACTITIONER ("
+        }
+      ]
+    },
+    {
+      "date": "20210420",
+      "count": 5,
+      "fraudHeavyCount": 3,
+      "people": [
+        {
+          "name": "",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Tamara Borstad",
+          "city": "Appleton",
+          "specialty": "SKILLED NURSING FAC"
+        },
+        {
+          "name": "Theresa Jordan",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Noah Lee",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Derrick Wilkin",
+          "city": "Duluth",
+          "specialty": "NURSE/NURSES AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20210318",
+      "count": 9,
+      "fraudHeavyCount": 7,
+      "people": [
+        {
+          "name": "Charles Bagley",
+          "city": "Duluth",
+          "specialty": "PSYCHIATRY"
+        },
+        {
+          "name": "Linden Mckinney",
+          "city": "Bayport",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Mary Monroe",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Ethel Reyes",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Lushana Robinson",
+          "city": "Coon Rapids",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Frank Stanback",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Darryl Williams",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Steven Wiseth",
+          "city": "Minneapolis",
+          "specialty": "CHIROPRACTIC"
+        },
+        {
+          "name": "Tina Yaines",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20210218",
+      "count": 5,
+      "fraudHeavyCount": 4,
+      "people": [
+        {
+          "name": "Bridgett Burrell",
+          "city": "Maple Grove",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Yvonne Lewis",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Jamika Mayberry",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Kenya Stanback",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Tiger Yaines",
+          "city": "Excelsior",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20200920",
+      "count": 7,
+      "fraudHeavyCount": 6,
+      "people": [
+        {
+          "name": "Darrell Clemons",
+          "city": "Brooklyn Park",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jamal Hassan",
+          "city": "Burnsville",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Kristina Hawley",
+          "city": "Montrose",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Dorothy Michori",
+          "city": "Woodbury",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Anthony Sims",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Mony Vetsouvanh",
+          "city": "Mountain Lake",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Aretina Williams",
+          "city": "Shakopee",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20200820",
+      "count": 6,
+      "fraudHeavyCount": 3,
+      "people": [
+        {
+          "name": "Lance Fuller",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Nena Jones",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Adam Mohamed",
+          "city": "Minneapolis",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Muhidiin Sharif",
+          "city": "Minneapolis",
+          "specialty": "NO KNOWN AFFILIATION"
+        },
+        {
+          "name": "Halima Shire",
+          "city": "Saint Paul",
+          "specialty": "NO KNOWN AFFILIATION"
+        },
+        {
+          "name": "Barbara Williams-Bell",
+          "city": "Minneapolis",
+          "specialty": "REPRESENTATIVE PAYEE"
+        }
+      ]
+    },
+    {
+      "date": "20200720",
+      "count": 10,
+      "fraudHeavyCount": 7,
+      "people": [
+        {
+          "name": "Ahmednur Ahmed",
+          "city": "Rochester",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Abdikadir Ali",
+          "city": "Minneapolis",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Samantha Brown",
+          "city": "Minneapolis",
+          "specialty": "THERAPIST"
+        },
+        {
+          "name": "Kia Collins",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Mary Hakamaki",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Mustaf Hassan",
+          "city": "Saint Cloud",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Charmaine Henry",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Abdisamad Mohamed",
+          "city": "Inner Grove Heights",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Lillian Richardson",
+          "city": "New Brighton",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Alan Woggon",
+          "city": "Sauk Rapids",
+          "specialty": "CHIROPRACTIC"
+        }
+      ]
+    },
+    {
+      "date": "20200618",
+      "count": 7,
+      "fraudHeavyCount": 6,
+      "people": [
+        {
+          "name": "Kim Berning",
+          "city": "Fulda",
+          "specialty": "PHARMACY TECHNICIAN"
+        },
+        {
+          "name": "Ananias Brown",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Cherise Burrell",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Janet Martin",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Garlicia Montgomery",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Renee Ousley",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Quincy Palmore",
+          "city": "Coon Rapids",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20191219",
+      "count": 9,
+      "fraudHeavyCount": 9,
+      "people": [
+        {
+          "name": "Joyce Banks",
+          "city": "Apple Valley",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Brian Formogey",
+          "city": "Prior Lake",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Britani Hodges",
+          "city": "Richfield",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Katherine Kashevatsky",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Svitlana Khokhych",
+          "city": "Apple Valley",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Rayana Mohamed",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Nolvia Puhl",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "George Sirleaf",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Juanita Swain",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20191020",
+      "count": 8,
+      "fraudHeavyCount": 6,
+      "people": [
+        {
+          "name": "Abdirizak Ali",
+          "city": "Minneapolis",
+          "specialty": "NO KNOWN AFFILIATION"
+        },
+        {
+          "name": "Claude Dixon",
+          "city": "New  Ulm",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Shawna Jacobson",
+          "city": "Watertown",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Tina Lee",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Alla Milner",
+          "city": "Minneapolis",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Ahmed Mohamed",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Kalesha Tucker",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jeffery Williams",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20190919",
+      "count": 3,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Grant Eller",
+          "city": "Eden Prairie",
+          "specialty": "COMMUNITY HLTH CTR ("
+        },
+        {
+          "name": "Claire Grant",
+          "city": "Saint Paul",
+          "specialty": "REPRESENTATIVE PAYEE"
+        },
+        {
+          "name": "Ahmed Ugas",
+          "city": "Rochester",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20190820",
+      "count": 8,
+      "fraudHeavyCount": 5,
+      "people": [
+        {
+          "name": "Laura Frisby",
+          "city": "Saint Paul",
+          "specialty": "THERAPIST"
+        },
+        {
+          "name": "Jolene Johnson",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Mary Larson",
+          "city": "Hastings",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Larry Massey",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Connor Monorom",
+          "city": "Lakeville",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Wami Osman",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Queena Sloan",
+          "city": "Minneapolis",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Herlonda Williams",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        }
+      ]
+    },
+    {
+      "date": "20190718",
+      "count": 10,
+      "fraudHeavyCount": 6,
+      "people": [
+        {
+          "name": "Tracey Blackburn-Woods",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jeanette Erickson",
+          "city": "Duluth",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "Susan Freeman",
+          "city": "Minneapolis",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Tametria Hunter",
+          "city": "South St Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Michael Newson",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Vladislav Nosik",
+          "city": "Champlin",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Jacklyn Trevis",
+          "city": "Hastings",
+          "specialty": "NO KNOWN AFFILIATION"
+        },
+        {
+          "name": "Eugene Tyus",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Ronnie Williams",
+          "city": "Saint Paul",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Willie Wright",
+          "city": "Minneapolis",
+          "specialty": "RECIPT/BENEFICIARY"
+        }
+      ]
+    },
+    {
+      "date": "20190620",
+      "count": 12,
+      "fraudHeavyCount": 10,
+      "people": [
+        {
+          "name": "Sheronda Boyland",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Meoscha Hines",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Shafi Hussein",
+          "city": "Faribault",
+          "specialty": "TRANSPORTATION CO"
+        },
+        {
+          "name": "Kenneth Leavell",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Angela Morris",
+          "city": "Minneapolis",
+          "specialty": "RECIPT/BENEFICIARY"
+        },
+        {
+          "name": "Nicole Schwab",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "John Sink",
+          "city": "Rochester",
+          "specialty": "PSYCHOLOGY"
+        },
+        {
+          "name": "Rayvon Smith",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Tisha Summerville",
+          "city": "Prior Lake",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Vaughn Villcheck",
+          "city": "Wayzata",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Blenda Wilson",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Markeesha Woodall",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20190520",
+      "count": 8,
+      "fraudHeavyCount": 8,
+      "people": [
+        {
+          "name": "Alleu Abraham",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ananias Brown",
+          "city": "Minneapolis",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Teshna Esparza",
+          "city": "Saint Cloud",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Kenner Harroway",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Markisha Hester",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Kelly King",
+          "city": "Pine City",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Tommie Payne",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Josalyn Thomas",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20190418",
+      "count": 7,
+      "fraudHeavyCount": 6,
+      "people": [
+        {
+          "name": "Tiffani Barber",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Charlotta Brown",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Todd Clawson",
+          "city": "Eden Prairie",
+          "specialty": "DME - GENERAL"
+        },
+        {
+          "name": "Shombe Hassan",
+          "city": "Burnsville",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Kaystella Hayes",
+          "city": "North Mankaot",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Hala Maarouf",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Megan Minnick",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20190220",
+      "count": 4,
+      "fraudHeavyCount": 4,
+      "people": [
+        {
+          "name": "Akram Dahir",
+          "city": "Eden Prairie",
+          "specialty": "INTERPRETER/TRANS"
+        },
+        {
+          "name": "Jamethea Glover",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Connie Lunde",
+          "city": "Zimmerman",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Lenora Mcneal",
+          "city": "Saint Cloud",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20181018",
+      "count": 3,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Myra Magana",
+          "city": "Minneapolis",
+          "specialty": "NURSING FIRM"
+        },
+        {
+          "name": "Erica Perez",
+          "city": "Minneapolis",
+          "specialty": "NURSING FIRM"
+        },
+        {
+          "name": "Lequilla Walker",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        }
+      ]
+    },
+    {
+      "date": "20180920",
+      "count": 3,
+      "fraudHeavyCount": 3,
+      "people": [
+        {
+          "name": "Prianna Johnson",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Angelica Yang",
+          "city": "Saint Paul",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Ahmed Zghair",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20180320",
+      "count": 3,
+      "fraudHeavyCount": 1,
+      "people": [
+        {
+          "name": "Alyssa Blanchette",
+          "city": "Saint Paul",
+          "specialty": "RADIOLOGY FACILITY"
+        },
+        {
+          "name": "Jose Perez",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Chandra Wrightsell",
+          "city": "Waseca",
+          "specialty": "MENTAL/BEHAVIORAL HE"
+        }
+      ]
+    },
+    {
+      "date": "20180220",
+      "count": 8,
+      "fraudHeavyCount": 7,
+      "people": [
+        {
+          "name": "Brenda Brustuen",
+          "city": "Morris",
+          "specialty": "PERSONAL CARE PROVID"
+        },
+        {
+          "name": "Valerie Cork",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Linda Eckman",
+          "city": "Burnsville",
+          "specialty": "REPRESENTATIVE PAYEE"
+        },
+        {
+          "name": "Daniel Gboeah",
+          "city": "Minneapolis",
+          "specialty": "HOME HEALTH AGENCY"
+        },
+        {
+          "name": "Chaemonteya Lesure",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Blake Quirk",
+          "city": "Saint Cloud",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Denise Smith",
+          "city": "Sleepy Eye",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Jazlyn Smith",
+          "city": "Ivanhoe",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    },
+    {
+      "date": "20180118",
+      "count": 9,
+      "fraudHeavyCount": 7,
+      "people": [
+        {
+          "name": "Dane Brown",
+          "city": "Maple Lake",
+          "specialty": "NURSE/NURSES AIDE"
+        },
+        {
+          "name": "David Brown",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Janice Curtis",
+          "city": "Saint Cloud",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Jesse Frazel",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "David Harris",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Keimani Love",
+          "city": "Saint Paul",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "Melissa Patrick",
+          "city": "Apple Valley",
+          "specialty": "HEALTH CARE AIDE"
+        },
+        {
+          "name": "James Sayadzad",
+          "city": "Duluth",
+          "specialty": "PODIATRY PRACTICE"
+        },
+        {
+          "name": "Michael Weyaus",
+          "city": "Minneapolis",
+          "specialty": "HEALTH CARE AIDE"
+        }
+      ]
+    }
+  ],
+  "addressClusters": [
+    {
+      "address": "P O Box 1000",
+      "city": "Duluth",
+      "count": 10,
+      "people": [
+        {
+          "name": "Anthony Bell",
+          "specialty": "DME - ORTHOTICS",
+          "date": "20241020"
+        },
+        {
+          "name": "Hunter Burroughs",
+          "specialty": "DME - GENERAL",
+          "date": "20241020"
+        },
+        {
+          "name": "Quintan Cockerell",
+          "specialty": "MARKETING FIRM",
+          "date": "20250120"
+        },
+        {
+          "name": "John Dimicks",
+          "specialty": "EMPLOYEE",
+          "date": "19890321"
+        },
+        {
+          "name": "Jeremy Gober",
+          "specialty": "CLINIC",
+          "date": "20250220"
+        },
+        {
+          "name": "David Guerrero",
+          "specialty": "NO KNOWN AFFILIATION",
+          "date": "20231019"
+        },
+        {
+          "name": "Jerome Kangas",
+          "specialty": "THERAPIST",
+          "date": "20240118"
+        },
+        {
+          "name": "Gregory Koch",
+          "specialty": "THERAPIST",
+          "date": "20240118"
+        },
+        {
+          "name": "Raphael Malikian",
+          "specialty": "FAMILY PRACTICE",
+          "date": "20240620"
+        },
+        {
+          "name": "Eskender Yousuf",
+          "specialty": "MENTAL/BEHAVIORAL HE",
+          "date": "20240320"
+        }
+      ]
+    },
+    {
+      "address": "207 5Th Avenue, N",
+      "city": "Minneapolis",
+      "count": 5,
+      "people": [
+        {
+          "name": "",
+          "specialty": "MENTAL/BEHAVIORAL HE",
+          "date": "20170530"
+        },
+        {
+          "name": "",
+          "specialty": "MENTAL/BEHAVIORAL HE",
+          "date": "20170530"
+        },
+        {
+          "name": "",
+          "specialty": "MENTAL/BEHAVIORAL HE",
+          "date": "20170530"
+        },
+        {
+          "name": "",
+          "specialty": "MENTAL/BEHAVIORAL HE",
+          "date": "20170530"
+        },
+        {
+          "name": "",
+          "specialty": "MENTAL/BEHAVIORAL HE",
+          "date": "20170530"
+        }
+      ]
+    },
+    {
+      "address": "P O Box 1731",
+      "city": "Waseca",
+      "count": 4,
+      "people": [
+        {
+          "name": "Jakeline Canova Cebrian",
+          "specialty": "CHECK CASHING STORE",
+          "date": "20250820"
+        },
+        {
+          "name": "Meggan Ide",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "20251120"
+        },
+        {
+          "name": "Christina Olson",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "20241020"
+        },
+        {
+          "name": "Antonia Vega",
+          "specialty": "PHARMACY TECHNICIAN",
+          "date": "20250220"
+        }
+      ]
+    },
+    {
+      "address": "2501 Grand Street, N E",
+      "city": "Minneapolis",
+      "count": 3,
+      "people": [
+        {
+          "name": "",
+          "specialty": "",
+          "date": "20031020"
+        },
+        {
+          "name": "",
+          "specialty": "",
+          "date": "20031020"
+        },
+        {
+          "name": "Roberta Parker",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20030520"
+        }
+      ]
+    },
+    {
+      "address": "3567 Commonwealth Rd",
+      "city": "Saint Paul",
+      "count": 3,
+      "people": [
+        {
+          "name": "Omar Dirie",
+          "specialty": "PERSONAL CARE PROVID",
+          "date": "20250720"
+        },
+        {
+          "name": "Hodan Hashi",
+          "specialty": "INTERPRETER/TRANS",
+          "date": "20240220"
+        },
+        {
+          "name": "Omar Osman",
+          "specialty": "INTERPRETER/TRANS",
+          "date": "20240220"
+        }
+      ]
+    },
+    {
+      "address": "2501 Grand St, N E",
+      "city": "Minneapolis",
+      "count": 2,
+      "people": [
+        {
+          "name": "",
+          "specialty": "",
+          "date": "20030520"
+        },
+        {
+          "name": "Charlie Parker",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20030520"
+        }
+      ]
+    },
+    {
+      "address": "2200 Homestead Ave N",
+      "city": "Saint Paul",
+      "count": 2,
+      "people": [
+        {
+          "name": "Kwesi Akore",
+          "specialty": "HOME HEALTH AGENCY",
+          "date": "20240118"
+        },
+        {
+          "name": "Angela Stover-Akore",
+          "specialty": "HOME HEALTH AGENCY",
+          "date": "20240718"
+        }
+      ]
+    },
+    {
+      "address": "1505 E Burnsville Pkwy, #",
+      "city": "Burnsville",
+      "count": 2,
+      "people": [
+        {
+          "name": "Cherylee Anderson",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "19960812"
+        },
+        {
+          "name": "Pamela Retherford",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "19961211"
+        }
+      ]
+    },
+    {
+      "address": "3931 Princeton Trl",
+      "city": "Saint Paul",
+      "count": 2,
+      "people": [
+        {
+          "name": "Amiete Clement",
+          "specialty": "HOME HEALTH AGENCY",
+          "date": "20220519"
+        },
+        {
+          "name": "Victor Clement",
+          "specialty": "HOME HEALTH AGENCY",
+          "date": "20140820"
+        }
+      ]
+    },
+    {
+      "address": "5053 Pondsedge Lane",
+      "city": "Prior Lake",
+      "count": 2,
+      "people": [
+        {
+          "name": "Brian Formogey",
+          "specialty": "PERSONAL CARE PROVID",
+          "date": "20191219"
+        },
+        {
+          "name": "Brian Formogey",
+          "specialty": "PERSONAL CARE PROVID",
+          "date": "20170518"
+        }
+      ]
+    },
+    {
+      "address": "8760 N Maplebrook Cir",
+      "city": "Brooklyn Park",
+      "count": 2,
+      "people": [
+        {
+          "name": "Jared Hanson",
+          "specialty": "HEALTH CARE AIDE",
+          "date": "20080220"
+        },
+        {
+          "name": "Jo Ellen Hanson",
+          "specialty": "HEALTH CARE AIDE",
+          "date": "20080220"
+        }
+      ]
+    },
+    {
+      "address": "150 Hutcheson Ave",
+      "city": "Eden Valley",
+      "count": 2,
+      "people": [
+        {
+          "name": "Judith Hoppe",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20021120"
+        },
+        {
+          "name": "Tracy Thelen",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20030420"
+        }
+      ]
+    },
+    {
+      "address": "1010 West Sixth Avenue",
+      "city": "Shakopee",
+      "count": 2,
+      "people": [
+        {
+          "name": "Mandy Hyland",
+          "specialty": "SOCIAL WORKER",
+          "date": "20250820"
+        },
+        {
+          "name": "Michelle Miller",
+          "specialty": "BUSINESS MANAGER",
+          "date": "20051220"
+        }
+      ]
+    },
+    {
+      "address": "208 2Nd Street, N E",
+      "city": "Grand Meadow",
+      "count": 2,
+      "people": [
+        {
+          "name": "Sandra Johnson",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "20011018"
+        },
+        {
+          "name": "Sandra Johnson",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "20030619"
+        }
+      ]
+    },
+    {
+      "address": "P O Box 4600, Fmc",
+      "city": "Rochester",
+      "count": 2,
+      "people": [
+        {
+          "name": "Richard Kones",
+          "specialty": "GENERAL PRACTICE/FP",
+          "date": "19951220"
+        },
+        {
+          "name": "Richard Kones",
+          "specialty": "GENERAL PRACTICE/FP",
+          "date": "19820211"
+        }
+      ]
+    },
+    {
+      "address": "1450 Energy Park Dr, Ste 200",
+      "city": "Saint Paul",
+      "count": 2,
+      "people": [
+        {
+          "name": "Israel Lenthe",
+          "specialty": "HEALTH CARE AIDE",
+          "date": "20150520"
+        },
+        {
+          "name": "Dennis Sullivan",
+          "specialty": "SURGERY",
+          "date": "20170420"
+        }
+      ]
+    },
+    {
+      "address": "614 15Th Ave, N",
+      "city": "S St Paul",
+      "count": 2,
+      "people": [
+        {
+          "name": "Celia Mercado",
+          "specialty": "HEALTH CARE AIDE",
+          "date": "20100520"
+        },
+        {
+          "name": "Sonia Mercado",
+          "specialty": "NURSE/NURSES AIDE",
+          "date": "20100520"
+        }
+      ]
+    },
+    {
+      "address": "2846 County Road 74",
+      "city": "Saint Cloud",
+      "count": 2,
+      "people": [
+        {
+          "name": "Blake Quirk",
+          "specialty": "PERSONAL CARE PROVID",
+          "date": "20170320"
+        },
+        {
+          "name": "Blake Quirk",
+          "specialty": "HEALTH CARE AIDE",
+          "date": "20180220"
+        }
+      ]
+    },
+    {
+      "address": "4516 104Th Avenue North",
+      "city": "Brooklyn Park",
+      "count": 2,
+      "people": [
+        {
+          "name": "Daniel Sarpong",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20070820"
+        },
+        {
+          "name": "Margaret Sarpong",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20070820"
+        }
+      ]
+    },
+    {
+      "address": "11905 Silverod St, Nw",
+      "city": "Coon Rapids",
+      "count": 2,
+      "people": [
+        {
+          "name": "Gloria Savage",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20090720"
+        },
+        {
+          "name": "Ransford Savage",
+          "specialty": "OWNER/OPERATOR",
+          "date": "20090720"
+        }
+      ]
+    },
+    {
+      "address": "1403 Bemidji Ave",
+      "city": "Bemidji",
+      "count": 2,
+      "people": [
+        {
+          "name": "Judith Selby",
+          "specialty": "SOCIAL WORKER",
+          "date": "20010820"
+        },
+        {
+          "name": "Terry Selby",
+          "specialty": "SOCIAL WORKER",
+          "date": "20010820"
+        }
+      ]
     }
   ]
 }

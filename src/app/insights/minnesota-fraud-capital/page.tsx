@@ -338,6 +338,86 @@ export default function MinnesotaFraudCapital() {
         </div>
       </section>
 
+      {/* Prosecution Clusters */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-white mb-4">Organized Rings: When Multiple People Go Down Together</h2>
+        <p className="text-slate-300 mb-4">
+          Medicaid fraud in Minnesota isn&apos;t just lone actors — it&apos;s organized. Since 2018, there have been <strong className="text-white">{data.prosecutionClusters?.length || 55} dates</strong> where 
+          3 or more Minnesota providers were excluded simultaneously — a sign they were caught in the same investigation. 
+          The largest single-day action took down <strong className="text-white">{stats.largestCluster || 20} people at once</strong>.
+        </p>
+        <p className="text-slate-300 mb-4">
+          These coordinated exclusions typically involve clusters of home health agencies, personal care providers, 
+          interpreters, and transportation companies — all the services needed to create a complete phantom billing operation.
+        </p>
+        <div className="bg-slate-800/30 border border-slate-700/40 rounded-xl overflow-hidden mb-6">
+          <div className="px-4 py-3 bg-slate-800/50 border-b border-slate-700/40">
+            <h3 className="text-sm font-semibold text-white">Largest Coordinated Exclusion Actions (2023–2026)</h3>
+          </div>
+          <div className="divide-y divide-slate-700/30">
+            {(data.prosecutionClusters || []).filter((c: any) => c.date >= '20230101' && c.count >= 8).map((c: any) => (
+              <div key={c.date} className="px-4 py-3">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-semibold text-white">
+                    {c.date.slice(0,4)}-{c.date.slice(4,6)}-{c.date.slice(6,8)}
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full">{c.count} excluded</span>
+                    {c.fraudHeavyCount > 0 && (
+                      <span className="text-xs bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded-full">{c.fraudHeavyCount} fraud-heavy</span>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {c.people.slice(0, 12).map((p: any, i: number) => (
+                    <span key={i} className="text-xs bg-slate-700/50 text-slate-300 px-2 py-0.5 rounded">
+                      {p.name || 'Unnamed'} <span className="text-slate-500">({p.specialty?.includes('HOME HEALTH') ? 'HH' : p.specialty?.includes('PERSONAL CARE') ? 'PCA' : p.specialty?.includes('TRANSPORT') ? 'Trans' : p.specialty?.includes('INTERPRETER') ? 'Interp' : p.specialty?.includes('HEALTH CARE AIDE') ? 'HCA' : p.specialty?.includes('NURSE') ? 'Nurse' : p.specialty?.slice(0,10)})</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Address Clusters */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-white mb-4">Same Address, Multiple Exclusions</h2>
+        <p className="text-slate-300 mb-4">
+          When multiple excluded providers share the same address, it often indicates an organized operation — 
+          a single location running multiple fraudulent entities. We found <strong className="text-white">{data.addressClusters?.length || 21} addresses</strong> in 
+          Minnesota with 2 or more excluded providers.
+        </p>
+        <div className="space-y-3 mb-6">
+          {(data.addressClusters || []).filter((a: any) => a.count >= 2).slice(0, 8).map((a: any, i: number) => (
+            <div key={i} className="bg-slate-800/30 border border-slate-700/40 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <span className="text-sm font-medium text-white">{a.address}</span>
+                  <span className="text-xs text-slate-500 ml-2">{a.city}</span>
+                </div>
+                <span className="text-xs bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full">{a.count} excluded</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {a.people.map((p: any, j: number) => (
+                  <span key={j} className="text-xs text-slate-400">
+                    {p.name} <span className="text-slate-600">({p.specialty?.slice(0, 15)}, {p.date.slice(0,4)})</span>
+                    {j < a.people.length - 1 && ' · '}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-sm text-slate-400">
+          Notable: The Akore family at 2200 Homestead Ave N, Saint Paul — Kwesi Akore (home health, excluded Jan 2024), 
+          followed by Angela Stover-Akore (home health, excluded Jul 2024). Same address, same service type, 
+          six months apart. The Clement family at 3931 Princeton Trl, Saint Paul — both excluded for home health agency fraud. 
+          And three providers at 3567 Commonwealth Rd, Saint Paul — personal care and interpreter services, all excluded within a year.
+        </p>
+      </section>
+
       {/* Why This Matters */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-4">Why This Keeps Happening</h2>
