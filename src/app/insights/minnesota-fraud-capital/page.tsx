@@ -6,7 +6,7 @@ import data from "../../../../public/data/mn-fraud-capital.json";
 
 export const metadata: Metadata = {
   title: "Minnesota: America's Medicaid Fraud Capital",
-  description: "Minnesota has 4x its population share of fraud-heavy OIG exclusions, the $250M+ Feeding Our Future scandal, autism therapy fraud, and a housing program so broken the state shut it down. How generous programs with weak oversight became a magnet for organized fraud.",
+  description: "In December 2025, the U.S. Attorney announced Minnesota Medicaid fraud likely exceeds $9 billion across 14 programs. Minnesota has 4x its population share of fraud-heavy OIG exclusions, 78 Feeding Our Future indictments, and a DOJ strike force created just for one state.",
   openGraph: {
     title: "Minnesota: America's Medicaid Fraud Capital",
     description: "One state has 4x its population share of Medicaid fraud exclusions. Home care, transportation, and interpreter services are the epicenter.",
@@ -68,6 +68,76 @@ export default function MinnesotaFraudCapital() {
           <div className="text-xs text-slate-400 mt-1">Fraud Convictions Since 2023</div>
         </div>
       </div>
+
+      {/* The $9 Billion Bombshell */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-white mb-4">December 2025: The $9 Billion Bombshell</h2>
+        <div className="bg-gradient-to-r from-red-500/5 to-orange-500/5 border border-red-500/20 rounded-xl p-6 mb-6">
+          <p className="text-slate-300 mb-4">
+            In December 2025, the U.S. Attorney for Minnesota dropped a number that rewrote the narrative: Medicaid fraud
+            in Minnesota-run services likely exceeds <strong className="text-white">$9 billion</strong> across
+            14 programs — including housing services (Integrated Community Supports), autism therapy (EIDBI), personal care,
+            and more. Not millions. <em>Billions.</em> The announcement turned a state-level scandal into a national political crisis.
+          </p>
+          <p className="text-slate-300 mb-4">
+            On December 18, 2025, federal prosecutors unveiled new charges in what they called &quot;industrial-scale&quot; Medicaid fraud.
+            Providers were billing <strong className="text-white">$100,000 to $200,000 per year per client</strong> for housing
+            services that were never delivered. One provider — Ultimate Home Health Services — billed
+            <strong className="text-white">$1.1 million</strong> between June 2024 and August 2025 for services not provided.
+            These aren&apos;t billing errors or gray-area upcoding. This is phantom billing at industrial scale.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-5">
+            <div className="text-3xl mb-2">⚖️</div>
+            <h3 className="text-lg font-semibold text-white mb-2">DOJ Strike Force</h3>
+            <p className="text-sm text-slate-400">
+              The Department of Justice created a <strong className="text-white">special strike force</strong> specifically
+              for Minnesota Medicaid fraud — an almost unheard-of step for a single state. When the federal government
+              sets up a dedicated task force for your state&apos;s fraud problem, it&apos;s no longer a local issue.
+              It&apos;s a national emergency.
+            </p>
+          </div>
+          <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-5">
+            <div className="text-3xl mb-2">🏛️</div>
+            <h3 className="text-lg font-semibold text-white mb-2">House Oversight Committee</h3>
+            <p className="text-sm text-slate-400">
+              On December 31, 2025, the U.S. House Oversight Committee invited Governor Tim Walz and Republican state
+              legislators to testify about the crisis. Walz called the $9 billion estimate &quot;sensationalized.&quot;
+              Minnesota&apos;s State Medicaid Director said they have evidence of &quot;tens of millions&quot; in fraud — not $9 billion.
+              The gap between those numbers tells you everything about the state&apos;s posture: minimize, deflect, dispute the math.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-slate-800/40 border border-slate-700/40 rounded-xl p-5 mb-6">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-2xl">🍽️</span>
+            <h3 className="text-lg font-semibold text-white">Feeding Our Future Update</h3>
+            <span className="text-xs bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full">78 indictments</span>
+          </div>
+          <p className="text-sm text-slate-300">
+            The Feeding Our Future case has now reached <strong className="text-white">78 indictments</strong> and
+            nearly <strong className="text-white">60 convictions</strong>, with the investigation sprawling well beyond
+            the original nonprofit. The web of defendants keeps expanding — and overlapping with other fraud schemes.
+            At least one defendant in the Feeding Our Future case was <strong className="text-white">also charged
+            in the assisted living fraud scheme</strong> — collecting state money while awaiting trial on the meal fraud charges.
+            The same networks, the same people, exploiting program after program.
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-r from-amber-500/5 to-red-500/5 border border-amber-500/20 rounded-xl p-5">
+          <h3 className="text-white font-semibold mb-2">⚡ The Political Dimension</h3>
+          <p className="text-sm text-slate-300">
+            This is now a national political story. Governor Tim Walz — a former vice presidential candidate — is under
+            direct scrutiny for his administration&apos;s oversight failures. The $9 billion estimate, whether precise or not,
+            has made Minnesota Medicaid fraud a talking point in Washington. The House Oversight hearings, the DOJ strike
+            force, and the sheer scale of the numbers have elevated this from a state government failure to a federal accountability crisis.
+            The question is no longer <em>whether</em> Minnesota&apos;s oversight failed — it&apos;s how many billions were lost while it did.
+          </p>
+        </div>
+      </section>
 
       {/* The Scale */}
       <section className="mb-12">
@@ -288,8 +358,8 @@ export default function MinnesotaFraudCapital() {
               Only ~3% of funding was actually spent on food.
             </p>
             <p className="text-sm text-slate-300 mb-3">
-              As of early 2026, <strong className="text-white">79 individuals have been indicted</strong>, with more than 50 guilty pleas and 
-              7 found guilty at trial, including scheme leader Aimee Bock. The state&apos;s education department flagged fraud signs 
+              As of early 2026, <strong className="text-white">78 individuals have been indicted</strong>, with nearly 60 convictions including
+              guilty pleas and those found guilty at trial, including scheme leader Aimee Bock. The state&apos;s education department flagged fraud signs 
               as early as 2019, but a lawsuit alleging racial discrimination created a chilling effect on oversight — a state 
               legislative audit later confirmed this pressure compromised the agency&apos;s ability to investigate.
             </p>
