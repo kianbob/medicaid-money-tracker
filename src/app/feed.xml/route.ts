@@ -1,6 +1,6 @@
 export function GET() {
   const siteUrl = 'https://openmedicaid.org';
-  const pubDate = new Date('2026-02-17T12:00:00Z').toUTCString();
+  const pubDate = new Date('2026-02-19T12:00:00Z').toUTCString();
 
   const articles = [
     { slug: 'covid-vaccines', title: 'The $1.5 Billion COVID Vaccine Machine', description: 'How COVID vaccine administration became one of Medicaid\'s largest spending categories overnight.' },
@@ -27,6 +27,10 @@ export function GET() {
     { slug: 'city-hotspots', title: "America's Medicaid Fraud Capitals", description: 'The cities with the highest density of statistically flagged providers.' },
     { slug: 'smooth-billers', title: 'Suspiciously Smooth Billers', description: 'Providers with unnaturally consistent billing patterns that defy normal variation.' },
     { slug: 'dual-billing', title: 'Dual Billing Patterns', description: 'Investigating providers exhibiting dual billing pattern anomalies.' },
+    { slug: 'minnesota-fraud-capital', title: "Minnesota: America's Medicaid Fraud Capital", description: 'Minnesota has 4x its population share of fraud-heavy exclusions, the $250M Feeding Our Future scandal, and housing fraud so bad they shut the entire program down.' },
+    { slug: 'cares-inc-exposed', title: 'Exposed: Cares Inc.', description: 'Deep dive into a flagged provider with unusual billing patterns.' },
+    { slug: 'chicago-exposed', title: 'Exposed: City of Chicago', description: 'How the City of Chicago went from $23M to $240M in Medicaid billing — a 942% increase.' },
+    { slug: 'srh-chn-exposed', title: 'Exposed: SRH CHN Lead Health Home', description: 'The $239M health home with 4 independent fraud flags.' },
   ];
 
   const items = articles

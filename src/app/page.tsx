@@ -101,7 +101,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
           <p className="text-sm text-slate-300"><span className="text-white font-semibold">New here?</span> Start with our top investigations, or jump straight to the <Link href="/watchlist" className="text-blue-400 hover:underline">Risk Watchlist</Link> to see all 1,860 flagged providers.</p>
           <div className="flex gap-2 shrink-0">
-            <Link href="/insights" className="text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">All 24 investigations &rarr;</Link>
+            <Link href="/insights" className="text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">All 28 investigations &rarr;</Link>
           </div>
         </div>
       </section>
@@ -185,7 +185,7 @@ export default function Home() {
             <h2 id="insights-heading" className="font-headline text-xl font-bold text-white">Latest Investigations</h2>
           </div>
           <Link href="/insights" className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            All 24 stories &rarr;
+            All 28 stories &rarr;
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
