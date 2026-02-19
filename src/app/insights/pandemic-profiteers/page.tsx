@@ -101,7 +101,8 @@ export default function PandemicProfiteers() {
         <p className="text-slate-300 leading-relaxed text-[15px]">
           The COVID-19 pandemic didn&apos;t just change healthcare &mdash; it reshaped how money flows through Medicaid.
           Some providers saw their billing explode by hundreds or thousands of percent. While some growth is expected
-          (telehealth expansion, testing, vaccines), the scale of certain increases demands scrutiny.
+          (telehealth expansion, <Link href="/insights/covid-testing" className="text-blue-400 hover:text-blue-300">testing</Link>,{' '}
+          <Link href="/insights/covid-vaccines" className="text-blue-400 hover:text-blue-300">vaccines</Link>), the scale of certain increases demands scrutiny.
         </p>
 
         <div className="bg-dark-800 border-l-4 border-amber-500 rounded-r-xl p-5">

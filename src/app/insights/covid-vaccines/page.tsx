@@ -67,8 +67,10 @@ export default function CovidVaccines() {
       <div className="prose prose-invert max-w-none mb-12 space-y-5">
         <p className="text-slate-300 leading-relaxed text-[15px]">
           When COVID-19 vaccines became available in late 2020, Medicaid became one of the primary payers
-          for vaccinating low-income Americans. Our analysis of HHS billing data reveals some surprising
-          patterns in who billed the most for these vaccinations.
+          for vaccinating low-income Americans. Vaccines were just one part of the pandemic spending surge — Medicaid
+          also paid <Link href="/insights/covid-testing" className="text-blue-400 hover:text-blue-300">$4.7 billion for COVID testing</Link> and
+          saw <Link href="/insights/pandemic-profiteers" className="text-blue-400 hover:text-blue-300">massive billing jumps across hundreds of providers</Link>.
+          Our analysis of HHS billing data reveals some surprising patterns in who billed the most for vaccinations.
         </p>
         <div className="bg-dark-800 border-l-4 border-cyan-500 rounded-r-xl p-5">
           <p className="text-white font-semibold mb-1">The tribal healthcare angle</p>

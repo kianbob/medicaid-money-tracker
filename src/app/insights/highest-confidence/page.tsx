@@ -301,7 +301,7 @@ export default function HighestConfidence() {
           <p className="text-sm text-slate-400 leading-relaxed">
             The key to this approach is that each detection method operates independently. Statistical tests look at
             cost-per-claim ratios. Change point detection analyzes billing trends over time. Benford&apos;s Law examines
-            leading digit distributions. Velocity checks count daily claim volume. Because these methods use different
+            leading digit distributions. <Link href="/insights/impossible-volume" className="text-blue-400 hover:text-blue-300">Velocity checks count daily claim volume</Link> — some providers file thousands of claims per working day. Because these methods use different
             features and mathematical frameworks, their errors are uncorrelated &mdash; agreement between them is highly
             meaningful.
           </p>

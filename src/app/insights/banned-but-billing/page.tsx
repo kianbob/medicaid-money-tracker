@@ -87,7 +87,7 @@ export default function BannedButBilling() {
         <p>
           The Office of Inspector General (OIG) maintains the <strong>List of Excluded Individuals and Entities (LEIE)</strong> —
           a federal database of healthcare providers banned from participating in Medicare, Medicaid, and all other
-          federal healthcare programs. When a provider is excluded, no federal healthcare program may pay for any
+          federal healthcare programs. You can <Link href="/exclusions" className="text-blue-400 hover:text-blue-300">search the full exclusion database here</Link>. When a provider is excluded, no federal healthcare program may pay for any
           items or services furnished, ordered, or prescribed by that individual or entity.
         </p>
         <p>
@@ -153,7 +153,8 @@ export default function BannedButBilling() {
         <p>
           This geographic clustering may reflect the concentration of Medicaid spending in larger states, but it
           also suggests that certain state Medicaid programs may benefit from more aggressive cross-referencing
-          against the federal exclusion list.
+          against the federal exclusion list. <Link href="/insights/minnesota-fraud-capital" className="text-blue-400 hover:text-blue-300">Minnesota, for example, has 4× its population share of fraud-heavy exclusions</Link> —
+          a pattern driven by home health, personal care, and transportation fraud.
         </p>
 
         <h2 className="font-headline text-2xl font-bold text-white mt-10 mb-4">What This Means for Patients</h2>
@@ -201,7 +202,7 @@ export default function BannedButBilling() {
       </div>
 
       <div className="mt-16">
-        <RelatedInsights currentSlug="banned-but-billing" relatedSlugs={["arizona-problem", "highest-confidence", "most-expensive"]} />
+        <RelatedInsights currentSlug="banned-but-billing" relatedSlugs={["minnesota-fraud-capital", "arizona-problem", "highest-confidence"]} />
       </div>
     </article>
   );

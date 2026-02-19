@@ -193,6 +193,9 @@ export default function ImpossibleVolume() {
             organizations, or state agencies &mdash; that aggregate claims across many individual practitioners under a single NPI.
             This is expected for institutional NPIs and does not necessarily indicate fraud. The flag is most meaningful for
             individual provider NPIs, where a single person is supposedly delivering all the billed services.
+            Providers flagged here often also appear on our{' '}
+            <Link href="/insights/highest-confidence" className="text-blue-400 hover:text-blue-300">multi-method highest-confidence list</Link>,
+            where billing velocity is combined with other independent detection systems.
           </p>
         </div>
       </div>

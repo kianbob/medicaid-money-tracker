@@ -116,6 +116,14 @@ export default function StatesPage() {
           </span>
           . Click any state for top providers, procedures, and yearly trends.
         </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3">
+          <Link href="/insights/geographic-hotspots" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+            State-level fraud hotspots &rarr;
+          </Link>
+          <Link href="/insights/city-hotspots" className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
+            City-level fraud hotspots &rarr;
+          </Link>
+        </div>
       </div>
 
       {/* Top States by Spending - Horizontal Bar Chart */}

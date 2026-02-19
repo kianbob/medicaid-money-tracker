@@ -90,6 +90,9 @@ export default function CovidTesting() {
         <p className="text-slate-300 leading-relaxed text-[15px]">
           The top 100 COVID testing billers collectively billed <span className="font-semibold text-white">{formatMoney(totalSpending)}</span> to Medicaid.
           The pandemic created a blank check for testing labs &mdash; billions in taxpayer money with minimal oversight.
+          Testing was just one part of the COVID spending surge — see also{' '}
+          <Link href="/insights/covid-vaccines" className="text-blue-400 hover:text-blue-300">who got paid the most for COVID vaccines</Link> and{' '}
+          <Link href="/insights/pandemic-profiteers" className="text-blue-400 hover:text-blue-300">the providers with the biggest pandemic billing jumps</Link>.
           The sheer volume created massive opportunities for overbilling and fraud that investigators are still
           uncovering. How much of this was genuinely necessary, and how much was opportunistic billing?
         </p>

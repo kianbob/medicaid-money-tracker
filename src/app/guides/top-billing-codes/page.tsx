@@ -178,6 +178,29 @@ export default function TopBillingCodesPage() {
           View the Risk Watchlist &rarr;
         </Link>
       </div>
+
+      {/* Related Guides */}
+      <section className="mt-12">
+        <h2 className="text-xl font-bold text-white mb-4">Related Guides</h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <Link href="/guides/understanding-hcpcs-codes" className="block bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 hover:bg-dark-700/50 transition-all group">
+            <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors mb-1">Understanding HCPCS Codes</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">What billing codes mean, how they&apos;re structured, and which ones are most associated with fraud.</p>
+          </Link>
+          <Link href="/guides/how-medicaid-fraud-works" className="block bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 hover:bg-dark-700/50 transition-all group">
+            <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors mb-1">How Medicaid Fraud Works</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">Common schemes, red flags, and how data analysis can detect them.</p>
+          </Link>
+          <Link href="/guides/reading-medicaid-billing" className="block bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 hover:bg-dark-700/50 transition-all group">
+            <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors mb-1">How to Read a Medicaid Billing Record</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">Understand NPIs, claims, beneficiaries, and what the numbers mean on provider profiles.</p>
+          </Link>
+          <Link href="/guides/medicaid-fraud-by-state" className="block bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-dark-400 hover:bg-dark-700/50 transition-all group">
+            <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors mb-1">Medicaid Fraud by State</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">Which states have the most flagged providers and biggest spending anomalies.</p>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

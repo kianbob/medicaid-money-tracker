@@ -115,6 +115,10 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
     title: 'SRH CHN: $239M From Nowhere',
     description: 'A brand-new entity billing hundreds of millions immediately',
   },
+  'minnesota-fraud-capital': {
+    title: 'Minnesota: Fraud Capital',
+    description: 'One state has 4× its population share of Medicaid fraud exclusions',
+  },
 };
 
 interface RelatedInsightsProps {

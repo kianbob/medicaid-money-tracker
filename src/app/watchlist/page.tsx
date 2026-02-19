@@ -828,6 +828,28 @@ function WatchlistContent() {
         </p>
       </div>
 
+      {/* Related Resources */}
+      <div className="mt-10">
+        <h2 className="font-headline text-lg font-bold text-white mb-4">Related Resources</h2>
+        <div className="grid sm:grid-cols-3 gap-3">
+          <Link href="/exclusions/matched" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-red-500/20 transition-all group">
+            <p className="text-sm font-semibold text-white group-hover:text-red-400 transition-colors mb-1">Excluded Providers in Billing Data</p>
+            <p className="text-xs text-slate-500 leading-relaxed">40 OIG-excluded providers still appearing in Medicaid payment records.</p>
+            <p className="text-xs text-red-400 mt-2 font-medium">View matches &rarr;</p>
+          </Link>
+          <Link href="/insights/highest-confidence" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-amber-500/20 transition-all group">
+            <p className="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors mb-1">Highest-Confidence Flags</p>
+            <p className="text-xs text-slate-500 leading-relaxed">Providers flagged by the most independent fraud indicators.</p>
+            <p className="text-xs text-amber-400 mt-2 font-medium">Read investigation &rarr;</p>
+          </Link>
+          <Link href="/ml-analysis" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-purple-500/20 transition-all group">
+            <p className="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors mb-1">ML Fraud Detection</p>
+            <p className="text-xs text-slate-500 leading-relaxed">Random forest model trained on 514 confirmed fraud cases (AUC: 0.77).</p>
+            <p className="text-xs text-purple-400 mt-2 font-medium">Explore ML results &rarr;</p>
+          </Link>
+        </div>
+      </div>
+
       {/* Bottom Links */}
       <div className="mt-6 text-center space-y-2">
         <p className="text-slate-500 text-xs">Want to understand how we identified these providers?</p>

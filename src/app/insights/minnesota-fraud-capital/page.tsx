@@ -143,18 +143,19 @@ export default function MinnesotaFraudCapital() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-4">The Scale of the Problem</h2>
         <p className="text-slate-300 mb-4">
-          When the federal government catches a healthcare provider committing fraud, they&apos;re placed on the 
-          OIG Exclusion List — permanently banned from billing Medicare and Medicaid. There are currently {formatNumber(stats.totalUSExclusions)} providers 
-          on this list nationwide.
+          When the federal government catches a healthcare provider committing fraud, they&apos;re placed on the
+          OIG Exclusion List — permanently banned from billing Medicare and Medicaid. There are currently {formatNumber(stats.totalUSExclusions)} providers
+          on this list nationwide. (Our analysis found that <Link href="/insights/banned-but-billing" className="text-blue-400 hover:text-blue-300">40 excluded providers still appear in Medicaid billing data</Link>.)
         </p>
         <p className="text-slate-300 mb-4">
           Minnesota has {formatNumber(stats.totalMNExclusions)} of them — {stats.mnPctOfTotal}% of the national total. That alone isn&apos;t shocking for a 
           mid-sized state. But look closer at <em>what types</em> of fraud these exclusions involve, and a disturbing pattern emerges.
         </p>
         <p className="text-slate-300 mb-6">
-          In fraud-heavy categories — home health agencies, personal care providers, medical transportation companies, 
-          and interpreter services — Minnesota accounts for <strong className="text-red-400">{stats.fraudHeavyPct}%</strong> of 
+          In fraud-heavy categories — home health agencies, personal care providers, medical transportation companies,
+          and interpreter services — Minnesota accounts for <strong className="text-red-400">{stats.fraudHeavyPct}%</strong> of
           all national exclusions. That&apos;s nearly <strong className="text-white">4 times</strong> what you&apos;d expect based on population.
+          (See our full <Link href="/insights/geographic-hotspots" className="text-blue-400 hover:text-blue-300">state-by-state geographic risk analysis</Link> for how Minnesota compares.)
         </p>
 
         {/* State comparison table */}
@@ -683,7 +684,7 @@ export default function MinnesotaFraudCapital() {
         </p>
       </section>
 
-      <RelatedInsights currentSlug="minnesota-fraud-capital" relatedSlugs={["arizona-problem", "ny-home-care", "pandemic-profiteers", "spending-growth", "city-hotspots"]} />
+      <RelatedInsights currentSlug="minnesota-fraud-capital" relatedSlugs={["banned-but-billing", "geographic-hotspots", "arizona-problem", "ny-home-care", "pandemic-profiteers"]} />
     </article>
   );
 }

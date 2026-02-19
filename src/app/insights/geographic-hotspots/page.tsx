@@ -115,6 +115,9 @@ export default function GeographicHotspots() {
           <Link href="/insights/arizona-problem" className="text-blue-400 hover:text-blue-300">new behavioral health clinics billing massive amounts</Link>.
           With {byPerCapita.find(s => s.state === 'AZ')?.flaggedCount} flagged providers across 7.4M residents,
           Arizona&apos;s rate is nearly 4&times; that of similarly-sized states like Ohio ({byPerCapita.find(s => s.state === 'OH')?.flagsPerCapita.toFixed(2)}) and Pennsylvania ({byPerCapita.find(s => s.state === 'PA')?.flagsPerCapita.toFixed(2)}).
+          And while this analysis focuses on billing flags, OIG exclusion data tells an even starker story:{' '}
+          <Link href="/insights/minnesota-fraud-capital" className="text-blue-400 hover:text-blue-300">Minnesota has 4× its population share of fraud-heavy federal exclusions</Link>,
+          driven by home health, personal care, and transportation fraud.
         </p>
 
         <div className="bg-dark-800 border-l-4 border-amber-500 rounded-r-xl p-5">
@@ -261,7 +264,7 @@ export default function GeographicHotspots() {
             <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Vermont has the highest Medicaid fraud flag rate per capita (1.08/100K). NY leads in total flags (114). Where do fraud signals really concentrate?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/geographic-hotspots")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
-        <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["city-hotspots", "arizona-problem", "ny-home-care"]} />
+        <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["minnesota-fraud-capital", "city-hotspots", "arizona-problem"]} />
       </div>
     </article>
   );
