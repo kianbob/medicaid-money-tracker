@@ -34,6 +34,16 @@ const insightCategories: { label: string; description: string; accent: string; i
     accent: "bg-red-500",
     items: [
       {
+        slug: "minnesota-fraud-capital",
+        title: "Minnesota: America's Medicaid Fraud Capital",
+        teaser: "Minnesota has 4x its population share of fraud-heavy exclusions. 81% of all interpreter fraud in the country is in one state. How generous programs with weak oversight became a magnet for organized fraud.",
+        stat: "4x",
+        statLabel: "expected fraud rate",
+        color: "from-red-500 to-rose-500",
+        accent: "text-red-400",
+        icon: "🏔️",
+      },
+      {
         slug: "arizona-problem",
         title: "The Arizona Problem: New Clinics, Massive Billing",
         teaser: "46 new Arizona providers appeared in 2022+ and immediately billed over $800M combined. Many operated for less than a year. Phoenix dominates.",

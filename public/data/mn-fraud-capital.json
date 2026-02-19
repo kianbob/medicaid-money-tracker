@@ -1,0 +1,679 @@
+{
+  "title": "Minnesota: America's Medicaid Fraud Capital",
+  "subtitle": "How one state's generous programs became a magnet for organized fraud",
+  "stats": {
+    "totalMNExclusions": 1369,
+    "totalUSExclusions": 82714,
+    "mnPctOfTotal": 1.7,
+    "fraudHeavyMN": 320,
+    "fraudHeavyUS": 5409,
+    "fraudHeavyPct": 5.9,
+    "interpreterMN": 13,
+    "interpreterUS": 16,
+    "a1ConvictionsMN": 637,
+    "a1ConvictionsSince2023": 161
+  },
+  "yearlyTrend": [
+    {
+      "year": 2015,
+      "total": 25,
+      "fraudHeavy": 6
+    },
+    {
+      "year": 2016,
+      "total": 52,
+      "fraudHeavy": 26
+    },
+    {
+      "year": 2017,
+      "total": 78,
+      "fraudHeavy": 32
+    },
+    {
+      "year": 2018,
+      "total": 35,
+      "fraudHeavy": 9
+    },
+    {
+      "year": 2019,
+      "total": 73,
+      "fraudHeavy": 36
+    },
+    {
+      "year": 2020,
+      "total": 41,
+      "fraudHeavy": 20
+    },
+    {
+      "year": 2021,
+      "total": 32,
+      "fraudHeavy": 9
+    },
+    {
+      "year": 2022,
+      "total": 70,
+      "fraudHeavy": 30
+    },
+    {
+      "year": 2023,
+      "total": 72,
+      "fraudHeavy": 45
+    },
+    {
+      "year": 2024,
+      "total": 86,
+      "fraudHeavy": 46
+    },
+    {
+      "year": 2025,
+      "total": 54,
+      "fraudHeavy": 25
+    },
+    {
+      "year": 2026,
+      "total": 14,
+      "fraudHeavy": 11
+    }
+  ],
+  "topCities": [
+    {
+      "city": "MINNEAPOLIS",
+      "total": 353,
+      "fraudHeavy": 138
+    },
+    {
+      "city": "SAINT PAUL",
+      "total": 120,
+      "fraudHeavy": 60
+    },
+    {
+      "city": "DULUTH",
+      "total": 72,
+      "fraudHeavy": 5
+    },
+    {
+      "city": "ROCHESTER",
+      "total": 42,
+      "fraudHeavy": 5
+    },
+    {
+      "city": "ST PAUL",
+      "total": 39,
+      "fraudHeavy": 0
+    },
+    {
+      "city": "WASECA",
+      "total": 27,
+      "fraudHeavy": 4
+    },
+    {
+      "city": "FARIBAULT",
+      "total": 21,
+      "fraudHeavy": 10
+    },
+    {
+      "city": "BURNSVILLE",
+      "total": 16,
+      "fraudHeavy": 4
+    },
+    {
+      "city": "EDEN PRAIRIE",
+      "total": 15,
+      "fraudHeavy": 5
+    },
+    {
+      "city": "STILLWATER",
+      "total": 15,
+      "fraudHeavy": 0
+    },
+    {
+      "city": "COON RAPIDS",
+      "total": 14,
+      "fraudHeavy": 2
+    },
+    {
+      "city": "BROOKLYN PARK",
+      "total": 14,
+      "fraudHeavy": 2
+    },
+    {
+      "city": "BROOKLYN CENTER",
+      "total": 13,
+      "fraudHeavy": 2
+    },
+    {
+      "city": "SHAKOPEE",
+      "total": 13,
+      "fraudHeavy": 3
+    },
+    {
+      "city": "BLOOMINGTON",
+      "total": 13,
+      "fraudHeavy": 0
+    }
+  ],
+  "specialtyBreakdown": [
+    {
+      "specialty": "NURSE/NURSES AIDE",
+      "count": 402
+    },
+    {
+      "specialty": "HEALTH CARE AIDE",
+      "count": 201
+    },
+    {
+      "specialty": "PERSONAL CARE PROVID",
+      "count": 155
+    },
+    {
+      "specialty": "HOME HEALTH AGENCY",
+      "count": 117
+    },
+    {
+      "specialty": "Unknown",
+      "count": 39
+    },
+    {
+      "specialty": "CHIROPRACTIC",
+      "count": 38
+    },
+    {
+      "specialty": "OWNER/OPERATOR",
+      "count": 36
+    },
+    {
+      "specialty": "GENERAL PRACTICE/FP",
+      "count": 33
+    },
+    {
+      "specialty": "TRANSPORTATION CO",
+      "count": 29
+    },
+    {
+      "specialty": "PSYCHOLOGY",
+      "count": 29
+    },
+    {
+      "specialty": "DENTIST",
+      "count": 26
+    },
+    {
+      "specialty": "EMPLOYEE",
+      "count": 22
+    },
+    {
+      "specialty": "MENTAL/BEHAVIORAL HE",
+      "count": 20
+    },
+    {
+      "specialty": "NO KNOWN AFFILIATION",
+      "count": 17
+    },
+    {
+      "specialty": "PHARMACIST",
+      "count": 17
+    }
+  ],
+  "stateComparison": [
+    {
+      "state": "PA",
+      "fraudHeavy": 489,
+      "total": 3502,
+      "perMillion": 37.6
+    },
+    {
+      "state": "CA",
+      "fraudHeavy": 410,
+      "total": 9634,
+      "perMillion": 10.4
+    },
+    {
+      "state": "FL",
+      "fraudHeavy": 390,
+      "total": 8923,
+      "perMillion": 17.6
+    },
+    {
+      "state": "OH",
+      "fraudHeavy": 389,
+      "total": 3766,
+      "perMillion": 33.0
+    },
+    {
+      "state": "IL",
+      "fraudHeavy": 375,
+      "total": 2369,
+      "perMillion": 29.8
+    },
+    {
+      "state": "LA",
+      "fraudHeavy": 364,
+      "total": 1928,
+      "perMillion": 79.1
+    },
+    {
+      "state": "MN",
+      "fraudHeavy": 320,
+      "total": 1369,
+      "perMillion": 56.1
+    },
+    {
+      "state": "TX",
+      "fraudHeavy": 215,
+      "total": 5836,
+      "perMillion": 7.2
+    },
+    {
+      "state": "VA",
+      "fraudHeavy": 174,
+      "total": 1551,
+      "perMillion": 20.2
+    },
+    {
+      "state": "OR",
+      "fraudHeavy": 151,
+      "total": 901,
+      "perMillion": 36.0
+    },
+    {
+      "state": "WV",
+      "fraudHeavy": 131,
+      "total": 841,
+      "perMillion": 72.8
+    },
+    {
+      "state": "NY",
+      "fraudHeavy": 128,
+      "total": 4398,
+      "perMillion": 6.5
+    },
+    {
+      "state": "IA",
+      "fraudHeavy": 119,
+      "total": 1110,
+      "perMillion": 37.2
+    },
+    {
+      "state": "MS",
+      "fraudHeavy": 106,
+      "total": 2039,
+      "perMillion": 35.3
+    },
+    {
+      "state": "AK",
+      "fraudHeavy": 105,
+      "total": 267,
+      "perMillion": 150.0
+    },
+    {
+      "state": "GA",
+      "fraudHeavy": 88,
+      "total": 1281,
+      "perMillion": 8.1
+    },
+    {
+      "state": "AR",
+      "fraudHeavy": 86,
+      "total": 1263,
+      "perMillion": 28.7
+    },
+    {
+      "state": "MI",
+      "fraudHeavy": 78,
+      "total": 1550,
+      "perMillion": 7.8
+    },
+    {
+      "state": "AZ",
+      "fraudHeavy": 77,
+      "total": 2669,
+      "perMillion": 10.4
+    },
+    {
+      "state": "MO",
+      "fraudHeavy": 76,
+      "total": 1166,
+      "perMillion": 12.3
+    }
+  ],
+  "recentCases": [
+    {
+      "name": "Abubakar Ahmed",
+      "city": "Circle Pines",
+      "specialty": "HOME HEALTH AGENCY",
+      "date": "20260219",
+      "type": "1128a1"
+    },
+    {
+      "name": "Edna Farah",
+      "city": "Hamel",
+      "specialty": "HOME HEALTH AGENCY",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Foos Igal",
+      "city": "Faribault",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Latonia Jackson",
+      "city": "Minneapolis",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Deborah Johnson",
+      "city": "Minneapolis",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Chantal Kuou",
+      "city": "Saint Paul",
+      "specialty": "HOME HEALTH AGENCY",
+      "date": "20260120",
+      "type": "1128a2"
+    },
+    {
+      "name": "Muhidin Maow",
+      "city": "Minneapolis",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Lorette Mckinley",
+      "city": "Saint Paul",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Abdikarim Mohamed",
+      "city": "Minneapolis",
+      "specialty": "HOME HEALTH AGENCY",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Michael Nornie",
+      "city": "Brooklyn Center",
+      "specialty": "COUNSELING CENTER",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Ahmed Nur",
+      "city": "Saint Paul",
+      "specialty": "HOME HEALTH AGENCY",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Bishara Abdirahman",
+      "city": "Faribault",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Maryam Bina",
+      "city": "Watertown",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Yusuf Lohos",
+      "city": "Faribault",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Nadia Loving",
+      "city": "Brainerd",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Nusayba Mohamed",
+      "city": "Saint Paul",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Gao Thao",
+      "city": "Minneapolis",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Jeffrey Cartharn",
+      "city": "Minneapolis",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20251020",
+      "type": "1128a1"
+    },
+    {
+      "name": "Jordan Jarvi",
+      "city": "Andover",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20251020",
+      "type": "1128a1"
+    },
+    {
+      "name": "Victor Kamara",
+      "city": "Minneapolis",
+      "specialty": "ASSISTED LIVING FACI",
+      "date": "20251020",
+      "type": "1128a2"
+    },
+    {
+      "name": "Kathryn Koelfgen",
+      "city": "Wayzata",
+      "specialty": "HOME HEALTH AGENCY",
+      "date": "20251020",
+      "type": "1128a1"
+    },
+    {
+      "name": "Leonard Cain",
+      "city": "Maple Grove",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250820",
+      "type": "1128a1"
+    },
+    {
+      "name": "Shannyce Fitzgerald",
+      "city": "Minneapolis",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250820",
+      "type": "1128a1"
+    },
+    {
+      "name": "Augustine Livingstone",
+      "city": "Minneapolis",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250820",
+      "type": "1128a1"
+    },
+    {
+      "name": "Abdirashid Mohamud",
+      "city": "Minneapolis",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250820",
+      "type": "1128a1"
+    },
+    {
+      "name": "Amal Budul",
+      "city": "Eden Prairie",
+      "specialty": "INTERPRETER/TRANS",
+      "date": "20250720",
+      "type": "1128a1"
+    },
+    {
+      "name": "Omar Dirie",
+      "city": "Saint Paul",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250720",
+      "type": "1128a1"
+    },
+    {
+      "name": "Fardosa Ibrahim",
+      "city": "Faribault",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20250720",
+      "type": "1128a1"
+    },
+    {
+      "name": "Mijaunna Mapp",
+      "city": "Plymouth",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250720",
+      "type": "1128a1"
+    },
+    {
+      "name": "Percy Reese",
+      "city": "Saint Paul",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20250720",
+      "type": "1128a1"
+    }
+  ],
+  "faribaultCluster": [
+    {
+      "name": "Foos Igal",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20260120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Bishara Abdirahman",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Yusuf Lohos",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20251218",
+      "type": "1128a1"
+    },
+    {
+      "name": "Fardosa Ibrahim",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20250720",
+      "type": "1128a1"
+    },
+    {
+      "name": "Ali Abdi",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20241120",
+      "type": "1128a1"
+    },
+    {
+      "name": "John Akonkoh",
+      "specialty": "NURSE/NURSES AIDE",
+      "date": "20241020",
+      "type": "1128a2"
+    },
+    {
+      "name": "Abdullahi Mohamed",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20230518",
+      "type": "1128a1"
+    },
+    {
+      "name": "Muna Mohamed",
+      "specialty": "LOCAL GOV'T",
+      "date": "20230518",
+      "type": "1128a1"
+    },
+    {
+      "name": "Liban Sheikhdon",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20230518",
+      "type": "1128a1"
+    },
+    {
+      "name": "Idris Mohamed",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20221120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Brian Moss",
+      "specialty": "RECIPT/BENEFICIARY",
+      "date": "20221120",
+      "type": "1128a1"
+    },
+    {
+      "name": "Shafi Hussein",
+      "specialty": "TRANSPORTATION CO",
+      "date": "20190620",
+      "type": "1128a1"
+    },
+    {
+      "name": "Keimani Love",
+      "specialty": "PERSONAL CARE PROVID",
+      "date": "20170320",
+      "type": "1128b5"
+    },
+    {
+      "name": "Earl Choate",
+      "specialty": "HEALTH CARE AIDE",
+      "date": "20110818",
+      "type": "1128a2"
+    },
+    {
+      "name": "Thomas Folsom",
+      "specialty": "PSYCHIATRY",
+      "date": "20090420",
+      "type": "1128a2"
+    },
+    {
+      "name": "Michael Hick",
+      "specialty": "HEALTH CARE AIDE",
+      "date": "20080520",
+      "type": "1128a2"
+    },
+    {
+      "name": "Rebecca Waskosky",
+      "specialty": "BUSINESS MANAGER",
+      "date": "20060720",
+      "type": "1128a1"
+    },
+    {
+      "name": "Katherine Garcia",
+      "specialty": "BUSINESS MANAGER",
+      "date": "20040318",
+      "type": "1128a1"
+    },
+    {
+      "name": "Melissa Madson",
+      "specialty": "NURSE/NURSES AIDE",
+      "date": "20011018",
+      "type": "1128b4"
+    },
+    {
+      "name": "Shelley Turner",
+      "specialty": "NURSE/NURSES AIDE",
+      "date": "19990420",
+      "type": "1128b4"
+    },
+    {
+      "name": "Rose Kramer",
+      "specialty": "NURSE/NURSES AIDE",
+      "date": "19980120",
+      "type": "1128b4"
+    }
+  ]
+}
