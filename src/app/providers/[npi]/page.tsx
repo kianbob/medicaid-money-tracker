@@ -9,8 +9,12 @@ import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import stats from "../../../../public/data/stats.json";
 import mlScores from "../../../../public/data/ml-scores.json";
 import specialtyBenchmarks from "../../../../public/data/specialty-benchmarks.json";
+import leieMatched from "../../../../public/data/leie-matched.json";
 import fs from "fs";
 import path from "path";
+
+// Build exclusion lookup (40 entries)
+const leieMatchedMap = new Map<string, any>((leieMatched as any[]).map((d: any) => [d.npi, d]));
 
 interface Props {
   params: { npi: string };
@@ -289,6 +293,32 @@ export default function ProviderPage({ params }: Props) {
         </Link>
         <CopyLinkButton className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors" />
       </div>
+
+      {/* OIG Exclusion Banner */}
+      {leieMatchedMap.has(npi) && (() => {
+        const excl = leieMatchedMap.get(npi)!;
+        const exclDateRaw = excl.exclDate || '';
+        const exclDateFormatted = exclDateRaw.length === 8
+          ? `${exclDateRaw.slice(4, 6)}/${exclDateRaw.slice(6, 8)}/${exclDateRaw.slice(0, 4)}`
+          : exclDateRaw;
+        return (
+          <div className="bg-red-900/50 border border-red-500/50 rounded-xl p-5 mb-6" role="alert">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl shrink-0">⚠️</span>
+              <div>
+                <p className="text-base font-bold text-red-400">OIG EXCLUDED — This provider appears on the federal exclusion list</p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-slate-300">
+                  {exclDateFormatted && <span>Exclusion date: <span className="text-white font-semibold">{exclDateFormatted}</span></span>}
+                  {excl.exclTypeDesc && <span>Reason: <span className="text-white font-semibold">{excl.exclTypeDesc}</span></span>}
+                </div>
+                <Link href="/exclusions/matched" className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 font-medium mt-3 transition-colors">
+                  View all excluded providers found in billing data &rarr;
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Header */}
       <div className="mb-8">

@@ -13,6 +13,7 @@ const navItems: NavItem[] = [
   { href: "/watchlist", label: "Risk Watchlist", accent: "red" },
   { href: "/providers", label: "Providers" },
   { href: "/check", label: "Check Provider" },
+  { href: "/exclusions", label: "Exclusions", accent: "red" },
   { href: "/compare", label: "Compare" },
   { href: "/states", label: "States" },
   { href: "/procedures", label: "Procedures" },

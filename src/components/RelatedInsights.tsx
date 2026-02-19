@@ -103,6 +103,10 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
     title: 'CARES INC: 6,886% Billing Explosion',
     description: 'From $1.6M to $112.6M in one year — seven fraud flags triggered',
   },
+  'banned-but-billing': {
+    title: 'Banned But Still Billing',
+    description: '40 excluded providers found in Medicaid billing data',
+  },
   'chicago-exposed': {
     title: 'City of Chicago: 942% Surge',
     description: '$23M to $240M in ambulance billing at 10× the national median',

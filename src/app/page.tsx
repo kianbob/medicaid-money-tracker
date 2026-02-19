@@ -235,13 +235,28 @@ export default function Home() {
               <p className="text-[11px] text-slate-500 leading-snug">T1019 alone is 11% of all Medicaid. OIG&apos;s #1 fraud-risk category.</p>
             </div>
           </Link>
-          <Link href="/about" className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:border-purple-500/20 transition-all group sm:col-span-2 lg:col-span-1">
-            <p className="text-2xl font-extrabold text-purple-400 tabular-nums shrink-0">0/{watchlistCount}</p>
+          <Link href="/exclusions/matched" className="flex items-center gap-4 bg-dark-800 border border-red-500/30 rounded-xl px-5 py-4 hover:border-red-500/50 transition-all group sm:col-span-2 lg:col-span-1">
+            <p className="text-2xl font-extrabold text-red-400 tabular-nums shrink-0">40</p>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors">On OIG Exclusion List</p>
-              <p className="text-[11px] text-slate-500 leading-snug">Cross-referenced 82,715 excluded providers. Zero matches.</p>
+              <p className="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Excluded Providers in Billing Data</p>
+              <p className="text-[11px] text-slate-500 leading-snug">OIG-excluded providers still appearing in Medicaid billing records.</p>
             </div>
           </Link>
+        </div>
+      </section>
+
+      {/* OIG Exclusion Callout */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div className="bg-red-900/20 border border-red-500/30 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <span className="text-2xl shrink-0">⚠️</span>
+            <p className="text-sm text-slate-300">
+              We cross-referenced <Link href="/exclusions" className="text-red-400 hover:underline font-semibold">82,714 OIG-excluded providers</Link> against Medicaid billing data and found <Link href="/exclusions/matched" className="text-red-400 hover:underline font-semibold">40 excluded providers</Link> still appearing in payment records.
+            </p>
+          </div>
+          <div className="flex gap-2 shrink-0">
+            <Link href="/exclusions" className="text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-red-500/30 text-red-400 hover:text-red-300 hover:border-red-500/50 transition-colors font-medium">Exclusion Database &rarr;</Link>
+          </div>
         </div>
       </section>
 
