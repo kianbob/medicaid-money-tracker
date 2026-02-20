@@ -11,6 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: "/watchlist", label: "Risk Watchlist", accent: "red" },
+  { href: "/hotspots", label: "Hotspots", accent: "red" },
   { href: "/providers", label: "Providers" },
   { href: "/check", label: "Check Provider" },
   { href: "/exclusions", label: "Exclusions", accent: "red" },

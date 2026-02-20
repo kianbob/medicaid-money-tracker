@@ -5,6 +5,8 @@ import statesSummary from '../../public/data/states-summary.json';
 import fs from 'fs';
 import path from 'path';
 import specialtiesData from '../../public/data/specialties.json';
+import cityHotspots from '../../public/data/city-fraud-hotspots.json';
+import geoRisk from '../../public/data/geographic-risk.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.openmedicaid.org';
@@ -115,5 +117,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...corePages, ...providerPages, ...statePages, ...procedurePages, ...specialtyPages];
+  // Hotspot pages
+  const hotspotPages: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/hotspots`, lastModified: new Date("2026-02-19"), changeFrequency: 'weekly', priority: 0.8 },
+    ...(cityHotspots as any[]).map((c: any) => ({
+      url: `${baseUrl}/hotspots/${c.city.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`,
+      lastModified: new Date("2026-02-19"),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+  ];
+
+  // State risk profile pages
+  const riskPages: MetadataRoute.Sitemap = (geoRisk as any[]).map((s: any) => ({
+    url: `${baseUrl}/risk/${s.state}`,
+    lastModified: new Date("2026-02-19"),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...corePages, ...providerPages, ...statePages, ...procedurePages, ...specialtyPages, ...hotspotPages, ...riskPages];
 }
