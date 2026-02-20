@@ -141,7 +141,7 @@ export default function ProviderPage({ params }: Props) {
   const avgPerClaim = totalClaims > 0 ? totalPaid / totalClaims : 0;
   const claimsPerBene = totalBenes > 0 ? totalClaims / totalBenes : 0;
   const growthRate = detail?.growthRate || 0;
-  const monthly = detail?.monthly || [];
+  const monthly = detail?.monthly || detail?.monthlyTrend || [];
   // Build yearly data from various formats
   const yearlyData: Record<string, number> = {};
   if (detail?.yearlyData && typeof detail.yearlyData === 'object' && !Array.isArray(detail.yearlyData)) {
@@ -245,7 +245,7 @@ export default function ProviderPage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 py-12 text-center">
         <h1 className="font-headline text-3xl font-bold text-white mb-4">Limited Data Available</h1>
         <p className="text-slate-400 mb-2">This provider ranks outside our top analyzed providers. Limited data available.</p>
-        <p className="text-slate-500 text-sm mb-6">NPI {npi} is not in our top 1,000 by total spending. Browse our top providers or search by state for more coverage.</p>
+        <p className="text-slate-500 text-sm mb-6">NPI {npi} is not in our top 10,000 by total spending. Browse our top providers or search by state for more coverage.</p>
         <div className="flex flex-wrap gap-3 justify-center">
           <Link href="/providers" className="text-blue-400 hover:underline font-medium">&larr; Browse top 1,000 providers</Link>
           <Link href="/states" className="text-blue-400 hover:underline font-medium">Explore by state &rarr;</Link>
