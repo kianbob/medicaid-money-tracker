@@ -1,0 +1,32 @@
+{
+  "slug": "hospitalist",
+  "name": "Hospitalist",
+  "providerCount": 3,
+  "totalPaid": 140057981.65,
+  "providers": [
+    {
+      "npi": "1356331425",
+      "name": "Stamford Hospital",
+      "state": "CT",
+      "totalPaid": 139831900.53,
+      "totalClaims": 4198195,
+      "totalBeneficiaries": 0
+    },
+    {
+      "npi": "1952175127",
+      "name": "Scenic Way Llc",
+      "state": "UT",
+      "totalPaid": 136782.26,
+      "totalClaims": 2770,
+      "totalBeneficiaries": 1131
+    },
+    {
+      "npi": "1285955781",
+      "name": "Gerges E Makar",
+      "state": "AZ",
+      "totalPaid": 89298.86,
+      "totalClaims": 2390,
+      "totalBeneficiaries": 1347
+    }
+  ]
+}

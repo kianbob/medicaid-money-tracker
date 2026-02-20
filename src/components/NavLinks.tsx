@@ -17,6 +17,7 @@ const navItems: NavItem[] = [
   { href: "/compare", label: "Compare" },
   { href: "/states", label: "States" },
   { href: "/procedures", label: "Procedures" },
+  { href: "/specialties", label: "Specialties" },
   { href: "/insights", label: "Insights", accent: "purple" },
   { href: "/analysis", label: "Methodology" },
   { href: "/ml-analysis", label: "ML Methodology" },

@@ -4,6 +4,7 @@ import allProcedures from '../../public/data/all-procedures.json';
 import statesSummary from '../../public/data/states-summary.json';
 import fs from 'fs';
 import path from 'path';
+import specialtiesData from '../../public/data/specialties.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.openmedicaid.org';
@@ -49,6 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/insights/dual-billing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/insights/smooth-billers`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/ml-analysis`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/specialties`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/guides/how-medicaid-fraud-works`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/guides/top-billing-codes`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/guides/medicaid-fraud-by-state`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
@@ -105,5 +107,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     }));
 
-  return [...corePages, ...providerPages, ...statePages, ...procedurePages];
+  // Specialty pages
+  const specialtyPages: MetadataRoute.Sitemap = (specialtiesData as any[]).map((s: any) => ({
+    url: `${baseUrl}/specialties/${s.slug}`,
+    lastModified: new Date("2026-02-19"),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
+  return [...corePages, ...providerPages, ...statePages, ...procedurePages, ...specialtyPages];
 }
