@@ -1,1 +1,333 @@
-{"npi":"1861691800","totalPaid":36705639.47,"totalClaims":75233,"totalBeneficiaries":2979,"uniqueCodes":7,"activeMonths":55,"procedures":[{"code":"S9124","totalPaid":17825530.3,"totalClaims":32700,"uniqueBeneficiaries":1114},{"code":"T1000","totalPaid":10784699.37,"totalClaims":17292,"uniqueBeneficiaries":681},{"code":"T1003","totalPaid":4625133.5,"totalClaims":7648,"uniqueBeneficiaries":336},{"code":"G0156","totalPaid":1427751.74,"totalClaims":9621,"uniqueBeneficiaries":324},{"code":"T1019","totalPaid":1369322.6,"totalClaims":7504,"uniqueBeneficiaries":272},{"code":"T2025","totalPaid":658543.96,"totalClaims":198,"uniqueBeneficiaries":38},{"code":"G0299","totalPaid":14658.0,"totalClaims":270,"uniqueBeneficiaries":214}],"monthlyTrend":[{"month":"2018-01","totalPaid":240945.27,"totalClaims":71},{"month":"2018-02","totalPaid":198230.07,"totalClaims":63},{"month":"2018-03","totalPaid":219368.62,"totalClaims":64},{"month":"2020-09","totalPaid":113860.0,"totalClaims":196},{"month":"2020-10","totalPaid":471855.25,"totalClaims":1104},{"month":"2020-11","totalPaid":728167.3,"totalClaims":1735},{"month":"2020-12","totalPaid":717259.5,"totalClaims":1429},{"month":"2021-01","totalPaid":720689.5,"totalClaims":1468},{"month":"2021-02","totalPaid":690448.3,"totalClaims":1268},{"month":"2021-03","totalPaid":796789.05,"totalClaims":1409},{"month":"2021-04","totalPaid":761798.85,"totalClaims":1384},{"month":"2021-05","totalPaid":789842.5,"totalClaims":1439},{"month":"2021-06","totalPaid":740900.0,"totalClaims":1497},{"month":"2021-07","totalPaid":695965.75,"totalClaims":1321},{"month":"2021-08","totalPaid":649992.85,"totalClaims":1365},{"month":"2021-09","totalPaid":620400.4,"totalClaims":1244},{"month":"2021-10","totalPaid":567113.05,"totalClaims":1165},{"month":"2021-11","totalPaid":732168.7,"totalClaims":1411},{"month":"2021-12","totalPaid":548333.97,"totalClaims":1144},{"month":"2022-01","totalPaid":653458.55,"totalClaims":1323},{"month":"2022-02","totalPaid":582552.9,"totalClaims":1182},{"month":"2022-03","totalPaid":620914.5,"totalClaims":1179},{"month":"2022-04","totalPaid":573547.75,"totalClaims":999},{"month":"2022-05","totalPaid":704260.22,"totalClaims":1550},{"month":"2022-06","totalPaid":725269.66,"totalClaims":1522},{"month":"2022-07","totalPaid":783861.58,"totalClaims":1506},{"month":"2022-08","totalPaid":801439.6,"totalClaims":1638},{"month":"2022-09","totalPaid":759422.78,"totalClaims":1694},{"month":"2022-10","totalPaid":765939.68,"totalClaims":1764},{"month":"2022-11","totalPaid":711237.44,"totalClaims":1674},{"month":"2022-12","totalPaid":735972.86,"totalClaims":1925},{"month":"2023-01","totalPaid":762722.96,"totalClaims":1540},{"month":"2023-02","totalPaid":703077.32,"totalClaims":1368},{"month":"2023-03","totalPaid":831092.0,"totalClaims":1576},{"month":"2023-04","totalPaid":779368.5,"totalClaims":1427},{"month":"2023-05","totalPaid":779277.5,"totalClaims":1468},{"month":"2023-06","totalPaid":792071.0,"totalClaims":1485},{"month":"2023-07","totalPaid":823037.0,"totalClaims":1525},{"month":"2023-08","totalPaid":819217.5,"totalClaims":1507},{"month":"2023-09","totalPaid":768134.5,"totalClaims":1374},{"month":"2023-10","totalPaid":776821.25,"totalClaims":1384},{"month":"2023-11","totalPaid":793783.96,"totalClaims":1403},{"month":"2023-12","totalPaid":776899.68,"totalClaims":1443},{"month":"2024-01","totalPaid":593958.74,"totalClaims":1215},{"month":"2024-02","totalPaid":462076.86,"totalClaims":1201},{"month":"2024-03","totalPaid":827360.5,"totalClaims":1799},{"month":"2024-04","totalPaid":532291.75,"totalClaims":1913},{"month":"2024-05","totalPaid":500684.5,"totalClaims":2003},{"month":"2024-06","totalPaid":442615.5,"totalClaims":1619},{"month":"2024-07","totalPaid":536309.5,"totalClaims":1255},{"month":"2024-08","totalPaid":1031095.0,"totalClaims":2086},{"month":"2024-09","totalPaid":863572.0,"totalClaims":1717},{"month":"2024-10","totalPaid":1011599.75,"totalClaims":1975},{"month":"2024-11","totalPaid":755625.5,"totalClaims":1534},{"month":"2024-12","totalPaid":320940.25,"totalClaims":683}]}
+{
+  "npi": "1861691800",
+  "totalPaid": 36705639.47,
+  "totalClaims": 75233,
+  "totalBeneficiaries": 2979,
+  "uniqueCodes": 7,
+  "activeMonths": 55,
+  "procedures": [
+    {
+      "code": "S9124",
+      "totalPaid": 17825530.3,
+      "totalClaims": 32700,
+      "uniqueBeneficiaries": 1114
+    },
+    {
+      "code": "T1000",
+      "totalPaid": 10784699.37,
+      "totalClaims": 17292,
+      "uniqueBeneficiaries": 681
+    },
+    {
+      "code": "T1003",
+      "totalPaid": 4625133.5,
+      "totalClaims": 7648,
+      "uniqueBeneficiaries": 336
+    },
+    {
+      "code": "G0156",
+      "totalPaid": 1427751.74,
+      "totalClaims": 9621,
+      "uniqueBeneficiaries": 324
+    },
+    {
+      "code": "T1019",
+      "totalPaid": 1369322.6,
+      "totalClaims": 7504,
+      "uniqueBeneficiaries": 272
+    },
+    {
+      "code": "T2025",
+      "totalPaid": 658543.96,
+      "totalClaims": 198,
+      "uniqueBeneficiaries": 38
+    },
+    {
+      "code": "G0299",
+      "totalPaid": 14658,
+      "totalClaims": 270,
+      "uniqueBeneficiaries": 214
+    }
+  ],
+  "monthlyTrend": [
+    {
+      "month": "2018-01",
+      "totalPaid": 240945.27,
+      "totalClaims": 71
+    },
+    {
+      "month": "2018-02",
+      "totalPaid": 198230.07,
+      "totalClaims": 63
+    },
+    {
+      "month": "2018-03",
+      "totalPaid": 219368.62,
+      "totalClaims": 64
+    },
+    {
+      "month": "2020-09",
+      "totalPaid": 113860,
+      "totalClaims": 196
+    },
+    {
+      "month": "2020-10",
+      "totalPaid": 471855.25,
+      "totalClaims": 1104
+    },
+    {
+      "month": "2020-11",
+      "totalPaid": 728167.3,
+      "totalClaims": 1735
+    },
+    {
+      "month": "2020-12",
+      "totalPaid": 717259.5,
+      "totalClaims": 1429
+    },
+    {
+      "month": "2021-01",
+      "totalPaid": 720689.5,
+      "totalClaims": 1468
+    },
+    {
+      "month": "2021-02",
+      "totalPaid": 690448.3,
+      "totalClaims": 1268
+    },
+    {
+      "month": "2021-03",
+      "totalPaid": 796789.05,
+      "totalClaims": 1409
+    },
+    {
+      "month": "2021-04",
+      "totalPaid": 761798.85,
+      "totalClaims": 1384
+    },
+    {
+      "month": "2021-05",
+      "totalPaid": 789842.5,
+      "totalClaims": 1439
+    },
+    {
+      "month": "2021-06",
+      "totalPaid": 740900,
+      "totalClaims": 1497
+    },
+    {
+      "month": "2021-07",
+      "totalPaid": 695965.75,
+      "totalClaims": 1321
+    },
+    {
+      "month": "2021-08",
+      "totalPaid": 649992.85,
+      "totalClaims": 1365
+    },
+    {
+      "month": "2021-09",
+      "totalPaid": 620400.4,
+      "totalClaims": 1244
+    },
+    {
+      "month": "2021-10",
+      "totalPaid": 567113.05,
+      "totalClaims": 1165
+    },
+    {
+      "month": "2021-11",
+      "totalPaid": 732168.7,
+      "totalClaims": 1411
+    },
+    {
+      "month": "2021-12",
+      "totalPaid": 548333.97,
+      "totalClaims": 1144
+    },
+    {
+      "month": "2022-01",
+      "totalPaid": 653458.55,
+      "totalClaims": 1323
+    },
+    {
+      "month": "2022-02",
+      "totalPaid": 582552.9,
+      "totalClaims": 1182
+    },
+    {
+      "month": "2022-03",
+      "totalPaid": 620914.5,
+      "totalClaims": 1179
+    },
+    {
+      "month": "2022-04",
+      "totalPaid": 573547.75,
+      "totalClaims": 999
+    },
+    {
+      "month": "2022-05",
+      "totalPaid": 704260.22,
+      "totalClaims": 1550
+    },
+    {
+      "month": "2022-06",
+      "totalPaid": 725269.66,
+      "totalClaims": 1522
+    },
+    {
+      "month": "2022-07",
+      "totalPaid": 783861.58,
+      "totalClaims": 1506
+    },
+    {
+      "month": "2022-08",
+      "totalPaid": 801439.6,
+      "totalClaims": 1638
+    },
+    {
+      "month": "2022-09",
+      "totalPaid": 759422.78,
+      "totalClaims": 1694
+    },
+    {
+      "month": "2022-10",
+      "totalPaid": 765939.68,
+      "totalClaims": 1764
+    },
+    {
+      "month": "2022-11",
+      "totalPaid": 711237.44,
+      "totalClaims": 1674
+    },
+    {
+      "month": "2022-12",
+      "totalPaid": 735972.86,
+      "totalClaims": 1925
+    },
+    {
+      "month": "2023-01",
+      "totalPaid": 762722.96,
+      "totalClaims": 1540
+    },
+    {
+      "month": "2023-02",
+      "totalPaid": 703077.32,
+      "totalClaims": 1368
+    },
+    {
+      "month": "2023-03",
+      "totalPaid": 831092,
+      "totalClaims": 1576
+    },
+    {
+      "month": "2023-04",
+      "totalPaid": 779368.5,
+      "totalClaims": 1427
+    },
+    {
+      "month": "2023-05",
+      "totalPaid": 779277.5,
+      "totalClaims": 1468
+    },
+    {
+      "month": "2023-06",
+      "totalPaid": 792071,
+      "totalClaims": 1485
+    },
+    {
+      "month": "2023-07",
+      "totalPaid": 823037,
+      "totalClaims": 1525
+    },
+    {
+      "month": "2023-08",
+      "totalPaid": 819217.5,
+      "totalClaims": 1507
+    },
+    {
+      "month": "2023-09",
+      "totalPaid": 768134.5,
+      "totalClaims": 1374
+    },
+    {
+      "month": "2023-10",
+      "totalPaid": 776821.25,
+      "totalClaims": 1384
+    },
+    {
+      "month": "2023-11",
+      "totalPaid": 793783.96,
+      "totalClaims": 1403
+    },
+    {
+      "month": "2023-12",
+      "totalPaid": 776899.68,
+      "totalClaims": 1443
+    },
+    {
+      "month": "2024-01",
+      "totalPaid": 593958.74,
+      "totalClaims": 1215
+    },
+    {
+      "month": "2024-02",
+      "totalPaid": 462076.86,
+      "totalClaims": 1201
+    },
+    {
+      "month": "2024-03",
+      "totalPaid": 827360.5,
+      "totalClaims": 1799
+    },
+    {
+      "month": "2024-04",
+      "totalPaid": 532291.75,
+      "totalClaims": 1913
+    },
+    {
+      "month": "2024-05",
+      "totalPaid": 500684.5,
+      "totalClaims": 2003
+    },
+    {
+      "month": "2024-06",
+      "totalPaid": 442615.5,
+      "totalClaims": 1619
+    },
+    {
+      "month": "2024-07",
+      "totalPaid": 536309.5,
+      "totalClaims": 1255
+    },
+    {
+      "month": "2024-08",
+      "totalPaid": 1031095,
+      "totalClaims": 2086
+    },
+    {
+      "month": "2024-09",
+      "totalPaid": 863572,
+      "totalClaims": 1717
+    },
+    {
+      "month": "2024-10",
+      "totalPaid": 1011599.75,
+      "totalClaims": 1975
+    },
+    {
+      "month": "2024-11",
+      "totalPaid": 755625.5,
+      "totalClaims": 1534
+    },
+    {
+      "month": "2024-12",
+      "totalPaid": 320940.25,
+      "totalClaims": 683
+    }
+  ],
+  "name": "HEALTHCARE STAT HOME CARE,INC.",
+  "city": "PHILADELPHIA",
+  "state": "PA",
+  "specialty": "Home Health"
+}

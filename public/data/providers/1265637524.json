@@ -1,1 +1,184 @@
-{"npi":"1265637524","totalPaid":27471292.51,"totalClaims":282429,"totalBeneficiaries":29516,"uniqueCodes":3,"activeMonths":30,"procedures":[{"code":"H2015","totalPaid":15081759.1,"totalClaims":226297,"uniqueBeneficiaries":10577},{"code":"H2010","totalPaid":7040743.38,"totalClaims":20821,"uniqueBeneficiaries":9497},{"code":"H2011","totalPaid":5348790.03,"totalClaims":35311,"uniqueBeneficiaries":9442}],"monthlyTrend":[{"month":"2018-01","totalPaid":1749992.48,"totalClaims":18567},{"month":"2018-02","totalPaid":657760.61,"totalClaims":6665},{"month":"2018-03","totalPaid":666719.1,"totalClaims":6651},{"month":"2018-04","totalPaid":675453.16,"totalClaims":6625},{"month":"2018-05","totalPaid":667061.02,"totalClaims":6639},{"month":"2018-06","totalPaid":568019.57,"totalClaims":5548},{"month":"2018-07","totalPaid":848512.54,"totalClaims":8142},{"month":"2018-08","totalPaid":1004828.34,"totalClaims":9305},{"month":"2018-09","totalPaid":900581.72,"totalClaims":8129},{"month":"2018-10","totalPaid":714566.88,"totalClaims":5921},{"month":"2018-11","totalPaid":622395.53,"totalClaims":5049},{"month":"2018-12","totalPaid":877244.4,"totalClaims":8110},{"month":"2019-01","totalPaid":1508227.7,"totalClaims":17408},{"month":"2019-02","totalPaid":901541.16,"totalClaims":8860},{"month":"2019-03","totalPaid":1111367.73,"totalClaims":10974},{"month":"2019-04","totalPaid":1165457.86,"totalClaims":12516},{"month":"2019-05","totalPaid":1299628.39,"totalClaims":15340},{"month":"2019-06","totalPaid":1329820.15,"totalClaims":15717},{"month":"2019-07","totalPaid":1410184.13,"totalClaims":16586},{"month":"2019-08","totalPaid":1585547.52,"totalClaims":18920},{"month":"2019-09","totalPaid":1123326.11,"totalClaims":12667},{"month":"2019-10","totalPaid":879899.19,"totalClaims":9185},{"month":"2019-11","totalPaid":677861.23,"totalClaims":6599},{"month":"2019-12","totalPaid":628376.72,"totalClaims":5624},{"month":"2020-01","totalPaid":711555.0,"totalClaims":6721},{"month":"2020-02","totalPaid":731259.95,"totalClaims":7454},{"month":"2020-03","totalPaid":677370.0,"totalClaims":6533},{"month":"2020-04","totalPaid":589052.41,"totalClaims":5413},{"month":"2020-05","totalPaid":634491.96,"totalClaims":5656},{"month":"2020-06","totalPaid":553189.95,"totalClaims":4905}]}
+{
+  "npi": "1265637524",
+  "totalPaid": 27471292.51,
+  "totalClaims": 282429,
+  "totalBeneficiaries": 29516,
+  "uniqueCodes": 3,
+  "activeMonths": 30,
+  "procedures": [
+    {
+      "code": "H2015",
+      "totalPaid": 15081759.1,
+      "totalClaims": 226297,
+      "uniqueBeneficiaries": 10577
+    },
+    {
+      "code": "H2010",
+      "totalPaid": 7040743.38,
+      "totalClaims": 20821,
+      "uniqueBeneficiaries": 9497
+    },
+    {
+      "code": "H2011",
+      "totalPaid": 5348790.03,
+      "totalClaims": 35311,
+      "uniqueBeneficiaries": 9442
+    }
+  ],
+  "monthlyTrend": [
+    {
+      "month": "2018-01",
+      "totalPaid": 1749992.48,
+      "totalClaims": 18567
+    },
+    {
+      "month": "2018-02",
+      "totalPaid": 657760.61,
+      "totalClaims": 6665
+    },
+    {
+      "month": "2018-03",
+      "totalPaid": 666719.1,
+      "totalClaims": 6651
+    },
+    {
+      "month": "2018-04",
+      "totalPaid": 675453.16,
+      "totalClaims": 6625
+    },
+    {
+      "month": "2018-05",
+      "totalPaid": 667061.02,
+      "totalClaims": 6639
+    },
+    {
+      "month": "2018-06",
+      "totalPaid": 568019.57,
+      "totalClaims": 5548
+    },
+    {
+      "month": "2018-07",
+      "totalPaid": 848512.54,
+      "totalClaims": 8142
+    },
+    {
+      "month": "2018-08",
+      "totalPaid": 1004828.34,
+      "totalClaims": 9305
+    },
+    {
+      "month": "2018-09",
+      "totalPaid": 900581.72,
+      "totalClaims": 8129
+    },
+    {
+      "month": "2018-10",
+      "totalPaid": 714566.88,
+      "totalClaims": 5921
+    },
+    {
+      "month": "2018-11",
+      "totalPaid": 622395.53,
+      "totalClaims": 5049
+    },
+    {
+      "month": "2018-12",
+      "totalPaid": 877244.4,
+      "totalClaims": 8110
+    },
+    {
+      "month": "2019-01",
+      "totalPaid": 1508227.7,
+      "totalClaims": 17408
+    },
+    {
+      "month": "2019-02",
+      "totalPaid": 901541.16,
+      "totalClaims": 8860
+    },
+    {
+      "month": "2019-03",
+      "totalPaid": 1111367.73,
+      "totalClaims": 10974
+    },
+    {
+      "month": "2019-04",
+      "totalPaid": 1165457.86,
+      "totalClaims": 12516
+    },
+    {
+      "month": "2019-05",
+      "totalPaid": 1299628.39,
+      "totalClaims": 15340
+    },
+    {
+      "month": "2019-06",
+      "totalPaid": 1329820.15,
+      "totalClaims": 15717
+    },
+    {
+      "month": "2019-07",
+      "totalPaid": 1410184.13,
+      "totalClaims": 16586
+    },
+    {
+      "month": "2019-08",
+      "totalPaid": 1585547.52,
+      "totalClaims": 18920
+    },
+    {
+      "month": "2019-09",
+      "totalPaid": 1123326.11,
+      "totalClaims": 12667
+    },
+    {
+      "month": "2019-10",
+      "totalPaid": 879899.19,
+      "totalClaims": 9185
+    },
+    {
+      "month": "2019-11",
+      "totalPaid": 677861.23,
+      "totalClaims": 6599
+    },
+    {
+      "month": "2019-12",
+      "totalPaid": 628376.72,
+      "totalClaims": 5624
+    },
+    {
+      "month": "2020-01",
+      "totalPaid": 711555,
+      "totalClaims": 6721
+    },
+    {
+      "month": "2020-02",
+      "totalPaid": 731259.95,
+      "totalClaims": 7454
+    },
+    {
+      "month": "2020-03",
+      "totalPaid": 677370,
+      "totalClaims": 6533
+    },
+    {
+      "month": "2020-04",
+      "totalPaid": 589052.41,
+      "totalClaims": 5413
+    },
+    {
+      "month": "2020-05",
+      "totalPaid": 634491.96,
+      "totalClaims": 5656
+    },
+    {
+      "month": "2020-06",
+      "totalPaid": 553189.95,
+      "totalClaims": 4905
+    }
+  ],
+  "name": "COUNTY OF SAN BERNARDINO",
+  "city": "COLTON",
+  "state": "CA",
+  "specialty": "Clinic/Center, Mental Health (Including Community Mental Health Center)"
+}

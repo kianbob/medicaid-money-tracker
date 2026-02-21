@@ -1,1 +1,136 @@
-{"npi": "1346443298", "name": "", "city": "", "state": "", "specialty": "", "totalPaid": 582266.01, "totalClaims": 7160, "totalBeneficiaries": 2882, "codeCount": 8, "firstMonth": "2018-01", "lastMonth": "2018-12", "codes": [{"code": "90837", "payments": 288183.58999999997, "claims": 2834, "beneficiaries": 1286, "costPerClaim": 101.69, "nationalMedianCpc": 85.66, "nationalAvgCpc": 89.17, "p90": 125.59, "p99": 300.0, "cpcRatio": 1.2}, {"code": "H2017", "payments": 171190.76, "claims": 2049, "beneficiaries": 408, "costPerClaim": 83.55, "nationalMedianCpc": 91.63, "nationalAvgCpc": 134.45, "p90": 236.03, "p99": 786.03, "cpcRatio": 0.9}, {"code": "90791", "payments": 49307.36, "claims": 386, "beneficiaries": 377, "costPerClaim": 127.74, "nationalMedianCpc": 99.21, "nationalAvgCpc": 105.02, "p90": 164.28, "p99": 333.27, "cpcRatio": 1.3}, {"code": "H2014", "payments": 34660.17, "claims": 583, "beneficiaries": 130, "costPerClaim": 59.45, "nationalMedianCpc": 83.88, "nationalAvgCpc": 176.06, "p90": 255.98, "p99": 2258.09, "cpcRatio": 0.7}, {"code": "90853", "payments": 20895.0, "claims": 755, "beneficiaries": 221, "costPerClaim": 27.68, "nationalMedianCpc": 25.02, "nationalAvgCpc": 35.31, "p90": 61.82, "p99": 234.01, "cpcRatio": 1.1}, {"code": "H0002", "payments": 11630.669999999998, "claims": 404, "beneficiaries": 384, "costPerClaim": 28.79, "nationalMedianCpc": 38.77, "nationalAvgCpc": 60.69, "p90": 147.58, "p99": 274.88, "cpcRatio": 0.7}, {"code": "T1016", "payments": 4029.48, "claims": 102, "beneficiaries": 38, "costPerClaim": 39.5, "nationalMedianCpc": 49.62, "nationalAvgCpc": 105.95, "p90": 197.49, "p99": 1101.18, "cpcRatio": 0.8}, {"code": "90832", "payments": 2368.98, "claims": 47, "beneficiaries": 38, "costPerClaim": 50.4, "nationalMedianCpc": 41.28, "nationalAvgCpc": 48.89, "p90": 85.58, "p99": 224.73, "cpcRatio": 1.2}], "yearlyTrend": [{"year": "2018", "payments": 582266.01, "claims": 7160, "beneficiaries": 2882}], "mlScore": 0.827957, "source": "ml_model", "costPerClaim": 81.32, "costPerBeneficiary": 202.04, "claimsPerBeneficiary": 2.5, "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From 2018-01 through 2018-12, this provider received $582K in Medicaid payments across 7K claims serving 3K beneficiaries, billing 8 distinct procedure codes."}, {"title": "Key Findings", "items": ["Billing stopped in 2018-12, suggesting this provider is no longer active in Medicaid. Abrupt cessation of billing can be a risk indicator."]}]}
+{
+  "npi": "1346443298",
+  "name": "Unknown Provider 1346443298",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "totalPaid": 582266.01,
+  "totalClaims": 7160,
+  "totalBeneficiaries": 2882,
+  "codeCount": 8,
+  "firstMonth": "2018-01",
+  "lastMonth": "2018-12",
+  "codes": [
+    {
+      "code": "90837",
+      "payments": 288183.58999999997,
+      "claims": 2834,
+      "beneficiaries": 1286,
+      "costPerClaim": 101.69,
+      "nationalMedianCpc": 85.66,
+      "nationalAvgCpc": 89.17,
+      "p90": 125.59,
+      "p99": 300,
+      "cpcRatio": 1.2
+    },
+    {
+      "code": "H2017",
+      "payments": 171190.76,
+      "claims": 2049,
+      "beneficiaries": 408,
+      "costPerClaim": 83.55,
+      "nationalMedianCpc": 91.63,
+      "nationalAvgCpc": 134.45,
+      "p90": 236.03,
+      "p99": 786.03,
+      "cpcRatio": 0.9
+    },
+    {
+      "code": "90791",
+      "payments": 49307.36,
+      "claims": 386,
+      "beneficiaries": 377,
+      "costPerClaim": 127.74,
+      "nationalMedianCpc": 99.21,
+      "nationalAvgCpc": 105.02,
+      "p90": 164.28,
+      "p99": 333.27,
+      "cpcRatio": 1.3
+    },
+    {
+      "code": "H2014",
+      "payments": 34660.17,
+      "claims": 583,
+      "beneficiaries": 130,
+      "costPerClaim": 59.45,
+      "nationalMedianCpc": 83.88,
+      "nationalAvgCpc": 176.06,
+      "p90": 255.98,
+      "p99": 2258.09,
+      "cpcRatio": 0.7
+    },
+    {
+      "code": "90853",
+      "payments": 20895,
+      "claims": 755,
+      "beneficiaries": 221,
+      "costPerClaim": 27.68,
+      "nationalMedianCpc": 25.02,
+      "nationalAvgCpc": 35.31,
+      "p90": 61.82,
+      "p99": 234.01,
+      "cpcRatio": 1.1
+    },
+    {
+      "code": "H0002",
+      "payments": 11630.669999999998,
+      "claims": 404,
+      "beneficiaries": 384,
+      "costPerClaim": 28.79,
+      "nationalMedianCpc": 38.77,
+      "nationalAvgCpc": 60.69,
+      "p90": 147.58,
+      "p99": 274.88,
+      "cpcRatio": 0.7
+    },
+    {
+      "code": "T1016",
+      "payments": 4029.48,
+      "claims": 102,
+      "beneficiaries": 38,
+      "costPerClaim": 39.5,
+      "nationalMedianCpc": 49.62,
+      "nationalAvgCpc": 105.95,
+      "p90": 197.49,
+      "p99": 1101.18,
+      "cpcRatio": 0.8
+    },
+    {
+      "code": "90832",
+      "payments": 2368.98,
+      "claims": 47,
+      "beneficiaries": 38,
+      "costPerClaim": 50.4,
+      "nationalMedianCpc": 41.28,
+      "nationalAvgCpc": 48.89,
+      "p90": 85.58,
+      "p99": 224.73,
+      "cpcRatio": 1.2
+    }
+  ],
+  "yearlyTrend": [
+    {
+      "year": "2018",
+      "payments": 582266.01,
+      "claims": 7160,
+      "beneficiaries": 2882
+    }
+  ],
+  "mlScore": 0.827957,
+  "source": "ml_model",
+  "costPerClaim": 81.32,
+  "costPerBeneficiary": 202.04,
+  "claimsPerBeneficiary": 2.5,
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From 2018-01 through 2018-12, this provider received $582K in Medicaid payments across 7K claims serving 3K beneficiaries, billing 8 distinct procedure codes."
+    },
+    {
+      "title": "Key Findings",
+      "items": [
+        "Billing stopped in 2018-12, suggesting this provider is no longer active in Medicaid. Abrupt cessation of billing can be a risk indicator."
+      ]
+    }
+  ]
+}

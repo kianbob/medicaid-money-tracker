@@ -1,1 +1,47 @@
-{"npi": "1386286466", "name": "Provider 1386286466", "city": null, "state": null, "specialty": null, "entityType": null, "totalPaid": 19291552.18, "totalClaims": 50794, "totalBeneficiaries": 3588, "costPerClaim": 379.8, "costPerBeneficiary": 5376.69, "claimsPerBeneficiary": 14.16, "growthRate": 72.3, "codeCount": 1, "yearlyData": [{"year": 2021, "paid": 3234741.3, "claims": 10221}, {"year": 2022, "paid": 4665822.09, "claims": 12261}, {"year": 2023, "paid": 5818581.47, "claims": 15361}, {"year": 2024, "paid": 5572407.32, "claims": 12951}], "procedures": [{"code": "H0010", "totalPaid": 19291552.18, "totalClaims": 50794, "totalBeneficiaries": 3588}], "narrative": null}
+{
+  "npi": "1386286466",
+  "name": "LINTON RECOVERY LLC",
+  "city": "LINTON",
+  "state": "IN",
+  "specialty": "Substance Abuse Rehabilitation Facility",
+  "entityType": null,
+  "totalPaid": 19291552.18,
+  "totalClaims": 50794,
+  "totalBeneficiaries": 3588,
+  "costPerClaim": 379.8,
+  "costPerBeneficiary": 5376.69,
+  "claimsPerBeneficiary": 14.16,
+  "growthRate": 72.3,
+  "codeCount": 1,
+  "yearlyData": [
+    {
+      "year": 2021,
+      "paid": 3234741.3,
+      "claims": 10221
+    },
+    {
+      "year": 2022,
+      "paid": 4665822.09,
+      "claims": 12261
+    },
+    {
+      "year": 2023,
+      "paid": 5818581.47,
+      "claims": 15361
+    },
+    {
+      "year": 2024,
+      "paid": 5572407.32,
+      "claims": 12951
+    }
+  ],
+  "procedures": [
+    {
+      "code": "H0010",
+      "totalPaid": 19291552.18,
+      "totalClaims": 50794,
+      "totalBeneficiaries": 3588
+    }
+  ],
+  "narrative": null
+}

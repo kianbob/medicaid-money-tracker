@@ -1,1 +1,163 @@
-{"npi":"1982361952","totalPaid":24551439.73,"totalClaims":58162,"totalBeneficiaries":5273,"uniqueCodes":7,"activeMonths":21,"procedures":[{"code":"S5110","totalPaid":10228202.08,"totalClaims":15298,"uniqueBeneficiaries":1179},{"code":"H2016","totalPaid":5864422.82,"totalClaims":18343,"uniqueBeneficiaries":1458},{"code":"H2014","totalPaid":5257618.21,"totalClaims":10301,"uniqueBeneficiaries":1219},{"code":"H2017","totalPaid":3054232.99,"totalClaims":12885,"uniqueBeneficiaries":709},{"code":"T1016","totalPaid":62017.32,"totalClaims":813,"uniqueBeneficiaries":390},{"code":"H0004","totalPaid":46530.79,"totalClaims":341,"uniqueBeneficiaries":146},{"code":"H0031","totalPaid":38415.52,"totalClaims":181,"uniqueBeneficiaries":172}],"monthlyTrend":[{"month":"2021-12","totalPaid":137873.65,"totalClaims":264},{"month":"2022-01","totalPaid":157100.83,"totalClaims":351},{"month":"2022-02","totalPaid":176269.39,"totalClaims":450},{"month":"2022-03","totalPaid":283642.63,"totalClaims":620},{"month":"2022-04","totalPaid":333640.19,"totalClaims":794},{"month":"2022-05","totalPaid":497656.22,"totalClaims":1121},{"month":"2022-06","totalPaid":812512.24,"totalClaims":1671},{"month":"2022-07","totalPaid":1108057.62,"totalClaims":2186},{"month":"2022-08","totalPaid":930795.75,"totalClaims":2227},{"month":"2022-09","totalPaid":1436943.14,"totalClaims":3438},{"month":"2022-10","totalPaid":1933023.11,"totalClaims":4567},{"month":"2022-11","totalPaid":1784452.5,"totalClaims":4401},{"month":"2022-12","totalPaid":1817684.98,"totalClaims":4226},{"month":"2023-01","totalPaid":1685616.4,"totalClaims":3998},{"month":"2023-02","totalPaid":1518447.14,"totalClaims":3707},{"month":"2023-03","totalPaid":1949660.03,"totalClaims":4516},{"month":"2023-04","totalPaid":2106028.68,"totalClaims":4976},{"month":"2023-05","totalPaid":1896291.49,"totalClaims":5438},{"month":"2023-06","totalPaid":2011876.55,"totalClaims":5668},{"month":"2023-07","totalPaid":1515921.85,"totalClaims":2873},{"month":"2023-08","totalPaid":457945.34,"totalClaims":670}]}
+{
+  "npi": "1982361952",
+  "totalPaid": 24551439.73,
+  "totalClaims": 58162,
+  "totalBeneficiaries": 5273,
+  "uniqueCodes": 7,
+  "activeMonths": 21,
+  "procedures": [
+    {
+      "code": "S5110",
+      "totalPaid": 10228202.08,
+      "totalClaims": 15298,
+      "uniqueBeneficiaries": 1179
+    },
+    {
+      "code": "H2016",
+      "totalPaid": 5864422.82,
+      "totalClaims": 18343,
+      "uniqueBeneficiaries": 1458
+    },
+    {
+      "code": "H2014",
+      "totalPaid": 5257618.21,
+      "totalClaims": 10301,
+      "uniqueBeneficiaries": 1219
+    },
+    {
+      "code": "H2017",
+      "totalPaid": 3054232.99,
+      "totalClaims": 12885,
+      "uniqueBeneficiaries": 709
+    },
+    {
+      "code": "T1016",
+      "totalPaid": 62017.32,
+      "totalClaims": 813,
+      "uniqueBeneficiaries": 390
+    },
+    {
+      "code": "H0004",
+      "totalPaid": 46530.79,
+      "totalClaims": 341,
+      "uniqueBeneficiaries": 146
+    },
+    {
+      "code": "H0031",
+      "totalPaid": 38415.52,
+      "totalClaims": 181,
+      "uniqueBeneficiaries": 172
+    }
+  ],
+  "monthlyTrend": [
+    {
+      "month": "2021-12",
+      "totalPaid": 137873.65,
+      "totalClaims": 264
+    },
+    {
+      "month": "2022-01",
+      "totalPaid": 157100.83,
+      "totalClaims": 351
+    },
+    {
+      "month": "2022-02",
+      "totalPaid": 176269.39,
+      "totalClaims": 450
+    },
+    {
+      "month": "2022-03",
+      "totalPaid": 283642.63,
+      "totalClaims": 620
+    },
+    {
+      "month": "2022-04",
+      "totalPaid": 333640.19,
+      "totalClaims": 794
+    },
+    {
+      "month": "2022-05",
+      "totalPaid": 497656.22,
+      "totalClaims": 1121
+    },
+    {
+      "month": "2022-06",
+      "totalPaid": 812512.24,
+      "totalClaims": 1671
+    },
+    {
+      "month": "2022-07",
+      "totalPaid": 1108057.62,
+      "totalClaims": 2186
+    },
+    {
+      "month": "2022-08",
+      "totalPaid": 930795.75,
+      "totalClaims": 2227
+    },
+    {
+      "month": "2022-09",
+      "totalPaid": 1436943.14,
+      "totalClaims": 3438
+    },
+    {
+      "month": "2022-10",
+      "totalPaid": 1933023.11,
+      "totalClaims": 4567
+    },
+    {
+      "month": "2022-11",
+      "totalPaid": 1784452.5,
+      "totalClaims": 4401
+    },
+    {
+      "month": "2022-12",
+      "totalPaid": 1817684.98,
+      "totalClaims": 4226
+    },
+    {
+      "month": "2023-01",
+      "totalPaid": 1685616.4,
+      "totalClaims": 3998
+    },
+    {
+      "month": "2023-02",
+      "totalPaid": 1518447.14,
+      "totalClaims": 3707
+    },
+    {
+      "month": "2023-03",
+      "totalPaid": 1949660.03,
+      "totalClaims": 4516
+    },
+    {
+      "month": "2023-04",
+      "totalPaid": 2106028.68,
+      "totalClaims": 4976
+    },
+    {
+      "month": "2023-05",
+      "totalPaid": 1896291.49,
+      "totalClaims": 5438
+    },
+    {
+      "month": "2023-06",
+      "totalPaid": 2011876.55,
+      "totalClaims": 5668
+    },
+    {
+      "month": "2023-07",
+      "totalPaid": 1515921.85,
+      "totalClaims": 2873
+    },
+    {
+      "month": "2023-08",
+      "totalPaid": 457945.34,
+      "totalClaims": 670
+    }
+  ],
+  "name": "ELEVATE YOUTH AND FAMILY SERVICES",
+  "city": "PHOENIX",
+  "state": "AZ",
+  "specialty": "Counselor, Mental Health"
+}

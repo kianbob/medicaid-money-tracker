@@ -1,1 +1,85 @@
-{"npi": "1609865641", "name": "", "city": "", "state": "", "specialty": "", "entityType": "", "totalPaid": 136188.25, "totalClaims": 2257, "totalBeneficiaries": 1930, "costPerClaim": 60.34, "costPerBeneficiary": 70.56, "claimsPerBeneficiary": 1.2, "growthRate": 396.8, "codeCount": 7, "yearlyData": {"2020": {"totalPaid": 22818.0, "totalClaims": 367, "totalBeneficiaries": 313}, "2021": {"totalPaid": 113370.25, "totalClaims": 1890, "totalBeneficiaries": 1617}}, "procedures": [{"code": "D7230", "totalPaid": 76490.57, "totalClaims": 455, "totalBeneficiaries": 163, "costPerClaim": 168.11}, {"code": "D0330", "totalPaid": 26371.08, "totalClaims": 469, "totalBeneficiaries": 469, "costPerClaim": 56.23}, {"code": "D9239", "totalPaid": 15238.38, "totalClaims": 269, "totalBeneficiaries": 268, "costPerClaim": 56.65}, {"code": "D0140", "totalPaid": 9222.54, "totalClaims": 476, "totalBeneficiaries": 476, "costPerClaim": 19.38}, {"code": "D7140", "totalPaid": 4061.76, "totalClaims": 62, "totalBeneficiaries": 28, "costPerClaim": 65.51}, {"code": "D9222", "totalPaid": 3699.0, "totalClaims": 66, "totalBeneficiaries": 66, "costPerClaim": 56.05}, {"code": "D0350", "totalPaid": 1104.92, "totalClaims": 460, "totalBeneficiaries": 460, "costPerClaim": 2.4}], "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From the 2018\u20132024 period, this provider received $136K in Medicaid payments across 2K claims serving 2K beneficiaries."}]}
+{
+  "npi": "1609865641",
+  "name": "Unknown Provider 1609865641",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 136188.25,
+  "totalClaims": 2257,
+  "totalBeneficiaries": 1930,
+  "costPerClaim": 60.34,
+  "costPerBeneficiary": 70.56,
+  "claimsPerBeneficiary": 1.2,
+  "growthRate": 396.8,
+  "codeCount": 7,
+  "yearlyData": {
+    "2020": {
+      "totalPaid": 22818,
+      "totalClaims": 367,
+      "totalBeneficiaries": 313
+    },
+    "2021": {
+      "totalPaid": 113370.25,
+      "totalClaims": 1890,
+      "totalBeneficiaries": 1617
+    }
+  },
+  "procedures": [
+    {
+      "code": "D7230",
+      "totalPaid": 76490.57,
+      "totalClaims": 455,
+      "totalBeneficiaries": 163,
+      "costPerClaim": 168.11
+    },
+    {
+      "code": "D0330",
+      "totalPaid": 26371.08,
+      "totalClaims": 469,
+      "totalBeneficiaries": 469,
+      "costPerClaim": 56.23
+    },
+    {
+      "code": "D9239",
+      "totalPaid": 15238.38,
+      "totalClaims": 269,
+      "totalBeneficiaries": 268,
+      "costPerClaim": 56.65
+    },
+    {
+      "code": "D0140",
+      "totalPaid": 9222.54,
+      "totalClaims": 476,
+      "totalBeneficiaries": 476,
+      "costPerClaim": 19.38
+    },
+    {
+      "code": "D7140",
+      "totalPaid": 4061.76,
+      "totalClaims": 62,
+      "totalBeneficiaries": 28,
+      "costPerClaim": 65.51
+    },
+    {
+      "code": "D9222",
+      "totalPaid": 3699,
+      "totalClaims": 66,
+      "totalBeneficiaries": 66,
+      "costPerClaim": 56.05
+    },
+    {
+      "code": "D0350",
+      "totalPaid": 1104.92,
+      "totalClaims": 460,
+      "totalBeneficiaries": 460,
+      "costPerClaim": 2.4
+    }
+  ],
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From the 2018–2024 period, this provider received $136K in Medicaid payments across 2K claims serving 2K beneficiaries."
+    }
+  ]
+}

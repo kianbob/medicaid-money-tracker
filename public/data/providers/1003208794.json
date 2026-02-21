@@ -1,1 +1,77 @@
-{"npi": "1003208794", "name": "", "city": "", "state": "", "specialty": "", "totalPaid": 98330.29000000001, "totalClaims": 1384, "totalBeneficiaries": 452, "codeCount": 3, "firstMonth": "2020-03", "lastMonth": "2020-10", "codes": [{"code": "H2019", "payments": 95325.29, "claims": 1330, "beneficiaries": 407, "costPerClaim": 71.67, "nationalMedianCpc": 84.12, "nationalAvgCpc": 130.01, "p90": 201.45, "p99": 857.56, "cpcRatio": 0.9}, {"code": "H0032", "payments": 2522.0, "claims": 35, "beneficiaries": 31, "costPerClaim": 72.06, "nationalMedianCpc": 80.64, "nationalAvgCpc": 104.35, "p90": 194.22, "p99": 419.93, "cpcRatio": 0.9}, {"code": "H0031", "payments": 483.0, "claims": 19, "beneficiaries": 14, "costPerClaim": 25.42, "nationalMedianCpc": 96.18, "nationalAvgCpc": 121.29, "p90": 219.22, "p99": 682.79, "cpcRatio": 0.3}], "yearlyTrend": [{"year": "2020", "payments": 98330.29000000001, "claims": 1384, "beneficiaries": 452}], "mlScore": 0.858638, "source": "ml_model", "costPerClaim": 71.05, "costPerBeneficiary": 217.54, "claimsPerBeneficiary": 3.1, "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From 2020-03 through 2020-10, this provider received $98K in Medicaid payments across 1K claims serving 452 beneficiaries, billing 3 distinct procedure codes."}, {"title": "Key Findings", "items": ["97% of all billing comes from a single procedure code: H2019 (H2019). This extreme concentration is unusual and may indicate specialized services or a narrow billing pattern.", "Billing stopped in 2020-10, suggesting this provider is no longer active in Medicaid. Abrupt cessation of billing can be a risk indicator."]}]}
+{
+  "npi": "1003208794",
+  "name": "Unknown Provider 1003208794",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "totalPaid": 98330.29000000001,
+  "totalClaims": 1384,
+  "totalBeneficiaries": 452,
+  "codeCount": 3,
+  "firstMonth": "2020-03",
+  "lastMonth": "2020-10",
+  "codes": [
+    {
+      "code": "H2019",
+      "payments": 95325.29,
+      "claims": 1330,
+      "beneficiaries": 407,
+      "costPerClaim": 71.67,
+      "nationalMedianCpc": 84.12,
+      "nationalAvgCpc": 130.01,
+      "p90": 201.45,
+      "p99": 857.56,
+      "cpcRatio": 0.9
+    },
+    {
+      "code": "H0032",
+      "payments": 2522,
+      "claims": 35,
+      "beneficiaries": 31,
+      "costPerClaim": 72.06,
+      "nationalMedianCpc": 80.64,
+      "nationalAvgCpc": 104.35,
+      "p90": 194.22,
+      "p99": 419.93,
+      "cpcRatio": 0.9
+    },
+    {
+      "code": "H0031",
+      "payments": 483,
+      "claims": 19,
+      "beneficiaries": 14,
+      "costPerClaim": 25.42,
+      "nationalMedianCpc": 96.18,
+      "nationalAvgCpc": 121.29,
+      "p90": 219.22,
+      "p99": 682.79,
+      "cpcRatio": 0.3
+    }
+  ],
+  "yearlyTrend": [
+    {
+      "year": "2020",
+      "payments": 98330.29000000001,
+      "claims": 1384,
+      "beneficiaries": 452
+    }
+  ],
+  "mlScore": 0.858638,
+  "source": "ml_model",
+  "costPerClaim": 71.05,
+  "costPerBeneficiary": 217.54,
+  "claimsPerBeneficiary": 3.1,
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From 2020-03 through 2020-10, this provider received $98K in Medicaid payments across 1K claims serving 452 beneficiaries, billing 3 distinct procedure codes."
+    },
+    {
+      "title": "Key Findings",
+      "items": [
+        "97% of all billing comes from a single procedure code: H2019 (H2019). This extreme concentration is unusual and may indicate specialized services or a narrow billing pattern.",
+        "Billing stopped in 2020-10, suggesting this provider is no longer active in Medicaid. Abrupt cessation of billing can be a risk indicator."
+      ]
+    }
+  ]
+}

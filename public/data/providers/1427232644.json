@@ -1,1 +1,74 @@
-{"npi": "1427232644", "name": "Provider 1427232644", "city": null, "state": null, "specialty": null, "entityType": null, "totalPaid": 19267404.47, "totalClaims": 527757, "totalBeneficiaries": 19940, "costPerClaim": 36.51, "costPerBeneficiary": 966.27, "claimsPerBeneficiary": 26.47, "growthRate": 191.7, "codeCount": 3, "yearlyData": [{"year": 2018, "paid": 1560436.59, "claims": 50000}, {"year": 2019, "paid": 1782757.84, "claims": 54930}, {"year": 2020, "paid": 2695616.69, "claims": 82332}, {"year": 2021, "paid": 3268867.28, "claims": 102799}, {"year": 2022, "paid": 3231672.83, "claims": 92297}, {"year": 2023, "paid": 2176474.38, "claims": 64921}, {"year": 2024, "paid": 4551578.86, "claims": 80478}], "procedures": [{"code": "G0156", "totalPaid": 12048624.91, "totalClaims": 397083, "totalBeneficiaries": 10965}, {"code": "T1019", "totalPaid": 7035026.22, "totalClaims": 124921, "totalBeneficiaries": 3646}, {"code": "T1001", "totalPaid": 183753.34, "totalClaims": 5753, "totalBeneficiaries": 5329}], "narrative": null}
+{
+  "npi": "1427232644",
+  "name": "BUCKEYE HOMECARE SERVICES INC.",
+  "city": "CLEVELAND",
+  "state": "OH",
+  "specialty": "Home Health",
+  "entityType": null,
+  "totalPaid": 19267404.47,
+  "totalClaims": 527757,
+  "totalBeneficiaries": 19940,
+  "costPerClaim": 36.51,
+  "costPerBeneficiary": 966.27,
+  "claimsPerBeneficiary": 26.47,
+  "growthRate": 191.7,
+  "codeCount": 3,
+  "yearlyData": [
+    {
+      "year": 2018,
+      "paid": 1560436.59,
+      "claims": 50000
+    },
+    {
+      "year": 2019,
+      "paid": 1782757.84,
+      "claims": 54930
+    },
+    {
+      "year": 2020,
+      "paid": 2695616.69,
+      "claims": 82332
+    },
+    {
+      "year": 2021,
+      "paid": 3268867.28,
+      "claims": 102799
+    },
+    {
+      "year": 2022,
+      "paid": 3231672.83,
+      "claims": 92297
+    },
+    {
+      "year": 2023,
+      "paid": 2176474.38,
+      "claims": 64921
+    },
+    {
+      "year": 2024,
+      "paid": 4551578.86,
+      "claims": 80478
+    }
+  ],
+  "procedures": [
+    {
+      "code": "G0156",
+      "totalPaid": 12048624.91,
+      "totalClaims": 397083,
+      "totalBeneficiaries": 10965
+    },
+    {
+      "code": "T1019",
+      "totalPaid": 7035026.22,
+      "totalClaims": 124921,
+      "totalBeneficiaries": 3646
+    },
+    {
+      "code": "T1001",
+      "totalPaid": 183753.34,
+      "totalClaims": 5753,
+      "totalBeneficiaries": 5329
+    }
+  ],
+  "narrative": null
+}

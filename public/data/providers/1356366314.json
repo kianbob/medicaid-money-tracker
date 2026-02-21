@@ -1,1 +1,101 @@
-{"npi": "1356366314", "name": "Provider 1356366314", "city": null, "state": null, "specialty": null, "entityType": null, "totalPaid": 19275815.19, "totalClaims": 963961, "totalBeneficiaries": 771289, "costPerClaim": 20.0, "costPerBeneficiary": 24.99, "claimsPerBeneficiary": 1.25, "growthRate": -89.9, "codeCount": 10, "yearlyData": [{"year": 2018, "paid": 5934808.8, "claims": 291039}, {"year": 2019, "paid": 6454402.46, "claims": 316711}, {"year": 2020, "paid": 6288924.31, "claims": 328050}, {"year": 2021, "paid": 597679.62, "claims": 28161}], "procedures": [{"code": "36415", "totalPaid": 2718658.15, "totalClaims": 37133, "totalBeneficiaries": 25201}, {"code": "J7030", "totalPaid": 2332238.38, "totalClaims": 11815, "totalBeneficiaries": 9084}, {"code": "80053", "totalPaid": 1606872.13, "totalClaims": 39987, "totalBeneficiaries": 33757}, {"code": "99283", "totalPaid": 871189.71, "totalClaims": 20394, "totalBeneficiaries": 18697}, {"code": "J7050", "totalPaid": 845352.94, "totalClaims": 8912, "totalBeneficiaries": 4444}, {"code": "86900", "totalPaid": 737075.03, "totalClaims": 6298, "totalBeneficiaries": 5651}, {"code": "J7040", "totalPaid": 634272.46, "totalClaims": 4154, "totalBeneficiaries": 3532}, {"code": "80048", "totalPaid": 477498.34, "totalClaims": 19014, "totalBeneficiaries": 14109}, {"code": "A9577", "totalPaid": 441678.41, "totalClaims": 552, "totalBeneficiaries": 470}, {"code": "87491", "totalPaid": 414839.64, "totalClaims": 13362, "totalBeneficiaries": 12638}], "narrative": null}
+{
+  "npi": "1356366314",
+  "name": "LEXINGTON COUNTY HEALTH SERVICES DISTRICT INC",
+  "city": "WEST COLUMBIA",
+  "state": "SC",
+  "specialty": "General Acute Care Hospital",
+  "entityType": null,
+  "totalPaid": 19275815.19,
+  "totalClaims": 963961,
+  "totalBeneficiaries": 771289,
+  "costPerClaim": 20,
+  "costPerBeneficiary": 24.99,
+  "claimsPerBeneficiary": 1.25,
+  "growthRate": -89.9,
+  "codeCount": 10,
+  "yearlyData": [
+    {
+      "year": 2018,
+      "paid": 5934808.8,
+      "claims": 291039
+    },
+    {
+      "year": 2019,
+      "paid": 6454402.46,
+      "claims": 316711
+    },
+    {
+      "year": 2020,
+      "paid": 6288924.31,
+      "claims": 328050
+    },
+    {
+      "year": 2021,
+      "paid": 597679.62,
+      "claims": 28161
+    }
+  ],
+  "procedures": [
+    {
+      "code": "36415",
+      "totalPaid": 2718658.15,
+      "totalClaims": 37133,
+      "totalBeneficiaries": 25201
+    },
+    {
+      "code": "J7030",
+      "totalPaid": 2332238.38,
+      "totalClaims": 11815,
+      "totalBeneficiaries": 9084
+    },
+    {
+      "code": "80053",
+      "totalPaid": 1606872.13,
+      "totalClaims": 39987,
+      "totalBeneficiaries": 33757
+    },
+    {
+      "code": "99283",
+      "totalPaid": 871189.71,
+      "totalClaims": 20394,
+      "totalBeneficiaries": 18697
+    },
+    {
+      "code": "J7050",
+      "totalPaid": 845352.94,
+      "totalClaims": 8912,
+      "totalBeneficiaries": 4444
+    },
+    {
+      "code": "86900",
+      "totalPaid": 737075.03,
+      "totalClaims": 6298,
+      "totalBeneficiaries": 5651
+    },
+    {
+      "code": "J7040",
+      "totalPaid": 634272.46,
+      "totalClaims": 4154,
+      "totalBeneficiaries": 3532
+    },
+    {
+      "code": "80048",
+      "totalPaid": 477498.34,
+      "totalClaims": 19014,
+      "totalBeneficiaries": 14109
+    },
+    {
+      "code": "A9577",
+      "totalPaid": 441678.41,
+      "totalClaims": 552,
+      "totalBeneficiaries": 470
+    },
+    {
+      "code": "87491",
+      "totalPaid": 414839.64,
+      "totalClaims": 13362,
+      "totalBeneficiaries": 12638
+    }
+  ],
+  "narrative": null
+}

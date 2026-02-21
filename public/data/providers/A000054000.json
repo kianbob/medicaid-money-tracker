@@ -1,1 +1,57 @@
-{"npi": "A000054000", "name": "", "city": "", "state": "", "specialty": "", "entityType": "", "totalPaid": 515543.99, "totalClaims": 7160, "totalBeneficiaries": 2174, "costPerClaim": 72.0, "costPerBeneficiary": 237.14, "claimsPerBeneficiary": 3.3, "growthRate": -40.9, "codeCount": 3, "yearlyData": {"2018": {"totalPaid": 324133.97, "totalClaims": 4346, "totalBeneficiaries": 1282}, "2019": {"totalPaid": 191410.02, "totalClaims": 2814, "totalBeneficiaries": 892}}, "procedures": [{"code": "T1016", "totalPaid": 287674.64, "totalClaims": 4643, "totalBeneficiaries": 1220, "costPerClaim": 61.96}, {"code": "T2023", "totalPaid": 204866.15, "totalClaims": 609, "totalBeneficiaries": 601, "costPerClaim": 336.4}, {"code": "A0090", "totalPaid": 23003.2, "totalClaims": 1908, "totalBeneficiaries": 353, "costPerClaim": 12.06}], "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From the 2018\u20132024 period, this provider received $516K in Medicaid payments across 7K claims serving 2K beneficiaries."}]}
+{
+  "npi": "A000054000",
+  "name": "Unknown Provider A000054000",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 515543.99,
+  "totalClaims": 7160,
+  "totalBeneficiaries": 2174,
+  "costPerClaim": 72,
+  "costPerBeneficiary": 237.14,
+  "claimsPerBeneficiary": 3.3,
+  "growthRate": -40.9,
+  "codeCount": 3,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 324133.97,
+      "totalClaims": 4346,
+      "totalBeneficiaries": 1282
+    },
+    "2019": {
+      "totalPaid": 191410.02,
+      "totalClaims": 2814,
+      "totalBeneficiaries": 892
+    }
+  },
+  "procedures": [
+    {
+      "code": "T1016",
+      "totalPaid": 287674.64,
+      "totalClaims": 4643,
+      "totalBeneficiaries": 1220,
+      "costPerClaim": 61.96
+    },
+    {
+      "code": "T2023",
+      "totalPaid": 204866.15,
+      "totalClaims": 609,
+      "totalBeneficiaries": 601,
+      "costPerClaim": 336.4
+    },
+    {
+      "code": "A0090",
+      "totalPaid": 23003.2,
+      "totalClaims": 1908,
+      "totalBeneficiaries": 353,
+      "costPerClaim": 12.06
+    }
+  ],
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From the 2018–2024 period, this provider received $516K in Medicaid payments across 7K claims serving 2K beneficiaries."
+    }
+  ]
+}

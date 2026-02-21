@@ -1,1 +1,241 @@
-{"npi":"1225243876","totalPaid":67501673.98,"totalClaims":2913950,"totalBeneficiaries":743187,"uniqueCodes":10,"activeMonths":33,"procedures":[{"code":"S0215","totalPaid":34347602.68,"totalClaims":1016328,"uniqueBeneficiaries":271874},{"code":"A0130","totalPaid":21344306.64,"totalClaims":552288,"uniqueBeneficiaries":108336},{"code":"A0100","totalPaid":7492985.5,"totalClaims":1035593,"uniqueBeneficiaries":275982},{"code":"A0428","totalPaid":2152324.98,"totalClaims":26414,"uniqueBeneficiaries":12024},{"code":"S0209","totalPaid":1739345.36,"totalClaims":232444,"uniqueBeneficiaries":55762},{"code":"A0425","totalPaid":326604.57,"totalClaims":26302,"uniqueBeneficiaries":12018},{"code":"A0170","totalPaid":73633.96,"totalClaims":23583,"uniqueBeneficiaries":6646},{"code":"A0426","totalPaid":15761.29,"totalClaims":317,"uniqueBeneficiaries":244},{"code":"T2005","totalPaid":8220.44,"totalClaims":275,"uniqueBeneficiaries":107},{"code":"A0999","totalPaid":888.56,"totalClaims":406,"uniqueBeneficiaries":194}],"monthlyTrend":[{"month":"2018-01","totalPaid":2721497.09,"totalClaims":86470},{"month":"2018-02","totalPaid":2629322.78,"totalClaims":84003},{"month":"2018-03","totalPaid":2194993.02,"totalClaims":95464},{"month":"2018-04","totalPaid":2271202.99,"totalClaims":98292},{"month":"2018-05","totalPaid":2316874.51,"totalClaims":105044},{"month":"2018-06","totalPaid":1675745.38,"totalClaims":92457},{"month":"2018-07","totalPaid":1425659.7,"totalClaims":86914},{"month":"2018-08","totalPaid":2099775.93,"totalClaims":83148},{"month":"2018-09","totalPaid":2445540.15,"totalClaims":63428},{"month":"2018-10","totalPaid":2999303.06,"totalClaims":69483},{"month":"2018-11","totalPaid":1742103.41,"totalClaims":62589},{"month":"2018-12","totalPaid":1359730.04,"totalClaims":60122},{"month":"2019-01","totalPaid":3351786.4,"totalClaims":74746},{"month":"2019-02","totalPaid":3362384.24,"totalClaims":75028},{"month":"2019-03","totalPaid":3606366.98,"totalClaims":78194},{"month":"2019-04","totalPaid":3760715.99,"totalClaims":89640},{"month":"2019-05","totalPaid":3902801.83,"totalClaims":95437},{"month":"2019-06","totalPaid":1650938.74,"totalClaims":102766},{"month":"2019-07","totalPaid":1963348.38,"totalClaims":119881},{"month":"2019-08","totalPaid":2093578.97,"totalClaims":125492},{"month":"2019-09","totalPaid":2012375.26,"totalClaims":127319},{"month":"2019-10","totalPaid":2373507.3,"totalClaims":153414},{"month":"2019-11","totalPaid":2178050.94,"totalClaims":133658},{"month":"2019-12","totalPaid":2100706.47,"totalClaims":128496},{"month":"2020-01","totalPaid":2234522.32,"totalClaims":140167},{"month":"2020-02","totalPaid":2084205.8,"totalClaims":129014},{"month":"2020-03","totalPaid":1239250.36,"totalClaims":85460},{"month":"2020-04","totalPaid":517767.82,"totalClaims":31730},{"month":"2020-05","totalPaid":613511.95,"totalClaims":37164},{"month":"2020-06","totalPaid":801211.41,"totalClaims":54803},{"month":"2020-07","totalPaid":966174.65,"totalClaims":67884},{"month":"2020-08","totalPaid":408145.23,"totalClaims":55154},{"month":"2020-09","totalPaid":398574.88,"totalClaims":21089}]}
+{
+  "npi": "1225243876",
+  "totalPaid": 67501673.98,
+  "totalClaims": 2913950,
+  "totalBeneficiaries": 743187,
+  "uniqueCodes": 10,
+  "activeMonths": 33,
+  "procedures": [
+    {
+      "code": "S0215",
+      "totalPaid": 34347602.68,
+      "totalClaims": 1016328,
+      "uniqueBeneficiaries": 271874
+    },
+    {
+      "code": "A0130",
+      "totalPaid": 21344306.64,
+      "totalClaims": 552288,
+      "uniqueBeneficiaries": 108336
+    },
+    {
+      "code": "A0100",
+      "totalPaid": 7492985.5,
+      "totalClaims": 1035593,
+      "uniqueBeneficiaries": 275982
+    },
+    {
+      "code": "A0428",
+      "totalPaid": 2152324.98,
+      "totalClaims": 26414,
+      "uniqueBeneficiaries": 12024
+    },
+    {
+      "code": "S0209",
+      "totalPaid": 1739345.36,
+      "totalClaims": 232444,
+      "uniqueBeneficiaries": 55762
+    },
+    {
+      "code": "A0425",
+      "totalPaid": 326604.57,
+      "totalClaims": 26302,
+      "uniqueBeneficiaries": 12018
+    },
+    {
+      "code": "A0170",
+      "totalPaid": 73633.96,
+      "totalClaims": 23583,
+      "uniqueBeneficiaries": 6646
+    },
+    {
+      "code": "A0426",
+      "totalPaid": 15761.29,
+      "totalClaims": 317,
+      "uniqueBeneficiaries": 244
+    },
+    {
+      "code": "T2005",
+      "totalPaid": 8220.44,
+      "totalClaims": 275,
+      "uniqueBeneficiaries": 107
+    },
+    {
+      "code": "A0999",
+      "totalPaid": 888.56,
+      "totalClaims": 406,
+      "uniqueBeneficiaries": 194
+    }
+  ],
+  "monthlyTrend": [
+    {
+      "month": "2018-01",
+      "totalPaid": 2721497.09,
+      "totalClaims": 86470
+    },
+    {
+      "month": "2018-02",
+      "totalPaid": 2629322.78,
+      "totalClaims": 84003
+    },
+    {
+      "month": "2018-03",
+      "totalPaid": 2194993.02,
+      "totalClaims": 95464
+    },
+    {
+      "month": "2018-04",
+      "totalPaid": 2271202.99,
+      "totalClaims": 98292
+    },
+    {
+      "month": "2018-05",
+      "totalPaid": 2316874.51,
+      "totalClaims": 105044
+    },
+    {
+      "month": "2018-06",
+      "totalPaid": 1675745.38,
+      "totalClaims": 92457
+    },
+    {
+      "month": "2018-07",
+      "totalPaid": 1425659.7,
+      "totalClaims": 86914
+    },
+    {
+      "month": "2018-08",
+      "totalPaid": 2099775.93,
+      "totalClaims": 83148
+    },
+    {
+      "month": "2018-09",
+      "totalPaid": 2445540.15,
+      "totalClaims": 63428
+    },
+    {
+      "month": "2018-10",
+      "totalPaid": 2999303.06,
+      "totalClaims": 69483
+    },
+    {
+      "month": "2018-11",
+      "totalPaid": 1742103.41,
+      "totalClaims": 62589
+    },
+    {
+      "month": "2018-12",
+      "totalPaid": 1359730.04,
+      "totalClaims": 60122
+    },
+    {
+      "month": "2019-01",
+      "totalPaid": 3351786.4,
+      "totalClaims": 74746
+    },
+    {
+      "month": "2019-02",
+      "totalPaid": 3362384.24,
+      "totalClaims": 75028
+    },
+    {
+      "month": "2019-03",
+      "totalPaid": 3606366.98,
+      "totalClaims": 78194
+    },
+    {
+      "month": "2019-04",
+      "totalPaid": 3760715.99,
+      "totalClaims": 89640
+    },
+    {
+      "month": "2019-05",
+      "totalPaid": 3902801.83,
+      "totalClaims": 95437
+    },
+    {
+      "month": "2019-06",
+      "totalPaid": 1650938.74,
+      "totalClaims": 102766
+    },
+    {
+      "month": "2019-07",
+      "totalPaid": 1963348.38,
+      "totalClaims": 119881
+    },
+    {
+      "month": "2019-08",
+      "totalPaid": 2093578.97,
+      "totalClaims": 125492
+    },
+    {
+      "month": "2019-09",
+      "totalPaid": 2012375.26,
+      "totalClaims": 127319
+    },
+    {
+      "month": "2019-10",
+      "totalPaid": 2373507.3,
+      "totalClaims": 153414
+    },
+    {
+      "month": "2019-11",
+      "totalPaid": 2178050.94,
+      "totalClaims": 133658
+    },
+    {
+      "month": "2019-12",
+      "totalPaid": 2100706.47,
+      "totalClaims": 128496
+    },
+    {
+      "month": "2020-01",
+      "totalPaid": 2234522.32,
+      "totalClaims": 140167
+    },
+    {
+      "month": "2020-02",
+      "totalPaid": 2084205.8,
+      "totalClaims": 129014
+    },
+    {
+      "month": "2020-03",
+      "totalPaid": 1239250.36,
+      "totalClaims": 85460
+    },
+    {
+      "month": "2020-04",
+      "totalPaid": 517767.82,
+      "totalClaims": 31730
+    },
+    {
+      "month": "2020-05",
+      "totalPaid": 613511.95,
+      "totalClaims": 37164
+    },
+    {
+      "month": "2020-06",
+      "totalPaid": 801211.41,
+      "totalClaims": 54803
+    },
+    {
+      "month": "2020-07",
+      "totalPaid": 966174.65,
+      "totalClaims": 67884
+    },
+    {
+      "month": "2020-08",
+      "totalPaid": 408145.23,
+      "totalClaims": 55154
+    },
+    {
+      "month": "2020-09",
+      "totalPaid": 398574.88,
+      "totalClaims": 21089
+    }
+  ],
+  "name": "METROPOLITAN MEDICAL TRANSPORTATION IPA, LLC",
+  "city": "ISLANDIA",
+  "state": "NY",
+  "specialty": "Transportation Broker"
+}

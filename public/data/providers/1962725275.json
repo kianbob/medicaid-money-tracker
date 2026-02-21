@@ -1,1 +1,101 @@
-{"npi": "1962725275", "name": "", "city": "", "state": "", "specialty": "", "entityType": "", "totalPaid": 156613.26, "totalClaims": 2204, "totalBeneficiaries": 1450, "costPerClaim": 71.06, "costPerBeneficiary": 108.01, "claimsPerBeneficiary": 1.5, "growthRate": null, "codeCount": 10, "yearlyData": {"2018": {"totalPaid": 156613.26, "totalClaims": 2204, "totalBeneficiaries": 1450}}, "procedures": [{"code": "B4035", "totalPaid": 105996.54, "totalClaims": 714, "totalBeneficiaries": 532, "costPerClaim": 148.45}, {"code": "B9002", "totalPaid": 15500.48, "totalClaims": 380, "totalBeneficiaries": 331, "costPerClaim": 40.79}, {"code": "A4222", "totalPaid": 10515.48, "totalClaims": 151, "totalBeneficiaries": 46, "costPerClaim": 69.64}, {"code": "B4034", "totalPaid": 7737.49, "totalClaims": 127, "totalBeneficiaries": 100, "costPerClaim": 60.93}, {"code": "A4221", "totalPaid": 5446.7, "totalClaims": 423, "totalBeneficiaries": 143, "costPerClaim": 12.88}, {"code": "B4088", "totalPaid": 4560.26, "totalClaims": 178, "totalBeneficiaries": 152, "costPerClaim": 25.62}, {"code": "B4152", "totalPaid": 3231.58, "totalClaims": 117, "totalBeneficiaries": 73, "costPerClaim": 27.62}, {"code": "B4150", "totalPaid": 2270.75, "totalClaims": 60, "totalBeneficiaries": 43, "costPerClaim": 37.85}, {"code": "E0781", "totalPaid": 1353.98, "totalClaims": 16, "totalBeneficiaries": 15, "costPerClaim": 84.62}, {"code": "A4223", "totalPaid": 0.0, "totalClaims": 38, "totalBeneficiaries": 15, "costPerClaim": 0.0}], "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From the 2018\u20132024 period, this provider received $157K in Medicaid payments across 2K claims serving 1K beneficiaries."}]}
+{
+  "npi": "1962725275",
+  "name": "Unknown Provider 1962725275",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "entityType": "",
+  "totalPaid": 156613.26,
+  "totalClaims": 2204,
+  "totalBeneficiaries": 1450,
+  "costPerClaim": 71.06,
+  "costPerBeneficiary": 108.01,
+  "claimsPerBeneficiary": 1.5,
+  "growthRate": null,
+  "codeCount": 10,
+  "yearlyData": {
+    "2018": {
+      "totalPaid": 156613.26,
+      "totalClaims": 2204,
+      "totalBeneficiaries": 1450
+    }
+  },
+  "procedures": [
+    {
+      "code": "B4035",
+      "totalPaid": 105996.54,
+      "totalClaims": 714,
+      "totalBeneficiaries": 532,
+      "costPerClaim": 148.45
+    },
+    {
+      "code": "B9002",
+      "totalPaid": 15500.48,
+      "totalClaims": 380,
+      "totalBeneficiaries": 331,
+      "costPerClaim": 40.79
+    },
+    {
+      "code": "A4222",
+      "totalPaid": 10515.48,
+      "totalClaims": 151,
+      "totalBeneficiaries": 46,
+      "costPerClaim": 69.64
+    },
+    {
+      "code": "B4034",
+      "totalPaid": 7737.49,
+      "totalClaims": 127,
+      "totalBeneficiaries": 100,
+      "costPerClaim": 60.93
+    },
+    {
+      "code": "A4221",
+      "totalPaid": 5446.7,
+      "totalClaims": 423,
+      "totalBeneficiaries": 143,
+      "costPerClaim": 12.88
+    },
+    {
+      "code": "B4088",
+      "totalPaid": 4560.26,
+      "totalClaims": 178,
+      "totalBeneficiaries": 152,
+      "costPerClaim": 25.62
+    },
+    {
+      "code": "B4152",
+      "totalPaid": 3231.58,
+      "totalClaims": 117,
+      "totalBeneficiaries": 73,
+      "costPerClaim": 27.62
+    },
+    {
+      "code": "B4150",
+      "totalPaid": 2270.75,
+      "totalClaims": 60,
+      "totalBeneficiaries": 43,
+      "costPerClaim": 37.85
+    },
+    {
+      "code": "E0781",
+      "totalPaid": 1353.98,
+      "totalClaims": 16,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 84.62
+    },
+    {
+      "code": "A4223",
+      "totalPaid": 0,
+      "totalClaims": 38,
+      "totalBeneficiaries": 15,
+      "costPerClaim": 0
+    }
+  ],
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From the 2018–2024 period, this provider received $157K in Medicaid payments across 2K claims serving 1K beneficiaries."
+    }
+  ]
+}

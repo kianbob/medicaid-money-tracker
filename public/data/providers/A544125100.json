@@ -1,1 +1,131 @@
-{"npi":"A544125100","totalPaid":47359452.37,"totalClaims":465839,"totalBeneficiaries":17397,"uniqueCodes":3,"activeMonths":20,"procedures":[{"code":"T2028","totalPaid":47345939.69,"totalClaims":452516,"uniqueBeneficiaries":15002},{"code":"T2040","totalPaid":13512.68,"totalClaims":587,"uniqueBeneficiaries":467},{"code":"T2025","totalPaid":0.0,"totalClaims":12736,"uniqueBeneficiaries":1928}],"monthlyTrend":[{"month":"2018-01","totalPaid":3461846.68,"totalClaims":9322},{"month":"2018-02","totalPaid":3160641.22,"totalClaims":20202},{"month":"2018-03","totalPaid":3405130.06,"totalClaims":38001},{"month":"2018-04","totalPaid":3339439.98,"totalClaims":33570},{"month":"2018-05","totalPaid":3648677.56,"totalClaims":36087},{"month":"2018-06","totalPaid":3614231.42,"totalClaims":34267},{"month":"2018-07","totalPaid":3894816.98,"totalClaims":35071},{"month":"2018-08","totalPaid":3855224.23,"totalClaims":35466},{"month":"2018-09","totalPaid":3558018.14,"totalClaims":43772},{"month":"2018-10","totalPaid":3644329.72,"totalClaims":39845},{"month":"2018-11","totalPaid":3131995.04,"totalClaims":33847},{"month":"2018-12","totalPaid":2767484.71,"totalClaims":26645},{"month":"2019-01","totalPaid":2389741.01,"totalClaims":24860},{"month":"2019-02","totalPaid":1805813.32,"totalClaims":24248},{"month":"2019-03","totalPaid":1493836.47,"totalClaims":26605},{"month":"2019-04","totalPaid":166850.78,"totalClaims":1735},{"month":"2019-05","totalPaid":21375.05,"totalClaims":256},{"month":"2019-07","totalPaid":0.0,"totalClaims":140},{"month":"2019-08","totalPaid":0.0,"totalClaims":166},{"month":"2019-09","totalPaid":0.0,"totalClaims":1734}]}
+{
+  "npi": "A544125100",
+  "totalPaid": 47359452.37,
+  "totalClaims": 465839,
+  "totalBeneficiaries": 17397,
+  "uniqueCodes": 3,
+  "activeMonths": 20,
+  "procedures": [
+    {
+      "code": "T2028",
+      "totalPaid": 47345939.69,
+      "totalClaims": 452516,
+      "uniqueBeneficiaries": 15002
+    },
+    {
+      "code": "T2040",
+      "totalPaid": 13512.68,
+      "totalClaims": 587,
+      "uniqueBeneficiaries": 467
+    },
+    {
+      "code": "T2025",
+      "totalPaid": 0,
+      "totalClaims": 12736,
+      "uniqueBeneficiaries": 1928
+    }
+  ],
+  "monthlyTrend": [
+    {
+      "month": "2018-01",
+      "totalPaid": 3461846.68,
+      "totalClaims": 9322
+    },
+    {
+      "month": "2018-02",
+      "totalPaid": 3160641.22,
+      "totalClaims": 20202
+    },
+    {
+      "month": "2018-03",
+      "totalPaid": 3405130.06,
+      "totalClaims": 38001
+    },
+    {
+      "month": "2018-04",
+      "totalPaid": 3339439.98,
+      "totalClaims": 33570
+    },
+    {
+      "month": "2018-05",
+      "totalPaid": 3648677.56,
+      "totalClaims": 36087
+    },
+    {
+      "month": "2018-06",
+      "totalPaid": 3614231.42,
+      "totalClaims": 34267
+    },
+    {
+      "month": "2018-07",
+      "totalPaid": 3894816.98,
+      "totalClaims": 35071
+    },
+    {
+      "month": "2018-08",
+      "totalPaid": 3855224.23,
+      "totalClaims": 35466
+    },
+    {
+      "month": "2018-09",
+      "totalPaid": 3558018.14,
+      "totalClaims": 43772
+    },
+    {
+      "month": "2018-10",
+      "totalPaid": 3644329.72,
+      "totalClaims": 39845
+    },
+    {
+      "month": "2018-11",
+      "totalPaid": 3131995.04,
+      "totalClaims": 33847
+    },
+    {
+      "month": "2018-12",
+      "totalPaid": 2767484.71,
+      "totalClaims": 26645
+    },
+    {
+      "month": "2019-01",
+      "totalPaid": 2389741.01,
+      "totalClaims": 24860
+    },
+    {
+      "month": "2019-02",
+      "totalPaid": 1805813.32,
+      "totalClaims": 24248
+    },
+    {
+      "month": "2019-03",
+      "totalPaid": 1493836.47,
+      "totalClaims": 26605
+    },
+    {
+      "month": "2019-04",
+      "totalPaid": 166850.78,
+      "totalClaims": 1735
+    },
+    {
+      "month": "2019-05",
+      "totalPaid": 21375.05,
+      "totalClaims": 256
+    },
+    {
+      "month": "2019-07",
+      "totalPaid": 0,
+      "totalClaims": 140
+    },
+    {
+      "month": "2019-08",
+      "totalPaid": 0,
+      "totalClaims": 166
+    },
+    {
+      "month": "2019-09",
+      "totalPaid": 0,
+      "totalClaims": 1734
+    }
+  ],
+  "name": "Unknown Provider A544125100"
+}

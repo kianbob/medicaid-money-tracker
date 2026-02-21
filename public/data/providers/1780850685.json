@@ -1,1 +1,62 @@
-{"npi": "1780850685", "name": "Provider 1780850685", "city": null, "state": null, "specialty": null, "entityType": null, "totalPaid": 19262334.78, "totalClaims": 124231, "totalBeneficiaries": 4728, "costPerClaim": 155.05, "costPerBeneficiary": 4074.1, "claimsPerBeneficiary": 26.28, "growthRate": 83.5, "codeCount": 1, "yearlyData": [{"year": 2018, "paid": 1961936.22, "claims": 18214}, {"year": 2019, "paid": 1966794.36, "claims": 20148}, {"year": 2020, "paid": 1962693.69, "claims": 17843}, {"year": 2021, "paid": 2531142.76, "claims": 18278}, {"year": 2022, "paid": 2855883.89, "claims": 21339}, {"year": 2023, "paid": 4383126.72, "claims": 16967}, {"year": 2024, "paid": 3600757.14, "claims": 11442}], "procedures": [{"code": "S5145", "totalPaid": 19262334.78, "totalClaims": 124231, "totalBeneficiaries": 4728}], "narrative": null}
+{
+  "npi": "1780850685",
+  "name": "BARIUM SPRINGS HOME FOR CHILDREN",
+  "city": "STATESVILLE",
+  "state": "NC",
+  "specialty": "Foster Care Agency",
+  "entityType": null,
+  "totalPaid": 19262334.78,
+  "totalClaims": 124231,
+  "totalBeneficiaries": 4728,
+  "costPerClaim": 155.05,
+  "costPerBeneficiary": 4074.1,
+  "claimsPerBeneficiary": 26.28,
+  "growthRate": 83.5,
+  "codeCount": 1,
+  "yearlyData": [
+    {
+      "year": 2018,
+      "paid": 1961936.22,
+      "claims": 18214
+    },
+    {
+      "year": 2019,
+      "paid": 1966794.36,
+      "claims": 20148
+    },
+    {
+      "year": 2020,
+      "paid": 1962693.69,
+      "claims": 17843
+    },
+    {
+      "year": 2021,
+      "paid": 2531142.76,
+      "claims": 18278
+    },
+    {
+      "year": 2022,
+      "paid": 2855883.89,
+      "claims": 21339
+    },
+    {
+      "year": 2023,
+      "paid": 4383126.72,
+      "claims": 16967
+    },
+    {
+      "year": 2024,
+      "paid": 3600757.14,
+      "claims": 11442
+    }
+  ],
+  "procedures": [
+    {
+      "code": "S5145",
+      "totalPaid": 19262334.78,
+      "totalClaims": 124231,
+      "totalBeneficiaries": 4728
+    }
+  ],
+  "narrative": null
+}

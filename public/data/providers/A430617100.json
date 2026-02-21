@@ -1,1 +1,189 @@
-{"npi": "A430617100", "name": "", "specialty": "", "city": "", "state": "", "totalPaid": 139780633.58, "totalClaims": 2208105, "totalBenes": 61830, "procCount": 2, "costPerClaim": 63.3, "costPerBene": 2260.73, "claimsPerBene": 35.7, "growthRate": -3.2, "flags": ["procedure_concentration"], "flagCount": 1, "monthly": [{"month": "2018-01", "payments": 5541445.18, "claims": 71440, "benes": 2326}, {"month": "2018-02", "payments": 5086610.11, "claims": 65647, "benes": 2376}, {"month": "2018-03", "payments": 5757352.29, "claims": 76859, "benes": 2412}, {"month": "2018-04", "payments": 5554181.29, "claims": 72938, "benes": 2430}, {"month": "2018-05", "payments": 5782904.68, "claims": 83835, "benes": 2455}, {"month": "2018-06", "payments": 5825172.98, "claims": 87563, "benes": 2494}, {"month": "2018-07", "payments": 6156392.8, "claims": 97031, "benes": 2517}, {"month": "2018-08", "payments": 6195124.35, "claims": 116383, "benes": 2609}, {"month": "2018-09", "payments": 5705711.65, "claims": 129990, "benes": 2548}, {"month": "2018-10", "payments": 6138172.98, "claims": 116788, "benes": 2587}, {"month": "2018-11", "payments": 6227140.35, "claims": 108639, "benes": 2912}, {"month": "2018-12", "payments": 7051815.52, "claims": 120080, "benes": 2990}, {"month": "2019-01", "payments": 7874613.1, "claims": 137868, "benes": 3374}, {"month": "2019-02", "payments": 7043200.64, "claims": 107527, "benes": 3295}, {"month": "2019-03", "payments": 7752054.05, "claims": 127774, "benes": 3332}, {"month": "2019-04", "payments": 7489933.97, "claims": 108809, "benes": 3303}, {"month": "2019-05", "payments": 7602634.04, "claims": 111309, "benes": 3272}, {"month": "2019-06", "payments": 7373193.11, "claims": 168098, "benes": 3214}, {"month": "2019-07", "payments": 7697881.09, "claims": 107452, "benes": 3171}, {"month": "2019-08", "payments": 7374753.74, "claims": 92276, "benes": 3089}, {"month": "2019-09", "payments": 6323143.24, "claims": 74562, "benes": 2773}, {"month": "2019-10", "payments": 2227202.42, "claims": 25237, "benes": 2351}], "procedures": [{"code": "T1019", "payments": 139776427.32, "claims": 2207840, "nationalAvgCpc": 151.21, "nationalMedianCpc": 82.47, "p90": 317.2, "p99": 1171.01, "providerCpc": 63.31, "cpcRatio": 0.77, "decile": "Normal range"}, {"code": "S5130", "payments": 4206.26, "claims": 265, "nationalAvgCpc": 113.35, "nationalMedianCpc": 48.76, "p90": 224.77, "p99": 1358.28, "providerCpc": 15.87, "cpcRatio": 0.33, "decile": "Normal range"}], "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From the 2018\u20132024 period, this provider received $139.8M in Medicaid payments across 2.2M claims."}, {"title": "Why This Matters", "text": "This provider received $139.8M in taxpayer-funded Medicaid payments \u2014 enough to fund healthcare for approximately 17,472 Medicaid beneficiaries for a full year at average per-enrollee costs."}]}
+{
+  "npi": "A430617100",
+  "name": "Unknown Provider A430617100",
+  "specialty": "",
+  "city": "",
+  "state": "",
+  "totalPaid": 139780633.58,
+  "totalClaims": 2208105,
+  "totalBenes": 61830,
+  "procCount": 2,
+  "costPerClaim": 63.3,
+  "costPerBene": 2260.73,
+  "claimsPerBene": 35.7,
+  "growthRate": -3.2,
+  "flags": [
+    "procedure_concentration"
+  ],
+  "flagCount": 1,
+  "monthly": [
+    {
+      "month": "2018-01",
+      "payments": 5541445.18,
+      "claims": 71440,
+      "benes": 2326
+    },
+    {
+      "month": "2018-02",
+      "payments": 5086610.11,
+      "claims": 65647,
+      "benes": 2376
+    },
+    {
+      "month": "2018-03",
+      "payments": 5757352.29,
+      "claims": 76859,
+      "benes": 2412
+    },
+    {
+      "month": "2018-04",
+      "payments": 5554181.29,
+      "claims": 72938,
+      "benes": 2430
+    },
+    {
+      "month": "2018-05",
+      "payments": 5782904.68,
+      "claims": 83835,
+      "benes": 2455
+    },
+    {
+      "month": "2018-06",
+      "payments": 5825172.98,
+      "claims": 87563,
+      "benes": 2494
+    },
+    {
+      "month": "2018-07",
+      "payments": 6156392.8,
+      "claims": 97031,
+      "benes": 2517
+    },
+    {
+      "month": "2018-08",
+      "payments": 6195124.35,
+      "claims": 116383,
+      "benes": 2609
+    },
+    {
+      "month": "2018-09",
+      "payments": 5705711.65,
+      "claims": 129990,
+      "benes": 2548
+    },
+    {
+      "month": "2018-10",
+      "payments": 6138172.98,
+      "claims": 116788,
+      "benes": 2587
+    },
+    {
+      "month": "2018-11",
+      "payments": 6227140.35,
+      "claims": 108639,
+      "benes": 2912
+    },
+    {
+      "month": "2018-12",
+      "payments": 7051815.52,
+      "claims": 120080,
+      "benes": 2990
+    },
+    {
+      "month": "2019-01",
+      "payments": 7874613.1,
+      "claims": 137868,
+      "benes": 3374
+    },
+    {
+      "month": "2019-02",
+      "payments": 7043200.64,
+      "claims": 107527,
+      "benes": 3295
+    },
+    {
+      "month": "2019-03",
+      "payments": 7752054.05,
+      "claims": 127774,
+      "benes": 3332
+    },
+    {
+      "month": "2019-04",
+      "payments": 7489933.97,
+      "claims": 108809,
+      "benes": 3303
+    },
+    {
+      "month": "2019-05",
+      "payments": 7602634.04,
+      "claims": 111309,
+      "benes": 3272
+    },
+    {
+      "month": "2019-06",
+      "payments": 7373193.11,
+      "claims": 168098,
+      "benes": 3214
+    },
+    {
+      "month": "2019-07",
+      "payments": 7697881.09,
+      "claims": 107452,
+      "benes": 3171
+    },
+    {
+      "month": "2019-08",
+      "payments": 7374753.74,
+      "claims": 92276,
+      "benes": 3089
+    },
+    {
+      "month": "2019-09",
+      "payments": 6323143.24,
+      "claims": 74562,
+      "benes": 2773
+    },
+    {
+      "month": "2019-10",
+      "payments": 2227202.42,
+      "claims": 25237,
+      "benes": 2351
+    }
+  ],
+  "procedures": [
+    {
+      "code": "T1019",
+      "payments": 139776427.32,
+      "claims": 2207840,
+      "nationalAvgCpc": 151.21,
+      "nationalMedianCpc": 82.47,
+      "p90": 317.2,
+      "p99": 1171.01,
+      "providerCpc": 63.31,
+      "cpcRatio": 0.77,
+      "decile": "Normal range"
+    },
+    {
+      "code": "S5130",
+      "payments": 4206.26,
+      "claims": 265,
+      "nationalAvgCpc": 113.35,
+      "nationalMedianCpc": 48.76,
+      "p90": 224.77,
+      "p99": 1358.28,
+      "providerCpc": 15.87,
+      "cpcRatio": 0.33,
+      "decile": "Normal range"
+    }
+  ],
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From the 2018–2024 period, this provider received $139.8M in Medicaid payments across 2.2M claims."
+    },
+    {
+      "title": "Why This Matters",
+      "text": "This provider received $139.8M in taxpayer-funded Medicaid payments — enough to fund healthcare for approximately 17,472 Medicaid beneficiaries for a full year at average per-enrollee costs."
+    }
+  ]
+}

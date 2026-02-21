@@ -1,1 +1,116 @@
-{"npi": "1043212665", "name": "Provider 1043212665", "city": null, "state": null, "specialty": null, "entityType": null, "totalPaid": 19278916.67, "totalClaims": 422718, "totalBeneficiaries": 297889, "costPerClaim": 45.61, "costPerBeneficiary": 64.72, "claimsPerBeneficiary": 1.42, "growthRate": 105.5, "codeCount": 10, "yearlyData": [{"year": 2018, "paid": 1041490.4, "claims": 63773}, {"year": 2019, "paid": 3352556.66, "claims": 71953}, {"year": 2020, "paid": 3284040.83, "claims": 65163}, {"year": 2021, "paid": 3889322.66, "claims": 72895}, {"year": 2022, "paid": 3127793.12, "claims": 56445}, {"year": 2023, "paid": 2443380.81, "claims": 52344}, {"year": 2024, "paid": 2140332.19, "claims": 40145}], "procedures": [{"code": "99214", "totalPaid": 2430942.14, "totalClaims": 41942, "totalBeneficiaries": 38705}, {"code": "99233", "totalPaid": 2082521.55, "totalClaims": 45613, "totalBeneficiaries": 14731}, {"code": "99232", "totalPaid": 1999934.3, "totalClaims": 61355, "totalBeneficiaries": 18937}, {"code": "99223", "totalPaid": 1666966.8, "totalClaims": 19348, "totalBeneficiaries": 15291}, {"code": "J0585", "totalPaid": 1334129.82, "totalClaims": 3158, "totalBeneficiaries": 1477}, {"code": "99291", "totalPaid": 923516.11, "totalClaims": 7782, "totalBeneficiaries": 2422}, {"code": "93306", "totalPaid": 855634.46, "totalClaims": 22723, "totalBeneficiaries": 21654}, {"code": "99239", "totalPaid": 760610.92, "totalClaims": 15371, "totalBeneficiaries": 14101}, {"code": "99213", "totalPaid": 683198.95, "totalClaims": 19426, "totalBeneficiaries": 17887}, {"code": "99215", "totalPaid": 528391.8, "totalClaims": 5868, "totalBeneficiaries": 5631}], "narrative": null}
+{
+  "npi": "1043212665",
+  "name": "CENTRACARE CLINIC",
+  "city": "ST CLOUD",
+  "state": "MN",
+  "specialty": "Clinic/Center, Multi-Specialty",
+  "entityType": null,
+  "totalPaid": 19278916.67,
+  "totalClaims": 422718,
+  "totalBeneficiaries": 297889,
+  "costPerClaim": 45.61,
+  "costPerBeneficiary": 64.72,
+  "claimsPerBeneficiary": 1.42,
+  "growthRate": 105.5,
+  "codeCount": 10,
+  "yearlyData": [
+    {
+      "year": 2018,
+      "paid": 1041490.4,
+      "claims": 63773
+    },
+    {
+      "year": 2019,
+      "paid": 3352556.66,
+      "claims": 71953
+    },
+    {
+      "year": 2020,
+      "paid": 3284040.83,
+      "claims": 65163
+    },
+    {
+      "year": 2021,
+      "paid": 3889322.66,
+      "claims": 72895
+    },
+    {
+      "year": 2022,
+      "paid": 3127793.12,
+      "claims": 56445
+    },
+    {
+      "year": 2023,
+      "paid": 2443380.81,
+      "claims": 52344
+    },
+    {
+      "year": 2024,
+      "paid": 2140332.19,
+      "claims": 40145
+    }
+  ],
+  "procedures": [
+    {
+      "code": "99214",
+      "totalPaid": 2430942.14,
+      "totalClaims": 41942,
+      "totalBeneficiaries": 38705
+    },
+    {
+      "code": "99233",
+      "totalPaid": 2082521.55,
+      "totalClaims": 45613,
+      "totalBeneficiaries": 14731
+    },
+    {
+      "code": "99232",
+      "totalPaid": 1999934.3,
+      "totalClaims": 61355,
+      "totalBeneficiaries": 18937
+    },
+    {
+      "code": "99223",
+      "totalPaid": 1666966.8,
+      "totalClaims": 19348,
+      "totalBeneficiaries": 15291
+    },
+    {
+      "code": "J0585",
+      "totalPaid": 1334129.82,
+      "totalClaims": 3158,
+      "totalBeneficiaries": 1477
+    },
+    {
+      "code": "99291",
+      "totalPaid": 923516.11,
+      "totalClaims": 7782,
+      "totalBeneficiaries": 2422
+    },
+    {
+      "code": "93306",
+      "totalPaid": 855634.46,
+      "totalClaims": 22723,
+      "totalBeneficiaries": 21654
+    },
+    {
+      "code": "99239",
+      "totalPaid": 760610.92,
+      "totalClaims": 15371,
+      "totalBeneficiaries": 14101
+    },
+    {
+      "code": "99213",
+      "totalPaid": 683198.95,
+      "totalClaims": 19426,
+      "totalBeneficiaries": 17887
+    },
+    {
+      "code": "99215",
+      "totalPaid": 528391.8,
+      "totalClaims": 5868,
+      "totalBeneficiaries": 5631
+    }
+  ],
+  "narrative": null
+}

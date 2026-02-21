@@ -1,1 +1,102 @@
-{"npi": "1811978034", "name": "", "city": "", "state": "", "specialty": "", "totalPaid": 185979.88999999998, "totalClaims": 2484, "totalBeneficiaries": 2017, "codeCount": 5, "firstMonth": "2018-01", "lastMonth": "2018-08", "codes": [{"code": "A4253", "payments": 153993.53000000003, "claims": 918, "beneficiaries": 704, "costPerClaim": 167.75, "nationalMedianCpc": 6.92, "nationalAvgCpc": 16.69, "p90": 47.61, "p99": 85.57, "cpcRatio": 24.2}, {"code": "A4259", "payments": 15348.34, "claims": 851, "beneficiaries": 678, "costPerClaim": 18.04, "nationalMedianCpc": 2.27, "nationalAvgCpc": 4.1, "p90": 10.08, "p99": 18.48, "cpcRatio": 7.9}, {"code": "A4215", "payments": 7403.6, "claims": 267, "beneficiaries": 263, "costPerClaim": 27.73, "nationalMedianCpc": 20.71, "nationalAvgCpc": 22.68, "p90": 45.09, "p99": 77.87, "cpcRatio": 1.3}, {"code": "S8490", "payments": 6846.32, "claims": 120, "beneficiaries": 117, "costPerClaim": 57.05, "nationalMedianCpc": 22.06, "nationalAvgCpc": 25.79, "p90": 37.71, "p99": 68.47, "cpcRatio": 2.6}, {"code": "A4256", "payments": 2388.1, "claims": 328, "beneficiaries": 255, "costPerClaim": 7.28, "nationalMedianCpc": 2.85, "nationalAvgCpc": 3.34, "p90": 6.91, "p99": 9.06, "cpcRatio": 2.6}], "yearlyTrend": [{"year": "2018", "payments": 185979.88999999998, "claims": 2484, "beneficiaries": 2017}], "mlScore": 0.828838, "source": "ml_model", "costPerClaim": 74.87, "costPerBeneficiary": 92.21, "claimsPerBeneficiary": 1.2, "narrative": [{"title": "Provider Overview", "text": " is a Medicaid provider based in Unknown location. From 2018-01 through 2018-08, this provider received $186K in Medicaid payments across 2K claims serving 2K beneficiaries, billing 5 distinct procedure codes."}, {"title": "Key Findings", "items": ["Bills 24.2\u00d7 the national median for A4253 (A4253), at $168 per claim vs. the median of $7. This places them well above the 99th percentile nationally.", "83% of billing is concentrated in A4253 (A4253), indicating significant specialization in this service.", "Billing stopped in 2018-08, suggesting this provider is no longer active in Medicaid. Abrupt cessation of billing can be a risk indicator."]}]}
+{
+  "npi": "1811978034",
+  "name": "Unknown Provider 1811978034",
+  "city": "",
+  "state": "",
+  "specialty": "",
+  "totalPaid": 185979.88999999998,
+  "totalClaims": 2484,
+  "totalBeneficiaries": 2017,
+  "codeCount": 5,
+  "firstMonth": "2018-01",
+  "lastMonth": "2018-08",
+  "codes": [
+    {
+      "code": "A4253",
+      "payments": 153993.53000000003,
+      "claims": 918,
+      "beneficiaries": 704,
+      "costPerClaim": 167.75,
+      "nationalMedianCpc": 6.92,
+      "nationalAvgCpc": 16.69,
+      "p90": 47.61,
+      "p99": 85.57,
+      "cpcRatio": 24.2
+    },
+    {
+      "code": "A4259",
+      "payments": 15348.34,
+      "claims": 851,
+      "beneficiaries": 678,
+      "costPerClaim": 18.04,
+      "nationalMedianCpc": 2.27,
+      "nationalAvgCpc": 4.1,
+      "p90": 10.08,
+      "p99": 18.48,
+      "cpcRatio": 7.9
+    },
+    {
+      "code": "A4215",
+      "payments": 7403.6,
+      "claims": 267,
+      "beneficiaries": 263,
+      "costPerClaim": 27.73,
+      "nationalMedianCpc": 20.71,
+      "nationalAvgCpc": 22.68,
+      "p90": 45.09,
+      "p99": 77.87,
+      "cpcRatio": 1.3
+    },
+    {
+      "code": "S8490",
+      "payments": 6846.32,
+      "claims": 120,
+      "beneficiaries": 117,
+      "costPerClaim": 57.05,
+      "nationalMedianCpc": 22.06,
+      "nationalAvgCpc": 25.79,
+      "p90": 37.71,
+      "p99": 68.47,
+      "cpcRatio": 2.6
+    },
+    {
+      "code": "A4256",
+      "payments": 2388.1,
+      "claims": 328,
+      "beneficiaries": 255,
+      "costPerClaim": 7.28,
+      "nationalMedianCpc": 2.85,
+      "nationalAvgCpc": 3.34,
+      "p90": 6.91,
+      "p99": 9.06,
+      "cpcRatio": 2.6
+    }
+  ],
+  "yearlyTrend": [
+    {
+      "year": "2018",
+      "payments": 185979.88999999998,
+      "claims": 2484,
+      "beneficiaries": 2017
+    }
+  ],
+  "mlScore": 0.828838,
+  "source": "ml_model",
+  "costPerClaim": 74.87,
+  "costPerBeneficiary": 92.21,
+  "claimsPerBeneficiary": 1.2,
+  "narrative": [
+    {
+      "title": "Provider Overview",
+      "text": " is a Medicaid provider based in Unknown location. From 2018-01 through 2018-08, this provider received $186K in Medicaid payments across 2K claims serving 2K beneficiaries, billing 5 distinct procedure codes."
+    },
+    {
+      "title": "Key Findings",
+      "items": [
+        "Bills 24.2× the national median for A4253 (A4253), at $168 per claim vs. the median of $7. This places them well above the 99th percentile nationally.",
+        "83% of billing is concentrated in A4253 (A4253), indicating significant specialization in this service.",
+        "Billing stopped in 2018-08, suggesting this provider is no longer active in Medicaid. Abrupt cessation of billing can be a risk indicator."
+      ]
+    }
+  ]
+}
