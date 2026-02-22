@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "OpenMedicaid",
-              "url": "https://openmedicaid.org",
+              "url": "https://www.openmedicaid.org",
               "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 1,860+ providers flagged by 13 fraud detection tests and ML analysis.",
               "publisher": {
                 "@type": "Organization",
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "Dataset",
               "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
               "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 13 fraud detection tests and ML analysis flagging 1,860+ providers.",
-              "url": "https://openmedicaid.org",
+              "url": "https://www.openmedicaid.org",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "creator": {
                 "@type": "Organization",
@@ -87,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "name": "HHS Medicaid Provider Spending",
                 "description": "Federal dataset of Medicaid provider billing records published by the U.S. Department of Health and Human Services, covering fee-for-service claims from 2018 to 2024.",
                 "url": "https://opendata.hhs.gov/datasets/medicaid-provider-spending/",
+                "license": "https://creativecommons.org/publicdomain/zero/1.0/",
                 "creator": {
                   "@type": "Organization",
                   "name": "U.S. Department of Health and Human Services"
