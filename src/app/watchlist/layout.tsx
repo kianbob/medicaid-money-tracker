@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Risk Watchlist — 1,860 Flagged Medicaid Providers",
-  description: "1,860 Medicaid providers flagged by 13 statistical fraud tests and ML analysis. Search by name, state, or risk tier.",
+  title: "Fraud Watchlist \u2014 1,860 Providers Flagged",
+  description: "These 1,860 Medicaid providers triggered our fraud detection system. 13 statistical tests + ML analysis exposed suspicious billing across all 50 states.",
   openGraph: {
-    title: "Risk Watchlist — 1,860 Flagged Medicaid Providers",
-    description: "1,860 Medicaid providers flagged by 13 statistical fraud tests and ML analysis. Search by name, state, or risk tier.",
+    title: "Fraud Watchlist \u2014 1,860 Providers Flagged",
+    description: "These 1,860 Medicaid providers triggered our fraud detection system. 13 statistical tests + ML analysis exposed suspicious billing across all 50 states.",
   },
 };
 

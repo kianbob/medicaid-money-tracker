@@ -5,11 +5,11 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import homeCareData from "../../../../public/data/ny-home-care.json";
 
 export const metadata: Metadata = {
-  title: "The New York Home Care Machine — $47B+ in Personal Care Spending — Medicaid",
-  description: "New York dominates Medicaid personal care spending. Brooklyn alone has dozens of agencies billing $200M+ each. The top 100 T1019 billers account for over $47 billion.",
+  title: "NY's $47B Home Care Machine: One Provider Billed $7.2B",
+  description: "Brooklyn agencies dominate Medicaid's top 100 personal care billers. One provider billed $7.2B in 7 years. NY accounts for 80%+ of all T1019 spending. Full data.",
   openGraph: {
-    title: "The New York Home Care Machine",
-    description: "NY's home care industry bills Medicaid for billions. Brooklyn agencies dominate the top 100 list. One provider billed $7.2B over 7 years.",
+    title: "NY's $47B Home Care Machine: One Provider Billed $7.2B",
+    description: "Brooklyn agencies dominate Medicaid's top 100 personal care billers. One provider billed $7.2B in 7 years. NY accounts for 80%+ of all T1019 spending. Full data.",
   },
 };
 

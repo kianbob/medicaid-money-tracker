@@ -8,11 +8,11 @@ import expandedWatchlist from "../../../../public/data/expanded-watchlist.json";
 import topProviders from "../../../../public/data/top-providers-1000.json";
 
 export const metadata: Metadata = {
-  title: "Solo Operators: Providers Billing $5M+ Entirely Themselves",
-  description: "100 Medicaid providers bill $5M+ where 95%+ of payments go to self-billed claims. Together they account for over $72B. These solo operators process millions of claims essentially alone.",
+  title: "100 Providers Billed $72B With No Outside Help",
+  description: "These 100 Medicaid providers bill $5M+ each with 95%+ self-billing ratios — $72B total, millions of claims processed entirely alone. Who are they?",
   openGraph: {
-    title: "Solo Operators: Providers Billing $5M+ Entirely Themselves",
-    description: "100 providers billing $5M+ with 95%+ self-billing ratios — over $72B combined. An unusual pattern warranting scrutiny.",
+    title: "100 Providers Billed $72B With No Outside Help",
+    description: "These 100 Medicaid providers bill $5M+ each with 95%+ self-billing ratios — $72B total, millions of claims processed entirely alone.",
   },
 };
 

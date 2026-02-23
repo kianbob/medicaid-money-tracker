@@ -7,11 +7,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Who Bills for the Most Patients? — Top Medicaid Providers by Beneficiary Count",
-  description: "Some Medicaid providers serve over 100 million beneficiaries. Transportation brokers and managed care organizations dominate. Individual doctors typically see hundreds.",
+  title: "108M Patients, 1 Provider: Medicaid's Biggest Billers",
+  description: "One Medicaid provider bills for 108 million beneficiaries — more than most countries' populations. See which organizations dominate and why the numbers are so extreme.",
   openGraph: {
-    title: "Who Bills for the Most Patients?",
-    description: "The top Medicaid provider serves 108M beneficiaries. Transportation brokers and managed care orgs dominate the list.",
+    title: "108M Patients, 1 Provider: Medicaid's Biggest Billers",
+    description: "One Medicaid provider bills for 108 million beneficiaries — more than most countries' populations. See which organizations dominate and why the numbers are so extreme.",
   },
 };
 

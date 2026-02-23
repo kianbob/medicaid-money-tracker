@@ -3,12 +3,12 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "SRH CHN Lead Health Home: $239M From Nowhere",
+  title: "Brand-New Provider, $239M Billed, 4 Fraud Flags",
   description:
-    "SRH CHN Lead Health Home LLC appeared in 2022 and immediately billed $239M to Medicaid. Four fraud detection flags triggered on this brand-new entity.",
+    "SRH CHN Lead Health Home LLC didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent fraud detection flags.",
   openGraph: {
-    title: "SRH CHN: $239M From Nowhere",
-    description: "A brand-new entity that immediately billed $239M. Four fraud flags. The full story.",
+    title: "Brand-New Provider, $239M Billed, 4 Fraud Flags",
+    description: "SRH CHN didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent fraud flags.",
   },
 };
 

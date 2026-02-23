@@ -7,11 +7,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Impossible Billing Volume: Providers Filing 50+ Claims Per Day — Medicaid",
-  description: "200 Medicaid providers file more than 50 claims per working day — some over 60,000. At that pace, each patient visit would last seconds. Are these real services?",
+  title: "60,000 Claims Per Day: Impossible Billing Volume",
+  description: "200 Medicaid providers file 50+ claims per working day. The top provider averages 60,000+ daily — one claim every fraction of a second. Physically impossible.",
   openGraph: {
-    title: "60,000 Claims Per Day: Impossible Billing Volume in Medicaid",
-    description: "200 providers file 50+ claims per working day. The top provider averages 60,410 claims daily for 7 years straight.",
+    title: "60,000 Claims Per Day: Impossible Billing Volume",
+    description: "200 Medicaid providers file 50+ claims per working day. The top provider averages 60,000+ daily — one claim every fraction of a second. Physically impossible.",
   },
 };
 

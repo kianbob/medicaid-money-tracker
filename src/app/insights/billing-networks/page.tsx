@@ -9,11 +9,15 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "The Middlemen: Who Bills on Behalf of Others?",
-  description: "In Medicaid, the billing NPI doesn't always match who performed the service. The top intermediary bills on behalf of 5,000+ providers. 78 of the top 100 intermediaries are on the fraud watchlist.",
+  title: "78 of Top 100 Medicaid Billing Middlemen Are Flagged",
+  description: "The top 100 Medicaid billing intermediaries control $42.6B in payments. 78 are on our fraud watchlist. One entity bills for 5,000+ providers alone.",
   openGraph: {
-    title: "The Middlemen: Who Bills on Behalf of Others?",
-    description: "The top 100 billing intermediaries in Medicaid control $42.6B in payments. 78% are also on the fraud watchlist.",
+    title: "78 of Top 100 Medicaid Billing Middlemen Are Flagged",
+    description: "The top 100 Medicaid billing intermediaries control $42.6B in payments. 78 are on our fraud watchlist. One entity bills for 5,000+ providers alone.",
+  },
+  twitter: {
+    title: "78 of Top 100 Medicaid Billing Middlemen Are Flagged",
+    description: "The top 100 Medicaid billing intermediaries control $42.6B in payments. 78 are on our fraud watchlist. One entity bills for 5,000+ providers alone.",
   },
 };
 

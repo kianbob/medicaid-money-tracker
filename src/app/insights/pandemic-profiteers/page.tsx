@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import pandemicData from "../../../../public/data/pandemic-billing-jumps.json";
 
 export const metadata: Metadata = {
-  title: "Who Made the Most Money During COVID? — Medicaid Pandemic Spending",
-  description: "The City of Chicago went from $23M to $240M in Medicaid billing — a 942% increase. See the 100 providers with the biggest pandemic billing jumps.",
+  title: "COVID Profiteers: Chicago's 942% Medicaid Billing Spike",
+  description: "Chicago went from $23M to $240M in Medicaid billing during COVID. One provider went from $0 to $2.1B. See the 100 biggest pandemic billing jumps, ranked.",
   openGraph: {
-    title: "Who Made the Most Money During COVID?",
-    description: "City of Chicago: +942%. Freedom Care LLC: +125%. See the 100 biggest pandemic billing jumps in Medicaid data.",
+    title: "COVID Profiteers: Chicago's 942% Medicaid Billing Spike",
+    description: "Chicago went from $23M to $240M in Medicaid billing during COVID. One provider went from $0 to $2.1B. See the 100 biggest pandemic billing jumps, ranked.",
   },
 };
 

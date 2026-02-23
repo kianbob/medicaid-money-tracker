@@ -28,11 +28,11 @@ function getJCodeDescription(code: string): string {
 }
 
 export const metadata: Metadata = {
-  title: "Inside Medicaid's Most Expensive Drugs — Specialty J-Codes — Medicaid",
-  description: "50 provider-administered drugs billed through Medicaid as J-codes. The most expensive costs $92,158 per claim. Combined spending exceeds $3.5 billion.",
+  title: "$92,158 Per Claim: Medicaid's Costliest Drugs",
+  description: "50 specialty drugs billed through Medicaid as J-codes total $3.5B+. The priciest costs $92,158 per claim. Many are billed by just 1-3 providers nationwide.",
   openGraph: {
-    title: "Inside Medicaid's Most Expensive Drugs",
-    description: "50 specialty J-codes billed through Medicaid. Many cost over $10,000 per claim. Combined spending: $3.5B+.",
+    title: "$92,158 Per Claim: Medicaid's Costliest Drugs",
+    description: "50 specialty drugs billed through Medicaid as J-codes total $3.5B+. The priciest costs $92,158 per claim. Many billed by just 1-3 providers.",
   },
 };
 

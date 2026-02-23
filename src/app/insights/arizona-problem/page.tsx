@@ -28,11 +28,15 @@ const azData = azDataRaw.map((p: any) => {
 });
 
 export const metadata: Metadata = {
-  title: "The Arizona Problem — New Behavioral Health Clinics Billing Millions — Medicaid",
-  description: "46 Arizona providers that appeared in 2022+ have already billed over $800M combined. Many operated for less than a year. Phoenix and Mesa dominate.",
+  title: "46 New Arizona Clinics Billed $800M+ Then Vanished",
+  description: "Dozens of new Medicaid providers appeared in Arizona in 2022, billed $800M+ combined, and many disappeared within a year. Phoenix is ground zero.",
   openGraph: {
-    title: "The Arizona Problem: New Clinics, Massive Billing",
-    description: "46 Arizona providers appeared in 2022+ and immediately started billing millions. Combined: $800M+. Average time active: under 14 months.",
+    title: "46 New Arizona Clinics Billed $800M+ Then Vanished",
+    description: "Dozens of new Medicaid providers appeared in Arizona in 2022, billed $800M+ combined, and many disappeared within a year. Phoenix is ground zero.",
+  },
+  twitter: {
+    title: "46 New Arizona Clinics Billed $800M+ Then Vanished",
+    description: "Dozens of new Medicaid providers appeared in Arizona in 2022, billed $800M+ combined, and many disappeared within a year. Phoenix is ground zero.",
   },
 };
 

@@ -8,11 +8,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Insights — Data Stories from $1.09 Trillion in Medicaid Spending",
-  description: "Deep-dive investigations into Medicaid spending data: COVID vaccine billing, pandemic profiteers, the most expensive procedures, and more. Built from 227 million HHS records.",
+  title: "27 Investigations Into $1.09 Trillion in Medicaid",
+  description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 27 data-driven investigations built from 227M HHS records.",
   openGraph: {
-    title: "Insights",
-    description: "Deep-dive investigations into $1.09 trillion in Medicaid spending. COVID billing, pandemic profiteers, the most expensive procedures, and more.",
+    title: "27 Investigations Into $1.09 Trillion in Medicaid",
+    description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 27 data-driven investigations built from 227M HHS records.",
   },
 };
 

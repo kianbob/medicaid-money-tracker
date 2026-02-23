@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Read a Medicaid Billing Record — A Beginner's Guide",
+  title: "Read Medicaid Billing Data: Beginner Guide",
   description:
-    "Learn how to interpret Medicaid billing data. Understand NPIs, HCPCS codes, claims, beneficiaries, and what the numbers mean on provider profiles.",
+    "NPIs, HCPCS codes, cost-per-claim — what do the numbers actually mean? A 5-minute guide to reading any Medicaid provider's billing profile.",
+  openGraph: {
+    title: "Read Medicaid Billing Data: Beginner Guide",
+    description:
+      "NPIs, HCPCS codes, cost-per-claim — what do the numbers actually mean? A 5-minute guide to reading any Medicaid provider's billing profile.",
+  },
 };
 
 export default function ReadingBillingPage() {

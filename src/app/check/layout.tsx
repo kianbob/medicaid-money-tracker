@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Is My Provider Flagged? — Check Any Medicaid Provider",
+  title: "Is My Provider Flagged? \u2014 Instant Lookup",
   description:
-    "Enter a provider name or NPI number to instantly check if they've been flagged for unusual Medicaid billing patterns. Free lookup across 1,860 flagged providers.",
+    "Enter any provider name or NPI to instantly see if they've been flagged for suspicious billing. Free search across 1,860 flagged Medicaid providers.",
   openGraph: {
-    title: "Is My Provider Flagged?",
+    title: "Is My Provider Flagged? \u2014 Instant Lookup",
     description:
-      "Check if your Medicaid provider has been flagged for unusual billing patterns. Instant lookup across 227M records.",
+      "Enter any provider name or NPI to see if they've been flagged. Free instant search across 1,860 flagged Medicaid providers.",
   },
 };
 

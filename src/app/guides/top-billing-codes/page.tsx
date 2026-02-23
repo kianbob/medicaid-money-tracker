@@ -3,13 +3,13 @@ import Link from "next/link";
 import { formatMoney } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Top Medicaid Billing Codes — Highest-Spending HCPCS Codes Explained",
+  title: "10 Costliest Billing Codes ($130B+)",
   description:
-    "The most expensive Medicaid billing codes by total spending. What each code means, who bills them, and which ones carry the highest fraud risk.",
+    "One code drives $86.9B in spending alone. See the 10 priciest HCPCS codes in plain English, their fraud risk, and why T1019 dwarfs everything else.",
   openGraph: {
-    title: "Top Medicaid Billing Codes",
+    title: "10 Costliest Billing Codes ($130B+)",
     description:
-      "The highest-spending HCPCS codes in Medicaid, explained in plain English.",
+      "One code drives $86.9B in spending alone. See the 10 priciest HCPCS codes in plain English, their fraud risk, and why T1019 dwarfs everything else.",
   },
 };
 

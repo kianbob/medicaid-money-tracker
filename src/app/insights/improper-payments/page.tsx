@@ -3,11 +3,11 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "$37.4 Billion in Improper Payments: Inside Medicaid's Growing Error Rate (2025)",
-  description: "Medicaid improper payments hit $37.39 billion in FY2025 — a 6.12% error rate, up from 5.09%. Most aren't fraud, but the system's error rate keeps climbing. Analysis of 227M records.",
+  title: "$37.4B in Improper Payments: Medicaid's Error Rate Hits 6.12%",
+  description: "Medicaid's error rate jumped 20% in one year to 6.12%. Only $1.4B recovered from $37.4B in improper payments — a 3.7% recovery rate. 23 years on the GAO high-risk list.",
   openGraph: {
-    title: "$37.4 Billion in Improper Payments: Inside Medicaid's Growing Error Rate",
-    description: "Medicaid improper payments hit $37.39 billion in FY2025 — a 6.12% error rate, up from 5.09%. Most aren't fraud, but the system's error rate keeps climbing.",
+    title: "$37.4B in Improper Payments: Medicaid's Error Rate Hits 6.12%",
+    description: "Medicaid's error rate jumped 20% in one year to 6.12%. Only $1.4B recovered from $37.4B in improper payments — a 3.7% recovery rate. 23 years on the GAO high-risk list.",
   },
   keywords: ["medicaid improper payments 2025", "medicaid error rate", "medicaid waste", "medicaid fraud statistics"],
 };

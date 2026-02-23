@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import individualsData from "../../../../public/data/top-individuals.json";
 
 export const metadata: Metadata = {
-  title: "The Highest-Paid Individual Medicaid Providers — Only 2 in Top 2,000",
-  description: "Only 2 individual people appear in the top 2,000 Medicaid billers. A psychologist in Wisconsin ($77.3M) and a van transport provider in New Mexico ($76.2M).",
+  title: "Only 2 Humans in Medicaid's Top 2,000 Billers",
+  description: "Out of 2,000 top Medicaid billers, just 2 are individual people — a psychologist ($77.3M) and a van driver ($76.2M). The rest are all organizations.",
   openGraph: {
-    title: "The Highest-Paid Individual Medicaid Providers",
-    description: "Only 2 individuals in the top 2,000 billers. Almost all top Medicaid billing is by organizations, not doctors. See who they are.",
+    title: "Only 2 Humans in Medicaid's Top 2,000 Billers",
+    description: "Out of 2,000 top Medicaid billers, just 2 are individual people — a psychologist ($77.3M) and a van driver ($76.2M). The rest? All organizations.",
   },
 };
 

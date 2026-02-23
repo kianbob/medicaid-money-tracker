@@ -5,11 +5,11 @@ import { formatNumber } from "@/lib/format";
 import data from "../../../../public/data/mn-fraud-capital.json";
 
 export const metadata: Metadata = {
-  title: "Minnesota: America's Medicaid Fraud Capital",
-  description: "In December 2025, the U.S. Attorney announced Minnesota Medicaid fraud likely exceeds $9 billion across 14 programs. Minnesota has 4x its population share of fraud-heavy OIG exclusions, 78 Feeding Our Future indictments, and a DOJ strike force created just for one state.",
+  title: "Minnesota: $9B in Fraud, 78 Indictments, 1 State",
+  description: "Minnesota has 4x its population share of fraud exclusions, 81% of all US interpreter fraud, and a DOJ strike force created for one state. People fly in to commit fraud here.",
   openGraph: {
-    title: "Minnesota: America's Medicaid Fraud Capital",
-    description: "One state has 4x its population share of Medicaid fraud exclusions. Home care, transportation, and interpreter services are the epicenter.",
+    title: "Minnesota: $9B in Fraud, 78 Indictments, 1 State",
+    description: "Minnesota has 4x its population share of fraud exclusions, 81% of all US interpreter fraud, and a DOJ strike force created for one state. People fly in to commit fraud here.",
   },
 };
 

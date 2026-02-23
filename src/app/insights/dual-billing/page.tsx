@@ -7,11 +7,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "The Dual-Billing Pattern: When Claim Counts Match Too Perfectly — Medicaid",
-  description: "When a provider bills two different procedure codes with nearly identical claim counts, it may indicate systematic dual-billing. Mass DDS bills T2016 and T2023 with 82,639 vs 82,963 claims.",
+  title: "82,639 vs 82,963 Claims — The Dual-Billing Pattern",
+  description: "When two procedure codes have a 0.4% claim count difference across 82K+ services, every encounter is billed twice. We found dozens of matches worth billions.",
   openGraph: {
-    title: "The Dual-Billing Pattern: When Claim Counts Match Too Perfectly",
-    description: "82,639 claims for one code. 82,963 for another. 0.4% difference. $958M total. Is this a coincidence?",
+    title: "82,639 vs 82,963 Claims — The Dual-Billing Pattern",
+    description: "Two codes, 0.4% difference, $958M in combined billing. When claim counts match this perfectly, something is wrong.",
   },
 };
 

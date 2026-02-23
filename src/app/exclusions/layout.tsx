@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "OIG Exclusion List: 82,714 Banned Healthcare Providers",
-  description: "Explore the HHS OIG Exclusion List: 82,714 banned healthcare providers, 8,473 with NPIs, and 40 found still billing Medicaid. Search by NPI, browse by state, specialty, and exclusion type.",
+  title: "OIG Exclusion List: 82,714 Banned Providers",
+  description: "Search 82,714 providers banned by HHS OIG. 40 were found still billing Medicaid. Browse by state, specialty, and exclusion type.",
   openGraph: {
-    title: "OIG Exclusion List: 82,714 Banned Healthcare Providers",
-    description: "82,714 healthcare providers banned by the HHS Office of Inspector General. 40 found still billing Medicaid.",
+    title: "OIG Exclusion List: 82,714 Banned Providers",
+    description: "Search 82,714 providers banned by HHS OIG. 40 were found still billing Medicaid.",
   },
 };
 

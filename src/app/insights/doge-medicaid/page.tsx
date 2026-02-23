@@ -3,12 +3,12 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "DOGE vs. Medicaid: What $1.09 Trillion in Billing Data Actually Shows",
-  description: "Elon Musk's DOGE released Medicaid spending data for the public to find fraud. But OpenMedicaid already analyzed 227M records. Here's what $1.09 trillion in billing data reveals about Medicaid fraud, waste, and the $880B in proposed cuts.",
+  title: "DOGE Released Medicaid Data — We Already Analyzed It",
+  description: "DOGE wants the public to find Medicaid fraud. We already analyzed all 227M records: 1,860 flagged providers, $37.4B in improper payments, 40 billing while banned.",
   keywords: ["DOGE medicaid", "medicaid fraud waste", "medicaid spending cuts", "Elon Musk medicaid database", "DOGE medicaid data", "medicaid improper payments", "medicaid fraud detection"],
   openGraph: {
-    title: "DOGE vs. Medicaid: What $1.09 Trillion in Billing Data Actually Shows",
-    description: "DOGE released Medicaid data to crowdsource fraud detection. We already analyzed all 227M records. Here's what the data actually shows about waste, fraud, and proposed $880B in cuts.",
+    title: "DOGE Released Medicaid Data — We Already Analyzed It",
+    description: "DOGE wants crowdsourced fraud detection. We already found 1,860 flagged providers and 40 billing while banned. Here's what $1.09T in data shows.",
   },
 };
 

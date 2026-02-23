@@ -6,11 +6,11 @@ import { SpendingGrowthChart } from "@/components/Charts";
 import yearlySummary from "../../../../public/data/yearly-summary.json";
 
 export const metadata: Metadata = {
-  title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years",
-  description: "Medicaid spending grew 83% from $108.7B in 2018 to $198.8B in 2023. COVID was the turning point — 2021 alone added $30.5B. Provider counts grew from 324K to 360K.",
+  title: "Medicaid Doubled: $109B to $199B in Just 6 Years",
+  description: "Medicaid spending surged 83% from 2018 to 2023. COVID was the inflection point — 2021 alone added $30.5B. Here's the year-by-year breakdown of $1.09 trillion.",
   openGraph: {
-    title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years",
-    description: "An 83% increase in Medicaid spending over six years, driven by COVID enrollment freezes, telehealth expansion, and rising drug costs.",
+    title: "Medicaid Doubled: $109B to $199B in Just 6 Years",
+    description: "Medicaid spending surged 83% from 2018 to 2023. COVID was the inflection point — 2021 alone added $30.5B in a single year.",
   },
 };
 

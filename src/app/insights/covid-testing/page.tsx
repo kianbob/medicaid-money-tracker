@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import testingData from "../../../../public/data/covid-testing-top-billers.json";
 
 export const metadata: Metadata = {
-  title: "The $4.7 Billion COVID Testing Bonanza — Medicaid Spending Data",
-  description: "A single COVID test code billed $3.9 billion to Medicaid. LabCorp, Quest, and a New Jersey lab called Infinity Diagnostics dominated COVID testing billing.",
+  title: "1 COVID Test Code Billed $3.9B to Medicaid",
+  description: "A single test code — U0003 — billed $3.9 billion. One NJ lab billed $129M, more than Quest Diagnostics. The top 100 COVID testing billers, ranked.",
   openGraph: {
-    title: "The $4.7 Billion COVID Testing Bonanza",
-    description: "Code U0003 alone = $3.9 BILLION. LabCorp ($174M), Quest ($122M), and Infinity Diagnostics ($129M) were top billers. See the full data.",
+    title: "1 COVID Test Code Billed $3.9B to Medicaid",
+    description: "Code U0003 alone = $3.9B. A single NJ lab outbilled Quest Diagnostics at $129M. See the top 100 COVID testing billers.",
   },
 };
 

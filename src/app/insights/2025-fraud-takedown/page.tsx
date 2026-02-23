@@ -3,12 +3,16 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "The $14.6 Billion Healthcare Fraud Takedown: Lessons from 2025's Biggest Bust",
-  description: "In July 2025, the DOJ and HHS-OIG charged 324 defendants in a $14.6 billion healthcare fraud takedown — the largest enforcement action in history. But reactive enforcement alone cannot solve a $37.4 billion problem.",
+  title: "$14.6B Fraud Bust: 324 Charged, Billions Still Missing",
+  description: "The DOJ's largest-ever healthcare fraud takedown charged 324 defendants — yet $37.4B in improper payments still bleeds out yearly. Our data flagged the same patterns first.",
   keywords: "healthcare fraud takedown 2025, medicaid fraud arrests, healthcare fraud statistics, biggest healthcare fraud cases",
   openGraph: {
-    title: "The $14.6 Billion Healthcare Fraud Takedown: Lessons from 2025's Biggest Bust",
-    description: "324 defendants. $14.6 billion in intended losses. The largest healthcare fraud enforcement action in history — and why it's not enough.",
+    title: "$14.6B Fraud Bust: 324 Charged, Billions Still Missing",
+    description: "The DOJ's largest-ever healthcare fraud takedown charged 324 defendants — yet $37.4B in improper payments still bleeds out yearly. Our data flagged the same patterns first.",
+  },
+  twitter: {
+    title: "$14.6B Fraud Bust: 324 Charged, Billions Still Missing",
+    description: "The DOJ's largest-ever healthcare fraud takedown charged 324 defendants — yet $37.4B in improper payments still bleeds out yearly. Our data flagged the same patterns first.",
   },
 };
 

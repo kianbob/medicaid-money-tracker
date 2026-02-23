@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import growthData from "../../../../public/data/fastest-growing-procedures.json";
 
 export const metadata: Metadata = {
-  title: "The Procedures Growing Fastest in Medicaid — 8,935% Growth",
-  description: "One Medicaid procedure code grew 8,935% in five years. ABA therapy for autism grew 1,500%+. See the 50 fastest-growing procedures in Medicaid billing.",
+  title: "8,935% Growth: 50 Fastest-Growing Medicaid Procedures",
+  description: "One code grew 8,935% in 5 years. ABA therapy surged 1,500%+, tied to Minnesota's $100M+ autism fraud scandal. The 50 fastest-growing Medicaid procedures ranked.",
   openGraph: {
-    title: "The Procedures Growing Fastest in Medicaid",
-    description: "8,935% growth in 5 years. ABA therapy codes surged 1,500%+, connecting to Minnesota autism fraud. See the full data.",
+    title: "8,935% Growth: 50 Fastest-Growing Medicaid Procedures",
+    description: "One code: $1.8M to $166M in 5 years. ABA therapy codes surged 1,500%+, linked to MN autism fraud. See all 50.",
   },
 };
 

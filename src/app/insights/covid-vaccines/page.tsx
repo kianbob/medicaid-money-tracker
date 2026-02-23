@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import vaccineData from "../../../../public/data/covid-vaccine-top-billers.json";
 
 export const metadata: Metadata = {
-  title: "Who Got Paid the Most to Give COVID Vaccines? — Medicaid Spending Data",
-  description: "Medicaid spent $280M+ on COVID vaccines. Tribal hospitals dominate the top billers list. See which providers billed the most for COVID-19 vaccinations through Medicaid.",
+  title: "Medicaid's $280M+ COVID Vaccine Bill — Top 100 Billers",
+  description: "Tribal hospitals — not CVS or Walgreens — dominate Medicaid's top COVID vaccine billers. Shiprock Hospital billed $11.8M alone. See the full top 100 ranked.",
   openGraph: {
-    title: "Who Got Paid the Most to Give COVID Vaccines?",
-    description: "Medicaid spent $280M+ on COVID vaccines. Tribal hospitals and state agencies dominate the list. See the full data from 227M billing records.",
+    title: "Medicaid's $280M+ COVID Vaccine Bill — Top 100 Billers",
+    description: "The top COVID vaccine billers aren't who you'd expect. Tribal hospitals dominate. Shiprock Hospital: $11.8M. See all 100.",
   },
 };
 

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How Medicaid Fraud Works — Common Schemes & Detection Methods",
+  title: "6 Medicaid Fraud Schemes Exposed",
   description:
-    "An overview of common Medicaid fraud schemes, how they work, and how data analysis can detect them. Based on analysis of 227 million billing records.",
+    "Phantom billing, upcoding, kickbacks — see the 6 most common fraud schemes we found in 227M billing records and 1,860 flagged providers.",
   openGraph: {
-    title: "How Medicaid Fraud Works",
+    title: "6 Medicaid Fraud Schemes Exposed",
     description:
-      "Common Medicaid fraud schemes, red flags, and how data analysis can detect them.",
+      "Phantom billing, upcoding, kickbacks — see the 6 most common fraud schemes we found in 227M billing records and 1,860 flagged providers.",
   },
 };
 

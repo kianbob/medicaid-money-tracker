@@ -11,17 +11,17 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-headli
 
 export const metadata: Metadata = {
   title: {
-    default: "OpenMedicaid \u2014 Follow the Money",
+    default: "OpenMedicaid \u2014 $1.09 Trillion Exposed",
     template: "%s \u2014 OpenMedicaid",
   },
-  description: "Explore $1.09 trillion in Medicaid spending across 227M billing records. 1,860 providers flagged by statistical analysis and machine learning. Search providers, procedures, and states.",
+  description: "We analyzed 227M Medicaid billing records and flagged 1,860 providers for suspicious patterns. Search any provider, procedure, or state to see where your tax dollars went.",
   metadataBase: new URL("https://www.openmedicaid.org"),
   alternates: {
     canonical: "./",
   },
   openGraph: {
     title: "OpenMedicaid \u2014 $1.09 Trillion in Spending, Exposed",
-    description: "We analyzed 227 million Medicaid billing records and flagged 1,860+ providers using 13 fraud detection tests and ML analysis. See where your healthcare tax dollars go.",
+    description: "227M billing records. 1,860 providers flagged. 13 fraud tests + ML analysis reveal where $1.09T in Medicaid money actually went.",
     type: "website",
     siteName: "OpenMedicaid",
     locale: "en_US",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "OpenMedicaid \u2014 $1.09T in Spending, Exposed",
-    description: "227M Medicaid billing records. 1,860+ providers flagged via 13 fraud detection tests and ML analysis. See where your healthcare tax dollars go.",
+    description: "227M billing records. 1,860 providers flagged. 13 fraud tests + ML analysis reveal where $1.09T in Medicaid money actually went.",
   },
   robots: {
     index: true,

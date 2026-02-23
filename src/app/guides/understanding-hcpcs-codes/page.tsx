@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Understanding HCPCS Codes — What Medicaid Billing Codes Mean",
+  title: "HCPCS Codes Explained in Plain English",
   description:
-    "A guide to HCPCS codes used in Medicaid billing. Learn what the codes mean, how they're structured, and which ones are most commonly associated with fraud.",
+    "What do 10,881 Medicaid billing codes actually mean? See every category decoded plus the 5 codes most linked to fraud anomalies.",
+  openGraph: {
+    title: "HCPCS Codes Explained in Plain English",
+    description:
+      "What do 10,881 Medicaid billing codes actually mean? See every category decoded plus the 5 codes most linked to fraud anomalies.",
+  },
 };
 
 const codeCategories = [

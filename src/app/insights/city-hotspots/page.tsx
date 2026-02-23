@@ -6,11 +6,11 @@ import { CityHotspotsChart } from "@/components/Charts";
 import cityData from "../../../../public/data/city-fraud-hotspots.json";
 
 export const metadata: Metadata = {
-  title: "America's Medicaid Fraud Capitals: City-Level Analysis",
-  description: "Brooklyn NY leads the nation with 64 flagged providers and $13.7B in suspicious spending. NYC boroughs account for 111 flagged providers. Arizona cities have 71 combined.",
+  title: "Brooklyn Has 64 Fraud Flags — America's Top Hotspot",
+  description: "Brooklyn leads the U.S. with 64 flagged providers and $13.7B in suspicious Medicaid spending. NYC boroughs total 111 flags. Nashville averages $858M per provider.",
   openGraph: {
-    title: "America's Medicaid Fraud Capitals: City-Level Analysis",
-    description: "Brooklyn leads with 64 flagged providers. NYC boroughs total 111. Nashville has the highest per-provider spending at $858M each. Analysis of 227M Medicaid billing records.",
+    title: "Brooklyn Has 64 Fraud Flags — America's Top Hotspot",
+    description: "Brooklyn: 64 flags, $13.7B. NYC boroughs: 111 flags. Nashville: $858M per flagged provider. See every city ranked.",
   },
 };
 

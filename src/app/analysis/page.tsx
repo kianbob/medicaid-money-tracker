@@ -6,11 +6,11 @@ import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import mlScores from "../../../public/data/ml-scores.json";
 
 export const metadata: Metadata = {
-  title: "Methodology — How We Detect Medicaid Fraud Across 617K Providers",
-  description: "Our fraud detection methodology: 13 statistical tests across 227M claims, code-specific benchmarks, decile distributions, and OIG cross-reference. Transparent limitations and data sources.",
+  title: "How We Flagged 1,860 Providers From 227M Records",
+  description: "13 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent with known limitations.",
   openGraph: {
-    title: "Methodology",
-    description: "13 statistical tests, 227M claims, $1.09T analyzed. Code-specific fraud detection methodology, transparent limitations, and complete data source documentation.",
+    title: "How We Flagged 1,860 Providers From 227M Records",
+    description: "13 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent.",
   },
 };
 

@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import specialtyData from "../../../../public/data/specialty-breakdown.json";
 
 export const metadata: Metadata = {
-  title: "Where Does $1 Trillion in Medicaid Money Actually Go? — By Specialty",
-  description: "264 Home Health providers got $71B. Just 15 'Supports Brokerage' providers received $10.8B ($720M each). See Medicaid spending by specialty.",
+  title: "15 Providers Got $10.8B: Medicaid by Specialty",
+  description: "Just 15 'Supports Brokerage' providers received $10.8B ($720M each). 264 Home Health providers got $71B. See where $1 trillion in Medicaid actually goes.",
   openGraph: {
-    title: "Where Does $1 Trillion in Medicaid Money Actually Go?",
-    description: "Home Health: $71B from 264 providers. Supports Brokerage: $10.8B from 15 providers ($720M average). See the full specialty breakdown.",
+    title: "15 Providers Got $10.8B: Medicaid by Specialty",
+    description: "Just 15 'Supports Brokerage' providers received $10.8B ($720M each). 264 Home Health providers got $71B. The full specialty breakdown.",
   },
 };
 

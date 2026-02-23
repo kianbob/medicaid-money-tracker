@@ -3,12 +3,12 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "City of Chicago: $23M to $240M — A 942% Medicaid Billing Surge",
+  title: "Chicago Billed $1.23B to Medicaid — 3 Fraud Flags",
   description:
-    "Deep dive into the City of Chicago's Medicaid billing (NPI 1376554592), which surged 942% from $23M to $240M. Three independent fraud detection flags triggered.",
+    "Chicago's ambulance billing surged 942% from $23M to $240M. At $1,611 per claim — 10x the national median — 3 independent fraud tests triggered. See the full timeline.",
   openGraph: {
-    title: "City of Chicago: 942% Medicaid Billing Surge",
-    description: "$23M to $240M. Three fraud flags. The full breakdown.",
+    title: "Chicago Billed $1.23B to Medicaid — 3 Fraud Flags",
+    description: "$23M to $240M in 2 years. $1,611 per ambulance claim vs $163 national median. 3 fraud flags triggered.",
   },
 };
 

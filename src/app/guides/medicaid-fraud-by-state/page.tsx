@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Medicaid Fraud by State — Which States Have the Most Red Flags?",
+  title: "Medicaid Fraud by State: All 50 Ranked",
   description:
-    "State-by-state breakdown of Medicaid fraud signals. See which states have the most flagged providers, highest per-capita rates, and biggest spending anomalies.",
+    "NY leads with 159 fraud flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
+  openGraph: {
+    title: "Medicaid Fraud by State: All 50 Ranked",
+    description:
+      "NY leads with 159 fraud flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
+  },
 };
 
 const stateData = [

@@ -7,11 +7,15 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "When the Numbers Don't Add Up: Benford's Law Analysis — Medicaid",
-  description: "Benford's Law predicts the leading digit distribution in natural financial data. We tested 617K Medicaid providers' claim amounts. 200 providers show the highest statistical deviations.",
+  title: "We Tested 617K Providers Against Benford's Law",
+  description: "Fabricated financial data breaks Benford's Law. We tested every Medicaid provider's billing — 200 showed the most extreme deviations from natural number patterns.",
   openGraph: {
-    title: "Benford's Law: 200 Medicaid Providers With Unnatural Billing Patterns",
-    description: "Real financial data follows Benford's Law. Fabricated data often doesn't. We tested 617K providers — these 200 deviate the most.",
+    title: "We Tested 617K Providers Against Benford's Law",
+    description: "Fabricated financial data breaks Benford's Law. We tested every Medicaid provider's billing — 200 showed the most extreme deviations from natural number patterns.",
+  },
+  twitter: {
+    title: "We Tested 617K Providers Against Benford's Law",
+    description: "Fabricated financial data breaks Benford's Law. We tested every Medicaid provider's billing — 200 showed the most extreme deviations from natural number patterns.",
   },
 };
 

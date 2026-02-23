@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Compare Medicaid Providers",
-  description: "Compare up to 3 Medicaid providers side by side. View total spending, claims, beneficiaries, cost per claim, fraud flags, and yearly trends.",
+  title: "Compare Medicaid Providers Side by Side",
+  description: "Put any 3 providers head to head. Compare spending, claims per patient, cost per claim, fraud flags, and yearly billing trends from 227M records.",
   openGraph: {
-    title: "Compare Medicaid Providers",
-    description: "Compare up to 3 Medicaid providers side by side. View spending, claims, and fraud risk data.",
+    title: "Compare Medicaid Providers Side by Side",
+    description: "Put any 3 providers head to head. Compare spending, claims per patient, cost per claim, fraud flags, and yearly billing trends.",
   },
 };
 

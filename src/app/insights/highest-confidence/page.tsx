@@ -7,11 +7,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Multi-Method Detection: Providers Flagged by Multiple Independent Systems — Medicaid",
-  description: "246 providers were flagged by 2+ independent detection systems — statistical tests, Benford's Law, billing velocity, and change point detection. When multiple methods agree, false positive probability drops dramatically.",
+  title: "246 Providers Flagged by Multiple Fraud Detection Systems",
+  description: "When statistical tests, Benford's Law, and billing velocity all flag the same provider, false positive odds drop to 0.1%. These 246 are our highest-confidence anomalies.",
   openGraph: {
-    title: "Highest Confidence Flags: Multi-Method Detection in Medicaid",
-    description: "These providers were flagged by multiple independent fraud detection systems. When different approaches all point to the same provider, the probability of a false positive drops dramatically.",
+    title: "246 Providers Flagged by Multiple Fraud Detection Systems",
+    description: "When statistical tests, Benford's Law, and billing velocity all flag the same provider, false positive odds drop to 0.1%. These 246 are our highest-confidence anomalies.",
   },
 };
 

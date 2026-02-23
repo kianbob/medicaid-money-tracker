@@ -7,11 +7,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "The Providers Who Bill Exactly the Same Amount Every Month — Medicaid",
-  description: "14 providers billing $100K+/month maintain less than 5% variation over years. The smoothest: Senior Resources of West Michigan, CV=0.03, ~$379K/month for 83 months.",
+  title: "14 Providers Bill the Exact Same Amount Every Month",
+  description: "These 14 providers billing $100K+/month maintain under 5% variation for years. One billed ~$379K/month for 83 straight months. Normal practices vary 15-40%.",
   openGraph: {
-    title: "14 Providers Bill Like Clockwork — Is That Normal?",
-    description: "Real medical practices have natural variation. These providers maintain under 5% monthly variation for years. The smoothest has a CV of 0.03.",
+    title: "14 Providers Bill the Exact Same Amount Every Month",
+    description: "These 14 providers billing $100K+/month maintain under 5% variation for years. One billed ~$379K/month for 83 straight months.",
   },
 };
 

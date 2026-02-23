@@ -3,12 +3,16 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "CARES INC: From $1.6M to $112.6M — A 6,886% Billing Explosion",
+  title: "One Provider's 6,886% Billing Surge to $1 Billion",
   description:
-    "Deep dive into CARES INC (NPI 1396049987), a New York case management provider whose Medicaid billing exploded 6,886% in a single year. Seven independent fraud flags triggered.",
+    "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Seven independent fraud flags triggered. Here's every red flag the data reveals.",
   openGraph: {
-    title: "CARES INC: A 6,886% Billing Explosion",
-    description: "From $1.6M to $112.6M in one year. Seven fraud flags. The full story.",
+    title: "One Provider's 6,886% Billing Surge to $1 Billion",
+    description: "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Seven independent fraud flags triggered. Here's every red flag the data reveals.",
+  },
+  twitter: {
+    title: "One Provider's 6,886% Billing Surge to $1 Billion",
+    description: "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Seven independent fraud flags triggered. Here's every red flag the data reveals.",
   },
 };
 

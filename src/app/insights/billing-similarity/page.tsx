@@ -6,11 +6,15 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Copycat Billers: Providers With Nearly Identical Patterns — Medicaid",
-  description: "When two independent Medicaid providers have >95% cosine similarity in billing patterns, it raises questions. We found 246 pairs among the 150 most-flagged providers.",
+  title: "67 Provider Pairs Bill in 100% Identical Patterns",
+  description: "246 pairs of flagged Medicaid providers share 95%+ billing similarity. 67 pairs are perfect 100% matches — same codes, same proportions, different NPIs.",
   openGraph: {
-    title: "Copycat Billers: Providers With Nearly Identical Billing Patterns",
-    description: "246 pairs of Medicaid providers have >95% cosine similarity in their billing patterns. 67 pairs match at 100%.",
+    title: "67 Provider Pairs Bill in 100% Identical Patterns",
+    description: "246 pairs of flagged Medicaid providers share 95%+ billing similarity. 67 pairs are perfect 100% matches — same codes, same proportions, different NPIs.",
+  },
+  twitter: {
+    title: "67 Provider Pairs Bill in 100% Identical Patterns",
+    description: "246 pairs of flagged Medicaid providers share 95%+ billing similarity. 67 pairs are perfect 100% matches — same codes, same proportions, different NPIs.",
   },
 };
 

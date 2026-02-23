@@ -5,11 +5,15 @@ import matchedData from "../../../../public/data/leie-matched.json";
 import leieData from "../../../../public/data/leie-data.json";
 
 export const metadata: Metadata = {
-  title: "Banned But Still Billing? Excluded Providers Found in Medicaid Data",
-  description: "40 healthcare providers appearing in Medicaid billing data are also on the OIG's federal exclusion list. Billing while excluded is a federal offense. Here's what we found.",
+  title: "40 Banned Providers Still Showing Up in Medicaid Data",
+  description: "We cross-referenced 78K+ federally excluded providers against Medicaid billing records. 40 matches appeared — billing while banned is a federal crime.",
   openGraph: {
-    title: "Banned But Still Billing? Excluded Providers in Medicaid Data",
-    description: "Our analysis found 40 providers in Medicaid billing data who appear on the federal OIG exclusion list. Program-related crimes are the most common reason.",
+    title: "40 Banned Providers Still Showing Up in Medicaid Data",
+    description: "We cross-referenced 78K+ federally excluded providers against Medicaid billing records. 40 matches appeared — billing while banned is a federal crime.",
+  },
+  twitter: {
+    title: "40 Banned Providers Still Showing Up in Medicaid Data",
+    description: "We cross-referenced 78K+ federally excluded providers against Medicaid billing records. 40 matches appeared — billing while banned is a federal crime.",
   },
 };
 

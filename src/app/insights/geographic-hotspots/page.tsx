@@ -5,11 +5,11 @@ import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import geoData from "../../../../public/data/geographic-risk.json";
 
 export const metadata: Metadata = {
-  title: "Geographic Risk Hotspots — Where Fraud Signals Concentrate — Medicaid",
-  description: "Some states have disproportionately more fraud signals per resident. Vermont, DC, and Maine lead per capita. New York leads in total flags. Analysis of 227M Medicaid billing records.",
+  title: "Fraud Flags Per Capita: Vermont Tops Every State",
+  description: "Vermont has 1.08 fraud flags per 100K residents — 2x New York's rate. NY leads in total flags (114). We ranked all 50 states by fraud signal density.",
   openGraph: {
-    title: "Geographic Risk Hotspots: Where Fraud Signals Concentrate",
-    description: "We normalized flagged provider counts by population to find where suspicious billing concentrates. Vermont (1.08 per 100K), DC (1.03), and Maine (1.00) lead per capita.",
+    title: "Fraud Flags Per Capita: Vermont Tops Every State",
+    description: "Vermont: 1.08 flags per 100K. DC: 1.03. Maine: 1.00. NY leads in total flags at 114. See all 50 states ranked by fraud density.",
   },
 };
 

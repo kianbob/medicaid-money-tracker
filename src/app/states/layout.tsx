@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending by State \u2014 All 50 States",
-  description: "Medicaid provider spending across all 50 states, ranked by total payments. New York leads at $81.1B. See top providers, procedures, and yearly trends for each state.",
+  title: "Medicaid by State \u2014 NY Leads at $81B",
+  description: "New York spent $81B, California $37B. See how all 50 states rank in Medicaid payments, who their top providers are, and where the money actually goes.",
   openGraph: {
-    title: "Medicaid Spending by State \u2014 All 50 States",
-    description: "State-by-state breakdown of Medicaid provider spending. New York leads with $81.1B, followed by California at $36.8B.",
+    title: "Medicaid by State \u2014 NY Leads at $81B",
+    description: "New York spent $81B, California $37B. See how all 50 states rank in Medicaid payments, who their top providers are, and where the money actually goes.",
   },
 };
 

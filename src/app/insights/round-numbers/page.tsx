@@ -7,11 +7,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Round Number Billing: When Every Claim Ends in Zeros",
-  description: "100 Medicaid providers show heavy round-number billing patterns — nearly 68,000 claims at exact round dollar amounts totaling $128M. Legitimate billing rarely produces perfectly round numbers.",
+  title: "68,000 Claims at Exact Round Dollars: $128M Red Flag",
+  description: "100 Medicaid providers bill $128M in perfectly round amounts — $500, $1,000, $2,500. Real fee schedules almost never produce round numbers. We found 68,000 suspicious claims.",
   openGraph: {
-    title: "Round Number Billing: When Every Claim Ends in Zeros",
-    description: "100 providers with heavy round-number billing patterns. Nearly 68,000 claims at exact round dollar amounts totaling $128M.",
+    title: "68,000 Claims at Exact Round Dollars: $128M Red Flag",
+    description: "100 Medicaid providers bill $128M in perfectly round amounts — $500, $1,000, $2,500. Real fee schedules almost never produce round numbers.",
   },
 };
 

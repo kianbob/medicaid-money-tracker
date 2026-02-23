@@ -5,11 +5,11 @@ import RelatedInsights from "@/components/RelatedInsights";
 import expensiveData from "../../../../public/data/most-expensive-procedures.json";
 
 export const metadata: Metadata = {
-  title: "The Most Expensive Things Medicaid Pays For — Per-Claim Costs",
-  description: "One procedure costs $92,158 per claim — it's a drug for spinal muscular atrophy. See the 50 most expensive per-claim procedures in Medicaid.",
+  title: "$92,158 Per Claim: Medicaid's 50 Most Expensive Procedures",
+  description: "One injection costs $92,158. A hemophilia drug runs $500K/year. These 50 procedures cost more per claim than most Americans earn in a year. Full ranked list.",
   openGraph: {
-    title: "The Most Expensive Things Medicaid Pays For",
-    description: "$92,158 PER CLAIM. That's what Medicaid pays for one injection of Spinraza. See the 50 most expensive procedures.",
+    title: "$92,158 Per Claim: Medicaid's 50 Most Expensive Procedures",
+    description: "One injection costs $92,158. A hemophilia drug runs $500K/year. These 50 procedures cost more per claim than most Americans earn in a year. Full ranked list.",
   },
 };
 

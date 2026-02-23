@@ -2,11 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Download Medicaid Data",
-  description: "Download Medicaid spending data including risk watchlists, ML fraud scores, top providers, state summaries, and procedure benchmarks. All data derived from HHS Open Data.",
+  title: "Free Medicaid Data Downloads (JSON)",
+  description:
+    "Download 880 flagged providers, ML fraud scores, 10K+ procedure benchmarks, and 50-state summaries free. Built from 227M billing records.",
   openGraph: {
-    title: "Download Medicaid Data",
-    description: "Download risk watchlists, ML scores, provider data, and procedure benchmarks from our analysis of 227M Medicaid billing records.",
+    title: "Free Medicaid Data Downloads (JSON)",
+    description:
+      "Download 880 flagged providers, ML fraud scores, 10K+ procedure benchmarks, and 50-state summaries free. Built from 227M billing records.",
   },
 };
 

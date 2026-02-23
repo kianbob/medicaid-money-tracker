@@ -5,11 +5,15 @@ import { formatMoney } from "@/lib/format";
 import changePointData from "../../../../public/data/change-points.json";
 
 export const metadata: Metadata = {
-  title: "Billing Behavior Shifts: When Providers Suddenly Change — Medicaid",
-  description: "CUSUM change point detection identifies the exact month a provider's billing dramatically shifted. 170 providers showed 3x+ increases or decreases in monthly billing.",
+  title: "7,314 Providers Changed Billing 3x+ Overnight",
+  description: "We pinpointed the exact month each provider's billing dramatically shifted. The biggest jump: 113x. Most changes clustered around pandemic-era policy shifts.",
   openGraph: {
-    title: "Billing Behavior Shifts: When Providers Suddenly Change",
-    description: "CUSUM change point detection found 170 providers whose monthly billing shifted 3x+ overnight. The biggest jump: 113x.",
+    title: "7,314 Providers Changed Billing 3x+ Overnight",
+    description: "We pinpointed the exact month each provider's billing dramatically shifted. The biggest jump: 113x. Most changes clustered around pandemic-era policy shifts.",
+  },
+  twitter: {
+    title: "7,314 Providers Changed Billing 3x+ Overnight",
+    description: "We pinpointed the exact month each provider's billing dramatically shifted. The biggest jump: 113x. Most changes clustered around pandemic-era policy shifts.",
   },
 };
 
