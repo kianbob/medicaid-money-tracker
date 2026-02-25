@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from 'next/navigation'
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, formatCpc, hcpcsDescription } from "@/lib/format";
 import allProcedures from "../../../../public/data/all-procedures.json";
@@ -114,42 +115,7 @@ export default function ProcedureDetailPage({ params }: Props) {
   const desc = hcpcsDescription(params.code);
 
   if (!proc) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-16">
-        <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
-          <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
-          <span className="mx-1.5">/</span>
-          <Link href="/procedures" className="hover:text-blue-400 transition-colors">Procedures</Link>
-          <span className="mx-1.5">/</span>
-          <span className="text-slate-300">{params.code}</span>
-        </nav>
-
-        <h1 className="font-headline text-2xl md:text-3xl font-bold text-white mb-4">
-          Procedure <span className="font-mono">{params.code}</span> &mdash; No Data Available
-        </h1>
-        <p className="text-slate-400 leading-relaxed mb-8">
-          This HCPCS code was not found in the Medicaid provider spending dataset (2018&ndash;2024).
-          It may be a valid code but wasn&apos;t billed through Medicaid during this period.
-        </p>
-
-        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
-          <h2 className="text-sm font-bold text-white mb-2">Try searching for a different code</h2>
-          <p className="text-sm text-slate-400 mb-4">
-            Our dataset covers {formatNumber((allProcedures as any[]).length)} procedure codes billed through Medicaid.
-          </p>
-          <Link
-            href="/procedures"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
-            Browse Available Procedures &rarr;
-          </Link>
-        </div>
-
-        <Link href="/procedures" className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
-          &larr; Back to all procedures
-        </Link>
-      </div>
-    );
+    notFound()
   }
 
   const avgPerClaim = proc.totalClaims > 0 ? proc.totalPaid / proc.totalClaims : 0;

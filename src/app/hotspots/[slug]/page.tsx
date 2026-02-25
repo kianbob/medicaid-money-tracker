@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from 'next/navigation'
 import type { Metadata } from "next";
 import { formatMoney } from "@/lib/format";
 import hotspots from "../../../../public/data/city-fraud-hotspots.json";
@@ -43,14 +44,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default function CityHotspotPage({ params }: { params: { slug: string } }) {
   const city = slugMap.get(params.slug);
   if (!city) {
-    return (
-      <main className="max-w-4xl mx-auto px-4 py-10">
-        <h1 className="text-2xl font-serif text-white">City not found</h1>
-        <Link href="/hotspots" className="text-red-400 hover:text-red-300 mt-4 inline-block">
-          ← Back to Hotspots
-        </Link>
-      </main>
-    );
+    notFound()
   }
 
   const rank = [...data].sort((a, b) => b.flaggedCount - a.flaggedCount).findIndex((c) => c.city === city.city) + 1;

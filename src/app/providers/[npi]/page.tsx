@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, formatMoneyFull, formatCpc, riskLabel, riskColor, riskDot, riskBgColor, getFlagInfo, parseFlags, hcpcsDescription, stateName, decileColor, decileBgColor } from "@/lib/format";
 import { MonthlySpendingChart } from "@/components/Charts";
@@ -239,19 +240,9 @@ export default function ProviderPage({ params }: Props) {
     ],
   };
 
-  // Not found — but we show a graceful message for providers outside top 1000
+  // Not found — proper 404 for providers with no data
   if (!detail && !providerEntry && !smartEntry) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-12 text-center">
-        <h1 className="font-headline text-3xl font-bold text-white mb-4">Limited Data Available</h1>
-        <p className="text-slate-400 mb-2">This provider ranks outside our top analyzed providers. Limited data available.</p>
-        <p className="text-slate-500 text-sm mb-6">NPI {npi} is not in our top 10,000 by total spending. Browse our top providers or search by state for more coverage.</p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <Link href="/providers" className="text-blue-400 hover:underline font-medium">&larr; Browse top 1,000 providers</Link>
-          <Link href="/states" className="text-blue-400 hover:underline font-medium">Explore by state &rarr;</Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   // Has some data but no detail file

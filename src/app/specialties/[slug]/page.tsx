@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from 'next/navigation'
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, formatMoneyFull } from "@/lib/format";
 import specialtiesIndex from "../../../../public/data/specialties.json";
@@ -43,14 +44,7 @@ export default function SpecialtyDetailPage({ params }: Props) {
   const indexEntry = (specialtiesIndex as any[]).find((s: any) => s.slug === params.slug);
 
   if (!detail && !indexEntry) {
-    return (
-      <div className="min-h-screen bg-dark-900 text-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="font-serif text-3xl font-bold mb-4">Specialty Not Found</h1>
-          <Link href="/specialties" className="text-blue-400 hover:text-blue-300">← Browse All Specialties</Link>
-        </div>
-      </div>
-    );
+    notFound()
   }
 
   const name = detail?.name || indexEntry?.name || params.slug;

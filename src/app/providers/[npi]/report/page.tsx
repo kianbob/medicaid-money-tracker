@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, formatMoneyFull, formatCpc, getFlagInfo, parseFlags, hcpcsDescription, stateName } from "@/lib/format";
 import PrintButton from "@/components/PrintButton";
@@ -177,13 +178,7 @@ export default function ProviderReportPage({ params }: Props) {
 
   // Not found
   if (!detail && !providerEntry && !smartEntry) {
-    return (
-      <div className="report-page bg-white min-h-screen p-8 text-black">
-        <h1 className="text-2xl font-bold mb-4">Provider Not Found</h1>
-        <p className="text-gray-600">NPI {npi} is not in our analyzed dataset.</p>
-        <Link href={`/providers/${npi}`} className="text-blue-600 underline mt-4 inline-block print-hide">Back to provider page</Link>
-      </div>
-    );
+    notFound()
   }
 
   return (

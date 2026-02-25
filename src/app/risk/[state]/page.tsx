@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from 'next/navigation'
 import type { Metadata } from "next";
 import { formatMoney, stateName } from "@/lib/format";
 import geoRisk from "../../../../public/data/geographic-risk.json";
@@ -47,14 +48,7 @@ export default function StateRiskPage({ params }: { params: { state: string } })
   const name = stateName(params.state);
 
   if (!st) {
-    return (
-      <main className="max-w-4xl mx-auto px-4 py-10">
-        <h1 className="text-2xl font-serif text-white">State not found</h1>
-        <Link href="/states" className="text-blue-400 hover:text-blue-300 mt-4 inline-block">
-          ← All States
-        </Link>
-      </main>
-    );
+    notFound()
   }
 
   const rank = [...data].sort((a, b) => b.flagsPerCapita - a.flagsPerCapita).findIndex((r) => r.state === st.state) + 1;

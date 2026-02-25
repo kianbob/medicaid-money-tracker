@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from 'next/navigation'
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, stateName, hcpcsDescription, getFlagInfo, riskColor, riskBgColor } from "@/lib/format";
 import { StateSpendingChart, StateProcedurePieChart } from "@/components/Charts";
@@ -59,13 +60,7 @@ export default function StateDetailPage({ params }: Props) {
   const summaryEntry = (statesSummary as any[]).find((s: any) => s.state === code);
 
   if (!stateData && !summaryEntry) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-12 text-center">
-        <h1 className="font-headline text-3xl font-bold text-white mb-4">State Not Found</h1>
-        <p className="text-slate-400 mb-4">No data available for state code &ldquo;{code}&rdquo;.</p>
-        <Link href="/states" className="text-blue-400 hover:underline font-medium">&larr; Back to states</Link>
-      </div>
-    );
+    notFound()
   }
 
   const summary = stateData?.summary || summaryEntry || {};
