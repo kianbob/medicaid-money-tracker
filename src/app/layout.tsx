@@ -240,6 +240,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <a href="https://www.openmedicare.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenMedicare — Medicare Spending ↗</a>
                   <a href="https://www.openfeds.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenFeds — Federal Workforce ↗</a>
                   <a href="https://www.openspending.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenSpending — Federal Spending ↗</a>
+                <a href="https://www.openimmigration.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenImmigration — Immigration Courts ↗</a>
                 <a href="https://www.openlobby.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenLobby — Federal Lobbying ↗</a>
                 <a href="https://www.vaccinewatch.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">VaccineWatch — Vaccine Safety ↗</a>
                 </div>
