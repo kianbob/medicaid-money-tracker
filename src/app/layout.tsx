@@ -245,6 +245,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <a href="https://www.vaccinewatch.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">VaccineWatch — Vaccine Safety ↗</a>
                 <a href="https://www.opensubsidies.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenSubsidies — Farm Subsidies ↗</a>
                 <a href="https://www.warcosts.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">WarCosts — War Spending ↗</a>
+                <a href="https://www.openprescriber.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenPrescriber — Medicare Part D ↗</a>
                 </div>
                 <p className="font-semibold text-slate-300 mb-3 mt-5 text-xs uppercase tracking-wider">Help</p>
                 <div className="space-y-2">
