@@ -58,7 +58,7 @@ export default function Home() {
             We analyzed every Medicaid billing record released by HHS &mdash; and ran{" "}
             <span className="text-white font-medium">code-specific fraud detection</span> across 617,000+ providers.{" "}
             <span className="text-white font-medium">{watchlistCount} providers</span> raised red flags &mdash; collectively billing{" "}
-            <span className="text-white font-medium">$229.6 billion</span> in taxpayer funds.
+            <span className="text-white font-medium">$226.2 billion</span> in taxpayer funds.
           </p>
           <p className="text-sm text-slate-500 mb-6">Built for journalists, researchers, taxpayers, and anyone who thinks $1 trillion in government spending deserves scrutiny.</p>
           <div className="flex flex-wrap gap-3">
@@ -87,7 +87,7 @@ export default function Home() {
             { label: "Billing Records", value: formatNumber(stats.records), sub: "Individual claims", color: "text-blue-400" },
             { label: "Providers Analyzed", value: formatNumber(stats.providers), sub: "Unique NPIs", color: "text-slate-300" },
             { label: "Flagged Providers", value: String(watchlistCount), sub: "statistical + ML analysis", color: "text-red-400" },
-            { label: "Flagged Spending", value: "$229.6B", sub: "billed by flagged providers", color: "text-amber-400" },
+            { label: "Flagged Spending", value: "$226.2B", sub: "billed by flagged providers", color: "text-amber-400" },
           ].map((stat) => (
             <div key={stat.label} className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 hover:border-dark-400 transition-colors">
               <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">{stat.label}</p>
@@ -173,11 +173,11 @@ export default function Home() {
         </div>
         <div className="space-y-2">
           {[
-            { name: "Cares Inc", npi: "1396049987", city: "New York", state: "NY", flags: 7, totalPaid: 1040000000 },
-            { name: "Consumer Direct Care Network Virginia", npi: "1538649983", city: "Missoula", state: "MT", flags: 3, totalPaid: 2110000000 },
-            { name: "City of Chicago", npi: "1376554592", city: "Chicago", state: "IL", flags: 3, totalPaid: 1230000000 },
-            { name: "Dept of Intellectual and Dev Disabilities, TN", npi: "1356709976", city: "Nashville", state: "TN", flags: 3, totalPaid: 1450000000 },
-            { name: "Commonwealth of Massachusetts", npi: "1518096411", city: "Beverly", state: "MA", flags: 3, totalPaid: 1140000000 },
+            { name: "Cares Inc", npi: "1396049987", city: "New York", state: "NY", flags: 3, totalPaid: 1042893317 },
+            { name: "Consumer Direct Care Network Virginia", npi: "1538649983", city: "Missoula", state: "MT", flags: 1, totalPaid: 2105798329 },
+            { name: "City of Chicago", npi: "1376554592", city: "Chicago", state: "IL", flags: 3, totalPaid: 1225040114 },
+            { name: "Dept of Intellectual and Dev Disabilities, TN", npi: "1356709976", city: "Nashville", state: "TN", flags: 2, totalPaid: 1452536495 },
+            { name: "Commonwealth of Massachusetts", npi: "1518096411", city: "Beverly", state: "MA", flags: 2, totalPaid: 1143418621 },
           ].map((p, i) => (
             <Link key={p.npi} href={`/providers/${p.npi}`}
               className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:bg-dark-700 hover:border-dark-400 transition-all group">

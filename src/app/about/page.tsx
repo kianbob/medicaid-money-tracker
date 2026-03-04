@@ -65,7 +65,7 @@ export default function AboutPage() {
             We built OpenMedicaid to make this data permanently accessible &mdash; not as a one-time blog post,
             but as a searchable resource where journalists, researchers, and taxpayers can explore how
             $1.09 trillion of their money was spent. Our fraud detection system flagged 1,860 providers who collectively
-            billed <strong className="text-white">$229.6 billion</strong> &mdash; over 21% of all Medicaid spending in the dataset. Medicaid is the single largest line item in most state budgets, 
+            billed <strong className="text-white">$226.2 billion</strong> &mdash; over 20% of all Medicaid spending in the dataset. Medicaid is the single largest line item in most state budgets, 
             yet most people have no idea where the money goes or how much is lost to waste and fraud.
           </p>
         </section>

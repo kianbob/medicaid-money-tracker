@@ -76,7 +76,7 @@ export default function DogeMedicaid() {
         <p>
           Here&apos;s the thing: <strong className="text-white">we&apos;ve already been doing this</strong>. OpenMedicaid has analyzed every publicly available
           CMS billing record — <Link href="/providers" className="text-blue-400 hover:text-blue-300">227 million line items</Link> representing
-          $1.09 trillion in Medicaid spending across 1.2 million providers. We built{" "}
+          $1.09 trillion in Medicaid spending across 617,000+ providers. We built{" "}
           <Link href="/ml-analysis" className="text-blue-400 hover:text-blue-300">machine learning models</Link>,{" "}
           <Link href="/insights/benford-analysis" className="text-blue-400 hover:text-blue-300">statistical anomaly detection</Link>,{" "}
           and <Link href="/insights/billing-networks" className="text-blue-400 hover:text-blue-300">network analysis tools</Link> to
@@ -136,7 +136,7 @@ export default function DogeMedicaid() {
         <p>
           Our own analysis backs this up. Across 227 million records, we&apos;ve{" "}
           <Link href="/watchlist" className="text-blue-400 hover:text-blue-300">flagged 1,860 providers</Link> billing
-          a combined <strong className="text-white">$229.6 billion</strong> using multiple independent detection methods — statistical anomalies,
+          a combined <strong className="text-white">$226.2 billion</strong> using multiple independent detection methods — statistical anomalies,
           impossible billing volumes, Benford&apos;s Law violations, and sudden behavior changes. More alarmingly, we
           found <Link href="/insights/banned-but-billing" className="text-blue-400 hover:text-blue-300">40 providers actively billing
           Medicaid while on the federal OIG exclusion list</Link>. That&apos;s not a gray area — billing while federally
@@ -160,7 +160,7 @@ export default function DogeMedicaid() {
           Our analysis shows that fraud and waste are highly concentrated. The{" "}
           <Link href="/insights/highest-confidence" className="text-blue-400 hover:text-blue-300">highest-confidence fraud signals</Link>{" "}
           cluster in specific states, specific provider types, and specific billing codes. It&apos;s not evenly distributed
-          across the program. Blanket cuts don&apos;t target the $229.6 billion flowing through our 1,860 flagged providers
+          across the program. Blanket cuts don&apos;t target the $226.2 billion flowing through our 1,860 flagged providers
           — they hit the entire program, including the roughly 90 million Americans who depend on Medicaid for
           healthcare.
         </p>
