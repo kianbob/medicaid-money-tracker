@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { formatMoney, formatNumber, formatCpc, flagLabel, flagColor, getFlagInfo, hcpcsDescription } from "@/lib/format";
 import { RiskTierChart } from "@/components/Charts";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
+// NOTE: expanded-watchlist has a 200-per-flag-type cap from data generation
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import providersData from "../../../public/data/top-providers-1000.json";
 import mlScores from "../../../public/data/ml-scores.json";
@@ -52,8 +53,7 @@ function tierTextColor(tier: UnifiedTier): string {
 }
 
 // ── Build ML score & data lookup ────────────────────────────────
-const mlAllProviders = (((mlScores as any).topProviders || []) as any[])
-  .concat(((mlScores as any).smallProviderFlags || []) as any[]);
+const mlAllProviders = (((mlScores as any).topProviders || []) as any[]);
 
 const mlLookup = new Map<string, number>(
   mlAllProviders.map((p: any) => [p.npi, p.mlScore])
@@ -839,7 +839,7 @@ function WatchlistContent() {
           </Link>
           <Link href="/insights/highest-confidence" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-amber-500/20 transition-all group">
             <p className="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors mb-1">Highest-Confidence Flags</p>
-            <p className="text-xs text-slate-500 leading-relaxed">Providers flagged by the most independent fraud indicators.</p>
+            <p className="text-xs text-slate-500 leading-relaxed">Providers flagged by the most independent risk indicators.</p>
             <p className="text-xs text-amber-400 mt-2 font-medium">Read investigation &rarr;</p>
           </Link>
           <Link href="/ml-analysis" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-purple-500/20 transition-all group">

@@ -18,8 +18,7 @@ const riskTierConfig: Record<RiskTier, { dot: string; label: string }> = {
 };
 
 function buildRiskLookup(): Map<string, RiskTier> {
-  const mlAll = (((mlScores as any).topProviders || []) as any[])
-    .concat(((mlScores as any).smallProviderFlags || []) as any[]);
+  const mlAll = (((mlScores as any).topProviders || []) as any[]);
   const mlMap = new Map<string, number>(mlAll.map((p: any) => [p.npi, p.mlScore]));
 
   const flagMap = new Map<string, number>();

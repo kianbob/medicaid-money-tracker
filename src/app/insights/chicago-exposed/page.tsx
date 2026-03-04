@@ -5,7 +5,7 @@ import RelatedInsights from "@/components/RelatedInsights";
 export const metadata: Metadata = {
   title: "Chicago Billed $1.23B to Medicaid — 3 Risk Flags",
   description:
-    "Chicago's ambulance billing surged 942% from $23M to $240M. At $1,611 per claim — 10x the national median — 3 independent fraud tests triggered. See the full timeline.",
+    "Chicago's ambulance billing surged 942% from $23M to $240M. At $1,611 per claim — 10x the national median — 3 independent risk tests triggered. See the full timeline.",
   openGraph: {
     title: "Chicago Billed $1.23B to Medicaid — 3 Risk Flags",
     description: "$23M to $240M in 2 years. $1,611 per ambulance claim vs $163 national median. 3 risk flags triggered.",

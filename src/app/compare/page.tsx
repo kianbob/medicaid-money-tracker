@@ -35,8 +35,7 @@ interface ProviderDetail {
 const COLORS = ["#3b82f6", "#a855f7", "#f59e0b"];
 
 // Build ML score lookup
-const mlAll = (((mlScores as any).topProviders || []) as any[])
-  .concat(((mlScores as any).smallProviderFlags || []) as any[]);
+const mlAll = (((mlScores as any).topProviders || []) as any[]);
 const mlMap = new Map<string, number>(mlAll.map((p: any) => [p.npi, p.mlScore]));
 
 export default function ComparePage() {

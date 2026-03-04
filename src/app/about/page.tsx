@@ -140,7 +140,7 @@ export default function AboutPage() {
           <h2 id="legacy-methodology-heading" className="text-xl font-bold text-white mb-2">Legacy Fraud Tests (Supplementary)</h2>
           <p className="text-sm text-slate-300 leading-relaxed mb-6">
             These 9 additional tests from our earlier analysis remain active. Providers flagged by these tests
-            are included in the combined watchlist.
+            are included in the combined watchlist. Note: the expanded watchlist shows up to 200 providers per flag category due to data generation limits.
           </p>
           <div className="space-y-3">
             {legacyTests.map((test, i) => {

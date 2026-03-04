@@ -127,8 +127,7 @@ export default function ProviderReportPage({ params }: Props) {
   const monthly = detail?.monthly || [];
 
   // ML Score lookup
-  const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi)
-    || ((mlScores as any).smallProviderFlags as any[])?.find((p: any) => p.npi === npi);
+  const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi);
   const mlScore = mlEntry?.mlScore ?? null;
 
   // Merge flags

@@ -232,6 +232,29 @@ export default function MlAnalysisPage() {
         </div>
       </div>
 
+      {/* Model Performance & Limitations */}
+      <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
+        <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-3">Model Performance &amp; Limitations</h3>
+        <p className="text-sm text-slate-300 leading-relaxed mb-3">
+          AUC of 0.7762 indicates moderate discriminative ability. The model is better than random chance but should be
+          considered a screening tool, not definitive evidence. We are working to improve model performance through
+          additional features and refined training data.
+        </p>
+        <p className="text-sm text-slate-300 leading-relaxed mb-3">
+          At a 0.5 classification threshold, the model favors recall over precision — it casts a wide net to avoid missing
+          potentially anomalous providers, at the cost of more false positives. In practice, this means many flagged providers
+          will be legitimate upon closer review.
+        </p>
+        <div className="bg-dark-700/30 rounded-lg p-3">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Limitations</p>
+          <ul className="text-xs text-slate-400 leading-relaxed space-y-1 list-disc list-inside">
+            <li>Training labels are based on OIG exclusions, which include non-fraud reasons (e.g., student loan default, license revocation) — this introduces label noise.</li>
+            <li>No temporal validation yet — the model has not been tested on held-out future time periods to confirm it generalizes beyond the training window.</li>
+            <li>Feature set is limited to billing aggregates; clinical context and audit outcomes are not yet incorporated.</li>
+          </ul>
+        </div>
+      </div>
+
       {/* Disclaimer */}
       <div className="bg-amber-500/8 border border-amber-500/20 rounded-xl p-5 mb-8">
         <h3 className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Important Disclaimer</h3>

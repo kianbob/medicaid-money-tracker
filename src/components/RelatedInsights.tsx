@@ -65,7 +65,7 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
   },
   'highest-confidence': {
     title: 'Highest-Confidence Flags',
-    description: 'Providers flagged by the most independent fraud indicators',
+    description: 'Providers flagged by the most independent risk indicators',
   },
   'geographic-hotspots': {
     title: 'Geographic Hotspots',

@@ -33,8 +33,8 @@ const allFlagged = new Map<string, WatchlistEntry>();
   if (p.name) allFlagged.set(p.npi, p);
 });
 
-const mlData = mlScores as unknown as { topProviders: MlEntry[]; smallProviderFlags: MlEntry[] };
-[...mlData.topProviders, ...mlData.smallProviderFlags].forEach((p) => {
+const mlData = mlScores as unknown as { topProviders: MlEntry[] };
+[...mlData.topProviders].forEach((p) => {
   if (!allFlagged.has(p.npi)) {
     allFlagged.set(p.npi, {
       npi: p.npi,
@@ -69,7 +69,7 @@ export default function CheckPage() {
       const npiMatch = isNpi && p.npi.includes(q);
       const cityMatch = p.city?.toLowerCase().includes(q);
       if (nameMatch || npiMatch || cityMatch) {
-        const ml = [...mlData.topProviders, ...mlData.smallProviderFlags].find((m) => m.npi === p.npi);
+        const ml = mlData.topProviders.find((m) => m.npi === p.npi);
         flagged.push({ ...p, isFlagged: true, mlScore: ml?.score });
       }
     });

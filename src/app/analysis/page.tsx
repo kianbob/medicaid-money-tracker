@@ -25,7 +25,7 @@ export default function AnalysisPage() {
   const statFlagged = allNpis.size;
 
   // Add ML-only providers (mlScore >= 0.5, not already flagged)
-  const mlAll = [...((mlScores as any).topProviders || []), ...((mlScores as any).smallProviderFlags || [])];
+  const mlAll = [...((mlScores as any).topProviders || [])];
   let mlOnlyCount = 0;
   for (const p of mlAll) {
     if (p.mlScore >= 0.5 && !allNpis.has(p.npi)) {

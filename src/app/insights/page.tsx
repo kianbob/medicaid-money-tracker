@@ -373,7 +373,7 @@ export default function InsightsIndex() {
   // Build suspicious providers list
   const threeFlags = (smartWatchlist as any[]).filter((p: any) => p.flagCount >= 3);
   const mlData = mlScores as any;
-  const highMlSmall = (mlData.smallProviderFlags || [])
+  const highMlSmall = (mlData.topProviders || [])
     .filter((p: any) => p.mlScore > 0.85)
     .sort((a: any, b: any) => b.mlScore - a.mlScore);
 

@@ -19,7 +19,7 @@ export default function Home() {
   (smartWatchlist as any[]).forEach((w: any) => allWatchlistNpis.add(w.npi));
   (oldWatchlist as any[]).forEach((w: any) => allWatchlistNpis.add(w.npi));
   // Add ML-only providers (score >= 0.5 with no statistical flags)
-  for (const p of [...((mlScores as any).topProviders || []), ...((mlScores as any).smallProviderFlags || [])]) {
+  for (const p of [...((mlScores as any).topProviders || [])]) {
     if ((p as any).mlScore >= 0.5 && !allWatchlistNpis.has((p as any).npi)) {
       allWatchlistNpis.add((p as any).npi);
     }
