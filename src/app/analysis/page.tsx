@@ -580,7 +580,7 @@ export default function AnalysisPage() {
         <p className="text-lg font-bold text-white mb-2">📊 Methodology Key Insight</p>
         <p className="text-sm text-slate-300 leading-relaxed">
           OpenMedicaid analyzes <span className="text-white font-semibold">227 million Medicaid billing records</span> using
-          13 statistical tests across 6 categories plus a machine learning model trained on 514 confirmed fraud cases.
+          9 statistical tests across 6 categories plus a machine learning model trained on 514 confirmed fraud cases.
           The most powerful test is <span className="text-white font-semibold">code-specific benchmarking</span> — comparing
           each provider&apos;s cost-per-claim against the national median for that <em>exact</em> procedure code across
           9,578 HCPCS codes. This catches providers charging 3×, 5×, or even 10× what peers charge for the same service.

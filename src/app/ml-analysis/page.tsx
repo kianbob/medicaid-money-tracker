@@ -114,7 +114,7 @@ export default function MlAnalysisPage() {
               <h3 className="text-sm font-bold text-red-400">Statistical Tests</h3>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed mb-2">
-              13 rule-based tests that flag <span className="text-white font-semibold">specific, explainable anomalies</span> in billing behavior.
+              9 rule-based tests that flag <span className="text-white font-semibold">specific, explainable anomalies</span> in billing behavior.
             </p>
             <ul className="text-[10px] text-slate-500 space-y-1">
               <li>&bull; Identifies exact codes, ratios, and dollar amounts</li>
