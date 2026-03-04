@@ -117,6 +117,7 @@ export default function CheckPage() {
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSearched(false); }}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            aria-label="Search for a Medicaid provider by name, NPI, or city"
             placeholder="Type a provider name, NPI, or city..."
             className="flex-1 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 text-white text-lg placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
             autoFocus

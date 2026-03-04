@@ -5,7 +5,7 @@ import RelatedInsights from "@/components/RelatedInsights";
 export const metadata: Metadata = {
   title: "Brand-New Provider, $239M Billed, 4 Risk Flags",
   description:
-    "SRH CHN Lead Health Home LLC didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent fraud detection flags.",
+    "SRH CHN Lead Health Home LLC didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent risk detection flags.",
   openGraph: {
     title: "Brand-New Provider, $239M Billed, 4 Risk Flags",
     description: "SRH CHN didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent risk flags.",
@@ -15,6 +15,19 @@ export const metadata: Metadata = {
 export default function SrhChnExposedPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Brand-New Provider, $239M Billed, 4 Risk Flags",
+          "description": "SRH CHN Lead Health Home LLC didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent risk detection flags.",
+          "url": "https://www.openmedicaid.org/insights/srh-chn-exposed",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/srh-chn-exposed" }
+        }) }}
+      />
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>

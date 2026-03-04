@@ -543,7 +543,7 @@ function WatchlistContent() {
       {/* Flag Type Breakdown — hidden on ML tab */}
       {activeTab !== 'ml' && (
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
-        <h2 className="font-headline text-sm font-bold text-white mb-4">Fraud Tests &mdash; Flag Distribution</h2>
+        <h2 className="font-headline text-sm font-bold text-white mb-4">Risk Tests &mdash; Flag Distribution</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {flagCounts.map(([flag, count]) => {
             const info = getFlagInfo(flag);

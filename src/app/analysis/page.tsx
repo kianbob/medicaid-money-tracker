@@ -541,7 +541,7 @@ export default function AnalysisPage() {
             <p className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Scenario 1</p>
             <p className="text-sm text-slate-300 leading-relaxed mb-3">
               A brand-new LLC appears in September 2022 and bills <strong className="text-white">$239 million</strong> in its first 28 months.
-              It has no prior billing history, triggers 4 independent fraud flags, and bills primarily for a single procedure code.
+              It has no prior billing history, triggers 4 independent risk flags, and bills primarily for a single procedure code.
             </p>
             <p className="text-xs text-slate-500 italic">Would you approve continued payments? Request an audit? Suspend billing pending review?</p>
           </div>

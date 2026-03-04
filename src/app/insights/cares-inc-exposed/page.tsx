@@ -19,6 +19,19 @@ export const metadata: Metadata = {
 export default function CaresIncExposedPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "One Provider's 6,886% Billing Surge to $1 Billion",
+          "description": "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Four independent risk flags triggered. Here's every red flag the data reveals.",
+          "url": "https://www.openmedicaid.org/insights/cares-inc-exposed",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/cares-inc-exposed" }
+        }) }}
+      />
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>

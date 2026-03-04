@@ -66,6 +66,7 @@ export default function LookupPage() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search for a provider by NPI number or name"
           placeholder="Enter an NPI number or provider name"
           className="w-full pl-14 pr-5 py-5 text-lg bg-dark-800 border-2 border-dark-500/50 focus:border-blue-500 rounded-2xl text-white placeholder-slate-500 outline-none transition-colors"
           autoFocus

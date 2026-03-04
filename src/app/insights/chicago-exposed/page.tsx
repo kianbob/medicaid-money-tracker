@@ -15,6 +15,19 @@ export const metadata: Metadata = {
 export default function ChicagoExposedPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Chicago Billed $1.23B to Medicaid — 3 Risk Flags",
+          "description": "Chicago's ambulance billing surged 942% from $23M to $240M. At $1,611 per claim — 10x the national median — 3 independent risk tests triggered.",
+          "url": "https://www.openmedicaid.org/insights/chicago-exposed",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/chicago-exposed" }
+        }) }}
+      />
       <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
         <span className="mx-1.5">/</span>

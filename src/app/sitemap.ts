@@ -65,6 +65,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/insights/srh-chn-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/insights/doge-medicaid`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/insights/improper-payments`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/banned-but-billing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/privacy`, lastModified: new Date("2026-03-04"), changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${baseUrl}/contact`, lastModified: new Date("2026-03-04"), changeFrequency: 'yearly', priority: 0.4 },
   ];
 
   // Provider pages (from file system)
