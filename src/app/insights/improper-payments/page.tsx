@@ -219,7 +219,7 @@ export default function ImproperPayments() {
             <Link href="/watchlist" className="text-blue-400 hover:text-blue-300 font-semibold">
               View the watchlist →
             </Link>{" "}
-            &mdash; 1,360+ providers flagged by 13 independent statistical tests
+            &mdash; 1,360+ providers flagged by 9 independent statistical tests
           </li>
           <li>
             <Link href="/ml-analysis" className="text-blue-400 hover:text-blue-300 font-semibold">

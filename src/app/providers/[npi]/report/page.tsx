@@ -238,11 +238,11 @@ export default function ProviderReportPage({ params }: Props) {
           </p>
         )}
 
-        {/* Fraud Flags */}
+        {/* Risk Flags */}
         {flagCount > 0 && (
           <div className="mb-8">
             <h2 className="text-lg font-bold text-gray-900 border-b border-gray-300 pb-2 mb-4">
-              Statistical Fraud Flags ({flagCount})
+              Statistical Risk Flags ({flagCount})
             </h2>
             <div className="space-y-4">
               {allFlags.map((flag: string) => {
@@ -267,7 +267,7 @@ export default function ProviderReportPage({ params }: Props) {
 
         {flagCount === 0 && mlScore === null && (
           <div className="mb-8 border border-green-300 bg-green-50 rounded-lg p-4">
-            <p className="text-green-800 font-semibold">No statistical fraud flags detected for this provider.</p>
+            <p className="text-green-800 font-semibold">No statistical risk flags detected for this provider.</p>
           </div>
         )}
 

@@ -30,7 +30,7 @@ export function GET() {
     { slug: 'minnesota-fraud-capital', title: "Minnesota: America's Medicaid Fraud Capital", description: 'Minnesota has 4x its population share of fraud-heavy exclusions, the $250M Feeding Our Future scandal, and housing fraud so bad they shut the entire program down.' },
     { slug: 'cares-inc-exposed', title: 'Exposed: Cares Inc.', description: 'Deep dive into a flagged provider with unusual billing patterns.' },
     { slug: 'chicago-exposed', title: 'Exposed: City of Chicago', description: 'How the City of Chicago went from $23M to $240M in Medicaid billing — a 942% increase.' },
-    { slug: 'srh-chn-exposed', title: 'Exposed: SRH CHN Lead Health Home', description: 'The $239M health home with 4 independent fraud flags.' },
+    { slug: 'srh-chn-exposed', title: 'Exposed: SRH CHN Lead Health Home', description: 'The $239M health home with 4 independent risk flags.' },
   ];
 
   const items = articles

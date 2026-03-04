@@ -129,7 +129,7 @@ export default function CheckPage() {
           </button>
         </div>
         <p className="text-xs text-slate-600 mt-2 text-center">
-          Checks against 1,860 flagged providers from 13 statistical tests + ML model
+          Checks against 1,860 flagged providers from 9 statistical tests + ML model
         </p>
       </div>
 
@@ -194,7 +194,7 @@ export default function CheckPage() {
                         )}
                       </div>
                     ) : (
-                      <p className="text-xs text-green-400">No fraud flags detected</p>
+                      <p className="text-xs text-green-400">No risk flags detected</p>
                     )}
                   </div>
                   <div className="text-right shrink-0">

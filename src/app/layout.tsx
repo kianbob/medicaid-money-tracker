@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "OpenMedicaid \u2014 $1.09 Trillion in Spending, Exposed",
-    description: "227M billing records. 1,860 providers flagged. 13 fraud tests + ML analysis reveal where $1.09T in Medicaid money actually went.",
+    description: "227M billing records. 1,860 providers flagged. 9 risk tests + ML analysis reveal where $1.09T in Medicaid money actually went.",
     type: "website",
     siteName: "OpenMedicaid",
     locale: "en_US",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "OpenMedicaid \u2014 $1.09T in Spending, Exposed",
-    description: "227M billing records. 1,860 providers flagged. 13 fraud tests + ML analysis reveal where $1.09T in Medicaid money actually went.",
+    description: "227M billing records. 1,860 providers flagged. 9 risk tests + ML analysis reveal where $1.09T in Medicaid money actually went.",
   },
   robots: {
     index: true,
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "WebSite",
               "name": "OpenMedicaid",
               "url": "https://www.openmedicaid.org",
-              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 1,860+ providers flagged by 13 fraud detection tests and ML analysis.",
+              "description": "Track $1.09 trillion in Medicaid provider spending across 617,000+ providers. 1,860+ providers flagged by 9 risk detection tests and ML analysis.",
               "publisher": {
                 "@type": "Organization",
                 "name": "TheDataProject.ai",
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Dataset",
               "name": "Medicaid Provider Spending Analysis (2018\u20132024)",
-              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 13 fraud detection tests and ML analysis flagging 1,860+ providers.",
+              "description": "Analysis of 227 million Medicaid billing records covering $1.09 trillion in payments across 617,503 providers and 10,881 procedure codes. 9 risk detection tests and ML analysis flagging 1,860+ providers.",
               "url": "https://www.openmedicaid.org",
               "license": "https://creativecommons.org/publicdomain/zero/1.0/",
               "creator": {

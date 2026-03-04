@@ -173,11 +173,11 @@ export default function Home() {
         </div>
         <div className="space-y-2">
           {[
-            { name: "Cares Inc", npi: "1396049987", city: "New York", state: "NY", flags: 3, totalPaid: 1042893317 },
-            { name: "Consumer Direct Care Network Virginia", npi: "1538649983", city: "Missoula", state: "MT", flags: 1, totalPaid: 2105798329 },
+            { name: "SRH CHN Lead Health Home LLC", npi: "1750053948", city: "New York", state: "NY", flags: 4, totalPaid: 238967731 },
             { name: "City of Chicago", npi: "1376554592", city: "Chicago", state: "IL", flags: 3, totalPaid: 1225040114 },
-            { name: "Dept of Intellectual and Dev Disabilities, TN", npi: "1356709976", city: "Nashville", state: "TN", flags: 2, totalPaid: 1452536495 },
-            { name: "Commonwealth of Massachusetts", npi: "1518096411", city: "Beverly", state: "MA", flags: 2, totalPaid: 1143418621 },
+            { name: "CARES INC", npi: "1396049987", city: "New York", state: "NY", flags: 3, totalPaid: 1042893317 },
+            { name: "Montefiore Medical Center", npi: "1952476988", city: "Bronx", state: "NY", flags: 3, totalPaid: 961141901 },
+            { name: "Sun River Health Inc.", npi: "1619969458", city: "Peekskill", state: "NY", flags: 3, totalPaid: 546516639 },
           ].map((p, i) => (
             <Link key={p.npi} href={`/providers/${p.npi}`}
               className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:bg-dark-700 hover:border-dark-400 transition-all group">
@@ -244,7 +244,7 @@ export default function Home() {
             <p className="text-2xl font-extrabold text-red-400 tabular-nums shrink-0">{watchlistCount}</p>
             <div className="min-w-0">
               <p className="text-sm font-semibold text-white group-hover:text-red-400 transition-colors">Providers Flagged</p>
-              <p className="text-[11px] text-slate-500 leading-snug">13 statistical tests + ML model. None on OIG exclusion list.</p>
+              <p className="text-[11px] text-slate-500 leading-snug">9 statistical tests + ML model. None on OIG exclusion list.</p>
             </div>
           </Link>
           <Link href="/procedures/T1019" className="flex items-center gap-4 bg-dark-800 border border-dark-500/50 rounded-xl px-5 py-4 hover:border-amber-500/20 transition-all group">
@@ -378,8 +378,8 @@ export default function Home() {
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
           <p className="text-sm text-slate-300 leading-relaxed mb-4">
-            We analyzed <span className="text-white font-semibold">227 million Medicaid billing records</span> released by HHS, covering 617,503 providers and
-            10,881 procedure codes from 2018&ndash;2024. We combined <span className="text-white font-semibold">13 statistical fraud tests</span> &mdash;
+            We analyzed <span className="text-white font-semibold">227 million Medicaid billing records</span> released by HHS, covering 617,503 providers (594,235 met minimum billing thresholds for ML scoring) and
+            10,881 procedure codes from 2018&ndash;2024. We combined <span className="text-white font-semibold">9 statistical risk tests</span> &mdash;
             including 4 code-specific smart tests that compare each provider&apos;s cost per claim against the national median &mdash; with
             a <span className="text-white font-semibold">random forest ML model</span> (AUC: 0.77) trained on 514 OIG-excluded providers.
             These are unified into <span className="text-white font-semibold">risk tiers</span> (Critical, High, Elevated, ML Flag) for a single view of the most suspicious billing patterns.
@@ -415,7 +415,7 @@ export default function Home() {
               <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
               <h3 className="text-sm font-bold text-white">OIG Exclusion List</h3>
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">82,715 excluded providers from the HHS Office of Inspector General, cross-referenced against our watchlist.</p>
+            <p className="text-xs text-slate-400 leading-relaxed">82,714 excluded providers from the HHS Office of Inspector General, cross-referenced against our watchlist.</p>
             <p className="text-[10px] text-blue-400/60 mt-2 group-hover:text-blue-400 transition-colors">oig.hhs.gov &rarr;</p>
           </a>
           <a href="https://npiregistry.cms.hhs.gov/" target="_blank" rel="noopener" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-blue-500/30 transition-colors group">

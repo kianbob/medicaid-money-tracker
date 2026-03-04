@@ -7,10 +7,10 @@ import mlScores from "../../../public/data/ml-scores.json";
 
 export const metadata: Metadata = {
   title: "How We Flagged 1,860 Providers From 227M Records",
-  description: "13 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent with known limitations.",
+  description: "9 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent with known limitations.",
   openGraph: {
     title: "How We Flagged 1,860 Providers From 227M Records",
-    description: "13 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent.",
+    description: "9 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent.",
   },
 };
 
@@ -194,7 +194,7 @@ export default function AnalysisPage() {
           category: 'Cross-Reference',
           threshold: 'NPI appears on the HHS-OIG List of Excluded Individuals and Entities (LEIE)',
           catches: 'Providers already excluded from federal healthcare programs for prior fraud, abuse, or misconduct who may still be receiving Medicaid payments.',
-          example: 'Cross-referenced all flagged NPIs against 82,715 excluded providers. Result: zero current matches — our flags surface new, uninvestigated activity.',
+          example: 'Cross-referenced all flagged NPIs against 82,714 excluded providers. Result: zero current matches — our flags surface new, uninvestigated activity.',
           count: 0,
         },
       ],
@@ -235,7 +235,7 @@ export default function AnalysisPage() {
             and 10,881 procedure codes.
           </p>
           <p>
-            Rather than relying on a single metric (like total spending), we run <strong className="text-white">13 independent
+            Rather than relying on a single metric (like total spending), we run <strong className="text-white">9 independent
             statistical tests</strong> organized into six categories. Each test targets a different dimension of billing
             behavior — spending levels, claim volume, temporal patterns, growth trajectories, and code-specific pricing.
           </p>
@@ -721,7 +721,7 @@ export default function AnalysisPage() {
                 detail: 'For 9,578 codes we compute p10, p25, p50, p75, p90, p95, and p99 — giving a complete picture of where any provider falls in the national distribution.',
               },
               {
-                title: '13 independent tests',
+                title: '9 independent tests',
                 detail: 'Each test catches a different anomaly type. Multiple overlapping flags from different test categories are far more significant than a single flag.',
               },
               {
@@ -754,7 +754,7 @@ export default function AnalysisPage() {
           <h2 className="text-sm font-bold text-amber-400 mb-3">Key Finding: OIG Exclusion List Cross-Reference</h2>
           <p className="text-sm text-slate-300 leading-relaxed mb-3">
             We cross-referenced all {totalFlagged.toLocaleString()} flagged providers against the HHS Office of Inspector General&apos;s{" "}
-            <strong className="text-white">List of Excluded Individuals and Entities (LEIE)</strong> — 82,715 providers
+            <strong className="text-white">List of Excluded Individuals and Entities (LEIE)</strong> — 82,714 providers
             excluded from federal healthcare programs for fraud, abuse, or misconduct.
           </p>
           <div className="bg-dark-800/60 rounded-lg p-4 border border-amber-500/10">

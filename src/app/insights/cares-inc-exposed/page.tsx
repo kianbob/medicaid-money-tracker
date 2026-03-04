@@ -5,14 +5,14 @@ import RelatedInsights from "@/components/RelatedInsights";
 export const metadata: Metadata = {
   title: "One Provider's 6,886% Billing Surge to $1 Billion",
   description:
-    "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Seven independent fraud flags triggered. Here's every red flag the data reveals.",
+    "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Four independent risk flags triggered. Here's every red flag the data reveals.",
   openGraph: {
     title: "One Provider's 6,886% Billing Surge to $1 Billion",
-    description: "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Seven independent fraud flags triggered. Here's every red flag the data reveals.",
+    description: "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Four independent risk flags triggered. Here's every red flag the data reveals.",
   },
   twitter: {
     title: "One Provider's 6,886% Billing Surge to $1 Billion",
-    description: "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Seven independent fraud flags triggered. Here's every red flag the data reveals.",
+    description: "CARES INC went from $1.6M to $112.6M in one year — then hit $1.04B total. Four independent risk flags triggered. Here's every red flag the data reveals.",
   },
 };
 
@@ -36,7 +36,7 @@ export default function CaresIncExposedPage() {
           CARES INC: From $1.6M to $112.6M &mdash; A 6,886% Billing Explosion
         </h1>
         <p className="text-base text-slate-400 max-w-2xl leading-relaxed">
-          A New York case management provider triggered seven independent fraud detection flags. Here&apos;s everything the data shows.
+          A New York case management provider triggered four independent risk detection flags. Here&apos;s everything the data shows.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export default function CaresIncExposedPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-red-400">7</p>
-          <p className="text-[10px] text-slate-500 mt-1">Fraud Flags</p>
+          <p className="text-[10px] text-slate-500 mt-1">Risk Flags</p>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-white">$1.04B</p>
@@ -91,9 +91,9 @@ export default function CaresIncExposedPage() {
 
       {/* The Flags */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-white mb-4">Seven Independent Red Flags</h2>
+        <h2 className="text-xl font-bold text-white mb-4">Four Independent Red Flags</h2>
         <p className="text-sm text-slate-400 mb-4">
-          CARES INC triggered more fraud detection flags than almost any other provider in our dataset. Each flag represents a different statistical test:
+          CARES INC triggered 4 independent risk detection flags. Each flag represents a different statistical test:
         </p>
         <div className="space-y-3">
           {[
@@ -112,18 +112,6 @@ export default function CaresIncExposedPage() {
             {
               flag: "Explosive Growth",
               detail: "6,886% year-over-year increase from 2020 to 2021 — far beyond the 500% threshold. This is the single largest percentage jump among major providers.",
-            },
-            {
-              flag: "Unusually High Spending",
-              detail: "Total payments are more than 3 standard deviations above the mean for Case Management providers. $1.04B total when many peers bill under $10M.",
-            },
-            {
-              flag: "High Cost Per Claim",
-              detail: "Average cost per claim of $378 — significantly higher than peer Case Management providers billing the same procedure codes.",
-            },
-            {
-              flag: "High Claims Per Patient",
-              detail: "11.5 claims per beneficiary — indicating either intensive treatment patterns or potential overbilling per patient.",
             },
           ].map((item) => (
             <div key={item.flag} className="bg-dark-800 border-l-4 border-l-red-500 rounded-r-xl p-4">
@@ -194,7 +182,7 @@ export default function CaresIncExposedPage() {
       <div className="flex items-center gap-3 mb-10">
         <span className="text-xs text-slate-500">Share this investigation:</span>
         <a
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("CARES INC went from $1.6M to $112.6M in Medicaid billing in one year — a 6,886% increase. Seven fraud flags triggered. Full investigation →")}&url=${encodeURIComponent("https://openmedicaid.org/insights/cares-inc-exposed")}`}
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("CARES INC went from $1.6M to $112.6M in Medicaid billing in one year — a 6,886% increase. Four risk flags triggered. Full investigation →")}&url=${encodeURIComponent("https://openmedicaid.org/insights/cares-inc-exposed")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs px-3 py-1 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors"

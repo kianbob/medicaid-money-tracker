@@ -103,7 +103,7 @@ export default function ArizonaProblem() {
           </li>
           <li className="flex items-start gap-2 text-sm text-slate-300">
             <span className="text-blue-400 mt-0.5 shrink-0">&#9656;</span>
-            <span><span className="text-white font-semibold">Arizona&apos;s per-capita fraud flag rate</span> significantly exceeds the national average</span>
+            <span><span className="text-white font-semibold">Arizona&apos;s per-capita risk flag rate</span> significantly exceeds the national average</span>
           </li>
         </ul>
       </div>

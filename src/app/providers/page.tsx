@@ -112,7 +112,7 @@ export default function ProvidersPage() {
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
           The 1,000 highest-spending Medicaid providers from 2018&ndash;2024. These organizations received the most in total
           Medicaid payments, representing <span className="text-white font-semibold">{formatMoney(totalSpending)}</span>.
-          Colored badges indicate fraud risk flags from our 13 statistical tests. Click any provider for their full spending profile.
+          Colored badges indicate fraud risk flags from our 9 statistical tests. Click any provider for their full spending profile.
         </p>
       </div>
 

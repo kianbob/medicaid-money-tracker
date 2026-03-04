@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Medicaid Fraud by State: All 50 Ranked",
   description:
-    "NY leads with 159 fraud flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
+    "NY leads with 159 risk flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
   openGraph: {
     title: "Medicaid Fraud by State: All 50 Ranked",
     description:
-      "NY leads with 159 fraud flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
+      "NY leads with 159 risk flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
   },
 };
 
@@ -19,7 +19,7 @@ const stateData = [
   { state: "Massachusetts", code: "MA", flags: 52, spending: "$15.2B", perCapita: "0.75", highlight: "DDS entities billing 37-51× median for residential habilitation." },
   { state: "Illinois", code: "IL", flags: 38, spending: "$11.8B", perCapita: "0.30", highlight: "City of Chicago ambulance billing surged 942% during COVID." },
   { state: "Tennessee", code: "TN", flags: 31, spending: "$7.2B", perCapita: "0.45", highlight: "Nashville-based state disability programs with consistently high billing." },
-  { state: "Vermont", code: "VT", flags: 7, spending: "$1.1B", perCapita: "1.08", highlight: "Highest per-capita fraud flag rate in the country despite small size." },
+  { state: "Vermont", code: "VT", flags: 7, spending: "$1.1B", perCapita: "1.08", highlight: "Highest per-capita risk flag rate in the country despite small size." },
   { state: "Florida", code: "FL", flags: 29, spending: "$7.9B", perCapita: "0.13", highlight: "Large state with relatively low flag rate per capita." },
 ];
 

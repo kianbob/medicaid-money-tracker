@@ -3,12 +3,12 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "Chicago Billed $1.23B to Medicaid — 3 Fraud Flags",
+  title: "Chicago Billed $1.23B to Medicaid — 3 Risk Flags",
   description:
     "Chicago's ambulance billing surged 942% from $23M to $240M. At $1,611 per claim — 10x the national median — 3 independent fraud tests triggered. See the full timeline.",
   openGraph: {
-    title: "Chicago Billed $1.23B to Medicaid — 3 Fraud Flags",
-    description: "$23M to $240M in 2 years. $1,611 per ambulance claim vs $163 national median. 3 fraud flags triggered.",
+    title: "Chicago Billed $1.23B to Medicaid — 3 Risk Flags",
+    description: "$23M to $240M in 2 years. $1,611 per ambulance claim vs $163 national median. 3 risk flags triggered.",
   },
 };
 
@@ -40,7 +40,7 @@ export default function ChicagoExposedPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-red-400">3</p>
-          <p className="text-[10px] text-slate-500 mt-1">Fraud Flags</p>
+          <p className="text-[10px] text-slate-500 mt-1">Risk Flags</p>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-white">$1.23B</p>

@@ -362,7 +362,7 @@ function WatchlistContent() {
         </h1>
         <p className="text-base text-slate-400 max-w-3xl leading-relaxed">
           <span className="text-white font-semibold">{allProviders.length} Medicaid providers</span> flagged by our combined fraud detection system.
-          This view merges <span className="text-white font-semibold">13 statistical fraud tests</span> (code-specific benchmarks, billing swings, growth patterns) with a <span className="text-white font-semibold">machine learning model</span> trained
+          This view merges <span className="text-white font-semibold">9 statistical risk tests</span> (code-specific benchmarks, billing swings, growth patterns) with a <span className="text-white font-semibold">machine learning model</span> trained
           on 514 confirmed fraud cases to produce unified risk tiers.
         </p>
         <p className="text-sm text-slate-500 mt-2">
@@ -395,7 +395,7 @@ function WatchlistContent() {
             <p className="text-sm font-semibold text-amber-400 mb-0.5">OIG Cross-Reference: Zero Matches</p>
             <p className="text-xs text-slate-400 leading-relaxed">
               We cross-referenced all flagged providers against the HHS OIG exclusion list
-              (82,715 excluded providers). <strong className="text-white">None appear on the list</strong> &mdash; suggesting
+              (82,714 excluded providers). <strong className="text-white">None appear on the list</strong> &mdash; suggesting
               our analysis surfaces new, uninvestigated suspicious activity.
             </p>
           </div>
@@ -415,9 +415,9 @@ function WatchlistContent() {
           <p className="text-sm text-amber-400">$239M billed as brand-new entity</p>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 border-l-4 border-l-purple-500">
-          <p className="text-xs text-slate-500 uppercase">Most Fraud Flags</p>
-          <p className="text-lg font-bold text-white">CARES INC</p>
-          <p className="text-sm text-purple-400">7 independent fraud indicators triggered</p>
+          <p className="text-xs text-slate-500 uppercase">Most Risk Flags</p>
+          <p className="text-lg font-bold text-white">SRH CHN Lead Health Home</p>
+          <p className="text-sm text-purple-400">4 independent risk indicators triggered</p>
         </div>
       </div>
 

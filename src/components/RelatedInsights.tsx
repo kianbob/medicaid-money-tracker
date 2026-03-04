@@ -101,7 +101,7 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
   },
   'cares-inc-exposed': {
     title: 'CARES INC: 6,886% Billing Explosion',
-    description: 'From $1.6M to $112.6M in one year — seven fraud flags triggered',
+    description: 'From $1.6M to $112.6M in one year — four risk flags triggered',
   },
   'banned-but-billing': {
     title: 'Banned But Still Billing',

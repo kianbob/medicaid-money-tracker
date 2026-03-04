@@ -57,7 +57,7 @@ export default function MlAnalysisPage() {
           <div>
             <p className="text-sm font-bold text-blue-400 mb-1">ML scores are now integrated into the Unified Risk Watchlist</p>
             <p className="text-xs text-slate-400 leading-relaxed">
-              ML fraud similarity scores have been combined with our 13 statistical tests into a single unified risk system.
+              ML fraud similarity scores have been combined with our 9 statistical tests into a single unified risk system.
               Providers are ranked by a combination of statistical flags and ML scores into unified tiers: Critical, High, Elevated, and ML Flag.{' '}
               <Link href="/watchlist" className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition-colors">
                 View the Risk Watchlist &rarr;
@@ -150,27 +150,20 @@ export default function MlAnalysisPage() {
         </div>
       </div>
 
-      {/* Feature Importance */}
+      {/* Features Used */}
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
-        <h2 className="text-sm font-bold text-white mb-4">Feature Importance</h2>
+        <h2 className="text-sm font-bold text-white mb-4">Features Used</h2>
         <p className="text-xs text-slate-400 mb-4 leading-relaxed">
           The model uses {features.length} billing features to identify patterns similar to confirmed fraud cases.
+          Feature importance rankings from the trained model are not yet available.
         </p>
-        <div className="space-y-2">
-          {features.map((f, i) => {
-            const barWidth = Math.max(15, 100 - i * (100 / features.length));
-            return (
-              <div key={f} className="flex items-center gap-3">
-                <span className="text-[10px] text-slate-400 w-40 text-right shrink-0">{FEATURE_LABELS[f] || f}</span>
-                <div className="flex-1 h-2.5 bg-dark-600 rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-blue-500/60"
-                    style={{ width: `${barWidth}%` }}
-                  />
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          {features.map((f) => (
+            <div key={f} className="flex items-center gap-2 bg-dark-700 rounded-lg px-3 py-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-500/60 shrink-0" />
+              <span className="text-[10px] text-slate-300">{FEATURE_LABELS[f] || f}</span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -209,7 +202,7 @@ export default function MlAnalysisPage() {
       <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 mb-8">
         <h2 className="text-sm font-bold text-white mb-3">Cross-Validation: Full-Dataset Training</h2>
         <p className="text-xs text-slate-400 mb-4 leading-relaxed">
-          To validate our approach, we trained three models on the <span className="text-white font-semibold">full 594,235-provider dataset</span> using
+          To validate our approach, we trained three models on the <span className="text-white font-semibold">594,235 providers that met minimum billing thresholds for ML scoring</span> using
           Google Colab (12GB RAM). The results confirm our subsampled model as the strongest performer.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">

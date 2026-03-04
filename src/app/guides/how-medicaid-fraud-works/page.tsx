@@ -114,7 +114,7 @@ export default function HowMedicaidFraudWorksPage() {
           <div className="bg-dark-800 border-l-4 border-l-blue-500 rounded-r-xl p-5">
             <h3 className="text-sm font-bold text-white mb-2">Statistical Testing</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              We run <span className="text-white font-semibold">13 statistical tests</span> that compare each provider&apos;s billing against national benchmarks for their specific procedure codes. Tests include cost outlier detection, billing swing analysis, new entrant monitoring, and rate outlier identification. Providers are flagged when their patterns deviate significantly from peers billing the same codes.{" "}
+              We run <span className="text-white font-semibold">9 statistical tests</span> that compare each provider&apos;s billing against national benchmarks for their specific procedure codes. Tests include cost outlier detection, billing swing analysis, new entrant monitoring, and rate outlier identification. Providers are flagged when their patterns deviate significantly from peers billing the same codes.{" "}
               <Link href="/analysis" className="text-blue-400 hover:underline">Read full methodology &rarr;</Link>
             </p>
           </div>

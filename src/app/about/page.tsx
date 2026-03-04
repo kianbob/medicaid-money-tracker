@@ -4,10 +4,10 @@ import { getFlagInfo } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "About OpenMedicaid — 227M Records, Fully Open",
-  description: "Who built this, where the data comes from, how our 13 fraud tests work, and important caveats. Built from the largest public Medicaid dataset in HHS history.",
+  description: "Who built this, where the data comes from, how our 9 risk tests work, and important caveats. Built from the largest public Medicaid dataset in HHS history.",
   openGraph: {
     title: "About OpenMedicaid — 227M Records, Fully Open",
-    description: "Who built this, where the data comes from, how our 13 fraud tests work, and important caveats. The largest public Medicaid dataset, made searchable.",
+    description: "Who built this, where the data comes from, how our 9 risk tests work, and important caveats. The largest public Medicaid dataset, made searchable.",
   },
 };
 
@@ -166,7 +166,7 @@ export default function AboutPage() {
           <div className="bg-amber-500/8 border border-amber-500/20 rounded-xl p-5">
             <p className="text-sm text-slate-300 leading-relaxed">
               We cross-referenced our flagged providers against the HHS OIG&apos;s
-              <strong className="text-white"> LEIE</strong> &mdash; 82,715 excluded providers.
+              <strong className="text-white"> LEIE</strong> &mdash; 82,714 excluded providers.
             </p>
             <div className="bg-dark-800/60 rounded-lg p-4 mt-3 border border-amber-500/10">
               <p className="text-amber-400 font-bold text-base mb-1">Result: Zero matches</p>
@@ -269,7 +269,7 @@ export default function AboutPage() {
               },
               {
                 q: "What does 'flagged' mean?",
-                a: "A 'flagged' provider has been identified by one or more of our 13 statistical fraud detection tests or our ML fraud similarity model as having billing patterns that are unusual compared to peers. Statistical flags and ML scores are combined into a unified risk system with tiers: Critical, High, Elevated, and ML Flag. Being flagged is not proof of fraud \u2014 it means the billing patterns warrant further investigation.",
+                a: "A 'flagged' provider has been identified by one or more of our 9 statistical risk detection tests or our ML fraud similarity model as having billing patterns that are unusual compared to peers. Statistical flags and ML scores are combined into a unified risk system with tiers: Critical, High, Elevated, and ML Flag. Being flagged is not proof of fraud \u2014 it means the billing patterns warrant further investigation.",
               },
               {
                 q: "Is this proof of fraud?",
@@ -314,7 +314,7 @@ export default function AboutPage() {
                 "@type": "FAQPage",
                 "mainEntity": [
                   { "@type": "Question", "name": "Where does this data come from?", "acceptedAnswer": { "@type": "Answer", "text": "All data comes from the HHS Open Data Platform \u2014 the Medicaid Provider Spending dataset. It contains aggregated, provider-level claims data covering every billing code from 2018 through 2024, totaling 227 million records." } },
-                  { "@type": "Question", "name": "What does 'flagged' mean?", "acceptedAnswer": { "@type": "Answer", "text": "A flagged provider has been identified by one or more of our 13 statistical fraud detection tests as having billing patterns that are unusual compared to peers. Being flagged is not proof of fraud." } },
+                  { "@type": "Question", "name": "What does 'flagged' mean?", "acceptedAnswer": { "@type": "Answer", "text": "A flagged provider has been identified by one or more of our 9 statistical risk detection tests as having billing patterns that are unusual compared to peers. Being flagged is not proof of fraud." } },
                   { "@type": "Question", "name": "Is this proof of fraud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Statistical flags indicate unusual patterns, not proof of wrongdoing. Our analysis surfaces patterns that may warrant investigation by qualified auditors." } },
                   { "@type": "Question", "name": "Why are hospitals and government entities flagged?", "acceptedAnswer": { "@type": "Answer", "text": "Large institutions often bill at higher aggregate rates due to overhead costs, specialized services, and large populations. Being flagged means the billing pattern is unusual, not that it is fraudulent." } },
                   { "@type": "Question", "name": "How accurate is the ML model?", "acceptedAnswer": { "@type": "Answer", "text": "Our random forest ML model has an AUC of 0.7762, meaning it correctly ranks a fraud case above a legitimate provider 77.6% of the time." } },
@@ -335,7 +335,7 @@ export default function AboutPage() {
             <div className="absolute left-0 top-2 bottom-2 w-px bg-dark-500" aria-hidden="true" />
             {[
               { date: "February 13, 2026", title: "HHS Data Release", desc: "HHS DOGE open-sources 227 million aggregated Medicaid billing records covering 2018\u20132024 \u2014 the largest Medicaid dataset in department history." },
-              { date: "February 14\u201315, 2026", title: "Analysis & Fraud Detection", desc: "Built 13 statistical fraud tests including 4 code-specific smart tests with national benchmarks across 9,578 HCPCS codes. Trained random forest ML model on 514 OIG-excluded providers (AUC: 0.77)." },
+              { date: "February 14\u201315, 2026", title: "Analysis & Fraud Detection", desc: "Built 9 statistical risk tests including 4 code-specific smart tests with national benchmarks across 9,578 HCPCS codes. Trained random forest ML model on 514 OIG-excluded providers (AUC: 0.77)." },
               { date: "February 16, 2026", title: "Site Launch", desc: "OpenMedicaid goes live with 12,800+ static pages covering 1,889 providers, 10,881 procedures, and 49 states. Data journalism articles published." },
             ].map((item, i) => (
               <div key={i} className="relative pl-8 pb-8 last:pb-0">

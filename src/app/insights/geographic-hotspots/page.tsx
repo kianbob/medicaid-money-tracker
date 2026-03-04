@@ -5,10 +5,10 @@ import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import geoData from "../../../../public/data/geographic-risk.json";
 
 export const metadata: Metadata = {
-  title: "Fraud Flags Per Capita: Vermont Tops Every State",
-  description: "Vermont has 1.08 fraud flags per 100K residents — 2x New York's rate. NY leads in total flags (114). We ranked all 50 states by fraud signal density.",
+  title: "Risk Flags Per Capita: Vermont Tops Every State",
+  description: "Vermont has 1.08 risk flags per 100K residents — 2x New York's rate. NY leads in total flags (114). We ranked all 50 states by fraud signal density.",
   openGraph: {
-    title: "Fraud Flags Per Capita: Vermont Tops Every State",
+    title: "Risk Flags Per Capita: Vermont Tops Every State",
     description: "Vermont: 1.08 flags per 100K. DC: 1.03. Maine: 1.00. NY leads in total flags at 114. See all 50 states ranked by fraud density.",
   },
 };
@@ -239,7 +239,7 @@ export default function GeographicHotspots() {
         <ul className="space-y-3 text-sm text-slate-300">
           <li className="flex items-start gap-2">
             <span className="text-teal-400 mt-0.5">&#9656;</span>
-            <span><span className="text-teal-400 font-semibold">Vermont, DC, and Maine</span> have the highest fraud flag rates per capita, despite being among the smallest states in the dataset.</span>
+            <span><span className="text-teal-400 font-semibold">Vermont, DC, and Maine</span> have the highest risk flag rates per capita, despite being among the smallest states in the dataset.</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-red-400 mt-0.5">&#9656;</span>
@@ -261,7 +261,7 @@ export default function GeographicHotspots() {
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs text-slate-500">Source: HHS Medicaid Provider Spending Data (2018&ndash;2024) &middot; 227M records</p>
           <div className="flex items-center gap-3">
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Vermont has the highest Medicaid fraud flag rate per capita (1.08/100K). NY leads in total flags (114). Where do fraud signals really concentrate?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/geographic-hotspots")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Vermont has the highest Medicaid risk flag rate per capita (1.08/100K). NY leads in total flags (114). Where do fraud signals really concentrate?")}&url=${encodeURIComponent("https://openmedicaid.org/insights/geographic-hotspots")}`} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-blue-400 transition-colors">Share on X</a>
           </div>
         </div>
         <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["minnesota-fraud-capital", "city-hotspots", "arizona-problem"]} />

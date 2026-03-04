@@ -3,12 +3,12 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 
 export const metadata: Metadata = {
-  title: "Brand-New Provider, $239M Billed, 4 Fraud Flags",
+  title: "Brand-New Provider, $239M Billed, 4 Risk Flags",
   description:
     "SRH CHN Lead Health Home LLC didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent fraud detection flags.",
   openGraph: {
-    title: "Brand-New Provider, $239M Billed, 4 Fraud Flags",
-    description: "SRH CHN didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent fraud flags.",
+    title: "Brand-New Provider, $239M Billed, 4 Risk Flags",
+    description: "SRH CHN didn't exist before 2022. Then it billed $239M to Medicaid in 27 months — triggering 4 independent risk flags.",
   },
 };
 
@@ -32,7 +32,7 @@ export default function SrhChnExposedPage() {
           SRH CHN Lead Health Home: $239 Million From Nowhere
         </h1>
         <p className="text-base text-slate-400 max-w-2xl leading-relaxed">
-          A brand-new entity appeared in September 2022 and immediately began billing hundreds of millions. Four independent fraud flags triggered.
+          A brand-new entity appeared in September 2022 and immediately began billing hundreds of millions. Four independent risk flags triggered.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function SrhChnExposedPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-red-400">4</p>
-          <p className="text-[10px] text-slate-500 mt-1">Fraud Flags</p>
+          <p className="text-[10px] text-slate-500 mt-1">Risk Flags</p>
         </div>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-white">$239M</p>
@@ -141,7 +141,7 @@ export default function SrhChnExposedPage() {
       <div className="flex items-center gap-3 mb-10">
         <span className="text-xs text-slate-500">Share this investigation:</span>
         <a
-          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("SRH CHN Lead Health Home LLC appeared in 2022 and immediately billed $239M to Medicaid. A brand-new entity with four fraud flags. Full investigation →")}&url=${encodeURIComponent("https://openmedicaid.org/insights/srh-chn-exposed")}`}
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("SRH CHN Lead Health Home LLC appeared in 2022 and immediately billed $239M to Medicaid. A brand-new entity with four risk flags. Full investigation →")}&url=${encodeURIComponent("https://openmedicaid.org/insights/srh-chn-exposed")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs px-3 py-1 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors"
