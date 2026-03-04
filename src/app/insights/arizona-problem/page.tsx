@@ -58,6 +58,19 @@ export default function ArizonaProblem() {
 
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "46 New Arizona Clinics Billed $800M+ Then Vanished",
+          "description": "Dozens of new Medicaid providers appeared in Arizona in 2022, billed $800M+ combined, and many disappeared within a year. Phoenix is ground zero.",
+          "url": "https://www.openmedicaid.org/insights/arizona-problem",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/arizona-problem" }
+        }) }}
+      />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>

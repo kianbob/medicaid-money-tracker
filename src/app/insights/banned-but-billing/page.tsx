@@ -42,6 +42,19 @@ export default function BannedButBilling() {
 
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "40 Banned Providers Still Showing Up in Medicaid Data",
+          "description": "We cross-referenced 78K+ federally excluded providers against Medicaid billing records. 40 matches appeared — billing while banned is a federal crime.",
+          "url": "https://www.openmedicaid.org/insights/banned-but-billing",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/banned-but-billing" }
+        }) }}
+      />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>

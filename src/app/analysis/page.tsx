@@ -526,6 +526,68 @@ export default function AnalysisPage() {
       </section>
 
       {/* ───────────────────────────────────────────── */}
+      {/* "What Would YOU Do?" Callouts */}
+      {/* ───────────────────────────────────────────── */}
+      <section className="mb-16">
+        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <span className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-sm">🤔</span>
+          What Would YOU Do?
+        </h2>
+        <p className="text-sm text-slate-400 mb-6 max-w-3xl">
+          Put yourself in an investigator&apos;s shoes. Here are real patterns from our data — what would your next step be?
+        </p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5">
+            <p className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Scenario 1</p>
+            <p className="text-sm text-slate-300 leading-relaxed mb-3">
+              A brand-new LLC appears in September 2022 and bills <strong className="text-white">$239 million</strong> in its first 28 months.
+              It has no prior billing history, triggers 4 independent fraud flags, and bills primarily for a single procedure code.
+            </p>
+            <p className="text-xs text-slate-500 italic">Would you approve continued payments? Request an audit? Suspend billing pending review?</p>
+          </div>
+          <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5">
+            <p className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Scenario 2</p>
+            <p className="text-sm text-slate-300 leading-relaxed mb-3">
+              A provider&apos;s billing jumps from <strong className="text-white">$34.6M to $107M</strong> in a single year — a 209% increase.
+              Their cost per claim is <strong className="text-white">6.3× the national median</strong> for the same procedure code.
+              But they&apos;re a large urban hospital serving a high-need population.
+            </p>
+            <p className="text-xs text-slate-500 italic">Is this growth legitimate? How would you verify? What additional data would you need?</p>
+          </div>
+          <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5">
+            <p className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Scenario 3</p>
+            <p className="text-sm text-slate-300 leading-relaxed mb-3">
+              A provider files exactly <strong className="text-white">$1.23M every single month</strong> for 36 months straight.
+              Their coefficient of variation is 0.02 — nearly zero. Real medical practices have seasonal variations, sick days, and vacations.
+            </p>
+            <p className="text-xs text-slate-500 italic">Is perfectly consistent billing suspicious or just well-managed? What would you check first?</p>
+          </div>
+          <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5">
+            <p className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">Scenario 4</p>
+            <p className="text-sm text-slate-300 leading-relaxed mb-3">
+              After checking our {totalFlagged.toLocaleString()} flagged providers against the OIG exclusion list of 82,714 known bad actors,
+              we found <strong className="text-white">zero matches</strong>. That means every single provider we flagged is currently NOT under investigation.
+            </p>
+            <p className="text-xs text-slate-500 italic">Does this suggest our flags are finding new problems? Or that the patterns are legitimate? What would convince you either way?</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ───────────────────────────────────────────── */}
+      {/* AI Overview Insight Box */}
+      {/* ───────────────────────────────────────────── */}
+      <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-5 mb-16" role="complementary" aria-label="Key methodology insight">
+        <p className="text-lg font-bold text-white mb-2">📊 Methodology Key Insight</p>
+        <p className="text-sm text-slate-300 leading-relaxed">
+          OpenMedicaid analyzes <span className="text-white font-semibold">227 million Medicaid billing records</span> using
+          13 statistical tests across 6 categories plus a machine learning model trained on 514 confirmed fraud cases.
+          The most powerful test is <span className="text-white font-semibold">code-specific benchmarking</span> — comparing
+          each provider&apos;s cost-per-claim against the national median for that <em>exact</em> procedure code across
+          9,578 HCPCS codes. This catches providers charging 3×, 5×, or even 10× what peers charge for the same service.
+        </p>
+      </div>
+
+      {/* ───────────────────────────────────────────── */}
       {/* SECTION: What This Is NOT */}
       {/* ───────────────────────────────────────────── */}
       <section className="mb-16">

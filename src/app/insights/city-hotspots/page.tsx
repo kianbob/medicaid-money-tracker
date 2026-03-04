@@ -39,6 +39,19 @@ const totalSpendingAll = cities.reduce((s, c) => s + c.flaggedSpending, 0);
 export default function CityHotspots() {
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Brooklyn Has 64 Risk Flags — America",
+          "description": "Brooklyn leads the U.S. with 64 flagged providers and $13.7B in suspicious Medicaid spending. NYC boroughs total 111 flags. Nashville averages $858M per provider.",
+          "url": "https://www.openmedicaid.org/insights/city-hotspots",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/city-hotspots" }
+        }) }}
+      />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>

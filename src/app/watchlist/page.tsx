@@ -385,6 +385,42 @@ function WatchlistContent() {
         </div>
       </div>
 
+      {/* Fraud Cost Calculator — What could this money pay for? */}
+      <div className="bg-gradient-to-r from-red-500/10 to-amber-500/10 border border-red-500/20 rounded-xl p-5 mb-8">
+        <h2 className="text-sm font-bold text-white mb-3">💰 What Could {formatMoney(totalFlaggedSpending)} Pay For?</h2>
+        <p className="text-xs text-slate-400 mb-4">The total amount billed by flagged providers — here&apos;s what that money means in context:</p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { icon: '👩‍🏫', value: Math.round(totalFlaggedSpending / 65000).toLocaleString(), label: "Teachers' salaries", sub: "at $65K/year" },
+            { icon: '🏥', value: Math.round(totalFlaggedSpending / 2000000).toLocaleString(), label: "Hospital beds", sub: "at $2M each" },
+            { icon: '💊', value: Math.round(totalFlaggedSpending / 500).toLocaleString(), label: "Annual insulin supplies", sub: "at $500/year" },
+            { icon: '🏠', value: Math.round(totalFlaggedSpending / 350000).toLocaleString(), label: "Affordable homes", sub: "at $350K each" },
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <p className="text-lg mb-1">{item.icon}</p>
+              <p className="text-lg font-bold text-white tabular-nums">{item.value}</p>
+              <p className="text-[10px] text-slate-400">{item.label}</p>
+              <p className="text-[10px] text-slate-600">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px] text-slate-600 mt-3 text-center">
+          Not all flagged spending is fraudulent — but every dollar deserves scrutiny.
+        </p>
+      </div>
+
+      {/* AI Overview Insight Box */}
+      <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-5 mb-8" role="complementary" aria-label="Watchlist key insight">
+        <p className="text-lg font-bold text-white mb-2">⚠️ Watchlist Key Insight</p>
+        <p className="text-sm text-slate-300 leading-relaxed">
+          OpenMedicaid&apos;s unified risk watchlist flags <span className="text-white font-semibold">{allProviders.length} Medicaid providers</span> who
+          collectively billed <span className="text-white font-semibold">{formatMoney(totalFlaggedSpending)}</span> — over 20% of all Medicaid spending
+          in the dataset. <span className="text-white font-semibold">{criticalCount} providers</span> are rated Critical risk, meaning
+          3 or more independent statistical tests flagged their billing as anomalous. None of these flagged providers appear on the federal
+          OIG exclusion list, suggesting these are <span className="text-white font-semibold">new, uninvestigated patterns</span>.
+        </p>
+      </div>
+
       {/* OIG Banner */}
       <div className="bg-amber-500/8 border border-amber-500/20 rounded-xl p-4 mb-8" role="alert">
         <div className="flex items-start gap-3">

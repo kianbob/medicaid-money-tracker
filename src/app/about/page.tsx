@@ -11,6 +11,23 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OpenMedicaid",
+  "url": "https://www.openmedicaid.org",
+  "description": "Independent data journalism project analyzing 227 million Medicaid billing records to identify fraud, waste, and abuse in taxpayer-funded healthcare.",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "TheDataProject.ai",
+    "url": "https://thedataproject.ai"
+  },
+  "sameAs": [
+    "https://x.com/thedataproject0",
+    "https://www.linkedin.com/company/thedataproject-ai"
+  ]
+};
+
 export default function AboutPage() {
   const smartTests = [
     { id: 'code_specific_outlier', threshold: 'Billing >3\u00d7 the national median cost/claim for a specific HCPCS code', example: 'Provider bills $296/claim for G9005 when the national median is $47 (6.3\u00d7)' },
@@ -39,6 +56,10 @@ export default function AboutPage() {
         <span className="text-slate-300">About &amp; Methodology</span>
       </nav>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <h1 className="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">About This Project</h1>
       <p className="text-base text-slate-400 mb-12 leading-relaxed">
         How we analyzed 227 million Medicaid billing records &mdash; and what we found.

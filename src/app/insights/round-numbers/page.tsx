@@ -43,6 +43,19 @@ const mostPatterns = providers.reduce((a: any, b: any) => a.roundPatterns > b.ro
 export default function RoundNumbers() {
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "68,000 Claims at Exact Round Dollars: $128M Red Flag",
+          "description": "100 Medicaid providers bill $128M in perfectly round amounts — $500, $1,000, $2,500. Real fee schedules almost never produce round numbers. We found 68,000 suspicious claims.",
+          "url": "https://www.openmedicaid.org/insights/round-numbers",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/round-numbers" }
+        }) }}
+      />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>

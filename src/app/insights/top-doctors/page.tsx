@@ -16,6 +16,19 @@ export const metadata: Metadata = {
 export default function TopDoctors() {
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Only 2 Humans in Medicaid",
+          "description": "Out of 2,000 top Medicaid billers, just 2 are individual people — a psychologist ($77.3M) and a van driver ($76.2M). The rest are all organizations.",
+          "url": "https://www.openmedicaid.org/insights/top-doctors",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/top-doctors" }
+        }) }}
+      />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>

@@ -79,8 +79,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI Overview Insight Box */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" role="complementary" aria-label="Homepage key insight">
+        <div className="bg-gradient-to-r from-red-500/10 to-amber-500/10 border border-red-500/20 rounded-xl p-5">
+          <p className="text-lg font-bold text-white mb-2">🔍 Key Finding</p>
+          <p className="text-sm text-slate-300 leading-relaxed">
+            Analysis of <span className="text-white font-semibold">227 million Medicaid billing records</span> from HHS reveals that
+            <span className="text-white font-semibold"> {watchlistCount} providers</span> — collectively billing
+            <span className="text-white font-semibold"> $226.2 billion</span> of taxpayer money — display statistical patterns
+            consistent with fraud, waste, or abuse. None appear on the federal OIG exclusion list, suggesting these are
+            <span className="text-white font-semibold"> new, uninvestigated anomalies</span>. The most common red flag:
+            providers charging 3× or more than the national median for identical procedures.
+          </p>
+        </div>
+      </section>
+
       {/* Key Numbers Bar */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-label="Key statistics">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" aria-label="Key statistics">
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
           {[
             { label: "Total Spending", value: formatMoney(stats.totalPaid), sub: "2018\u20132024", color: "text-white" },
@@ -426,6 +441,46 @@ export default function Home() {
             <p className="text-xs text-slate-400 leading-relaxed">Provider names, specialties, and locations from the CMS National Provider Identifier registry.</p>
             <p className="text-[10px] text-blue-400/60 mt-2 group-hover:text-blue-400 transition-colors">npiregistry.cms.hhs.gov &rarr;</p>
           </a>
+        </div>
+      </section>
+
+      {/* Fraud Clock */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16" aria-label="Fraud clock">
+        <div className="bg-dark-800 border border-red-500/20 rounded-xl p-6 text-center">
+          <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-2">Flagged Medicaid Spending Rate</p>
+          <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-3">
+            <div>
+              <p className="text-2xl md:text-3xl font-bold text-red-400 tabular-nums">${Math.round(226200000000 / 365 / 24 / 60 / 60).toLocaleString()}</p>
+              <p className="text-[10px] text-slate-500">per second</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-bold text-amber-400 tabular-nums">${Math.round(226200000000 / 365 / 24 / 60).toLocaleString()}</p>
+              <p className="text-[10px] text-slate-500">per minute</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-bold text-yellow-400 tabular-nums">${Math.round(226200000000 / 365 / 24).toLocaleString()}</p>
+              <p className="text-[10px] text-slate-500">per hour</p>
+            </div>
+          </div>
+          <p className="text-xs text-slate-500">Based on $226.2B billed by {watchlistCount} flagged providers over 7 years (2018–2024)</p>
+        </div>
+      </section>
+
+      {/* Social Proof / Credibility */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8" aria-label="Credibility">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[
+            { value: "227M", label: "Public records analyzed", icon: "📊" },
+            { value: "3", label: "Federal data sources", icon: "🏛️" },
+            { value: "13", label: "Statistical fraud tests", icon: "🔬" },
+            { value: "100%", label: "Open & free", icon: "🔓" },
+          ].map((item) => (
+            <div key={item.label} className="bg-dark-800 border border-dark-500/50 rounded-xl p-4 text-center">
+              <p className="text-lg mb-1">{item.icon}</p>
+              <p className="text-xl font-bold text-white">{item.value}</p>
+              <p className="text-[10px] text-slate-500">{item.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -48,6 +48,19 @@ function yoyColor(pct: number | null): string {
 export default function SpendingGrowth() {
   return (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Medicaid Doubled: $109B to $199B in Just 6 Years",
+          "description": "Medicaid spending surged 83% from 2018 to 2023. COVID was the inflection point — 2021 alone added $30.5B. Here",
+          "url": "https://www.openmedicaid.org/insights/spending-growth",
+          "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
+          "author": { "@type": "Organization", "name": "OpenMedicaid" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.openmedicaid.org/insights/spending-growth" }
+        }) }}
+      />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
