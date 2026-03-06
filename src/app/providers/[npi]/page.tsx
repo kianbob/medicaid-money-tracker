@@ -10,11 +10,20 @@ import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import stats from "../../../../public/data/stats.json";
 import mlScores from "../../../../public/data/ml-scores.json";
 import specialtyBenchmarks from "../../../../public/data/specialty-benchmarks.json";
-import codeBenchmarks from "../../../../public/data/code-benchmarks.json";
 import leieMatched from "../../../../public/data/leie-matched.json";
 
-// Build code benchmark lookup
-const codeBenchMap = new Map<string, any>(Object.entries(codeBenchmarks as Record<string, any>).map(([code, d]) => [code, { ...d, code }]));
+// Load code benchmarks lazily at runtime (avoid bundling 2.7MB into serverless function)
+let _codeBenchMap: Map<string, any> | null = null;
+function getCodeBenchMap(): Map<string, any> {
+  if (_codeBenchMap) return _codeBenchMap;
+  try {
+    const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'code-benchmarks.json'), 'utf-8'));
+    _codeBenchMap = new Map(Object.entries(data as Record<string, any>).map(([code, d]) => [code, { ...(d as any), code }]));
+  } catch {
+    _codeBenchMap = new Map();
+  }
+  return _codeBenchMap;
+}
 import fs from "fs";
 import path from "path";
 
@@ -183,7 +192,7 @@ export default function ProviderPage({ params }: Props) {
     const payments = p.payments ?? p.totalPaid ?? p.paid ?? 0;
     const claims = p.claims ?? p.totalClaims ?? 0;
     const providerCpc = p.providerCpc ?? p.costPerClaim ?? (claims > 0 ? payments / claims : 0);
-    const bench = codeBenchMap.get(p.code);
+    const bench = getCodeBenchMap().get(p.code);
     const nationalMedianCpc = p.nationalMedianCpc ?? bench?.medianCostPerClaim ?? 0;
     const cpcRatio = nationalMedianCpc > 0 ? providerCpc / nationalMedianCpc : 0;
     // Determine percentile bucket from code benchmarks
