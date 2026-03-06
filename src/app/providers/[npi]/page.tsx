@@ -10,7 +10,11 @@ import oldWatchlist from "../../../../public/data/expanded-watchlist.json";
 import stats from "../../../../public/data/stats.json";
 import mlScores from "../../../../public/data/ml-scores.json";
 import specialtyBenchmarks from "../../../../public/data/specialty-benchmarks.json";
+import codeBenchmarks from "../../../../public/data/code-benchmarks.json";
 import leieMatched from "../../../../public/data/leie-matched.json";
+
+// Build code benchmark lookup
+const codeBenchMap = new Map<string, any>(Object.entries(codeBenchmarks as Record<string, any>).map(([code, d]) => [code, { ...d, code }]));
 import fs from "fs";
 import path from "path";
 
@@ -154,13 +158,33 @@ export default function ProviderPage({ params }: Props) {
       yearlyData[item.year || item.month?.substring(0, 4)] = item.totalPaid ?? item.payments ?? 0;
     }
   }
-  const procedures = (detail?.procedures || detail?.codes || detail?.topProcedures || []).map((p: any) => ({
-    ...p,
-    payments: p.payments ?? p.totalPaid ?? p.paid ?? 0,
-    claims: p.claims ?? p.totalClaims ?? 0,
-    beneficiaries: p.beneficiaries ?? p.totalBeneficiaries ?? 0,
-    providerCpc: p.providerCpc ?? p.costPerClaim ?? (p.claims || p.totalClaims ? (p.payments ?? p.totalPaid ?? p.paid ?? 0) / (p.claims || p.totalClaims) : 0),
-  }));
+  const procedures = (detail?.procedures || detail?.codes || detail?.topProcedures || []).map((p: any) => {
+    const payments = p.payments ?? p.totalPaid ?? p.paid ?? 0;
+    const claims = p.claims ?? p.totalClaims ?? 0;
+    const providerCpc = p.providerCpc ?? p.costPerClaim ?? (claims > 0 ? payments / claims : 0);
+    const bench = codeBenchMap.get(p.code);
+    const nationalMedianCpc = p.nationalMedianCpc ?? bench?.medianCostPerClaim ?? 0;
+    const cpcRatio = nationalMedianCpc > 0 ? providerCpc / nationalMedianCpc : 0;
+    // Determine percentile bucket from code benchmarks
+    let decile = p.decile || 'Normal range';
+    if (!p.decile && bench && providerCpc > 0) {
+      if (bench.p99 && providerCpc >= bench.p99) decile = 'Top 1%';
+      else if (bench.p95 && providerCpc >= bench.p95) decile = 'Top 5%';
+      else if (bench.p90 && providerCpc >= bench.p90) decile = 'Top 10%';
+      else if (bench.p75 && providerCpc >= bench.p75) decile = 'Top 25%';
+      else decile = 'Normal range';
+    }
+    return {
+      ...p,
+      payments,
+      claims,
+      beneficiaries: p.beneficiaries ?? p.totalBeneficiaries ?? p.uniqueBeneficiaries ?? 0,
+      providerCpc,
+      nationalMedianCpc,
+      cpcRatio,
+      decile,
+    };
+  });
 
   // ML Score lookup
   const mlEntry = ((mlScores as any).topProviders as any[])?.find((p: any) => p.npi === npi);
