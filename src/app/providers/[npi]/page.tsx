@@ -119,6 +119,24 @@ const benfordFlagsMap = new Map<string, any>(loadJsonArray("benford-flags.json")
 const changePointsMap = new Map<string, any>(loadJsonArray("change-points.json").map((d: any) => [d.npi, d]));
 const suspiciousConcentrationMap = new Map<string, any>(loadJsonArray("suspicious-concentration.json").map((d: any) => [d.npi, d]));
 
+// Lazy lookup: find NPI in code-providers files (only when needed, avoids loading 65MB at module init)
+function findInCodeProviders(npi: string): any | null {
+  try {
+    const cpDir = path.join(process.cwd(), "public", "data", "code-providers");
+    if (!fs.existsSync(cpDir)) return null;
+    for (const f of fs.readdirSync(cpDir)) {
+      if (!f.endsWith('.json')) continue;
+      const raw = fs.readFileSync(path.join(cpDir, f), "utf-8");
+      // Quick string check before parsing
+      if (!raw.includes(npi)) continue;
+      const cpData = JSON.parse(raw);
+      const match = cpData?.topProviders?.find((p: any) => p.npi === npi);
+      if (match) return match;
+    }
+  } catch {}
+  return null;
+}
+
 export default function ProviderPage({ params }: Props) {
   const { npi } = params;
 
@@ -136,13 +154,16 @@ export default function ProviderPage({ params }: Props) {
   const oldEntry = (oldWatchlist as any[]).find((w: any) => w.npi === npi);
   const providerEntry = (topProviders as any[]).find((p: any) => p.npi === npi);
 
-  const name = detail?.name || smartEntry?.name || providerEntry?.name || `Provider ${npi}`;
-  const specialty = detail?.specialty || smartEntry?.specialty || providerEntry?.specialty || "";
-  const city = detail?.city || smartEntry?.city || providerEntry?.city || "";
-  const state = detail?.state || smartEntry?.state || providerEntry?.state || "";
-  const totalPaid = detail?.totalPaid || smartEntry?.totalPaid || providerEntry?.totalPaid || 0;
-  const totalClaims = detail?.totalClaims || providerEntry?.totalClaims || 0;
-  const totalBenes = detail?.totalBeneficiaries || detail?.totalBenes || providerEntry?.totalBeneficiaries || providerEntry?.totalBenes || 0;
+  // Fallback: find this NPI in code-providers (procedure page data)
+  const codeProviderEntry = (!detail && !providerEntry && !smartEntry) ? findInCodeProviders(npi) : null;
+
+  const name = detail?.name || smartEntry?.name || providerEntry?.name || codeProviderEntry?.name || `Provider ${npi}`;
+  const specialty = detail?.specialty || smartEntry?.specialty || providerEntry?.specialty || codeProviderEntry?.specialty || "";
+  const city = detail?.city || smartEntry?.city || providerEntry?.city || codeProviderEntry?.city || "";
+  const state = detail?.state || smartEntry?.state || providerEntry?.state || codeProviderEntry?.state || "";
+  const totalPaid = detail?.totalPaid || smartEntry?.totalPaid || providerEntry?.totalPaid || codeProviderEntry?.totalPaid || 0;
+  const totalClaims = detail?.totalClaims || providerEntry?.totalClaims || codeProviderEntry?.claims || 0;
+  const totalBenes = detail?.totalBeneficiaries || detail?.totalBenes || providerEntry?.totalBeneficiaries || providerEntry?.totalBenes || codeProviderEntry?.beneficiaries || 0;
   const avgPerClaim = totalClaims > 0 ? totalPaid / totalClaims : 0;
   const claimsPerBene = totalBenes > 0 ? totalClaims / totalBenes : 0;
   const growthRate = detail?.growthRate || 0;
@@ -263,13 +284,13 @@ export default function ProviderPage({ params }: Props) {
     ],
   };
 
-  // Not found — proper 404 for providers with no data
-  if (!detail && !providerEntry && !smartEntry) {
+  // Not found — proper 404 for providers with no data at all
+  if (!detail && !providerEntry && !smartEntry && !codeProviderEntry) {
     notFound();
   }
 
   // Has some data but no detail file
-  const limitedData = !detail && (providerEntry || smartEntry);
+  const limitedData = !detail && (providerEntry || smartEntry || codeProviderEntry);
 
   // Similar providers (same specialty)
   const similarProviders = specialty

@@ -70,19 +70,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: new Date("2026-03-04"), changeFrequency: 'yearly', priority: 0.4 },
   ];
 
-  // Provider pages (from file system)
+  // Provider pages — top 5,000 by spending + all flagged providers
+  // (Full 24K dilutes crawl budget; rest are discoverable via internal links)
   let providerPages: MetadataRoute.Sitemap = [];
   try {
     const providersDir = path.join(process.cwd(), 'public', 'data', 'providers');
-    const files = fs.readdirSync(providersDir);
-    providerPages = files
-      .filter(f => f.endsWith('.json'))
-      .map(f => ({
-        url: `${baseUrl}/providers/${f.replace('.json', '')}`,
-        lastModified: new Date("2026-02-19"),
-        changeFrequency: 'monthly' as const,
-        priority: 0.5,
-      }));
+    const files = fs.readdirSync(providersDir).filter((f: string) => f.endsWith('.json'));
+
+    // Load watchlist NPIs for priority inclusion
+    const watchlistNpis = new Set<string>();
+    try {
+      const sw = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'smart-watchlist.json'), 'utf-8'));
+      const ew = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'expanded-watchlist.json'), 'utf-8'));
+      for (const p of sw) watchlistNpis.add(p.npi);
+      for (const p of ew) watchlistNpis.add(p.npi);
+    } catch {}
+
+    // Read all providers, sort by totalPaid desc, take top 5000 + all flagged
+    const providers: { npi: string; totalPaid: number; flagged: boolean }[] = [];
+    for (const f of files) {
+      const npi = f.replace('.json', '');
+      const flagged = watchlistNpis.has(npi);
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(providersDir, f), 'utf-8'));
+        providers.push({ npi, totalPaid: data.totalPaid || 0, flagged });
+      } catch {
+        providers.push({ npi, totalPaid: 0, flagged });
+      }
+    }
+    providers.sort((a, b) => b.totalPaid - a.totalPaid);
+
+    const included = new Set<string>();
+    // Add all flagged first
+    for (const p of providers) {
+      if (p.flagged) included.add(p.npi);
+    }
+    // Add top by spending until 5000
+    for (const p of providers) {
+      if (included.size >= 5000) break;
+      included.add(p.npi);
+    }
+
+    providerPages = Array.from(included).map(npi => ({
+      url: `${baseUrl}/providers/${npi}`,
+      lastModified: new Date("2026-02-19"),
+      changeFrequency: 'monthly' as const,
+      priority: watchlistNpis.has(npi) ? 0.6 : 0.5,
+    }));
   } catch {
     providerPages = (topProviders as any[]).map((p: any) => ({
       url: `${baseUrl}/providers/${p.npi}`,
