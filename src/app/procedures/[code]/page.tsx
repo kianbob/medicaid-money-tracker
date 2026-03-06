@@ -8,6 +8,14 @@ import codeBenchmarks from "../../../../public/data/code-benchmarks.json";
 import fs from "fs";
 import path from "path";
 
+// Build a set of NPIs that have provider detail pages
+const providerNpis = new Set<string>();
+try {
+  const providersDir = path.join(process.cwd(), 'public', 'data', 'providers');
+  const files = fs.readdirSync(providersDir);
+  files.forEach(f => { if (f.endsWith('.json')) providerNpis.add(f.replace('.json', '')); });
+} catch {}
+
 // OIG-documented fraud risk context for high-risk procedure categories
 const FRAUD_RISK_CONTEXT: Record<string, { risk: string; source: string }> = {
   'T1019': {
@@ -457,13 +465,21 @@ export default function ProcedureDetailPage({ params }: Props) {
                       <td className="px-4 py-2.5 text-xs text-slate-600 tabular-nums">{i + 1}</td>
                       <td className="px-4 py-2.5">
                         {p.name ? (
-                          <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
-                            {toTitleCase(p.name)}
-                          </Link>
+                          providerNpis.has(p.npi) ? (
+                            <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
+                              {toTitleCase(p.name)}
+                            </Link>
+                          ) : (
+                            <span className="text-white text-xs font-medium">{toTitleCase(p.name)}</span>
+                          )
                         ) : (
-                          <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-mono transition-colors">
-                            {p.npi}
-                          </Link>
+                          providerNpis.has(p.npi) ? (
+                            <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-mono transition-colors">
+                              {p.npi}
+                            </Link>
+                          ) : (
+                            <span className="text-slate-300 text-xs font-mono">{p.npi}</span>
+                          )
                         )}
                         {p.city && p.state && (
                           <p className="text-[10px] text-slate-500 mt-0.5">
@@ -515,13 +531,21 @@ export default function ProcedureDetailPage({ params }: Props) {
                   <tr key={p.npi} className="border-b border-dark-600/30 hover:bg-dark-700/50 transition-colors">
                     <td className="px-4 py-2.5">
                       {p.name ? (
-                        <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
-                          {toTitleCase(p.name)}
-                        </Link>
+                        providerNpis.has(p.npi) ? (
+                          <Link href={`/providers/${p.npi}`} className="text-white hover:text-blue-400 text-xs font-medium transition-colors">
+                            {toTitleCase(p.name)}
+                          </Link>
+                        ) : (
+                          <span className="text-white text-xs font-medium">{toTitleCase(p.name)}</span>
+                        )
                       ) : (
-                        <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-mono transition-colors">
-                          {p.npi}
-                        </Link>
+                        providerNpis.has(p.npi) ? (
+                          <Link href={`/providers/${p.npi}`} className="text-slate-300 hover:text-blue-400 text-xs font-mono transition-colors">
+                            {p.npi}
+                          </Link>
+                        ) : (
+                          <span className="text-slate-300 text-xs font-mono">{p.npi}</span>
+                        )
                       )}
                     </td>
                     <td className="px-4 py-2.5 text-right font-mono text-white text-xs tabular-nums">{formatMoney(p.paid || p.totalPaid || 0)}</td>
