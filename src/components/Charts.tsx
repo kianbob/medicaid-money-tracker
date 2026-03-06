@@ -326,7 +326,7 @@ export function MonthlySpendingChart({ data }: { data: MonthlyDatum[] }) {
   const sliced = data.slice(-36);
   const chartData = sliced.map((d) => ({
     ...d,
-    value: d.payments || d.paid || 0,
+    value: d.payments || d.paid || (d as any).totalPaid || 0,
     label: d.month?.length >= 7 ? d.month.substring(5) : d.month,
   }));
 

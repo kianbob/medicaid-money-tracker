@@ -813,7 +813,7 @@ export default function ProviderPage({ params }: Props) {
           for (const m of monthly) {
             const year = m.month?.substring(0, 4);
             if (year) {
-              yearlyMap[year] = (yearlyMap[year] || 0) + (m.payments || m.paid || 0);
+              yearlyMap[year] = (yearlyMap[year] || 0) + (m.payments || m.paid || m.totalPaid || 0);
             }
           }
         }
