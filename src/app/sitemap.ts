@@ -10,64 +10,66 @@ import geoRisk from '../../public/data/geographic-risk.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.openmedicaid.org';
+  const today = new Date().toISOString().slice(0, 10);
+  const lastUpdated = new Date(today);
 
   // Core pages
   const corePages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: new Date("2026-02-19"), changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/watchlist`, lastModified: new Date("2026-02-19"), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/providers`, lastModified: new Date("2026-02-19"), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/states`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/procedures`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/analysis`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/trends`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/about`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${baseUrl}/insights`, lastModified: new Date("2026-02-19"), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/insights/covid-vaccines`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/covid-testing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/pandemic-profiteers`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/most-expensive`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/fastest-growing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/top-doctors`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/specialty-breakdown`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/compare`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/downloads`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/timeline`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/insights/minnesota-fraud-capital`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/arizona-problem`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/ny-home-care`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/specialty-drugs`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/most-patients`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/impossible-volume`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/benford-analysis`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/change-points`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/billing-similarity`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/highest-confidence`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/geographic-hotspots`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/billing-networks`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/round-numbers`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/self-billers`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/spending-growth`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/city-hotspots`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/lookup`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/dual-billing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/smooth-billers`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/ml-analysis`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/specialties`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/guides/how-medicaid-fraud-works`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/guides/top-billing-codes`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/guides/medicaid-fraud-by-state`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/guides/understanding-hcpcs-codes`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/guides/reading-medicaid-billing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/check`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/insights/2025-fraud-takedown`, lastModified: new Date('2026-02-19'), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/insights/cares-inc-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/insights/chicago-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/insights/srh-chn-exposed`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/insights/doge-medicaid`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/insights/improper-payments`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/insights/banned-but-billing`, lastModified: new Date("2026-02-19"), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/privacy`, lastModified: new Date("2026-03-04"), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${baseUrl}/contact`, lastModified: new Date("2026-03-04"), changeFrequency: 'yearly', priority: 0.4 },
+    { url: baseUrl, lastModified: lastUpdated, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/watchlist`, lastModified: lastUpdated, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/providers`, lastModified: lastUpdated, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/states`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/procedures`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/analysis`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/trends`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/about`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/insights`, lastModified: lastUpdated, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/insights/covid-vaccines`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/covid-testing`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/pandemic-profiteers`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/most-expensive`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/fastest-growing`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/top-doctors`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/specialty-breakdown`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/compare`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/downloads`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/timeline`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/insights/minnesota-fraud-capital`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/arizona-problem`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/ny-home-care`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/specialty-drugs`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/most-patients`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/impossible-volume`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/benford-analysis`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/change-points`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/billing-similarity`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/highest-confidence`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/geographic-hotspots`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/billing-networks`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/round-numbers`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/self-billers`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/spending-growth`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/city-hotspots`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/lookup`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/dual-billing`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/smooth-billers`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/ml-analysis`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/specialties`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/guides/how-medicaid-fraud-works`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/top-billing-codes`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/medicaid-fraud-by-state`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/understanding-hcpcs-codes`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/guides/reading-medicaid-billing`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/check`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/2025-fraud-takedown`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/cares-inc-exposed`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/chicago-exposed`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/srh-chn-exposed`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/doge-medicaid`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/insights/improper-payments`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/banned-but-billing`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/privacy`, lastModified: lastUpdated, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${baseUrl}/contact`, lastModified: lastUpdated, changeFrequency: 'yearly', priority: 0.4 },
   ];
 
   // Provider pages — top 5,000 by spending + all flagged providers
@@ -113,14 +115,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     providerPages = Array.from(included).map(npi => ({
       url: `${baseUrl}/providers/${npi}`,
-      lastModified: new Date("2026-02-19"),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly' as const,
       priority: watchlistNpis.has(npi) ? 0.6 : 0.5,
     }));
   } catch {
     providerPages = (topProviders as any[]).map((p: any) => ({
       url: `${baseUrl}/providers/${p.npi}`,
-      lastModified: new Date("2026-02-19"),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     }));
@@ -131,7 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((s: any) => s.state !== 'Unknown')
     .map((s: any) => ({
       url: `${baseUrl}/states/${s.state}`,
-      lastModified: new Date("2026-02-19"),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     }));
@@ -141,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .slice(0, 500)
     .map((p: any) => ({
       url: `${baseUrl}/procedures/${p.code}`,
-      lastModified: new Date("2026-02-19"),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly' as const,
       priority: 0.4,
     }));
@@ -149,17 +151,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Specialty pages
   const specialtyPages: MetadataRoute.Sitemap = (specialtiesData as any[]).map((s: any) => ({
     url: `${baseUrl}/specialties/${s.slug}`,
-    lastModified: new Date("2026-02-19"),
+    lastModified: lastUpdated,
     changeFrequency: 'monthly' as const,
     priority: 0.5,
   }));
 
   // Hotspot pages
   const hotspotPages: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/hotspots`, lastModified: new Date("2026-02-19"), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/hotspots`, lastModified: lastUpdated, changeFrequency: 'weekly', priority: 0.8 },
     ...(cityHotspots as any[]).map((c: any) => ({
       url: `${baseUrl}/hotspots/${c.city.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`,
-      lastModified: new Date("2026-02-19"),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
@@ -168,7 +170,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // State risk profile pages
   const riskPages: MetadataRoute.Sitemap = (geoRisk as any[]).map((s: any) => ({
     url: `${baseUrl}/risk/${s.state}`,
-    lastModified: new Date("2026-02-19"),
+    lastModified: lastUpdated,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
