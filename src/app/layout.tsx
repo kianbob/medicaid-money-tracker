@@ -251,7 +251,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <a href="https://www.tarifftax.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">TariffTax ↗</a>
                   <a href="https://www.aiexposure.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">AI Exposure ↗</a>
                   <a href="https://www.shelterscope.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">ShelterScope ↗</a>
-                  <a href="https://www.openmedicaid.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenMedicaid ↗</a>
                   <a href="https://thedataproject.ai" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">TheDataProject.ai ↗</a>
                 </div>
                 <p className="font-semibold text-slate-300 mb-3 mt-5 text-xs uppercase tracking-wider">Help</p>
