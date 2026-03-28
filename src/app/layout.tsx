@@ -237,17 +237,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div>
                 <p className="font-semibold text-slate-300 mb-3 text-xs uppercase tracking-wider">Sister Sites</p>
                 <div className="space-y-2">
-                  <a href="https://www.openmedicare.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenMedicare — Medicare Spending ↗</a>
-                  <a href="https://www.openfeds.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenFeds — Federal Workforce ↗</a>
-                  <a href="https://www.openspending.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenSpending — Federal Spending ↗</a>
-                <a href="https://www.openimmigration.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenImmigration — Immigration Courts ↗</a>
-                <a href="https://www.openlobby.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenLobby — Federal Lobbying ↗</a>
-                <a href="https://www.vaccinewatch.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">VaccineWatch — Vaccine Safety ↗</a>
-                <a href="https://www.opensubsidies.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenSubsidies — Farm Subsidies ↗</a>
-                <a href="https://www.warcosts.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">WarCosts — War Spending ↗</a>
-                <a href="https://www.openprescriber.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenPrescriber — Medicare Part D ↗</a>
-                <a href="https://www.opencrime.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenCrime — FBI Crime Data ↗</a>
-                <a href="https://www.givescope.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">GiveScope — Nonprofit Spending ↗</a>
+                  <a href="https://www.openmedicare.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenMedicare ↗</a>
+                  <a href="https://www.openfeds.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenFeds ↗</a>
+                  <a href="https://www.openspending.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenSpending ↗</a>
+                  <a href="https://www.openimmigration.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenImmigration ↗</a>
+                  <a href="https://www.openlobby.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenLobby ↗</a>
+                  <a href="https://www.vaccinewatch.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">VaccineWatch ↗</a>
+                  <a href="https://www.warcosts.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">WarCosts ↗</a>
+                  <a href="https://www.openprescriber.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenPrescriber ↗</a>
+                  <a href="https://www.opencrime.us" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenCrime ↗</a>
+                  <a href="https://www.givescope.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">GiveScope ↗</a>
+                  <a href="https://www.spacgraveyard.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">SPACGraveyard ↗</a>
+                  <a href="https://www.tarifftax.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">TariffTax ↗</a>
+                  <a href="https://www.aiexposure.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">AI Exposure ↗</a>
+                  <a href="https://www.shelterscope.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">ShelterScope ↗</a>
+                  <a href="https://www.openmedicaid.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">OpenMedicaid ↗</a>
+                  <a href="https://thedataproject.ai" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">TheDataProject.ai ↗</a>
                 </div>
                 <p className="font-semibold text-slate-300 mb-3 mt-5 text-xs uppercase tracking-wider">Help</p>
                 <div className="space-y-2">
