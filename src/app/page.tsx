@@ -41,10 +41,10 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <div className="inline-flex items-center gap-2 bg-dark-700/80 border border-dark-500 rounded-full px-4 py-1.5 text-xs font-medium text-slate-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                Updated with 227M records &middot; Feb 2026 HHS Data Release
+                Updated with 227M records &middot; April 2026 Analysis
               </div>
               <span className="inline-flex items-center bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1 text-[10px] font-semibold text-blue-400">
-                Last updated: February 2026
+                Last updated: April 2026
               </span>
             </div>
             <h1 id="hero-heading" className="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
@@ -120,7 +120,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
           <p className="text-sm text-slate-300"><span className="text-white font-semibold">New here?</span> Start with our top investigations, or jump straight to the <Link href="/watchlist" className="text-blue-400 hover:underline">Risk Watchlist</Link> to see all 1,860 flagged providers.</p>
           <div className="flex gap-2 shrink-0">
-            <Link href="/insights" className="text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">All 28 investigations &rarr;</Link>
+            <Link href="/insights" className="text-xs px-3 py-1.5 rounded-full bg-dark-700 border border-dark-500/50 text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors">All 31 investigations &rarr;</Link>
           </div>
         </div>
       </section>
@@ -220,15 +220,15 @@ export default function Home() {
             <h2 id="insights-heading" className="font-headline text-xl font-bold text-white">Latest Investigations</h2>
           </div>
           <Link href="/insights" className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            All 28 stories &rarr;
+            All 31 stories &rarr;
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            { slug: "specialty-drugs", title: "Inside Medicaid's Most Expensive Drugs", stat: "$3.5B+", color: "text-amber-400", border: "hover:border-amber-500/20" },
-            { slug: "arizona-problem", title: "The Arizona Problem: New Clinics, Massive Billing", stat: "$800M+", color: "text-orange-400", border: "hover:border-orange-500/20" },
-            { slug: "ny-home-care", title: "The New York Home Care Machine", stat: "$47B+", color: "text-blue-400", border: "hover:border-blue-500/20" },
-            { slug: "most-patients", title: "Who Bills for the Most Patients?", stat: "108M+", color: "text-green-400", border: "hover:border-green-500/20" },
+            { slug: "medicaid-fraud-crackdown-2026", title: "The 2026 Fraud Crackdown: DOGE, CMS & $37B in Waste", stat: "$37.4B", color: "text-red-400", border: "hover:border-red-500/20" },
+            { slug: "obbba-medicaid-cuts", title: "The One Big Beautiful Bill: $880B in Cuts", stat: "$880B", color: "text-amber-400", border: "hover:border-amber-500/20" },
+            { slug: "spending-by-state", title: "Spending by State: Who Gets the Most?", stat: "$81.1B", color: "text-blue-400", border: "hover:border-blue-500/20" },
+            { slug: "doge-medicaid", title: "DOGE vs. Medicaid: What the Data Shows", stat: "227M", color: "text-purple-400", border: "hover:border-purple-500/20" },
           ].map((insight, idx) => (
             <Link key={insight.slug} href={`/insights/${insight.slug}`}
               className={`bg-dark-800 border border-dark-500/50 rounded-xl p-4 ${insight.border} transition-all group`}>

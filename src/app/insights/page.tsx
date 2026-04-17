@@ -8,11 +8,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "27 Investigations Into $1.09 Trillion in Medicaid",
-  description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 27 data-driven investigations built from 227M HHS records.",
+  title: "30 Investigations Into $1.09 Trillion in Medicaid",
+  description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 30 data-driven investigations built from 227M HHS records.",
   openGraph: {
-    title: "27 Investigations Into $1.09 Trillion in Medicaid",
-    description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 27 data-driven investigations built from 227M HHS records.",
+    title: "30 Investigations Into $1.09 Trillion in Medicaid",
+    description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 30 data-driven investigations built from 227M HHS records.",
   },
 };
 
@@ -33,6 +33,26 @@ const insightCategories: { label: string; description: string; accent: string; i
     description: "Deep-dive reporting into the most striking patterns in the data.",
     accent: "bg-red-500",
     items: [
+      {
+        slug: "medicaid-fraud-crackdown-2026",
+        title: "The 2026 Medicaid Fraud Crackdown: DOGE, CMS, and $37B in Waste",
+        teaser: "CMS is withholding payments from states, DOGE is pushing AI fraud detection, and California just busted a massive hospice scheme. The most aggressive Medicaid fraud crackdown in years.",
+        stat: "$37.4B",
+        statLabel: "improper payments",
+        color: "from-red-500 to-rose-500",
+        accent: "text-red-400",
+        icon: "🔴",
+      },
+      {
+        slug: "obbba-medicaid-cuts",
+        title: "The One Big Beautiful Bill: What $880B in Medicaid Cuts Actually Mean",
+        teaser: "Work requirements, FMAP reductions, and eligibility redeterminations every 6 months. We analyzed the bill against 227M billing records to show what the biggest Medicaid restructuring in decades means in practice.",
+        stat: "$880B",
+        statLabel: "proposed cuts",
+        color: "from-red-600 to-amber-500",
+        accent: "text-red-400",
+        icon: "🏛️",
+      },
       {
         slug: "2025-fraud-takedown",
         title: "The $14.6 Billion Healthcare Fraud Takedown",
@@ -190,6 +210,16 @@ const insightCategories: { label: string; description: string; accent: string; i
     description: "Where does $1.09 trillion actually go? Follow the money through specific codes and categories.",
     accent: "bg-amber-500",
     items: [
+      {
+        slug: "spending-by-state",
+        title: "Medicaid Spending by State: Who Gets the Most Federal Dollars?",
+        teaser: "New York receives $81.1B — more than California and Massachusetts combined. The top 5 states account for over half of all Medicaid spending. Full state-by-state breakdown.",
+        stat: "$81.1B",
+        statLabel: "New York (#1)",
+        color: "from-blue-500 to-indigo-500",
+        accent: "text-blue-400",
+        icon: "🗺️",
+      },
       {
         slug: "spending-growth",
         title: "From $109B to $199B: How Medicaid Spending Nearly Doubled in 6 Years",
