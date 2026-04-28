@@ -510,10 +510,10 @@ export default function Home() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            { href: "https://www.openmedicare.org", title: "OpenMedicare", desc: "Explore Medicare provider billing data", domain: "openmedicare.org" },
-            { href: "https://www.clearprices.org", title: "ClearPrices", desc: "Compare hospital procedure prices", domain: "clearprices.org" },
-            { href: "https://www.howisamerica.com", title: "How Is America", desc: "Census data on AI, food, housing & trust", domain: "howisamerica.com" },
-            { href: "https://www.givescope.com", title: "GiveScope", desc: "Search 1.9M nonprofits & their finances", domain: "givescope.com" },
+            { href: "https://www.howisamerica.com", title: "How Is America", desc: "Census data on AI, food, housing, trust", domain: "howisamerica.com" },
+            { href: "https://www.clearprices.org", title: "ClearPrices", desc: "Hospital price transparency data", domain: "clearprices.org" },
+            { href: "https://www.openmedicare.us", title: "OpenMedicare", desc: "Medicare provider & drug spending data", domain: "openmedicare.us" },
+            { href: "https://www.givescope.com", title: "GiveScope", desc: "Search 1.9M nonprofits", domain: "givescope.com" },
           ].map((site) => (
             <a key={site.href} href={site.href} target="_blank" rel="noopener noreferrer" className="bg-dark-800 border border-dark-500/50 rounded-xl p-5 hover:border-blue-500/30 transition-colors group">
               <h3 className="text-sm font-bold text-white">{site.title}</h3>
