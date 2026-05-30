@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Medicaid Fraud by State: All 50 Ranked",
+  title: "Medicaid Fraud by State: All 50 States Ranked (2024)",
   description:
     "NY leads with 159 risk flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
   openGraph: {
-    title: "Medicaid Fraud by State: All 50 Ranked",
+    title: "Medicaid Fraud by State: All 50 States Ranked (2024)",
     description:
       "NY leads with 159 risk flags, but tiny Vermont tops per capita. See all 50 states ranked by suspicious billing patterns from 227M records.",
   },
@@ -148,6 +149,12 @@ export default function FraudByStatePage() {
           </Link>
         </div>
       </section>
+
+      <FAQSchema faqs={[
+        { question: "Which state has the most Medicaid fraud?", answer: "New York leads with 159 risk flags among its Medicaid providers. However, when measured per capita, smaller states like Vermont show higher rates of suspicious billing per provider." },
+        { question: "How is Medicaid fraud measured by state?", answer: "We measure fraud risk by counting providers flagged by our 9 statistical tests and ML model per state, both in absolute numbers and per capita relative to state Medicaid enrollment." },
+      ]} />
+
     </div>
   );
 }

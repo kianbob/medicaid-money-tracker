@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "6 Medicaid Fraud Schemes Exposed",
+  title: "How Medicaid Fraud Works: 6 Schemes Exposed",
   description:
     "Phantom billing, upcoding, kickbacks — see the 6 most common fraud schemes we found in 227M billing records and 1,860 flagged providers.",
   openGraph: {
-    title: "6 Medicaid Fraud Schemes Exposed",
+    title: "How Medicaid Fraud Works: 6 Schemes Exposed",
     description:
       "Phantom billing, upcoding, kickbacks — see the 6 most common fraud schemes we found in 227M billing records and 1,860 flagged providers.",
   },
@@ -198,6 +199,13 @@ export default function HowMedicaidFraudWorksPage() {
           </Link>
         </div>
       </section>
+
+      <FAQSchema faqs={[
+        { question: "What is the most common type of Medicaid fraud?", answer: "Phantom billing — billing for services never provided — is the most common scheme. Other frequent types include upcoding (billing for more expensive services than delivered), unbundling, and kickback arrangements." },
+        { question: "How much does Medicaid fraud cost taxpayers?", answer: "The HHS Office of Inspector General estimates $37.4 billion in improper Medicaid payments annually. Our analysis of 227M records flagged 1,860 providers with suspicious billing patterns totaling over $226 billion." },
+        { question: "How do I report suspected Medicaid fraud?", answer: "You can report suspected Medicaid fraud to the HHS Office of Inspector General hotline at 1-800-HHS-TIPS or online at oig.hhs.gov. Each state also has its own Medicaid Fraud Control Unit (MFCU)." },
+      ]} />
+
     </div>
   );
 }

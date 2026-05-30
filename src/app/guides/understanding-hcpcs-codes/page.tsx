@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "HCPCS Codes Explained in Plain English",
+  title: "HCPCS Codes Explained: Medicaid Billing Guide",
   description:
     "What do 10,881 Medicaid billing codes actually mean? See every category decoded plus the 5 codes most linked to fraud anomalies.",
   openGraph: {
-    title: "HCPCS Codes Explained in Plain English",
+    title: "HCPCS Codes Explained: Medicaid Billing Guide",
     description:
       "What do 10,881 Medicaid billing codes actually mean? See every category decoded plus the 5 codes most linked to fraud anomalies.",
   },

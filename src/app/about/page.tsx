@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import { getFlagInfo } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "About OpenMedicaid — 227M Records, Fully Open",
-  description: "Who built this, where the data comes from, how our 9 risk tests work, and important caveats. Built from the largest public Medicaid dataset in HHS history.",
+  title: "About OpenMedicaid: 227M Medicaid Records Analyzed",
+  description: "Who built OpenMedicaid, where the data comes from, and how 9 risk tests flag suspicious billing. Built from the largest public Medicaid dataset (227M records).",
   openGraph: {
-    title: "About OpenMedicaid — 227M Records, Fully Open",
+    title: "About OpenMedicaid: 227M Medicaid Records Analyzed",
     description: "Who built this, where the data comes from, how our 9 risk tests work, and important caveats. The largest public Medicaid dataset, made searchable.",
   },
 };

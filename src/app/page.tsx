@@ -2,6 +2,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber, riskDot, parseFlags, stateName } from "@/lib/format";
 import { HomepageBarChart } from "@/components/Charts";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import FAQSchema from "@/components/FAQSchema";
 import stats from "../../public/data/stats.json";
 import topProviders from "../../public/data/top-providers-1000.json";
 import smartWatchlist from "../../public/data/smart-watchlist.json";
@@ -531,6 +532,16 @@ export default function Home() {
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </Link>
       </section>
+
+      {/* FAQ Schema for SEO */}
+      <FAQSchema faqs={[
+        { question: "What is OpenMedicaid?", answer: "OpenMedicaid is a free, searchable database of 227 million Medicaid billing records covering $1.09 trillion in payments to 617,000+ healthcare providers from 2018 to 2024. It uses 9 statistical tests and machine learning to flag suspicious billing patterns." },
+        { question: "How many Medicaid providers are flagged for fraud risk?", answer: "1,860 providers have been flagged by our risk detection system, which combines 9 statistical tests with ML fraud scoring. These providers collectively billed over $226 billion in Medicaid funds." },
+        { question: "Where does the Medicaid data come from?", answer: "All data comes from the U.S. Department of Health and Human Services (HHS) public Medicaid Provider Spending dataset, covering fee-for-service claims from 2018 through 2024." },
+        { question: "Which state spends the most on Medicaid?", answer: "New York leads all states with approximately $81 billion in Medicaid provider payments from 2018-2024, followed by California at $37 billion." },
+        { question: "Is OpenMedicaid affiliated with the government?", answer: "No. OpenMedicaid is an independent data journalism project by TheDataProject.ai. It is not affiliated with HHS, DOGE, CMS, or any government agency." },
+      ]} />
+
     </div>
   );
 }

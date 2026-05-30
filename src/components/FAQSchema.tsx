@@ -1,0 +1,30 @@
+/**
+ * FAQ Schema (JSON-LD) component for SEO.
+ * Usage: <FAQSchema faqs={[{ question: "...", answer: "..." }]} />
+ */
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export default function FAQSchema({ faqs }: { faqs: FAQ[] }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "10,881 Medicaid Procedure Codes Exposed by Spending",
-  description: "Every procedure Medicaid pays for, ranked by cost. See which codes drain the most money, who bills them, and how prices vary wildly across providers.",
+  title: "Medicaid Procedure Codes: 10,881 Ranked by Cost",
+  description: "Search all 10,881 Medicaid procedure codes ranked by total spending. See cost per claim, top billers, and price variation across 617K+ providers.",
   openGraph: {
-    title: "10,881 Medicaid Procedure Codes Exposed by Spending",
-    description: "Every procedure Medicaid pays for, ranked by cost. See which codes drain the most money, who bills them, and how prices vary wildly across providers.",
+    title: "Medicaid Procedure Codes: 10,881 Ranked by Cost",
+    description: "Search all 10,881 Medicaid procedure codes ranked by total spending. See cost per claim, top billers, and price variation across 617K+ providers.",
   },
 };
 

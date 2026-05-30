@@ -3,11 +3,11 @@ import Link from "next/link";
 import { formatMoney } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "10 Costliest Billing Codes ($130B+)",
+  title: "Top 10 Costliest Medicaid Billing Codes ($130B+)",
   description:
     "One code drives $86.9B in spending alone. See the 10 priciest HCPCS codes in plain English, their fraud risk, and why T1019 dwarfs everything else.",
   openGraph: {
-    title: "10 Costliest Billing Codes ($130B+)",
+    title: "Top 10 Costliest Medicaid Billing Codes ($130B+)",
     description:
       "One code drives $86.9B in spending alone. See the 10 priciest HCPCS codes in plain English, their fraud risk, and why T1019 dwarfs everything else.",
   },

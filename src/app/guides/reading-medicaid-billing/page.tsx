@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Read Medicaid Billing Data: Beginner Guide",
+  title: "How to Read Medicaid Billing Data: Beginner Guide",
   description:
     "NPIs, HCPCS codes, cost-per-claim — what do the numbers actually mean? A 5-minute guide to reading any Medicaid provider's billing profile.",
   openGraph: {
-    title: "Read Medicaid Billing Data: Beginner Guide",
+    title: "How to Read Medicaid Billing Data: Beginner Guide",
     description:
       "NPIs, HCPCS codes, cost-per-claim — what do the numbers actually mean? A 5-minute guide to reading any Medicaid provider's billing profile.",
   },

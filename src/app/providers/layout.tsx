@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Who Got $305B? Top 1,000 Medicaid Providers",
-  description: "These 1,000 providers received $305 billion in Medicaid payments from 2018\u20132024. See who billed the most, their specialties, and which ones got flagged.",
+  title: "Top 1,000 Medicaid Providers by Spending ($305B)",
+  description: "Ranked: the 1,000 highest-paid Medicaid providers collected $305B from 2018\u20132024. Filter by specialty, risk flags, and billing totals from 227M records.",
   openGraph: {
-    title: "Who Got $305B? Top 1,000 Medicaid Providers",
-    description: "These 1,000 providers received $305 billion in Medicaid payments from 2018\u20132024. See who billed the most, their specialties, and which ones got flagged.",
+    title: "Top 1,000 Medicaid Providers by Spending ($305B)",
+    description: "Ranked: the 1,000 highest-paid Medicaid providers collected $305B from 2018\u20132024. Filter by specialty, risk flags, and billing totals from 227M records.",
   },
 };
 

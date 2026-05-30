@@ -8,11 +8,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "30 Investigations Into $1.09 Trillion in Medicaid",
-  description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 30 data-driven investigations built from 227M HHS records.",
+  title: "Medicaid Fraud Investigations: 30 Data-Driven Reports",
+  description: "Fraud networks, pandemic profiteers, impossible billing, and $47B in home care. 30 investigations built from 227M Medicaid billing records.",
   openGraph: {
-    title: "30 Investigations Into $1.09 Trillion in Medicaid",
-    description: "Fraud networks, pandemic profiteers, impossible billing volumes, and $47B in home care spending. 30 data-driven investigations built from 227M HHS records.",
+    title: "Medicaid Fraud Investigations: 30 Data-Driven Reports",
+    description: "Fraud networks, pandemic profiteers, impossible billing, and $47B in home care. 30 investigations built from 227M Medicaid billing records.",
   },
 };
 

@@ -4,11 +4,11 @@ import { formatMoney } from "@/lib/format";
 import hotspots from "../../../public/data/city-fraud-hotspots.json";
 
 export const metadata: Metadata = {
-  title: "32 Cities With the Most Flagged Medicaid Providers",
+  title: "Medicaid Fraud Hotspots: 32 Cities With Most Flags",
   description:
     "Ranked: the U.S. cities with the highest concentration of flagged Medicaid providers. See which cities top the list for suspicious billing.",
   openGraph: {
-    title: "32 Cities With the Most Flagged Medicaid Providers",
+    title: "Medicaid Fraud Hotspots: 32 Cities With Most Flags",
     description:
       "Ranked: the U.S. cities with the highest concentration of flagged Medicaid providers and suspicious billing.",
   },

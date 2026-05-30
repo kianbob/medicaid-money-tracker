@@ -5,10 +5,10 @@ import { SpendingAreaChart, ClaimsAreaChart } from "@/components/Charts";
 import yearlyTrends from "../../../public/data/yearly-trends.json";
 
 export const metadata: Metadata = {
-  title: "Medicaid Spending Nearly Doubled: 2018-2024 Trends",
-  description: "From $108B to $199B in 6 years. See exactly when spending exploded, how COVID changed everything, and why 2024 brought the first decline in the dataset.",
+  title: "Medicaid Spending Trends: $108B to $199B (2018\u20132024)",
+  description: "Medicaid spending nearly doubled from $108B to $199B in 6 years. See yearly trends, COVID impact, and why 2024 brought the first spending decline.",
   openGraph: {
-    title: "Medicaid Spending Nearly Doubled: 2018-2024 Trends",
+    title: "Medicaid Spending Trends: $108B to $199B (2018\u20132024)",
     description: "From $108B to $199B in 6 years. See exactly when spending exploded, how COVID changed everything, and why 2024 brought the first decline.",
   },
 };

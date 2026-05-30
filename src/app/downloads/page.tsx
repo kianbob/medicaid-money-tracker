@@ -2,11 +2,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Medicaid Data Downloads (JSON)",
+  title: "Free Medicaid Spending Data Downloads (JSON)",
   description:
     "Download 880 flagged providers, ML fraud scores, 10K+ procedure benchmarks, and 50-state summaries free. Built from 227M billing records.",
   openGraph: {
-    title: "Free Medicaid Data Downloads (JSON)",
+    title: "Free Medicaid Spending Data Downloads (JSON)",
     description:
       "Download 880 flagged providers, ML fraud scores, 10K+ procedure benchmarks, and 50-state summaries free. Built from 227M billing records.",
   },

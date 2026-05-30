@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ML Fraud Detection: 594K Providers Scored",
-  description: "How our random forest model detects Medicaid fraud. Trained on 514 OIG-excluded providers, 594K scored. AUC 0.77 under 5-fold CV.",
+  title: "Medicaid Fraud ML Model: 594K Providers Scored",
+  description: "How machine learning detects Medicaid fraud: random forest trained on 514 OIG-excluded providers, scoring 594K. AUC 0.77, fully transparent methodology.",
   openGraph: {
-    title: "ML Fraud Detection: 594K Providers Scored",
+    title: "Medicaid Fraud ML Model: 594K Providers Scored",
   },
 };
 

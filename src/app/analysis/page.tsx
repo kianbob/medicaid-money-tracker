@@ -1,15 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { formatMoney, formatNumber, getFlagInfo } from "@/lib/format";
+import FAQSchema from "@/components/FAQSchema";
 import smartWatchlist from "../../../public/data/smart-watchlist.json";
 import oldWatchlist from "../../../public/data/expanded-watchlist.json";
 import mlScores from "../../../public/data/ml-scores.json";
 
 export const metadata: Metadata = {
-  title: "How We Flagged 1,860 Providers From 227M Records",
-  description: "9 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent with known limitations.",
+  title: "Medicaid Fraud Detection Methodology: 9 Tests + ML",
+  description: "How we flagged 1,860 Medicaid providers from 227M records using 9 statistical tests, ML scoring, and code-specific benchmarks. Fully transparent methodology.",
   openGraph: {
-    title: "How We Flagged 1,860 Providers From 227M Records",
+    title: "Medicaid Fraud Detection Methodology: 9 Tests + ML",
     description: "9 statistical tests, ML fraud scoring, and code-specific benchmarks across 617K providers. Our fraud detection methodology, fully transparent.",
   },
 };
@@ -844,6 +845,13 @@ export default function AnalysisPage() {
           About This Project
         </Link>
       </div>
+
+      <FAQSchema faqs={[
+        { question: "How does OpenMedicaid detect Medicaid fraud?", answer: "We run 9 statistical tests including Benford's Law analysis, impossible billing volume detection, round-number billing flags, self-billing ratios, and billing similarity scoring. These are combined with a random forest ML model trained on 514 OIG-excluded providers." },
+        { question: "What does it mean when a provider is flagged?", answer: "A flag indicates statistically unusual billing patterns compared to peers billing the same procedure codes. It is not proof of fraud — it means the provider's billing warrants further investigation." },
+        { question: "How accurate is the ML fraud detection model?", answer: "The random forest model achieves an AUC of 0.77 under 5-fold cross-validation, trained on 514 confirmed OIG-excluded providers as positive examples and scoring 594,000+ providers total." },
+      ]} />
+
     </div>
   );
 }
