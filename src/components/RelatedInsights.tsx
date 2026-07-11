@@ -119,6 +119,18 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
     title: 'Minnesota: Fraud Capital',
     description: 'One state has 4× its population share of Medicaid fraud exclusions',
   },
+  'work-requirements-2026': {
+    title: 'Work Requirements 2026: State Tracker',
+    description: '44 states must implement Medicaid work requirements by January 2027',
+  },
+  'doge-fraud-findings': {
+    title: 'DOGE Fraud Findings',
+    description: 'What DOGE investigators actually found — and overstated — in Medicaid data',
+  },
+  'enrollment-trends-2026': {
+    title: 'Enrollment Trends 2026',
+    description: 'From 94M peak to 74.3M — the post-unwinding enrollment picture',
+  },
 };
 
 interface RelatedInsightsProps {

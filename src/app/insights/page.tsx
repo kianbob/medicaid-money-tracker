@@ -8,11 +8,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Medicaid Fraud Investigations: 30 Data-Driven Reports",
-  description: "Fraud networks, pandemic profiteers, impossible billing, and $47B in home care. 30 investigations built from 227M Medicaid billing records.",
+  title: "Medicaid Fraud Investigations: 33 Data-Driven Reports",
+  description: "Fraud networks, pandemic profiteers, impossible billing, work requirements, and enrollment trends. 33 investigations built from 227M Medicaid billing records.",
   openGraph: {
-    title: "Medicaid Fraud Investigations: 30 Data-Driven Reports",
-    description: "Fraud networks, pandemic profiteers, impossible billing, and $47B in home care. 30 investigations built from 227M Medicaid billing records.",
+    title: "Medicaid Fraud Investigations: 33 Data-Driven Reports",
+    description: "Fraud networks, pandemic profiteers, impossible billing, work requirements, and enrollment trends. 33 investigations built from 227M Medicaid billing records.",
   },
 };
 
@@ -52,6 +52,36 @@ const insightCategories: { label: string; description: string; accent: string; i
         color: "from-red-600 to-amber-500",
         accent: "text-red-400",
         icon: "🏛️",
+      },
+      {
+        slug: "work-requirements-2026",
+        title: "Medicaid Work Requirements 2026: Where Every State Stands",
+        teaser: "44 states must implement work requirements by January 2027. Georgia and Nebraska are already enforcing. Here's the state-by-state tracker and why accountability is overdue for a $900B program.",
+        stat: "44",
+        statLabel: "states required",
+        color: "from-blue-500 to-cyan-500",
+        accent: "text-blue-400",
+        icon: "📋",
+      },
+      {
+        slug: "doge-fraud-findings",
+        title: "DOGE Medicaid Fraud Findings: What Investigators Actually Uncovered",
+        teaser: "DOGE accessed CMS payment systems, triggered $350M in withheld payments to Minnesota, and pushed AI-powered fraud detection. What they found, what they overstated, and where it stands now.",
+        stat: "$350M",
+        statLabel: "withheld",
+        color: "from-red-500 to-amber-500",
+        accent: "text-red-400",
+        icon: "🔍",
+      },
+      {
+        slug: "enrollment-trends-2026",
+        title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Falling",
+        teaser: "From a 94M pandemic peak to 74.3M today — a 21% decline. Post-unwinding data, state-by-state changes, and what work requirements mean for the trajectory.",
+        stat: "74.3M",
+        statLabel: "current enrollment",
+        color: "from-blue-500 to-purple-500",
+        accent: "text-blue-400",
+        icon: "📉",
       },
       {
         slug: "2025-fraud-takedown",
