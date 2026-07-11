@@ -5,6 +5,7 @@ import RelatedInsights from "@/components/RelatedInsights";
 import dualData from "../../../../public/data/dual-billing.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "82,639 vs 82,963 Claims — The Dual-Billing Pattern",
@@ -299,6 +300,27 @@ export default function DualBilling() {
         </div>
         <RelatedInsights currentSlug="dual-billing" relatedSlugs={["billing-networks", "self-billers", "billing-similarity"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is dual billing in Medicaid?", a: "Dual billing occurs when a provider submits two claims for the same encounter using different procedure codes — essentially billing twice for one visit. We found patterns worth billions." },
+            { q: "How do you detect dual billing patterns?", a: "When two procedure codes show nearly identical claim counts (within 0.4% across 82,000+ services), it strongly suggests every encounter is being billed under both codes simultaneously." },
+            { q: "How much does dual billing cost Medicaid?", a: "The matched code pairs we identified totaled $958 million in combined billing. The true cost across all dual-billing patterns is likely much higher." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is dual billing in Medicaid?", answer: "Dual billing occurs when a provider submits two claims for the same encounter using different procedure codes — essentially billing twice for one visit. We found patterns worth billions." },
+        { question: "How do you detect dual billing patterns?", answer: "When two procedure codes show nearly identical claim counts (within 0.4% across 82,000+ services), it strongly suggests every encounter is being billed under both codes simultaneously." },
+        { question: "How much does dual billing cost Medicaid?", answer: "The matched code pairs we identified totaled $958 million in combined billing. The true cost across all dual-billing patterns is likely much higher." },
+      ]} />
     </article>
   );
 }

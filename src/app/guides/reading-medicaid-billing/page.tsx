@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "How to Read Medicaid Billing Data: Beginner Guide",
@@ -11,6 +12,17 @@ export const metadata: Metadata = {
       "NPIs, HCPCS codes, cost-per-claim — what do the numbers actually mean? A 5-minute guide to reading any Medicaid provider's billing profile.",
   },
 };
+
+const sampleRecord = [
+  { field: "NPI", value: "1396049987", explanation: "Unique 10-digit provider ID. This is CARES INC, a community support provider in MA." },
+  { field: "Provider Type", value: "Community Mental Health Center", explanation: "The provider's specialty classification in the Medicaid system." },
+  { field: "HCPCS Code", value: "H2015", explanation: "Comprehensive community support services, billed per 15-minute increment." },
+  { field: "Total Claims", value: "148,291", explanation: "Number of individual billing transactions submitted for this code." },
+  { field: "Total Beneficiaries", value: "1,847", explanation: "Unique Medicaid patients who received this service." },
+  { field: "Total Paid", value: "$47.2M", explanation: "Amount Medicaid actually reimbursed for these claims." },
+  { field: "Cost Per Claim", value: "$318", explanation: "Average payment per claim ($47.2M ÷ 148,291). National median is $55 — this is 5.8× higher." },
+  { field: "Claims Per Beneficiary", value: "80.3", explanation: "Average claims per patient (148,291 ÷ 1,847). High ratios can indicate overbilling or intensive service delivery." },
+];
 
 export default function ReadingBillingPage() {
   return (
@@ -56,6 +68,36 @@ export default function ReadingBillingPage() {
         </div>
       </section>
 
+      {/* Sample Billing Record Walkthrough */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Sample Billing Record: Walkthrough</h2>
+        <p className="text-sm text-slate-400 mb-4">
+          Let&apos;s walk through a real billing record from our dataset to see how each field connects:
+        </p>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-500/20 text-red-400">FLAGGED PROVIDER</span>
+            <span className="text-xs text-slate-500">CARES INC — NPI 1396049987</span>
+          </div>
+          <div className="space-y-3">
+            {sampleRecord.map((row) => (
+              <div key={row.field} className="border-b border-dark-600/30 pb-3 last:border-0 last:pb-0">
+                <div className="flex items-baseline justify-between gap-4 mb-1">
+                  <span className="text-xs font-bold text-slate-300">{row.field}</span>
+                  <span className="font-mono text-sm font-semibold text-white">{row.value}</span>
+                </div>
+                <p className="text-[11px] text-slate-500 leading-relaxed">{row.explanation}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 bg-red-500/10 border border-red-500/20 rounded-lg p-3">
+            <p className="text-xs text-red-300 leading-relaxed">
+              <span className="font-bold">What the data tells us:</span> CARES INC bills 5.8× the national median for H2015 services. With 80 claims per patient per year, each patient averages a 15-minute community support session roughly every 4.5 days. This intensity level — combined with the elevated rate — triggered multiple risk flags.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Reading a Provider Profile */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-white mb-4">Reading a Provider Profile</h2>
@@ -88,6 +130,63 @@ export default function ReadingBillingPage() {
         </div>
       </section>
 
+      {/* Individual vs Group Providers */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Individual vs. Group Provider Billing</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Medicaid billing can be submitted under an individual provider&apos;s NPI or a group/organizational NPI. Understanding the difference is critical for interpreting billing data:
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-blue-400 mb-2">Individual Provider (Type 1 NPI)</h3>
+              <ul className="space-y-2 text-xs text-slate-400">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-0.5">•</span>
+                  <span>Single physician, therapist, or practitioner</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-0.5">•</span>
+                  <span>Billing reflects one person&apos;s work</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-0.5">•</span>
+                  <span>Easier to benchmark — compare to peers in same specialty</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-0.5">•</span>
+                  <span>Volume has natural limits (one person can only see so many patients)</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-green-400 mb-2">Group/Organization (Type 2 NPI)</h3>
+              <ul className="space-y-2 text-xs text-slate-400">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-0.5">•</span>
+                  <span>Hospital, clinic, agency, or practice group</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-0.5">•</span>
+                  <span>Billing aggregates multiple providers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-0.5">•</span>
+                  <span>Higher totals are expected — harder to benchmark</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-0.5">•</span>
+                  <span>Fraud schemes often use group NPIs to obscure individual responsibility</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-sm text-slate-300 leading-relaxed mt-4">
+            <span className="text-white font-semibold">Why this matters:</span> When a group NPI bills $50M, that might be normal for a large hospital. When a newly created group NPI with 3 listed employees bills $50M, that&apos;s a major red flag. Always check the entity size and age when evaluating group provider billing.
+          </p>
+        </div>
+      </section>
+
       {/* Red Flags to Watch */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-white mb-4">Red Flags to Watch For</h2>
@@ -107,6 +206,64 @@ export default function ReadingBillingPage() {
           <div className="bg-dark-800 border-l-4 border-l-amber-500 rounded-r-xl p-5">
             <h3 className="text-sm font-bold text-white mb-2">📈 No Natural Variation</h3>
             <p className="text-xs text-slate-400 leading-relaxed">Monthly billing with almost zero variation. Real medical practice has natural ups and downs — perfectly flat billing looks manufactured.</p>
+          </div>
+          <div className="bg-dark-800 border-l-4 border-l-red-500 rounded-r-xl p-5">
+            <h3 className="text-sm font-bold text-white mb-2">👥 Unusually High Claims Per Patient</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">A provider billing 300+ claims per beneficiary per year means multiple services per patient per day. While intensive care situations exist, this ratio often indicates phantom billing.</p>
+          </div>
+          <div className="bg-dark-800 border-l-4 border-l-amber-500 rounded-r-xl p-5">
+            <h3 className="text-sm font-bold text-white mb-2">🔄 Single Code Concentration</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">A provider billing 95%+ of their claims under a single HCPCS code. Legitimate medical practice typically involves a variety of services and codes.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Understanding the Numbers in Context */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Understanding the Numbers in Context</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Raw numbers without context can be misleading. Here&apos;s how to properly contextualize what you see:
+          </p>
+          <div className="space-y-4">
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">High Billing ≠ Fraud</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">A large hospital system will legitimately bill billions. What matters is whether billing is proportional to the provider&apos;s size, specialty, and patient volume. A solo practitioner billing $50M is very different from a 500-bed hospital billing $50M.</p>
+            </div>
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Regional Cost Differences</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Medicaid reimbursement rates vary significantly by state. A provider in New York may legitimately bill 2× what a provider in Mississippi bills for the same service due to state rate differences. Our analysis accounts for this where possible.</p>
+            </div>
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Specialty Matters</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">A provider billing J-codes (injectable drugs) will naturally have much higher cost-per-claim than a provider billing E/M codes (office visits). Always compare within the same code or specialty, not across all providers.</p>
+            </div>
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Multiple Flags Matter Most</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Any single flag could have an innocent explanation. When a provider triggers 4-5 independent tests — high spending AND explosive growth AND new entrant AND high cost per claim — the probability of a benign explanation drops dramatically.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Reference Cheat Sheet */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Quick Reference Cheat Sheet</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <div className="space-y-2">
+            {[
+              { metric: "Cost per claim > 3× median", meaning: "Provider bills significantly above peers for same service", severity: "High" },
+              { metric: "Claims per beneficiary > 200", meaning: "Multiple services per patient per day on average", severity: "High" },
+              { metric: "YoY growth > 500%", meaning: "Billing increased more than 5× in a single year", severity: "High" },
+              { metric: "New entity + >$5M billing", meaning: "Recently created provider with immediate high revenue", severity: "Medium" },
+              { metric: "Single code > 90% of billing", meaning: "Provider relies almost entirely on one procedure code", severity: "Medium" },
+            ].map((row) => (
+              <div key={row.metric} className="flex items-center justify-between gap-3 bg-dark-700/50 rounded-lg p-3">
+                <span className="text-xs font-mono text-white flex-1">{row.metric}</span>
+                <span className="text-xs text-slate-400 flex-1">{row.meaning}</span>
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${row.severity === 'High' ? 'bg-red-500/20 text-red-400' : 'bg-amber-500/20 text-amber-400'}`}>{row.severity}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -147,6 +304,14 @@ export default function ReadingBillingPage() {
           </Link>
         </div>
       </section>
+
+      <FAQSchema faqs={[
+        { question: "What is an NPI number in Medicaid billing?", answer: "An NPI (National Provider Identifier) is a unique 10-digit number assigned to every healthcare provider in the United States. It serves as the primary identifier in Medicaid billing records, linking all claims, payments, and services to a specific provider or organization." },
+        { question: "What does cost per claim mean in Medicaid data?", answer: "Cost per claim is the average Medicaid payment per billing transaction, calculated by dividing total payments by total claims. Comparing a provider's cost per claim to the national median for the same HCPCS code reveals whether they bill above or below typical rates — a key indicator in fraud detection." },
+        { question: "How can I tell if a Medicaid provider's billing is suspicious?", answer: "Look for multiple red flags occurring together: billing far above national medians (3×+), explosive year-over-year growth (500%+), being a new entity with immediate high billing, unusually high claims per beneficiary, and concentration on a single billing code. Any one flag could have an innocent explanation, but multiple flags together warrant scrutiny." },
+        { question: "What is the difference between individual and group NPI billing?", answer: "Individual (Type 1) NPIs represent single practitioners and reflect one person's work. Group (Type 2) NPIs represent organizations like hospitals, clinics, or agencies and aggregate billing across multiple providers. Group NPIs naturally have higher totals, but new small groups billing at levels of large hospitals is a fraud red flag." },
+        { question: "What are Medicaid beneficiaries in billing data?", answer: "Beneficiaries are Medicaid-enrolled patients who received services from a provider. The beneficiary count shows how many unique patients a provider served. The ratio of claims to beneficiaries reveals service intensity — very high ratios (300+ claims per patient per year) can indicate overbilling or phantom services." },
+      ]} />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import geoData from "../../../../public/data/geographic-risk.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Risk Flags Per Capita: Vermont Tops Every State",
@@ -279,6 +280,27 @@ export default function GeographicHotspots() {
         </div>
         <RelatedInsights currentSlug="geographic-hotspots" relatedSlugs={["minnesota-fraud-capital", "city-hotspots", "arizona-problem"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Which state has the highest Medicaid fraud rate per capita?", a: "Vermont leads with 1.08 risk flags per 100,000 residents — more than double New York's rate. DC (1.03) and Maine (1.00) also rank disproportionately high." },
+            { q: "Which state has the most total Medicaid fraud flags?", a: "New York leads in absolute numbers with 114 flagged providers, driven largely by NYC boroughs. But per capita, smaller states like Vermont show higher fraud density." },
+            { q: "Why does Vermont have the highest fraud rate?", a: "Vermont's small population means even a few flagged providers create a high per-capita rate. Its rural healthcare landscape and limited oversight resources may also contribute to detection gaps." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Which state has the highest Medicaid fraud rate per capita?", answer: "Vermont leads with 1.08 risk flags per 100,000 residents — more than double New York's rate. DC (1.03) and Maine (1.00) also rank disproportionately high." },
+        { question: "Which state has the most total Medicaid fraud flags?", answer: "New York leads in absolute numbers with 114 flagged providers, driven largely by NYC boroughs. But per capita, smaller states like Vermont show higher fraud density." },
+        { question: "Why does Vermont have the highest fraud rate?", answer: "Vermont's small population means even a few flagged providers create a high per-capita rate. Its rural healthcare landscape and limited oversight resources may also contribute to detection gaps." },
+      ]} />
     </article>
   );
 }

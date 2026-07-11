@@ -3,6 +3,7 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 import { formatNumber } from "@/lib/format";
 import data from "../../../../public/data/mn-fraud-capital.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Minnesota: $9B in Fraud, 78 Indictments, 1 State",
@@ -698,6 +699,27 @@ export default function MinnesotaFraudCapital() {
       </section>
 
       <RelatedInsights currentSlug="minnesota-fraud-capital" relatedSlugs={["banned-but-billing", "geographic-hotspots", "arizona-problem", "ny-home-care", "pandemic-profiteers"]} />
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Why is Minnesota called the fraud capital?", a: "Minnesota has 4x its population share of federal fraud exclusions, accounts for 81% of all U.S. interpreter service fraud, and prompted creation of a dedicated DOJ strike force — the only state with one." },
+            { q: "How much fraud has been uncovered in Minnesota?", a: "Over $9 billion in alleged Medicaid fraud with 78 indictments. The state's Feeding Our Future scandal alone involved $250 million in fraudulent pandemic nutrition payments." },
+            { q: "Why do people travel to Minnesota to commit fraud?", a: "Minnesota's generous benefits, loose provider enrollment rules, and overwhelmed oversight agencies created conditions where organized fraud rings could establish operations and bill aggressively before detection." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Why is Minnesota called the fraud capital?", answer: "Minnesota has 4x its population share of federal fraud exclusions, accounts for 81% of all U.S. interpreter service fraud, and prompted creation of a dedicated DOJ strike force — the only state with one." },
+        { question: "How much fraud has been uncovered in Minnesota?", answer: "Over $9 billion in alleged Medicaid fraud with 78 indictments. The state's Feeding Our Future scandal alone involved $250 million in fraudulent pandemic nutrition payments." },
+        { question: "Why do people travel to Minnesota to commit fraud?", answer: "Minnesota's generous benefits, loose provider enrollment rules, and overwhelmed oversight agencies created conditions where organized fraud rings could establish operations and bill aggressively before detection." },
+      ]} />
     </article>
   );
 }

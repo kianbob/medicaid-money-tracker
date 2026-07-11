@@ -3,6 +3,7 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 import matchedData from "../../../../public/data/leie-matched.json";
 import leieData from "../../../../public/data/leie-data.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "40 Banned Providers Still Showing Up in Medicaid Data",
@@ -221,6 +222,27 @@ export default function BannedButBilling() {
       <div className="mt-16">
         <RelatedInsights currentSlug="banned-but-billing" relatedSlugs={["minnesota-fraud-capital", "arizona-problem", "highest-confidence"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Can banned providers still bill Medicaid?", a: "Technically no — billing while federally excluded is a crime. But our analysis found 40 providers on the OIG exclusion list whose NPIs still appeared in active Medicaid billing records." },
+            { q: "What is the OIG exclusion list?", a: "The HHS Office of Inspector General maintains a list of 78,000+ individuals and entities banned from participating in federal healthcare programs due to fraud, abuse, or other misconduct." },
+            { q: "Why aren't excluded providers automatically blocked?", a: "Medicaid is administered by 50 separate state agencies with different billing systems. There's no universal real-time check against the federal exclusion database, creating gaps that banned providers exploit." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Can banned providers still bill Medicaid?", answer: "Technically no — billing while federally excluded is a crime. But our analysis found 40 providers on the OIG exclusion list whose NPIs still appeared in active Medicaid billing records." },
+        { question: "What is the OIG exclusion list?", answer: "The HHS Office of Inspector General maintains a list of 78,000+ individuals and entities banned from participating in federal healthcare programs due to fraud, abuse, or other misconduct." },
+        { question: "Why aren't excluded providers automatically blocked?", answer: "Medicaid is administered by 50 separate state agencies with different billing systems. There's no universal real-time check against the federal exclusion database, creating gaps that banned providers exploit." },
+      ]} />
     </article>
   );
 }

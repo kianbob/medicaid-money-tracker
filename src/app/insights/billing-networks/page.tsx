@@ -7,6 +7,7 @@ import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import expandedWatchlist from "../../../../public/data/expanded-watchlist.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "78 of Top 100 Medicaid Billing Middlemen Are Flagged",
@@ -362,6 +363,27 @@ export default function BillingIntermediaries() {
         </div>
         <RelatedInsights currentSlug="billing-networks" relatedSlugs={["self-billers", "billing-similarity", "dual-billing"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What are Medicaid billing intermediaries?", a: "Billing intermediaries (or billing agents) are entities that submit claims on behalf of healthcare providers. The top 100 intermediaries control $42.6 billion in Medicaid payments." },
+            { q: "Why are billing networks a fraud risk?", a: "A single billing entity controlling thousands of providers can coordinate fraudulent claims at scale. 78 of the top 100 billing intermediaries triggered fraud risk flags in our analysis." },
+            { q: "How many providers can one billing entity manage?", a: "One entity in our dataset bills for over 5,000 providers — an extreme concentration that makes oversight nearly impossible and fraud detection more difficult." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What are Medicaid billing intermediaries?", answer: "Billing intermediaries (or billing agents) are entities that submit claims on behalf of healthcare providers. The top 100 intermediaries control $42.6 billion in Medicaid payments." },
+        { question: "Why are billing networks a fraud risk?", answer: "A single billing entity controlling thousands of providers can coordinate fraudulent claims at scale. 78 of the top 100 billing intermediaries triggered fraud risk flags in our analysis." },
+        { question: "How many providers can one billing entity manage?", answer: "One entity in our dataset bills for over 5,000 providers — an extreme concentration that makes oversight nearly impossible and fraud detection more difficult." },
+      ]} />
     </article>
   );
 }

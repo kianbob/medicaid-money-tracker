@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import vaccineData from "../../../../public/data/covid-vaccine-top-billers.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Medicaid's $280M+ COVID Vaccine Bill — Top 100 Billers",
@@ -198,6 +199,27 @@ export default function CovidVaccines() {
         </div>
         <RelatedInsights currentSlug="covid-vaccines" relatedSlugs={["covid-testing", "pandemic-profiteers", "spending-growth"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Who billed the most for Medicaid COVID vaccines?", a: "Tribal hospitals — not major pharmacy chains — dominated Medicaid's top COVID vaccine billers. Shiprock Hospital in New Mexico billed$1.8 million alone." },
+            { q: "How much did Medicaid spend on COVID vaccines?", a: "Total Medicaid COVID vaccine billing exceeded $280 million through the top 100 billers alone. The actual total across all providers is significantly higher." },
+            { q: "Why do tribal hospitals lead vaccine billing?", a: "Tribal health facilities serve populations with high Medicaid enrollment rates and acted as primary vaccination sites for remote communities, resulting in concentrated billing through fewer providers." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Who billed the most for Medicaid COVID vaccines?", answer: "Tribal hospitals — not major pharmacy chains — dominated Medicaid's top COVID vaccine billers. Shiprock Hospital in New Mexico billed$1.8 million alone." },
+        { question: "How much did Medicaid spend on COVID vaccines?", answer: "Total Medicaid COVID vaccine billing exceeded $280 million through the top 100 billers alone. The actual total across all providers is significantly higher." },
+        { question: "Why do tribal hospitals lead vaccine billing?", answer: "Tribal health facilities serve populations with high Medicaid enrollment rates and acted as primary vaccination sites for remote communities, resulting in concentrated billing through fewer providers." },
+      ]} />
     </article>
   );
 }

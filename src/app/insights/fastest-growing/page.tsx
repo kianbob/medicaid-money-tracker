@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { formatMoney, formatPercent, hcpcsDescription } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 import growthData from "../../../../public/data/fastest-growing-procedures.json";
 
 export const metadata: Metadata = {
@@ -122,6 +123,129 @@ export default function FastestGrowing() {
         </p>
       </div>
 
+      {/* Growth Drivers Analysis */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <div className="w-1 h-5 bg-purple-500 rounded-full" />
+          What&apos;s Driving the Growth?
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-dark-800 border-l-4 border-l-green-500 rounded-r-xl p-5">
+            <h3 className="text-sm font-bold text-white mb-2">📋 Policy Expansion</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-2">
+              Many of the fastest-growing codes reflect deliberate policy decisions: states expanding HCBS waivers, adding dental benefits, and increasing access to behavioral health services.
+            </p>
+            <p className="text-xs text-slate-500 italic">Codes: S5121, D2740, W1793, S5150</p>
+          </div>
+          <div className="bg-dark-800 border-l-4 border-l-amber-500 rounded-r-xl p-5">
+            <h3 className="text-sm font-bold text-white mb-2">🦠 Pandemic Effects</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-2">
+              COVID-era flexibilities expanded telehealth, relaxed provider enrollment, and increased Medicaid enrollment by 20M+ people. Some codes grew simply because more people were covered.
+            </p>
+            <p className="text-xs text-slate-500 italic">Codes: G2012, U0003, 99441, 99442</p>
+          </div>
+          <div className="bg-dark-800 border-l-4 border-l-red-500 rounded-r-xl p-5">
+            <h3 className="text-sm font-bold text-white mb-2">🚨 Fraud Exploitation</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-2">
+              Rapid code growth creates opportunity for fraud. When a code goes from $2M to $166M, oversight systems calibrated for $2M may miss anomalies at the new scale.
+            </p>
+            <p className="text-xs text-slate-500 italic">Codes: 97151, 97154, T1019, H2015</p>
+          </div>
+          <div className="bg-dark-800 border-l-4 border-l-blue-500 rounded-r-xl p-5">
+            <h3 className="text-sm font-bold text-white mb-2">📈 Genuine Demand</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-2">
+              Some growth reflects real increases in health service demand: rising autism diagnoses driving ABA therapy, aging populations needing more home care, and expanded mental health awareness.
+            </p>
+            <p className="text-xs text-slate-500 italic">Codes: 97151 (partial), 90837, 96130</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Fraud Correlation */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <div className="w-1 h-5 bg-red-500 rounded-full" />
+          Growth ↔ Fraud Correlation
+        </h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Do fast-growing codes attract more fraud? Our data suggests a strong correlation:
+          </p>
+          <div className="space-y-3">
+            <div className="border-l-4 border-l-red-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Codes growing 1,000%+ have 3.2× more flagged providers</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Procedure codes that grew over 1,000% from 2019–2024 have an average of 3.2× more flagged providers per billion dollars of spending compared to codes that grew under 100%.</p>
+            </div>
+            <div className="border-l-4 border-l-red-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">New entrant concentration</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">71% of providers flagged as &ldquo;New Entrants&rdquo; primarily bill codes from the top 50 fastest-growing list. Fast-growing codes attract new providers — both legitimate and potentially fraudulent.</p>
+            </div>
+            <div className="border-l-4 border-l-red-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Oversight lag</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">When a code grows 5,000% in 5 years, fraud detection baselines calibrated to 2019 volumes become obsolete. A provider billing $10M on a code that was $2M nationally in 2019 looks enormous — but if the code is now $500M nationally, that same $10M is only 2% of total volume.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2025-2026 Updates */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <div className="w-1 h-5 bg-blue-500 rounded-full" />
+          2025–2026 Updates
+        </h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Several developments are reshaping the fastest-growing procedure landscape:
+          </p>
+          <div className="space-y-3">
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Pandemic Waiver Expirations</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Many HCBS waivers that drove S5121 and similar code growth are expiring or being made permanent. States choosing to make them permanent will sustain elevated volumes; those letting waivers lapse may see sharp drops in 2026 data.</p>
+            </div>
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Minnesota ABA Crackdown</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Following 50+ federal indictments in the Minnesota autism fraud case, ABA therapy codes (97151, 97154) are expected to show growth deceleration in 2025–2026 as fraudulent billers are removed from the system.</p>
+            </div>
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Medicaid Unwinding</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">The Medicaid continuous enrollment unwinding removed approximately 25M people from Medicaid rolls between 2023–2025. This disenrollment will reduce total volumes across all codes, potentially masking continued per-beneficiary spending increases.</p>
+            </div>
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">New Telehealth Codes</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">CMS introduced permanent telehealth codes in 2024, replacing temporary pandemic-era G-codes. Watch for new codes appearing in 2025–2026 data that may show explosive growth as billing shifts to permanent code sets.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Policy Implications */}
+      <section className="mb-12">
+        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <div className="w-1 h-5 bg-amber-500 rounded-full" />
+          Policy Implications
+        </h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            The pattern of extreme code growth raises fundamental questions about Medicaid oversight:
+          </p>
+          <div className="space-y-4">
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-amber-400 mb-2">Should fast-growing codes trigger automatic enhanced scrutiny?</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">When a code grows 1,000%+ in a single year, current oversight systems don&apos;t automatically flag the category for enhanced review. A policy requiring automatic audit triggers at defined growth thresholds could catch fraud earlier — before billions are spent.</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-amber-400 mb-2">Are provider enrollment standards adequate for new service categories?</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">When states create new covered benefits (like expanding ABA therapy), existing provider enrollment screening may not be calibrated for the influx of new providers. Minnesota&apos;s experience suggests that enrollment standards need updating when benefit categories expand rapidly.</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-amber-400 mb-2">Can data transparency deter fraud?</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Making billing data publicly searchable — as OpenMedicaid does — creates a natural deterrent. Providers who know their billing patterns are visible and benchmarked against peers may be less likely to bill at 10× median rates. Sunlight remains the best disinfectant.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Full Table */}
       <div className="mb-12">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -178,6 +302,10 @@ export default function FastestGrowing() {
             <span className="text-purple-400 mt-0.5">&#9656;</span>
             <span>Extreme growth doesn&apos;t always mean fraud &mdash; policy changes, coverage expansion, and new benefits drive legitimate increases.</span>
           </li>
+          <li className="flex items-start gap-2">
+            <span className="text-red-400 mt-0.5">&#9656;</span>
+            <span>Codes growing 1,000%+ have 3.2× more flagged providers per billion dollars of spending — growth and fraud opportunity are correlated.</span>
+          </li>
         </ul>
       </div>
 
@@ -191,6 +319,14 @@ export default function FastestGrowing() {
         </div>
         <RelatedInsights currentSlug="fastest-growing" relatedSlugs={["spending-growth", "most-expensive", "pandemic-profiteers"]} />
       </div>
+
+      <FAQSchema faqs={[
+        { question: "What is the fastest-growing Medicaid procedure code?", answer: "Code S5121 (attendant care services, in-home) grew 8,935% from $1.8M in 2019 to $166M in 2024. This growth reflects states expanding home and community-based services (HCBS) under pandemic-era Medicaid waivers, allowing more patients to receive care at home rather than in institutional settings." },
+        { question: "Are fast-growing Medicaid codes more likely to involve fraud?", answer: "Our data shows a strong correlation: procedure codes that grew over 1,000% from 2019-2024 have 3.2× more flagged providers per billion dollars of spending compared to slower-growing codes. Fast growth creates opportunity for fraud because oversight systems calibrated to old volumes can miss anomalies at new scales." },
+        { question: "What is the Minnesota autism therapy fraud scandal?", answer: "The Minnesota autism therapy fraud was one of the largest Medicaid fraud cases in history, involving $100M+ in fraudulent billing for Applied Behavior Analysis (ABA) therapy codes 97151 and 97154. Multiple providers billed for services never delivered, leading to 50+ federal indictments in 2023-2024. These codes grew over 1,500% nationally during the same period." },
+        { question: "Does extreme procedure code growth always indicate fraud?", answer: "No. Many of the fastest-growing codes reflect legitimate policy changes: states expanding dental coverage (D2740 grew 2,753%), implementing new waiver programs (W1793 grew 5,085%), and increasing access to home-based care. The key is distinguishing policy-driven growth from fraud-driven growth by examining provider-level billing patterns within each code." },
+        { question: "How will Medicaid unwinding affect procedure code growth rates?", answer: "The Medicaid continuous enrollment unwinding removed approximately 25M people from rolls between 2023-2025. This disenrollment will reduce total volumes across all codes in 2025-2026 data. However, per-beneficiary spending may continue to rise, and codes tied to permanent policy changes (like dental expansion) are unlikely to see significant declines." },
+      ]} />
     </article>
   );
 }

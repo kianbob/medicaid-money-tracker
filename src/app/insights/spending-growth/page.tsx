@@ -4,6 +4,7 @@ import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import { SpendingGrowthChart } from "@/components/Charts";
 import yearlySummary from "../../../../public/data/yearly-summary.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Medicaid Doubled: $109B to $199B in Just 6 Years",
@@ -285,6 +286,27 @@ export default function SpendingGrowth() {
         </div>
         <RelatedInsights currentSlug="spending-growth" relatedSlugs={["fastest-growing", "pandemic-profiteers", "most-expensive"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How fast has Medicaid spending grown?", a: "Medicaid spending surged 83% in just six years, from  $09 billion in 2018 to  $99 billion in 2023. The total across the dataset period exceeds  $.09 trillion." },
+            { q: "What caused the biggest spending jump?", a: "2021 was the inflection point — a single year added $30.5 billion in new Medicaid spending, driven by COVID-era continuous enrollment, expanded benefits, and pandemic-related healthcare costs." },
+            { q: "Is Medicaid spending growth sustainable?", a: "At 83% growth over six years — far outpacing inflation and population growth — current spending trajectories raise serious fiscal questions about the program's long-term sustainability without structural reform." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How fast has Medicaid spending grown?", answer: "Medicaid spending surged 83% in just six years, from  $09 billion in 2018 to  $99 billion in 2023. The total across the dataset period exceeds  $.09 trillion." },
+        { question: "What caused the biggest spending jump?", answer: "2021 was the inflection point — a single year added $30.5 billion in new Medicaid spending, driven by COVID-era continuous enrollment, expanded benefits, and pandemic-related healthcare costs." },
+        { question: "Is Medicaid spending growth sustainable?", answer: "At 83% growth over six years — far outpacing inflation and population growth — current spending trajectories raise serious fiscal questions about the program's long-term sustainability without structural reform." },
+      ]} />
     </article>
   );
 }

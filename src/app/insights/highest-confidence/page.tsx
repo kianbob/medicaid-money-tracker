@@ -5,6 +5,7 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import compositeScores from "../../../../public/data/composite-scores.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "246 Providers Flagged by Multiple Fraud Detection Systems",
@@ -426,6 +427,27 @@ export default function HighestConfidence() {
         </div>
         <RelatedInsights currentSlug="highest-confidence" relatedSlugs={["impossible-volume", "benford-analysis", "change-points"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What makes a fraud flag 'highest confidence'?", a: "When multiple independent detection methods — statistical tests, Benford's Law, billing velocity analysis — all flag the same provider, the probability of a false positive drops to approximately 0.1%." },
+            { q: "How many providers were flagged by multiple systems?", a: "246 providers were flagged by three or more independent fraud detection algorithms simultaneously — making them our highest-confidence anomalies worth prioritizing for investigation." },
+            { q: "Are highest-confidence flags guaranteed to be fraud?", a: "No statistical method can guarantee fraud — only investigations can confirm it. But multi-signal convergence dramatically increases the likelihood that flagged billing represents genuine anomalies." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What makes a fraud flag 'highest confidence'?", answer: "When multiple independent detection methods — statistical tests, Benford's Law, billing velocity analysis — all flag the same provider, the probability of a false positive drops to approximately 0.1%." },
+        { question: "How many providers were flagged by multiple systems?", answer: "246 providers were flagged by three or more independent fraud detection algorithms simultaneously — making them our highest-confidence anomalies worth prioritizing for investigation." },
+        { question: "Are highest-confidence flags guaranteed to be fraud?", answer: "No statistical method can guarantee fraud — only investigations can confirm it. But multi-signal convergence dramatically increases the likelihood that flagged billing represents genuine anomalies." },
+      ]} />
     </article>
   );
 }

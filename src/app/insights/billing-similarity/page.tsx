@@ -4,6 +4,7 @@ import RelatedInsights from "@/components/RelatedInsights";
 import similarData from "../../../../public/data/similar-providers.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "67 Provider Pairs Bill in 100% Identical Patterns",
@@ -323,6 +324,27 @@ export default function BillingSimilarity() {
         </div>
         <RelatedInsights currentSlug="billing-similarity" relatedSlugs={["billing-networks", "smooth-billers", "round-numbers"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What does 100% billing similarity mean?", a: "When two providers bill the exact same procedure codes in the exact same proportions but under different NPIs, it suggests coordinated or duplicated billing — potentially the same operation filing under multiple identities." },
+            { q: "How many provider pairs showed identical billing?", a: "We found 67 pairs with 100% identical billing patterns and 246 total pairs above 95% similarity — far beyond what coincidence could explain." },
+            { q: "Why would providers have identical billing patterns?", a: "Legitimate providers develop unique billing profiles based on their patient mix. Identical patterns across different NPIs suggest phantom providers, identity fraud, or coordinated billing schemes." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What does 100% billing similarity mean?", answer: "When two providers bill the exact same procedure codes in the exact same proportions but under different NPIs, it suggests coordinated or duplicated billing — potentially the same operation filing under multiple identities." },
+        { question: "How many provider pairs showed identical billing?", answer: "We found 67 pairs with 100% identical billing patterns and 246 total pairs above 95% similarity — far beyond what coincidence could explain." },
+        { question: "Why would providers have identical billing patterns?", answer: "Legitimate providers develop unique billing profiles based on their patient mix. Identical patterns across different NPIs suggest phantom providers, identity fraud, or coordinated billing schemes." },
+      ]} />
     </article>
   );
 }

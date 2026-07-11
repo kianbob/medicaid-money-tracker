@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "The One Big Beautiful Bill: What $880B in Medicaid Cuts Actually Mean",
@@ -250,6 +251,27 @@ export default function OBBBAMedicaidCuts() {
         currentSlug="obbba-medicaid-cuts"
         relatedSlugs={["doge-medicaid", "improper-payments", "minnesota-fraud-capital", "spending-growth"]}
       />
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How much does the One Big Beautiful Bill cut from Medicaid?", a: "The OBBBA proposes approximately $880 billion in Medicaid cuts over 10 years through work requirements, reduced federal matching rates (FMAP), and more frequent eligibility redeterminations." },
+            { q: "What are the proposed Medicaid work requirements?", a: "The bill requires able-bodied adults to complete 80 hours per month of work, education, or community service to maintain Medicaid coverage, with exemptions for caregivers, pregnant women, and those with disabilities." },
+            { q: "Who would be most affected by the Medicaid cuts?", a: "States that expanded Medicaid under the ACA face the largest FMAP reductions. Adults gained coverage through expansion are most likely to lose it under stricter eligibility rules and work requirements." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How much does the One Big Beautiful Bill cut from Medicaid?", answer: "The OBBBA proposes approximately $880 billion in Medicaid cuts over 10 years through work requirements, reduced federal matching rates (FMAP), and more frequent eligibility redeterminations." },
+        { question: "What are the proposed Medicaid work requirements?", answer: "The bill requires able-bodied adults to complete 80 hours per month of work, education, or community service to maintain Medicaid coverage, with exemptions for caregivers, pregnant women, and those with disabilities." },
+        { question: "Who would be most affected by the Medicaid cuts?", answer: "States that expanded Medicaid under the ACA face the largest FMAP reductions. Adults gained coverage through expansion are most likely to lose it under stricter eligibility rules and work requirements." },
+      ]} />
     </article>
   );
 }

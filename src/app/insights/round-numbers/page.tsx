@@ -5,6 +5,7 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import roundBillers from "../../../../public/data/round-billers.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "68,000 Claims at Exact Round Dollars: $128M Red Flag",
@@ -283,6 +284,27 @@ export default function RoundNumbers() {
         </div>
         <RelatedInsights currentSlug="round-numbers" relatedSlugs={["smooth-billers", "benford-analysis", "self-billers"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Why are round-dollar Medicaid claims suspicious?", a: "Real healthcare fee schedules produce specific amounts like$47.32 or $2,847.50. When providers consistently bill exact round numbers like $500 or  $,000, it suggests manually fabricated claims rather than actual services." },
+            { q: "How many round-number claims were found?", a: "We identified 68,000 suspicious claims totaling$28 million from 100 providers who disproportionately billed in perfectly round amounts — a pattern highly unlikely to occur naturally." },
+            { q: "Can legitimate billing produce round numbers?", a: "Occasionally, yes — some flat-rate services or negotiated rates produce round numbers. But when a provider's billing is dominated by round amounts across many service types, it's a strong fraud indicator." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Why are round-dollar Medicaid claims suspicious?", answer: "Real healthcare fee schedules produce specific amounts like$47.32 or $2,847.50. When providers consistently bill exact round numbers like $500 or  $,000, it suggests manually fabricated claims rather than actual services." },
+        { question: "How many round-number claims were found?", answer: "We identified 68,000 suspicious claims totaling$28 million from 100 providers who disproportionately billed in perfectly round amounts — a pattern highly unlikely to occur naturally." },
+        { question: "Can legitimate billing produce round numbers?", answer: "Occasionally, yes — some flat-rate services or negotiated rates produce round numbers. But when a provider's billing is dominated by round amounts across many service types, it's a strong fraud indicator." },
+      ]} />
     </article>
   );
 }

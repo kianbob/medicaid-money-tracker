@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "The 2026 Medicaid Fraud Crackdown: DOGE, CMS, and $37B in Waste",
@@ -208,8 +209,7 @@ export default function MedicaidFraudCrackdown2026() {
           Health Care Payment after submitting fraudulent claims between December 2022 and December 2024.
         </p>
         <p>
-          These cases are important because they show the spectrum: from massive organized fraud networks (Minnesota&apos;s
-          $9 billion problem) to individual providers gaming the system. Both need enforcement, but they require
+          These cases are important because they show the spectrum: from massive organized fraud networks (Minnesota&apos;s $9 billion problem) to individual providers gaming the system. Both need enforcement, but they require
           different tools. Network analysis catches organized rings. Statistical anomaly detection catches individual
           outliers. A comprehensive approach needs both.
         </p>
@@ -273,6 +273,27 @@ export default function MedicaidFraudCrackdown2026() {
         currentSlug="medicaid-fraud-crackdown-2026"
         relatedSlugs={["doge-medicaid", "2025-fraud-takedown", "improper-payments", "minnesota-fraud-capital"]}
       />
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is the 2026 Medicaid fraud crackdown?", a: "A multi-pronged federal effort combining CMS payment withholding from high-fraud states, DOGE-driven AI fraud detection, and expanded DOJ strike force operations targeting Medicaid waste." },
+            { q: "How much Medicaid fraud was targeted in 2026?", a: "The 2026 crackdown targets an estimated $37 billion in annual improper payments, with California's largest-ever hospice fraud bust and Minnesota payment holds as early results." },
+            { q: "Is AI being used to detect Medicaid fraud?", a: "Yes — CMS and DOGE are deploying machine learning models to flag suspicious billing patterns in real-time, moving beyond traditional pay-and-chase auditing to pre-payment fraud detection." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is the 2026 Medicaid fraud crackdown?", answer: "A multi-pronged federal effort combining CMS payment withholding from high-fraud states, DOGE-driven AI fraud detection, and expanded DOJ strike force operations targeting Medicaid waste." },
+        { question: "How much Medicaid fraud was targeted in 2026?", answer: "The 2026 crackdown targets an estimated $37 billion in annual improper payments, with California's largest-ever hospice fraud bust and Minnesota payment holds as early results." },
+        { question: "Is AI being used to detect Medicaid fraud?", answer: "Yes — CMS and DOGE are deploying machine learning models to flag suspicious billing patterns in real-time, moving beyond traditional pay-and-chase auditing to pre-payment fraud detection." },
+      ]} />
     </article>
   );
 }

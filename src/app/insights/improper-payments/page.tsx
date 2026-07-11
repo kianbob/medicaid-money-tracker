@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "$37.4B in Improper Payments: Medicaid's Error Rate Hits 6.12%",
@@ -45,8 +46,7 @@ export default function ImproperPayments() {
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">8 min read</span>
         </div>
-        <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
-          $37.4 Billion in Improper Payments
+        <h1 className="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]"> $37.4 Billion in Improper Payments
         </h1>
         <p className="text-xl text-slate-300 font-semibold mb-3">Inside Medicaid&apos;s Growing Error Rate</p>
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
@@ -284,6 +284,27 @@ export default function ImproperPayments() {
       <div className="mt-16">
         <RelatedInsights currentSlug="improper-payments" relatedSlugs={["minnesota-fraud-capital", "highest-confidence", "banned-but-billing"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How much does Medicaid lose to improper payments?", a: "CMS reported $37.4 billion in improper Medicaid payments in the most recent measurement — a 6.12% error rate that jumped 20% in a single year." },
+            { q: "What is the Medicaid improper payment recovery rate?", a: "Only  $4 billion was recovered from $37.4 billion in improper payments — a 3.7% recovery rate, meaning over 96% of misspent funds are never recouped." },
+            { q: "How long has Medicaid been on the GAO high-risk list?", a: "Medicaid has been on the Government Accountability Office's high-risk list for 23 consecutive years, making it one of the longest-running fiscal management concerns in the federal government." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How much does Medicaid lose to improper payments?", answer: "CMS reported $37.4 billion in improper Medicaid payments in the most recent measurement — a 6.12% error rate that jumped 20% in a single year." },
+        { question: "What is the Medicaid improper payment recovery rate?", answer: "Only  $4 billion was recovered from $37.4 billion in improper payments — a 3.7% recovery rate, meaning over 96% of misspent funds are never recouped." },
+        { question: "How long has Medicaid been on the GAO high-risk list?", answer: "Medicaid has been on the Government Accountability Office's high-risk list for 23 consecutive years, making it one of the longest-running fiscal management concerns in the federal government." },
+      ]} />
     </article>
   );
 }

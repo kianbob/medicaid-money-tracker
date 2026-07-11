@@ -5,6 +5,7 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import benfordData from "../../../../public/data/benford-flags.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "We Tested 617K Providers Against Benford's Law",
@@ -307,6 +308,27 @@ export default function BenfordAnalysis() {
         </div>
         <RelatedInsights currentSlug="benford-analysis" relatedSlugs={["round-numbers", "smooth-billers", "change-points"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is Benford's Law and how does it detect fraud?", a: "Benford's Law predicts the frequency of leading digits in naturally occurring datasets. Fabricated billing data typically deviates from this pattern because humans tend to distribute numbers more evenly than nature does." },
+            { q: "How many Medicaid providers failed the Benford's Law test?", a: "Out of 617,000+ providers tested, 200 showed the most extreme deviations from expected digit distributions — a strong statistical signal of potentially fabricated billing data." },
+            { q: "Is a Benford's Law violation proof of fraud?", a: "No — it's a statistical red flag, not proof. Some legitimate billing patterns can deviate from Benford's Law. But combined with other risk signals, it significantly increases the probability of fraudulent activity." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is Benford's Law and how does it detect fraud?", answer: "Benford's Law predicts the frequency of leading digits in naturally occurring datasets. Fabricated billing data typically deviates from this pattern because humans tend to distribute numbers more evenly than nature does." },
+        { question: "How many Medicaid providers failed the Benford's Law test?", answer: "Out of 617,000+ providers tested, 200 showed the most extreme deviations from expected digit distributions — a strong statistical signal of potentially fabricated billing data." },
+        { question: "Is a Benford's Law violation proof of fraud?", answer: "No — it's a statistical red flag, not proof. Some legitimate billing patterns can deviate from Benford's Law. But combined with other risk signals, it significantly increases the probability of fraudulent activity." },
+      ]} />
     </article>
   );
 }

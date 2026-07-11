@@ -5,6 +5,7 @@ import { formatMoney, formatNumber, formatMoneyFull } from "@/lib/format";
 import volumeData from "../../../../public/data/impossible-volume.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "60,000 Claims Per Day: Impossible Billing Volume",
@@ -285,6 +286,27 @@ export default function ImpossibleVolume() {
         </div>
         <RelatedInsights currentSlug="impossible-volume" relatedSlugs={["highest-confidence", "change-points", "most-patients"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is impossible billing volume?", a: "When a provider files so many claims that it would be physically impossible to deliver the billed services — like 60,000 claims per day, or one every fraction of a second." },
+            { q: "How many providers show impossible billing volumes?", a: "200 Medicaid providers file 50+ claims per working day. The most extreme averages over 60,000 daily claims — a volume no individual or small practice could physically perform." },
+            { q: "Why aren't impossible volumes caught automatically?", a: "Medicaid claims are processed by state systems that focus on eligibility and coding validity, not physical plausibility. Volume-based fraud detection requires cross-referencing claims against realistic service capacity." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is impossible billing volume?", answer: "When a provider files so many claims that it would be physically impossible to deliver the billed services — like 60,000 claims per day, or one every fraction of a second." },
+        { question: "How many providers show impossible billing volumes?", answer: "200 Medicaid providers file 50+ claims per working day. The most extreme averages over 60,000 daily claims — a volume no individual or small practice could physically perform." },
+        { question: "Why aren't impossible volumes caught automatically?", answer: "Medicaid claims are processed by state systems that focus on eligibility and coding validity, not physical plausibility. Volume-based fraud detection requires cross-referencing claims against realistic service capacity." },
+      ]} />
     </article>
   );
 }

@@ -5,6 +5,7 @@ import { formatMoney, formatNumber, stateName } from "@/lib/format";
 import beneData from "../../../../public/data/top-beneficiary-counts.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "108M Patients, 1 Provider: Medicaid's Biggest Billers",
@@ -282,6 +283,27 @@ export default function MostPatients() {
         </div>
         <RelatedInsights currentSlug="most-patients" relatedSlugs={["top-doctors", "impossible-volume", "ny-home-care"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How can one provider bill for 108 million patients?", a: "The largest Medicaid billers are national organizations like pharmacy benefit managers and lab networks that process claims across all 50 states, accumulating patient counts that exceed most countries' populations." },
+            { q: "Who are Medicaid's biggest billers by patient volume?", a: "The top billers are large organizations — PBMs, national lab chains, and managed care entities — not individual doctors. Only 2 of the top 2,000 billers are individual people." },
+            { q: "Why does patient volume matter for fraud detection?", a: "Extreme patient volumes can mask fraudulent billing within legitimate operations. When a provider bills for millions of patients, even a small percentage of phantom claims represents enormous dollar amounts." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How can one provider bill for 108 million patients?", answer: "The largest Medicaid billers are national organizations like pharmacy benefit managers and lab networks that process claims across all 50 states, accumulating patient counts that exceed most countries' populations." },
+        { question: "Who are Medicaid's biggest billers by patient volume?", answer: "The top billers are large organizations — PBMs, national lab chains, and managed care entities — not individual doctors. Only 2 of the top 2,000 billers are individual people." },
+        { question: "Why does patient volume matter for fraud detection?", answer: "Extreme patient volumes can mask fraudulent billing within legitimate operations. When a provider bills for millions of patients, even a small percentage of phantom claims represents enormous dollar amounts." },
+      ]} />
     </article>
   );
 }

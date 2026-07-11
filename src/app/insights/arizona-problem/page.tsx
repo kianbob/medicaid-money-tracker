@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import { formatMoney, formatNumber } from "@/lib/format";
 import azDataRaw from "../../../../public/data/az-new-entrants.json";
+import FAQSchema from "@/components/FAQSchema";
 
 function toTitleCase(str: string): string {
   if (!str) return str;
@@ -295,6 +296,27 @@ export default function ArizonaProblem() {
         </div>
         <RelatedInsights currentSlug="arizona-problem" relatedSlugs={["geographic-hotspots", "city-hotspots", "ny-home-care"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What happened with Arizona Medicaid clinics in 2022?", a: "Dozens of new Medicaid providers appeared in Arizona in 2022, collectively billed over $800 million, and many vanished within a year — a classic pattern of fly-by-night fraud operations." },
+            { q: "Why is Phoenix a hotspot for Medicaid fraud?", a: "Phoenix concentrates the highest density of newly-registered providers with extreme billing volumes and short operational lifespans, suggesting organized fraud schemes targeting Arizona's Medicaid program." },
+            { q: "How do pop-up clinics exploit Medicaid?", a: "Pop-up clinics register as new providers, bill aggressively for services that may never have been rendered, then close before auditors can investigate — moving to new locations or states." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What happened with Arizona Medicaid clinics in 2022?", answer: "Dozens of new Medicaid providers appeared in Arizona in 2022, collectively billed over $800 million, and many vanished within a year — a classic pattern of fly-by-night fraud operations." },
+        { question: "Why is Phoenix a hotspot for Medicaid fraud?", answer: "Phoenix concentrates the highest density of newly-registered providers with extreme billing volumes and short operational lifespans, suggesting organized fraud schemes targeting Arizona's Medicaid program." },
+        { question: "How do pop-up clinics exploit Medicaid?", answer: "Pop-up clinics register as new providers, bill aggressively for services that may never have been rendered, then close before auditors can investigate — moving to new locations or states." },
+      ]} />
     </article>
   );
 }

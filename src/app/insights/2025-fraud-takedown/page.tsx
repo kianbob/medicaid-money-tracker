@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "$14.6B Fraud Bust: 324 Charged, Billions Still Missing",
@@ -128,8 +129,7 @@ export default function FraudTakedown2025() {
       {/* The Scale Problem */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-4">The Scale Problem: Enforcement Can&apos;t Keep Up</h2>
-        <p className="text-slate-300 mb-4">
-          $14.6 billion sounds enormous — and it is. But put it in context. CMS estimated <strong className="text-white">$37.4 billion</strong> in
+        <p className="text-slate-300 mb-4"> $14.6 billion sounds enormous — and it is. But put it in context. CMS estimated <strong className="text-white">$37.4 billion</strong> in
           improper Medicaid payments in 2023 alone. The DOJ recovered approximately <strong className="text-white">$1.4 billion</strong> in
           healthcare fraud judgments and settlements that same year. That&apos;s a recovery rate of less than 4%.
         </p>
@@ -490,6 +490,27 @@ export default function FraudTakedown2025() {
       </section>
 
       <RelatedInsights currentSlug="2025-fraud-takedown" relatedSlugs={["minnesota-fraud-capital", "impossible-volume", "highest-confidence", "billing-networks"]} />
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What was the 2025 DOJ healthcare fraud takedown?", a: "In 2025, the DOJ charged 324 defendants in the largest-ever healthcare fraud enforcement action, targeting  $4.6 billion in alleged fraud across Medicare and Medicaid." },
+            { q: "How much does Medicaid lose to fraud each year?", a: "CMS estimates $37.4 billion in improper Medicaid payments annually, with a 6.12% error rate — though not all improper payments are fraud." },
+            { q: "How does data analysis help detect Medicaid fraud?", a: "Statistical methods like Benford's Law analysis, billing velocity detection, and network analysis can flag anomalous billing patterns that correlate with known fraud schemes." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What was the 2025 DOJ healthcare fraud takedown?", answer: "In 2025, the DOJ charged 324 defendants in the largest-ever healthcare fraud enforcement action, targeting  $4.6 billion in alleged fraud across Medicare and Medicaid." },
+        { question: "How much does Medicaid lose to fraud each year?", answer: "CMS estimates $37.4 billion in improper Medicaid payments annually, with a 6.12% error rate — though not all improper payments are fraud." },
+        { question: "How does data analysis help detect Medicaid fraud?", answer: "Statistical methods like Benford's Law analysis, billing velocity detection, and network analysis can flag anomalous billing patterns that correlate with known fraud schemes." },
+      ]} />
     </article>
   );
 }

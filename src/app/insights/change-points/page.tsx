@@ -3,6 +3,7 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney } from "@/lib/format";
 import changePointData from "../../../../public/data/change-points.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "7,314 Providers Changed Billing 3x+ Overnight",
@@ -304,6 +305,27 @@ export default function ChangePoints() {
         </div>
         <RelatedInsights currentSlug="change-points" relatedSlugs={["benford-analysis", "impossible-volume", "highest-confidence"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is a billing change point?", a: "A change point is the exact month when a provider's billing pattern dramatically shifts — such as suddenly tripling or more. We detected 7,314 providers with 3x+ overnight changes." },
+            { q: "What caused the biggest billing change points?", a: "Most dramatic changes clustered around pandemic-era policy shifts when continuous enrollment rules and telehealth expansions created opportunities for billing surges. The biggest single jump was 113x." },
+            { q: "Why do sudden billing changes matter?", a: "Legitimate practice growth is gradual. When billing triples overnight without a corresponding change in capacity, it suggests either policy exploitation, upcoding, or outright fraud." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is a billing change point?", answer: "A change point is the exact month when a provider's billing pattern dramatically shifts — such as suddenly tripling or more. We detected 7,314 providers with 3x+ overnight changes." },
+        { question: "What caused the biggest billing change points?", answer: "Most dramatic changes clustered around pandemic-era policy shifts when continuous enrollment rules and telehealth expansions created opportunities for billing surges. The biggest single jump was 113x." },
+        { question: "Why do sudden billing changes matter?", answer: "Legitimate practice growth is gradual. When billing triples overnight without a corresponding change in capacity, it suggests either policy exploitation, upcoding, or outright fraud." },
+      ]} />
     </article>
   );
 }

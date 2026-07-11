@@ -131,6 +131,18 @@ const INSIGHT_MAP: Record<string, { title: string; description: string }> = {
     title: 'Enrollment Trends 2026',
     description: 'From 94M peak to 74.3M — the post-unwinding enrollment picture',
   },
+  'medicaid-unwinding': {
+    title: 'Medicaid Unwinding',
+    description: '25 million lost coverage in the largest health insurance shakeup in U.S. history',
+  },
+  'doge-medicaid-millionaires': {
+    title: 'Medicaid Millionaires Examined',
+    description: 'DOGE claimed $6.4B in dead enrollee payments — here\'s what the data actually shows',
+  },
+  'state-coverage-changes': {
+    title: 'State Coverage Changes 2024-2026',
+    description: '50-state tracker of who gained, who lost, and why Medicaid rolls shifted',
+  },
 };
 
 interface RelatedInsightsProps {

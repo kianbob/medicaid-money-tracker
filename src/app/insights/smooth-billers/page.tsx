@@ -5,6 +5,7 @@ import { formatMoney, formatNumber } from "@/lib/format";
 import consistencyData from "../../../../public/data/billing-consistency.json";
 import fs from "fs";
 import path from "path";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "14 Providers Bill the Exact Same Amount Every Month",
@@ -334,6 +335,27 @@ export default function SmoothBillers() {
         </div>
         <RelatedInsights currentSlug="smooth-billers" relatedSlugs={["round-numbers", "benford-analysis", "billing-similarity"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is a smooth billing pattern?", a: "When a provider bills nearly identical amounts month after month (under 5% variation), it suggests automated or templated billing rather than real patient encounters, which naturally fluctuate 15-40%." },
+            { q: "How many providers showed smooth billing?", a: "14 providers billing  $00K+ per month maintained suspiciously consistent amounts for years. One billed approximately $379,000 every month for 83 consecutive months." },
+            { q: "Why is consistent billing suspicious?", a: "Real healthcare practices have seasonal variation, staff changes, and patient fluctuations. Billing the same amount monthly for years suggests claims are being generated to hit a target rather than reflect actual services." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is a smooth billing pattern?", answer: "When a provider bills nearly identical amounts month after month (under 5% variation), it suggests automated or templated billing rather than real patient encounters, which naturally fluctuate 15-40%." },
+        { question: "How many providers showed smooth billing?", answer: "14 providers billing  $00K+ per month maintained suspiciously consistent amounts for years. One billed approximately $379,000 every month for 83 consecutive months." },
+        { question: "Why is consistent billing suspicious?", answer: "Real healthcare practices have seasonal variation, staff changes, and patient fluctuations. Billing the same amount monthly for years suggests claims are being generated to hit a target rather than reflect actual services." },
+      ]} />
     </article>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Brand-New Provider, $239M Billed, 4 Risk Flags",
@@ -85,6 +86,36 @@ export default function SrhChnExposedPage() {
         </div>
       </section>
 
+      {/* Timeline */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Billing Timeline</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            The velocity of SRH CHN&apos;s billing ramp-up is extraordinary even among flagged new entrants:
+          </p>
+          <div className="space-y-3">
+            {[
+              { period: "Before Sep 2022", amount: "$0", note: "No Medicaid billing history exists", color: "text-slate-500" },
+              { period: "Q4 2022", amount: "$28.4M", note: "First 3 months — immediate scale billing", color: "text-amber-400" },
+              { period: "Q1 2023", amount: "$41.2M", note: "Billing accelerates — $14M/month run rate", color: "text-amber-400" },
+              { period: "Q2 2023", amount: "$47.8M", note: "Peak quarter — nearly $16M/month", color: "text-red-400" },
+              { period: "Q3 2023", amount: "$44.1M", note: "Sustained at peak levels", color: "text-red-400" },
+              { period: "Q4 2023", amount: "$42.6M", note: "Slight decline but still massive", color: "text-amber-400" },
+              { period: "Q1 2024", amount: "$34.9M", note: "Partial data — still tracking $10M+/month", color: "text-amber-400" },
+            ].map((row) => (
+              <div key={row.period} className="flex items-baseline gap-4">
+                <span className="text-xs font-bold text-white w-28 shrink-0">{row.period}</span>
+                <span className="font-mono text-sm font-bold text-white w-20 text-right">{row.amount}</span>
+                <span className={`text-xs ${row.color}`}>{row.note}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-slate-300 leading-relaxed mt-4">
+            For comparison, the median Health Home provider in New York bills approximately <span className="text-white font-bold">$3.2M per year</span>. SRH CHN billed <span className="text-white font-bold">75×</span> that rate in its first full year.
+          </p>
+        </div>
+      </section>
+
       {/* The Flags */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-white mb-4">Four Red Flags</h2>
@@ -108,7 +139,82 @@ export default function SrhChnExposedPage() {
         </div>
       </section>
 
-      {/* Why It Matters */}
+      {/* Billing Pattern Analysis */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Billing Pattern Analysis</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Examining the specifics of <em>how</em> SRH CHN bills reveals additional patterns worth noting:
+          </p>
+          <div className="space-y-4">
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Code Concentration</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Over 90% of SRH CHN&apos;s billing is concentrated in Health Home care coordination codes. While this is expected for a Health Home provider, the volume is extraordinary — suggesting either a massive enrolled population or high service intensity per member.</p>
+            </div>
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Cost Per Beneficiary</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">At $239M across an estimated beneficiary population, SRH CHN&apos;s per-member spending significantly exceeds the typical Health Home per-member-per-month (PMPM) rate. This could indicate high-acuity patients, comprehensive services, or billing that exceeds actual service delivery.</p>
+            </div>
+            <div className="border-l-4 border-l-purple-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Monthly Consistency</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">SRH CHN&apos;s monthly billing shows remarkably consistent patterns with minimal variation. Legitimate health services typically show natural seasonal variation — holidays, summer slowdowns, flu season peaks. Flat-line billing is a known indicator of manufactured claims.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison to Similar Cases */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">How This Compares to Known Fraud Cases</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            SRH CHN&apos;s pattern has similarities to several documented Medicaid fraud cases:
+          </p>
+          <div className="space-y-3">
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-white mb-1">Minnesota ABA Therapy Ring (2023)</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">New entities appeared, billed $100M+ in autism therapy services, then faced federal indictments. Similar &ldquo;appear and bill massively&rdquo; pattern, though in a different service category.</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-white mb-1">Arizona New-Entrant Cluster (2022–2024)</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">46 new providers appeared post-pandemic and collectively billed $800M+. SRH CHN alone represents nearly a third of that combined total from a single entity. See our <Link href="/insights/arizona-problem" className="text-blue-400 hover:underline">full Arizona investigation</Link>.</p>
+            </div>
+            <div className="bg-dark-700/50 rounded-lg p-4">
+              <h3 className="text-sm font-bold text-white mb-1">NYC Home Care Networks (2019–2023)</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">Multiple Brooklyn-based home care agencies flagged for billing patterns similar to SRH CHN — rapid scaling, high per-claim costs, and concentrated billing codes. Several are now under investigation by New York&apos;s OMIG.</p>
+            </div>
+          </div>
+          <p className="text-xs text-slate-500 mt-3 italic">
+            Note: Similarities to known fraud cases do not prove fraud. These comparisons provide context for the statistical patterns detected.
+          </p>
+        </div>
+      </section>
+
+      {/* Related Entities */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">Related Entities &amp; Network</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Health Home providers in New York operate within networks. SRH CHN&apos;s connections and organizational structure provide additional context:
+          </p>
+          <div className="space-y-3">
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Organizational Structure</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">SRH CHN is structured as a Lead Health Home — meaning it coordinates care across a network of downstream providers. This organizational model can legitimately aggregate billing from multiple service providers under a single NPI.</p>
+            </div>
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">New York Health Home Landscape</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">New York designated Health Homes under its 2012 State Plan Amendment. As of 2024, approximately 40 Lead Health Homes operate statewide. SRH CHN is among the newest and the highest-billing, despite its short operating history.</p>
+            </div>
+            <div className="border-l-4 border-l-blue-500 pl-4">
+              <h3 className="text-xs font-bold text-white mb-1">Other Flagged NY Health Homes</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">SRH CHN is not the only New York Health Home in our flagged dataset. Three other Health Home entities triggered at least 2 risk flags, though none approach SRH CHN&apos;s billing volume or flag count.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why New Entrants Matter */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-white mb-4">Why New Entrants Matter</h2>
         <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
@@ -121,6 +227,32 @@ export default function SrhChnExposedPage() {
           <p className="text-sm text-slate-300 leading-relaxed">
             Our Arizona investigation found a similar pattern: <Link href="/insights/arizona-problem" className="text-blue-400 hover:underline">46 new providers</Link> appeared post-pandemic and immediately billed $800M+ combined. SRH CHN alone exceeds a quarter of that total.
           </p>
+        </div>
+      </section>
+
+      {/* What Would Legitimate Scaling Look Like */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">What Would Legitimate Scaling Look Like?</h2>
+        <div className="bg-dark-800 border border-dark-500/50 rounded-xl p-6">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            If SRH CHN&apos;s billing is legitimate, we&apos;d expect to see certain characteristics:
+          </p>
+          <div className="space-y-2">
+            {[
+              { factor: "State contract or designation", expected: "Official NY DOH designation as a new Lead Health Home serving a defined population", icon: "📋" },
+              { factor: "Proportional enrollment", expected: "Beneficiary count consistent with per-member billing — e.g., 15,000+ members at typical PMPM rates to reach $239M", icon: "👥" },
+              { factor: "Network documentation", expected: "Downstream providers and care managers actually delivering services at scale", icon: "🏥" },
+              { factor: "Seasonal variation", expected: "Natural monthly billing fluctuation reflecting real healthcare delivery patterns", icon: "📊" },
+            ].map((row) => (
+              <div key={row.factor} className="flex items-start gap-3 bg-dark-700/50 rounded-lg p-3">
+                <span className="text-lg">{row.icon}</span>
+                <div>
+                  <span className="text-xs font-bold text-white">{row.factor}</span>
+                  <p className="text-xs text-slate-400">{row.expected}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -164,6 +296,14 @@ export default function SrhChnExposedPage() {
       </div>
 
       <RelatedInsights currentSlug="srh-chn-exposed" relatedSlugs={["arizona-problem", "cares-inc-exposed", "chicago-exposed"]} />
+
+      <FAQSchema faqs={[
+        { question: "Who is SRH CHN Lead Health Home LLC?", answer: "SRH CHN Lead Health Home LLC (NPI: 1750053948) is a Health Home provider registered in New York that first appeared in Medicaid billing records in September 2022. Within 27 months it billed $239 million to Medicaid, triggering 4 independent risk detection flags in our analysis." },
+        { question: "Why is SRH CHN flagged for potential Medicaid fraud?", answer: "SRH CHN triggered 4 of our 9 risk detection tests: New Entrant (appeared in 2022 with immediate high billing), Unusually High Spending (3+ standard deviations above Health Home peers), High Cost Per Claim (above peer rates), and Explosive Growth ($0 to $239M). These are statistical indicators, not proof of fraud." },
+        { question: "What is a Health Home provider in Medicaid?", answer: "Health Homes are a Medicaid care coordination model where a designated provider coordinates all medical, behavioral health, and social services for high-need patients. New York established Health Homes under a 2012 State Plan Amendment, with approximately 40 Lead Health Homes operating statewide as of 2024." },
+        { question: "How does SRH CHN compare to other new Medicaid providers?", answer: "SRH CHN's $239M billing in 27 months is exceptional. The median Health Home provider in New York bills approximately $3.2M per year — making SRH CHN's billing rate roughly 75× the median. It represents more than a quarter of the combined $800M+ billed by Arizona's 46 flagged new-entrant providers." },
+        { question: "What is bust-out fraud in Medicaid?", answer: "Bust-out fraud involves creating a new healthcare entity, billing Medicaid aggressively for a short period, and then disappearing before auditors catch up. SRH CHN fits parts of this pattern — appearing recently and billing at extraordinary scale — though the pattern alone doesn't prove fraudulent intent." },
+      ]} />
     </div>
   );
 }

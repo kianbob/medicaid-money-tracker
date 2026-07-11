@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import expensiveData from "../../../../public/data/most-expensive-procedures.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "$92,158 Per Claim: Medicaid's 50 Most Expensive Procedures",
@@ -203,6 +204,27 @@ export default function MostExpensive() {
         </div>
         <RelatedInsights currentSlug="most-expensive" relatedSlugs={["specialty-drugs", "fastest-growing", "spending-growth"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is the most expensive Medicaid procedure?", a: "The costliest single procedure billed to Medicaid averages $92,158 per claim — a specialty injection that costs more per dose than most Americans earn in a year." },
+            { q: "How much do specialty drugs cost Medicaid?", a: "Some hemophilia and rare disease drugs run over $500,000 per year per patient. The top 50 most expensive procedures represent a massive concentration of Medicaid spending." },
+            { q: "Are expensive procedures more prone to fraud?", a: "High-cost procedures create larger financial incentives for fraud. A single fraudulent claim for a $92K procedure equals the damage of hundreds of fraudulent office visits." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is the most expensive Medicaid procedure?", answer: "The costliest single procedure billed to Medicaid averages $92,158 per claim — a specialty injection that costs more per dose than most Americans earn in a year." },
+        { question: "How much do specialty drugs cost Medicaid?", answer: "Some hemophilia and rare disease drugs run over $500,000 per year per patient. The top 50 most expensive procedures represent a massive concentration of Medicaid spending." },
+        { question: "Are expensive procedures more prone to fraud?", answer: "High-cost procedures create larger financial incentives for fraud. A single fraudulent claim for a $92K procedure equals the damage of hundreds of fraudulent office visits." },
+      ]} />
     </article>
   );
 }

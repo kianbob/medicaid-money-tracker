@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Falling",
@@ -245,6 +246,27 @@ export default function EnrollmentTrends2026() {
           relatedSlugs={["work-requirements-2026", "obbba-medicaid-cuts", "spending-by-state"]}
         />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How many people are on Medicaid in 2026?", a: "As of March 2026, Medicaid enrollment stands at approximately 74.3 million — down 21% from the pandemic peak of 94 million, following the end of continuous enrollment protections." },
+            { q: "What caused the Medicaid enrollment drop?", a: "The post-pandemic 'unwinding' process required states to redetermine eligibility for all enrollees. Roughly 25 million people lost coverage — some because they no longer qualified, others due to paperwork issues." },
+            { q: "Will Medicaid enrollment keep declining?", a: "Proposed work requirements affecting 44 states could push enrollment down further. CMS projects an additional 7-10 million could lose coverage if work requirements are fully implemented by 2027." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How many people are on Medicaid in 2026?", answer: "As of March 2026, Medicaid enrollment stands at approximately 74.3 million — down 21% from the pandemic peak of 94 million, following the end of continuous enrollment protections." },
+        { question: "What caused the Medicaid enrollment drop?", answer: "The post-pandemic 'unwinding' process required states to redetermine eligibility for all enrollees. Roughly 25 million people lost coverage — some because they no longer qualified, others due to paperwork issues." },
+        { question: "Will Medicaid enrollment keep declining?", answer: "Proposed work requirements affecting 44 states could push enrollment down further. CMS projects an additional 7-10 million could lose coverage if work requirements are fully implemented by 2027." },
+      ]} />
     </article>
   );
 }

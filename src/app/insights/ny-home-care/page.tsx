@@ -3,6 +3,7 @@ import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, formatNumber } from "@/lib/format";
 import homeCareData from "../../../../public/data/ny-home-care.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "NY's $47B Home Care Machine: One Provider Billed $7.2B",
@@ -253,6 +254,27 @@ export default function NYHomeCare() {
         </div>
         <RelatedInsights currentSlug="ny-home-care" relatedSlugs={["arizona-problem", "city-hotspots", "most-patients"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How much does New York spend on Medicaid home care?", a: "New York's Medicaid home care spending totals $47 billion, with one provider alone billing $7.2 billion over 7 years. NY accounts for over 80% of all national T1019 personal care spending." },
+            { q: "Why do Brooklyn agencies dominate home care billing?", a: "Brooklyn's dense population of Medicaid-eligible residents and large immigrant communities created a massive home care market. Many agencies concentrate in specific neighborhoods, billing hundreds of millions each." },
+            { q: "Is New York's home care spending suspicious?", a: "New York spending 80%+ of all national personal care code billing is a massive outlier. While NY has generous home care benefits, the concentration suggests systemic overbilling and potential fraud." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How much does New York spend on Medicaid home care?", answer: "New York's Medicaid home care spending totals $47 billion, with one provider alone billing $7.2 billion over 7 years. NY accounts for over 80% of all national T1019 personal care spending." },
+        { question: "Why do Brooklyn agencies dominate home care billing?", answer: "Brooklyn's dense population of Medicaid-eligible residents and large immigrant communities created a massive home care market. Many agencies concentrate in specific neighborhoods, billing hundreds of millions each." },
+        { question: "Is New York's home care spending suspicious?", answer: "New York spending 80%+ of all national personal care code billing is a massive outlier. While NY has generous home care benefits, the concentration suggests systemic overbilling and potential fraud." },
+      ]} />
     </article>
   );
 }

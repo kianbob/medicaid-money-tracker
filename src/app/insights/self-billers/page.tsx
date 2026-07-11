@@ -6,6 +6,7 @@ import selfBillers from "../../../../public/data/self-billers.json";
 import smartWatchlist from "../../../../public/data/smart-watchlist.json";
 import expandedWatchlist from "../../../../public/data/expanded-watchlist.json";
 import topProviders from "../../../../public/data/top-providers-1000.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "100 Providers Billed $72B With No Outside Help",
@@ -317,6 +318,27 @@ export default function SelfBillers() {
         </div>
         <RelatedInsights currentSlug="self-billers" relatedSlugs={["billing-networks", "round-numbers", "dual-billing"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What is a self-billing Medicaid provider?", a: "A self-biller is a provider that submits 95%+ of their Medicaid claims directly rather than through a billing intermediary. We found 100 such providers billing $72 billion combined." },
+            { q: "Why is self-billing a fraud risk factor?", a: "Self-billing eliminates the third-party oversight that billing intermediaries provide. When a provider handles everything internally, there's no external check on claim accuracy or legitimacy." },
+            { q: "Do all self-billers commit fraud?", a: "No — many large healthcare organizations legitimately handle their own billing. But self-billing combined with other risk flags (unusual volumes, rapid growth) significantly elevates the fraud probability." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What is a self-billing Medicaid provider?", answer: "A self-biller is a provider that submits 95%+ of their Medicaid claims directly rather than through a billing intermediary. We found 100 such providers billing $72 billion combined." },
+        { question: "Why is self-billing a fraud risk factor?", answer: "Self-billing eliminates the third-party oversight that billing intermediaries provide. When a provider handles everything internally, there's no external check on claim accuracy or legitimacy." },
+        { question: "Do all self-billers commit fraud?", answer: "No — many large healthcare organizations legitimately handle their own billing. But self-billing combined with other risk flags (unusual volumes, rapid growth) significantly elevates the fraud probability." },
+      ]} />
     </article>
   );
 }

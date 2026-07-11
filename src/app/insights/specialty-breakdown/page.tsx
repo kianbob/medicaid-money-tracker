@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import specialtyData from "../../../../public/data/specialty-breakdown.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "15 Providers Got $10.8B: Medicaid by Specialty",
@@ -236,6 +237,27 @@ export default function SpecialtyBreakdown() {
         </div>
         <RelatedInsights currentSlug="specialty-breakdown" relatedSlugs={["most-expensive", "top-doctors", "spending-growth"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Which Medicaid specialty has the highest per-provider spending?", a: "Supports Brokerage leads with just 15 providers receiving  $0.8 billion — averaging $720 million per provider, far exceeding any other specialty category." },
+            { q: "Where does most Medicaid spending go by specialty?", a: "Home Health (264 providers, $71 billion) and managed care organizations account for the largest total spending. The concentration among so few providers in some specialties raises oversight concerns." },
+            { q: "Why does specialty matter for fraud detection?", a: "Certain specialties have inherently higher fraud rates due to subjective billing, difficulty verifying services, or high per-claim values. Understanding the specialty landscape helps prioritize investigation resources." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Which Medicaid specialty has the highest per-provider spending?", answer: "Supports Brokerage leads with just 15 providers receiving  $0.8 billion — averaging $720 million per provider, far exceeding any other specialty category." },
+        { question: "Where does most Medicaid spending go by specialty?", answer: "Home Health (264 providers, $71 billion) and managed care organizations account for the largest total spending. The concentration among so few providers in some specialties raises oversight concerns." },
+        { question: "Why does specialty matter for fraud detection?", answer: "Certain specialties have inherently higher fraud rates due to subjective billing, difficulty verifying services, or high per-claim values. Understanding the specialty landscape helps prioritize investigation resources." },
+      ]} />
     </article>
   );
 }

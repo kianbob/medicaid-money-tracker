@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
 import statesSummary from "../../../../public/data/states-summary.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Medicaid Spending by State: Who Gets the Most Federal Dollars?",
@@ -210,8 +211,7 @@ export default function SpendingByState() {
 
         <h2 className="font-headline text-2xl font-bold text-white mt-10 mb-4">What the Data Tells Us</h2>
         <p>
-          The state-by-state picture reveals why one-size-fits-all Medicaid policy is so difficult. New York&apos;s
-          $81 billion program has fundamentally different dynamics than Texas&apos;s $10 billion program. The fraud
+          The state-by-state picture reveals why one-size-fits-all Medicaid policy is so difficult. New York&apos;s $81 billion program has fundamentally different dynamics than Texas&apos;s $10 billion program. The fraud
           patterns in Minnesota look nothing like the spending patterns in California. Provider networks,
           reimbursement rates, enrollment policies, and oversight capacity vary enormously.
         </p>
@@ -234,6 +234,27 @@ export default function SpendingByState() {
         currentSlug="spending-by-state"
         relatedSlugs={["spending-growth", "ny-home-care", "geographic-hotspots", "obbba-medicaid-cuts"]}
       />
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Which state receives the most Medicaid funding?", a: "New York receives $81.1 billion in Medicaid payments — more than California and Massachusetts combined, and more than the GDP of many countries." },
+            { q: "How is Medicaid spending distributed across states?", a: "Spending is highly concentrated: the top 5 states account for roughly half of all Medicaid spending. State-by-state variation reflects differences in enrollment, benefit generosity, and cost of living." },
+            { q: "Why does New York spend so much more on Medicaid?", a: "New York offers some of the most generous Medicaid benefits in the country, including extensive home care coverage, combined with high healthcare costs and a large eligible population." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Which state receives the most Medicaid funding?", answer: "New York receives $81.1 billion in Medicaid payments — more than California and Massachusetts combined, and more than the GDP of many countries." },
+        { question: "How is Medicaid spending distributed across states?", answer: "Spending is highly concentrated: the top 5 states account for roughly half of all Medicaid spending. State-by-state variation reflects differences in enrollment, benefit generosity, and cost of living." },
+        { question: "Why does New York spend so much more on Medicaid?", answer: "New York offers some of the most generous Medicaid benefits in the country, including extensive home care coverage, combined with high healthcare costs and a large eligible population." },
+      ]} />
     </article>
   );
 }

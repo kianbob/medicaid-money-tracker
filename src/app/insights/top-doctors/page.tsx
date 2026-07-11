@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import individualsData from "../../../../public/data/top-individuals.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Only 2 Humans in Medicaid's Top 2,000 Billers",
@@ -201,6 +202,27 @@ export default function TopDoctors() {
         </div>
         <RelatedInsights currentSlug="top-doctors" relatedSlugs={["most-patients", "specialty-breakdown", "most-expensive"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Are Medicaid's top billers actually doctors?", a: "No — only 2 of the top 2,000 Medicaid billers are individual humans. The vast majority are organizations like managed care entities, pharmacy chains, and billing intermediaries." },
+            { q: "Who are the two individual top Medicaid billers?", a: "A psychologist who billed $77.3 million and a non-emergency medical transport van driver who billed $76.2 million — both extreme outliers among a sea of organizational billers." },
+            { q: "How can a van driver bill $76 million to Medicaid?", a: "Non-emergency medical transportation (NEMT) is a Medicaid benefit that can generate high volumes of claims. Whether $76 million from one individual represents legitimate transport services is a question worth investigating." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Are Medicaid's top billers actually doctors?", answer: "No — only 2 of the top 2,000 Medicaid billers are individual humans. The vast majority are organizations like managed care entities, pharmacy chains, and billing intermediaries." },
+        { question: "Who are the two individual top Medicaid billers?", answer: "A psychologist who billed $77.3 million and a non-emergency medical transport van driver who billed $76.2 million — both extreme outliers among a sea of organizational billers." },
+        { question: "How can a van driver bill $76 million to Medicaid?", answer: "Non-emergency medical transportation (NEMT) is a Medicaid benefit that can generate high volumes of claims. Whether $76 million from one individual represents legitimate transport services is a question worth investigating." },
+      ]} />
     </article>
   );
 }

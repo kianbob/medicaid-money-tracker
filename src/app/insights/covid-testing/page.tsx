@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import testingData from "../../../../public/data/covid-testing-top-billers.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "1 COVID Test Code Billed $3.9B to Medicaid",
@@ -209,6 +210,27 @@ export default function CovidTesting() {
         </div>
         <RelatedInsights currentSlug="covid-testing" relatedSlugs={["covid-vaccines", "pandemic-profiteers", "fastest-growing"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How much did COVID testing cost Medicaid?", a: "A single COVID test code — U0003 — generated $3.9 billion in Medicaid billing alone. The top 100 COVID testing billers accounted for a massive share of this spending." },
+            { q: "Which lab billed the most for COVID tests?", a: "One New Jersey laboratory billed$29 million for COVID testing through Medicaid — more than Quest Diagnostics, one of the largest commercial labs in the country." },
+            { q: "Was COVID testing billing fraud widespread?", a: "The extreme concentration of billing among a small number of providers, combined with volumes that far exceed physical testing capacity, suggests significant fraud mixed in with legitimate testing." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How much did COVID testing cost Medicaid?", answer: "A single COVID test code — U0003 — generated $3.9 billion in Medicaid billing alone. The top 100 COVID testing billers accounted for a massive share of this spending." },
+        { question: "Which lab billed the most for COVID tests?", answer: "One New Jersey laboratory billed$29 million for COVID testing through Medicaid — more than Quest Diagnostics, one of the largest commercial labs in the country." },
+        { question: "Was COVID testing billing fraud widespread?", answer: "The extreme concentration of billing among a small number of providers, combined with volumes that far exceed physical testing capacity, suggests significant fraud mixed in with legitimate testing." },
+      ]} />
     </article>
   );
 }

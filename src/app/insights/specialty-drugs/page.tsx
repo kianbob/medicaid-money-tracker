@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber, hcpcsDescription } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import pharmaData from "../../../../public/data/specialty-pharma.json";
+import FAQSchema from "@/components/FAQSchema";
 
 /* Extra J-code descriptions not in the main hcpcsDescription lookup */
 const jCodeDescriptions: Record<string, string> = {
@@ -248,6 +249,27 @@ export default function SpecialtyDrugs() {
         </div>
         <RelatedInsights currentSlug="specialty-drugs" relatedSlugs={["most-expensive", "spending-growth", "fastest-growing"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What are J-code drugs in Medicaid?", a: "J-codes are procedure codes for drugs administered by healthcare providers (injections, infusions) rather than dispensed at pharmacies. The top 50 J-code drugs billed $3.5 billion+ to Medicaid." },
+            { q: "What is the most expensive drug billed to Medicaid?", a: "The costliest specialty drug averages $92,158 per claim — a single injection that costs more than many Americans earn in a year. Some are billed by only 1-3 providers nationwide." },
+            { q: "Why are specialty drugs a fraud target?", a: "High per-unit costs mean even a small number of fraudulent claims generate massive payouts. Some drugs are billed by so few providers that oversight is minimal and fraud can go undetected for years." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What are J-code drugs in Medicaid?", answer: "J-codes are procedure codes for drugs administered by healthcare providers (injections, infusions) rather than dispensed at pharmacies. The top 50 J-code drugs billed $3.5 billion+ to Medicaid." },
+        { question: "What is the most expensive drug billed to Medicaid?", answer: "The costliest specialty drug averages $92,158 per claim — a single injection that costs more than many Americans earn in a year. Some are billed by only 1-3 providers nationwide." },
+        { question: "Why are specialty drugs a fraud target?", answer: "High per-unit costs mean even a small number of fraudulent claims generate massive payouts. Some drugs are billed by so few providers that oversight is minimal and fraud can go undetected for years." },
+      ]} />
     </article>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Medicaid Work Requirements 2026: State-by-State Tracker",
@@ -245,6 +246,27 @@ export default function WorkRequirements2026() {
           relatedSlugs={["obbba-medicaid-cuts", "doge-medicaid", "enrollment-trends-2026"]}
         />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What are the 2026 Medicaid work requirements?", a: "Beginning in 2027, 44 states must require able-bodied adults aged 19-64 to complete 80 hours per month of work, education, job training, or community service to maintain Medicaid coverage." },
+            { q: "Who is exempt from Medicaid work requirements?", a: "Exemptions typically apply to pregnant women, primary caregivers of young children, individuals with disabilities, those in substance abuse treatment, and people over 64 or under 19." },
+            { q: "How many people could lose Medicaid coverage?", a: "CMS estimates 7-10 million enrollees could lose coverage if work requirements are fully implemented, though actual numbers depend on exemption rates and state implementation approaches." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What are the 2026 Medicaid work requirements?", answer: "Beginning in 2027, 44 states must require able-bodied adults aged 19-64 to complete 80 hours per month of work, education, job training, or community service to maintain Medicaid coverage." },
+        { question: "Who is exempt from Medicaid work requirements?", answer: "Exemptions typically apply to pregnant women, primary caregivers of young children, individuals with disabilities, those in substance abuse treatment, and people over 64 or under 19." },
+        { question: "How many people could lose Medicaid coverage?", answer: "CMS estimates 7-10 million enrollees could lose coverage if work requirements are fully implemented, though actual numbers depend on exemption rates and state implementation approaches." },
+      ]} />
     </article>
   );
 }

@@ -4,6 +4,7 @@ import RelatedInsights from "@/components/RelatedInsights";
 import { formatMoney, stateName } from "@/lib/format";
 import { CityHotspotsChart } from "@/components/Charts";
 import cityData from "../../../../public/data/city-fraud-hotspots.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "Brooklyn Has 64 Risk Flags — America's Top Hotspot",
@@ -274,6 +275,27 @@ export default function CityHotspots() {
         </div>
         <RelatedInsights currentSlug="city-hotspots" relatedSlugs={["geographic-hotspots", "arizona-problem", "ny-home-care"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "Which U.S. city has the most Medicaid fraud flags?", a: "Brooklyn leads with 64 flagged providers and$3.7 billion in suspicious spending. NYC boroughs combined account for 111 fraud risk flags — more than most entire states." },
+            { q: "Which city has the highest fraud spending per provider?", a: "Nashville averages $858 million per flagged provider, the highest per-provider suspicious spending of any city — suggesting fewer but much larger-scale fraud operations." },
+            { q: "Why do certain cities concentrate Medicaid fraud?", a: "High Medicaid enrollment, dense provider networks, and overwhelmed state oversight create environments where fraudulent providers can operate undetected among thousands of legitimate ones." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "Which U.S. city has the most Medicaid fraud flags?", answer: "Brooklyn leads with 64 flagged providers and$3.7 billion in suspicious spending. NYC boroughs combined account for 111 fraud risk flags — more than most entire states." },
+        { question: "Which city has the highest fraud spending per provider?", answer: "Nashville averages $858 million per flagged provider, the highest per-provider suspicious spending of any city — suggesting fewer but much larger-scale fraud operations." },
+        { question: "Why do certain cities concentrate Medicaid fraud?", answer: "High Medicaid enrollment, dense provider networks, and overwhelmed state oversight create environments where fraudulent providers can operate undetected among thousands of legitimate ones." },
+      ]} />
     </article>
   );
 }

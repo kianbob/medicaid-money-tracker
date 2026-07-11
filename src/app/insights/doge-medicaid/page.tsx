@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "DOGE Released Medicaid Data — We Already Analyzed It",
@@ -88,8 +89,7 @@ export default function DogeMedicaid() {
         </p>
         <p>
           Here&apos;s the thing: <strong className="text-white">we&apos;ve already been doing this</strong>. OpenMedicaid has analyzed every publicly available
-          CMS billing record — <Link href="/providers" className="text-blue-400 hover:text-blue-300">227 million line items</Link> representing
-          $1.09 trillion in Medicaid spending across 617,000+ providers. We built{" "}
+          CMS billing record — <Link href="/providers" className="text-blue-400 hover:text-blue-300">227 million line items</Link> representing $1.09 trillion in Medicaid spending across 617,000+ providers. We built{" "}
           <Link href="/ml-analysis" className="text-blue-400 hover:text-blue-300">machine learning models</Link>,{" "}
           <Link href="/insights/benford-analysis" className="text-blue-400 hover:text-blue-300">statistical anomaly detection</Link>,{" "}
           and <Link href="/insights/billing-networks" className="text-blue-400 hover:text-blue-300">network analysis tools</Link> to
@@ -236,6 +236,27 @@ export default function DogeMedicaid() {
         currentSlug="doge-medicaid"
         relatedSlugs={["minnesota-fraud-capital", "banned-but-billing", "highest-confidence", "impossible-volume"]}
       />
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What Medicaid data did DOGE release?", a: "DOGE encouraged public analysis of Medicaid spending data to crowdsource fraud detection. The dataset covers 227 million records across all 50 states." },
+            { q: "How many providers did your analysis flag?", a: "Our analysis of the full Medicaid dataset flagged 1,860 providers with statistical anomalies, including 40 that appeared to be billing while federally excluded — a crime." },
+            { q: "Can the public actually find Medicaid fraud in data?", a: "Yes — statistical methods can identify billing anomalies that warrant investigation. Our analysis flagged patterns consistent with known fraud schemes months before some official investigations began." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What Medicaid data did DOGE release?", answer: "DOGE encouraged public analysis of Medicaid spending data to crowdsource fraud detection. The dataset covers 227 million records across all 50 states." },
+        { question: "How many providers did your analysis flag?", answer: "Our analysis of the full Medicaid dataset flagged 1,860 providers with statistical anomalies, including 40 that appeared to be billing while federally excluded — a crime." },
+        { question: "Can the public actually find Medicaid fraud in data?", answer: "Yes — statistical methods can identify billing anomalies that warrant investigation. Our analysis flagged patterns consistent with known fraud schemes months before some official investigations began." },
+      ]} />
     </article>
   );
 }

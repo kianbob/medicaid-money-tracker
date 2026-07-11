@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RelatedInsights from "@/components/RelatedInsights";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "DOGE Medicaid Fraud Findings: What Federal Investigators Actually Found",
@@ -253,6 +254,27 @@ export default function DogeFraudFindings() {
           relatedSlugs={["doge-medicaid", "minnesota-fraud-capital", "medicaid-fraud-crackdown-2026"]}
         />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "What did DOGE find in Medicaid data?", a: "DOGE investigators accessed CMS payment systems and flagged billions in suspicious spending, triggering $350 million in withheld payments to Minnesota and identifying patterns of systematic overbilling." },
+            { q: "Did DOGE's Medicaid investigation lead to action?", a: "Yes — their findings contributed to payment holds on states with high fraud indicators, accelerated existing OIG investigations, and pushed CMS to implement stricter pre-payment verification." },
+            { q: "How does DOGE's approach differ from traditional fraud detection?", a: "DOGE used data-driven analysis similar to our methodology — statistical anomaly detection and cross-referencing billing patterns — rather than relying solely on tips and manual audits." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "What did DOGE find in Medicaid data?", answer: "DOGE investigators accessed CMS payment systems and flagged billions in suspicious spending, triggering $350 million in withheld payments to Minnesota and identifying patterns of systematic overbilling." },
+        { question: "Did DOGE's Medicaid investigation lead to action?", answer: "Yes — their findings contributed to payment holds on states with high fraud indicators, accelerated existing OIG investigations, and pushed CMS to implement stricter pre-payment verification." },
+        { question: "How does DOGE's approach differ from traditional fraud detection?", answer: "DOGE used data-driven analysis similar to our methodology — statistical anomaly detection and cross-referencing billing patterns — rather than relying solely on tips and manual audits." },
+      ]} />
     </article>
   );
 }

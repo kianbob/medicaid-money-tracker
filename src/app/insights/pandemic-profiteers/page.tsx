@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatMoney, formatNumber, formatMoneyFull } from "@/lib/format";
 import RelatedInsights from "@/components/RelatedInsights";
 import pandemicData from "../../../../public/data/pandemic-billing-jumps.json";
+import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
   title: "COVID Profiteers: Chicago's 942% Medicaid Billing Spike",
@@ -215,6 +216,27 @@ export default function PandemicProfiteers() {
         </div>
         <RelatedInsights currentSlug="pandemic-profiteers" relatedSlugs={["covid-vaccines", "covid-testing", "spending-growth"]} />
       </div>
+      {/* FAQ Section */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          {[
+            { q: "How much did COVID inflate Medicaid billing?", a: "Some providers saw billing increases exceeding 900% during the pandemic. Chicago-area providers collectively jumped from $23 million to $240 million — a 942% surge." },
+            { q: "Which provider had the biggest pandemic billing jump?", a: "One provider went from $0 in pre-pandemic Medicaid billing to $2.1 billion during COVID — an entity that essentially didn't exist before the pandemic created billing opportunities." },
+            { q: "How did pandemic policies enable billing fraud?", a: "Continuous enrollment requirements, telehealth expansion, and emergency provider enrollment relaxations removed normal guardrails, allowing both legitimate growth and fraudulent exploitation." },
+          ].map((faq, i) => (
+            <div key={i} className="border-b border-dark-500/30 pb-4">
+              <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <FAQSchema faqs={[
+        { question: "How much did COVID inflate Medicaid billing?", answer: "Some providers saw billing increases exceeding 900% during the pandemic. Chicago-area providers collectively jumped from $23 million to $240 million — a 942% surge." },
+        { question: "Which provider had the biggest pandemic billing jump?", answer: "One provider went from $0 in pre-pandemic Medicaid billing to $2.1 billion during COVID — an entity that essentially didn't exist before the pandemic created billing opportunities." },
+        { question: "How did pandemic policies enable billing fraud?", answer: "Continuous enrollment requirements, telehealth expansion, and emergency provider enrollment relaxations removed normal guardrails, allowing both legitimate growth and fraudulent exploitation." },
+      ]} />
     </article>
   );
 }
