@@ -8,11 +8,11 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Medicaid Fraud Investigations: 33 Data-Driven Reports",
-  description: "Fraud networks, pandemic profiteers, impossible billing, work requirements, and enrollment trends. 33 investigations built from 227M Medicaid billing records.",
+  title: "Medicaid Fraud Investigations & Policy Analysis: 35 Data-Driven Reports",
+  description: "Fraud networks, pandemic profiteers, impossible billing, work requirements, enrollment trends, and immigrant eligibility changes. 35 investigations built from 227M Medicaid billing records.",
   openGraph: {
-    title: "Medicaid Fraud Investigations: 33 Data-Driven Reports",
-    description: "Fraud networks, pandemic profiteers, impossible billing, work requirements, and enrollment trends. 33 investigations built from 227M Medicaid billing records.",
+    title: "Medicaid Fraud Investigations & Policy Analysis: 35 Data-Driven Reports",
+    description: "Fraud networks, pandemic profiteers, impossible billing, work requirements, enrollment trends, and immigrant eligibility changes. 35 investigations built from 227M Medicaid billing records.",
   },
 };
 
@@ -75,13 +75,33 @@ const insightCategories: { label: string; description: string; accent: string; i
       },
       {
         slug: "enrollment-trends-2026",
-        title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Falling",
+        title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Declining",
         teaser: "From a 94M pandemic peak to 74.3M today — a 21% decline. Post-unwinding data, state-by-state changes, and what work requirements mean for the trajectory.",
         stat: "74.3M",
         statLabel: "current enrollment",
         color: "from-blue-500 to-purple-500",
         accent: "text-blue-400",
         icon: "📉",
+      },
+      {
+        slug: "nebraska-work-requirements",
+        title: "Nebraska: First State to Enforce Medicaid Work Requirements",
+        teaser: "Nebraska started enforcing work requirements May 1, 2026 — seven months before the national deadline. Three months in, early data shows 65% auto-verified via payroll. What it means for the other 40 states.",
+        stat: "~90K",
+        statLabel: "expansion adults",
+        color: "from-green-500 to-emerald-500",
+        accent: "text-green-400",
+        icon: "🌾",
+      },
+      {
+        slug: "medicaid-immigrant-eligibility-2026",
+        title: "Medicaid Immigrant Eligibility Changes: What Happens October 2026",
+        teaser: "Starting October 1, 2026, new federal rules restrict Medicaid for certain immigrant populations — imposing a mandatory 5-year waiting period. Who's affected and what states are doing.",
+        stat: "~4M",
+        statLabel: "potentially affected",
+        color: "from-amber-500 to-orange-500",
+        accent: "text-amber-400",
+        icon: "🗓️",
       },
       {
         slug: "2025-fraud-takedown",

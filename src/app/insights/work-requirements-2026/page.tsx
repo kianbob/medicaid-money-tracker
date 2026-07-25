@@ -15,8 +15,9 @@ export const metadata: Metadata = {
 
 export default function WorkRequirements2026() {
   const stateData = [
+    { state: "Nebraska", status: "Enforcing since May 2026", details: "First state to enforce — began May 1, 2026 via state plan amendment. Tracking compliance for ~90K expansion adults.", color: "text-green-400" },
     { state: "Georgia", status: "Enforcing (early)", details: "Already implementing via 1115 waiver. Non-expansion state with limited eligibility.", color: "text-green-400" },
-    { state: "Nebraska", status: "Enforcing (early)", details: "Moved early on work requirements enforcement through state plan amendment.", color: "text-green-400" },
+    { state: "Iowa", status: "Dec 1, 2026 start", details: "Announced early implementation date of December 1, 2026 — four weeks ahead of federal deadline.", color: "text-amber-400" },
     { state: "Montana", status: "Implementing soon", details: "Preparing for early enforcement via waiver authority.", color: "text-amber-400" },
     { state: "Arkansas", status: "Implementing soon", details: "Previously tried work requirements in 2018 (struck down). Now has federal mandate.", color: "text-amber-400" },
     { state: "Tennessee", status: "1115 waiver (subject)", details: "Non-expansion state with waiver populations subject to requirements.", color: "text-blue-400" },
@@ -38,6 +39,7 @@ export default function WorkRequirements2026() {
           "headline": "Medicaid Work Requirements 2026: State-by-State Tracker",
           "description": "44 states must implement Medicaid work requirements by January 2027. Track which states are moving early and what the requirements mean.",
           "datePublished": "2026-07-11",
+          "dateModified": "2026-07-25",
           "url": "https://www.openmedicaid.org/insights/work-requirements-2026",
           "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
           "author": { "@type": "Organization", "name": "OpenMedicaid" },
@@ -58,7 +60,7 @@ export default function WorkRequirements2026() {
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4 flex-wrap">
           <span className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1 text-xs font-medium text-blue-400">Policy &amp; Accountability</span>
-          <span className="text-xs text-slate-500">July 11, 2026</span>
+          <span className="text-xs text-slate-500">Updated July 25, 2026</span>
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">9 min read</span>
         </div>
@@ -118,10 +120,11 @@ export default function WorkRequirements2026() {
         <h2 className="text-2xl font-bold text-white mt-12 mb-4">Who&apos;s Exempt</h2>
         <div className="bg-dark-800 border border-dark-600 rounded-xl p-6">
           <p className="text-sm text-slate-300 leading-relaxed mb-3">
-            The law carves out exemptions for populations where work requirements would be impractical or counterproductive:
+            The law carves out exemptions for populations where work requirements would be impractical or counterproductive.
+            In June 2026, CMS released guidance defining &ldquo;medical frailty&rdquo; more narrowly than many states expected:
           </p>
           <ul className="list-disc list-inside space-y-2 text-sm text-slate-300">
-            <li>Pregnant women and postpartum mothers (up to 60 days)</li>
+            <li>Pregnant women and postpartum mothers (12-month continuous postpartum extension)</li>
             <li>Individuals with disabilities or serious medical conditions</li>
             <li>Full-time students</li>
             <li>People in substance abuse or mental health treatment programs</li>
@@ -152,7 +155,8 @@ export default function WorkRequirements2026() {
           ))}
         </div>
         <p className="text-sm text-slate-500 mt-2">
-          The remaining 33 expansion states are required to implement by January 2027. Most are in planning and system-build phases.
+          10 non-expansion states (AL, FL, GA, KS, MS, SC, TN, TX, WI, WY) are not subject to expansion-adult work requirements.
+          The remaining expansion states must implement by January 1, 2027. Nebraska is already enforcing; Iowa starts December 1, 2026.
         </p>
 
         <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Case for Accountability</h2>

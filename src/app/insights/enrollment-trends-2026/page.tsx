@@ -4,8 +4,8 @@ import RelatedInsights from "@/components/RelatedInsights";
 import FAQSchema from "@/components/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Falling",
-  description: "Medicaid enrollment dropped from 94M peak to 74.3M by March 2026 — a 21% decline. Post-unwinding data, state-by-state changes, and what work requirements mean for the trajectory.",
+  title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Declining",
+  description: "Medicaid enrollment dropped from 94M peak to 74.3M — a 21% decline. Post-unwinding data, state-by-state changes, work requirements impact, and the latest KFF/CMS enrollment figures updated July 2026.",
   keywords: ["medicaid enrollment 2026", "medicaid enrollment trends", "medicaid unwinding data", "medicaid enrollment decline", "medicaid enrollment by state 2026"],
   openGraph: {
     title: "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Falling",
@@ -33,6 +33,7 @@ export default function EnrollmentTrends2026() {
           "headline": "Medicaid Enrollment Trends 2026: 74.3M Enrollees and Falling",
           "description": "Medicaid enrollment dropped from 94M peak to 74.3M. Post-unwinding data and what work requirements mean next.",
           "datePublished": "2026-07-11",
+          "dateModified": "2026-07-25",
           "url": "https://www.openmedicaid.org/insights/enrollment-trends-2026",
           "publisher": { "@type": "Organization", "name": "OpenMedicaid", "url": "https://www.openmedicaid.org" },
           "author": { "@type": "Organization", "name": "OpenMedicaid" },
@@ -53,7 +54,7 @@ export default function EnrollmentTrends2026() {
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-4 flex-wrap">
           <span className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1 text-xs font-medium text-blue-400">Data Analysis</span>
-          <span className="text-xs text-slate-500">July 11, 2026</span>
+          <span className="text-xs text-slate-500">Updated July 25, 2026</span>
           <span className="text-xs text-slate-600">&middot;</span>
           <span className="text-xs text-slate-500">7 min read</span>
         </div>
@@ -63,8 +64,9 @@ export default function EnrollmentTrends2026() {
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
           Medicaid enrollment peaked at <strong className="text-white">94 million</strong> in March 2023 when COVID&apos;s
           continuous enrollment mandate ended. Since then, 20 million people have been removed from the rolls. As of
-          March 2026, enrollment stands at <strong className="text-white">74.3 million</strong> — and with work requirements
-          taking effect in January 2027, the trajectory points further down.
+          mid-2026, combined Medicaid/CHIP enrollment stands at approximately <strong className="text-white">74.3 million</strong> (67.1M
+          Medicaid + 7.2M CHIP) — and with work requirements taking effect in January 2027 and immigrant eligibility
+          restrictions starting October 2026, the trajectory points further down.
         </p>
       </div>
 
@@ -253,7 +255,7 @@ export default function EnrollmentTrends2026() {
           {[
             { q: "How many people are on Medicaid in 2026?", a: "As of March 2026, Medicaid enrollment stands at approximately 74.3 million — down 21% from the pandemic peak of 94 million, following the end of continuous enrollment protections." },
             { q: "What caused the Medicaid enrollment drop?", a: "The post-pandemic 'unwinding' process required states to redetermine eligibility for all enrollees. Roughly 25 million people lost coverage — some because they no longer qualified, others due to paperwork issues." },
-            { q: "Will Medicaid enrollment keep declining?", a: "Proposed work requirements affecting 44 states could push enrollment down further. CMS projects an additional 7-10 million could lose coverage if work requirements are fully implemented by 2027." },
+            { q: "Will Medicaid enrollment keep declining?", a: "Work requirements affecting 41 states go into effect January 2027 (Nebraska started early in May 2026). Combined with immigrant eligibility changes in October 2026, CMS projects an additional 7-10 million could lose coverage. Total enrollment could drop below the pre-pandemic 71M baseline." },
           ].map((faq, i) => (
             <div key={i} className="border-b border-dark-500/30 pb-4">
               <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
@@ -265,7 +267,7 @@ export default function EnrollmentTrends2026() {
       <FAQSchema faqs={[
         { question: "How many people are on Medicaid in 2026?", answer: "As of March 2026, Medicaid enrollment stands at approximately 74.3 million — down 21% from the pandemic peak of 94 million, following the end of continuous enrollment protections." },
         { question: "What caused the Medicaid enrollment drop?", answer: "The post-pandemic 'unwinding' process required states to redetermine eligibility for all enrollees. Roughly 25 million people lost coverage — some because they no longer qualified, others due to paperwork issues." },
-        { question: "Will Medicaid enrollment keep declining?", answer: "Proposed work requirements affecting 44 states could push enrollment down further. CMS projects an additional 7-10 million could lose coverage if work requirements are fully implemented by 2027." },
+        { question: "Will Medicaid enrollment keep declining?", answer: "Work requirements affecting 41 states go into effect January 2027 (Nebraska started early in May 2026). Combined with immigrant eligibility changes in October 2026, CMS projects an additional 7-10 million could lose coverage. Total enrollment could drop below the pre-pandemic 71M baseline." },
       ]} />
     </article>
   );

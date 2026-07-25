@@ -68,6 +68,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/insights/doge-medicaid`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/insights/improper-payments`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/insights/banned-but-billing`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/nebraska-work-requirements`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/insights/medicaid-immigrant-eligibility-2026`, lastModified: lastUpdated, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/privacy`, lastModified: lastUpdated, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${baseUrl}/contact`, lastModified: lastUpdated, changeFrequency: 'yearly', priority: 0.4 },
   ];

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: "Medicaid Spending Database \u2014 $1.09 T Exposed | OpenMedicaid",
     template: "%s | OpenMedicaid",
   },
-  description: "Search 227M Medicaid billing records across 617,000+ providers. 1,860 flagged for fraud risk by 9 statistical tests + ML. Track $1.09T in taxpayer spending by provider, state, or procedure.",
+  description: "Search 227M Medicaid billing records across 617,000+ providers. 1,860 flagged for fraud risk by 9 statistical tests + ML. Track $1.09T in taxpayer spending by provider, state, or procedure. Updated July 2026 with enrollment trends, work requirements tracker, and reconciliation law analysis.",
   metadataBase: new URL("https://www.openmedicaid.org"),
   alternates: {
     canonical: "./",
