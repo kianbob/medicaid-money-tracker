@@ -109,8 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-        <meta name="google-adsense-account" content="ca-pub-9872374508496229" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9872374508496229" crossOrigin="anonymous"></script>      </head>
+      </head>
       <body className={`${inter.className} ${playfair.variable} bg-dark-900 text-slate-200 min-h-screen`}>
         {/* Disclaimer Banner */}
         <div className="bg-slate-800/50 text-center py-1.5 px-4">
