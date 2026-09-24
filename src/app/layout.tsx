@@ -252,6 +252,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <a href="https://www.aiexposure.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">AI Exposure ↗</a>
                   <a href="https://www.autopilotwatch.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">AutoPilotWatch ↗</a>
                   <a href="https://www.permitcore.io" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">PermitCore ↗</a>
+                  <a href="https://americanfactbook.org" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">American Factbook ↗</a>
                   <a href="https://www.shelterscope.com" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">ShelterScope ↗</a>
                   <a href="https://thedataproject.ai" target="_blank" rel="noopener noreferrer" className="block text-slate-500 hover:text-blue-400 transition-colors">TheDataProject.ai ↗</a>
                 </div>
