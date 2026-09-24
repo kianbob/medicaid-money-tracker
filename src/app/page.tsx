@@ -399,6 +399,7 @@ export default function Home() {
             including 4 code-specific smart tests that compare each provider&apos;s cost per claim against the national median &mdash; with
             a <span className="text-white font-semibold">random forest ML model</span> (AUC: 0.77) trained on 514 OIG-excluded providers.
             These are unified into <span className="text-white font-semibold">risk tiers</span> (Critical, High, Elevated, ML Flag) for a single view of the most suspicious billing patterns.
+            For a broader look at how Medicaid fits into federal health and spending data, visit the <a href="https://americanfactbook.org/spending" className="text-blue-400 hover:text-blue-300 underline" target="_blank" rel="noopener">American Factbook spending tracker</a>.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/watchlist" className="text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
